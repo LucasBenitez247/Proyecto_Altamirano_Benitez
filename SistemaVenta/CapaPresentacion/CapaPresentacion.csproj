@@ -49,15 +49,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PerfilVendedor_Inicio.cs">
+    <Compile Include="Vendedor\PerfilVendedor_Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PerfilVendedor_Inicio.Designer.cs">
+    <Compile Include="Vendedor\PerfilVendedor_Inicio.Designer.cs">
       <DependentUpon>PerfilVendedor_Inicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="PerfilVendedor_Inicio.resx">
+    <EmbeddedResource Include="Vendedor\PerfilVendedor_Inicio.resx">
       <DependentUpon>PerfilVendedor_Inicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -81,6 +81,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Administrador\" />
+    <Folder Include="Dueño de negocio\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
