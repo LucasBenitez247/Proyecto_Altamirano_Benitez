@@ -107,6 +107,12 @@
     <Compile Include="Vendedor\VendedorInicioUserControl.Designer.cs">
       <DependentUpon>VendedorInicioUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vendedor\VerListaClientesUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vendedor\VerListaClientesUserControl.Designer.cs">
+      <DependentUpon>VerListaClientesUserControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vendedor\VendedorInicioUserControl.resx">
       <DependentUpon>VendedorInicioUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vendedor\VerListaClientesUserControl.resx">
+      <DependentUpon>VerListaClientesUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

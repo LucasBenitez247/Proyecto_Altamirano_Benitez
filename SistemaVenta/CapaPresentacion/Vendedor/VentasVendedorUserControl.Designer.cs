@@ -37,6 +37,7 @@
             this.DWCStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DWCAgregar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.PCarrito = new System.Windows.Forms.Panel();
+            this.TBTotal = new System.Windows.Forms.TextBox();
             this.BRegistrarVenta = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -55,19 +56,20 @@
             this.LApellido = new System.Windows.Forms.Label();
             this.LDni = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.BtnBuscarCliente = new FontAwesome.Sharp.IconButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.TBTotal = new System.Windows.Forms.TextBox();
             this.PBuscarProductos = new System.Windows.Forms.Panel();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.PProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.PCarrito.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.PCliente.SuspendLayout();
             this.PBuscarProductos.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // CBCategoria
@@ -155,6 +157,13 @@
             this.PCarrito.Name = "PCarrito";
             this.PCarrito.Size = new System.Drawing.Size(559, 436);
             this.PCarrito.TabIndex = 5;
+            // 
+            // TBTotal
+            // 
+            this.TBTotal.Location = new System.Drawing.Point(94, 310);
+            this.TBTotal.Name = "TBTotal";
+            this.TBTotal.Size = new System.Drawing.Size(96, 20);
+            this.TBTotal.TabIndex = 18;
             // 
             // BRegistrarVenta
             // 
@@ -246,6 +255,7 @@
             // 
             // PCliente
             // 
+            this.PCliente.Controls.Add(this.panel1);
             this.PCliente.Controls.Add(this.label3);
             this.PCliente.Controls.Add(this.textBox3);
             this.PCliente.Controls.Add(this.TApellido);
@@ -254,8 +264,6 @@
             this.PCliente.Controls.Add(this.LApellido);
             this.PCliente.Controls.Add(this.LDni);
             this.PCliente.Controls.Add(this.textBox2);
-            this.PCliente.Controls.Add(this.BtnBuscarCliente);
-            this.PCliente.Controls.Add(this.textBox1);
             this.PCliente.Location = new System.Drawing.Point(639, 35);
             this.PCliente.Name = "PCliente";
             this.PCliente.Size = new System.Drawing.Size(559, 137);
@@ -333,37 +341,6 @@
             this.textBox2.Size = new System.Drawing.Size(157, 20);
             this.textBox2.TabIndex = 17;
             // 
-            // BtnBuscarCliente
-            // 
-            this.BtnBuscarCliente.BackColor = System.Drawing.Color.Transparent;
-            this.BtnBuscarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBuscarCliente.FlatAppearance.BorderSize = 0;
-            this.BtnBuscarCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.BtnBuscarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.BtnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBuscarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.BtnBuscarCliente.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.BtnBuscarCliente.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnBuscarCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnBuscarCliente.IconSize = 32;
-            this.BtnBuscarCliente.Location = new System.Drawing.Point(293, 5);
-            this.BtnBuscarCliente.Name = "BtnBuscarCliente";
-            this.BtnBuscarCliente.Size = new System.Drawing.Size(25, 26);
-            this.BtnBuscarCliente.TabIndex = 2;
-            this.BtnBuscarCliente.UseVisualStyleBackColor = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.textBox1.Location = new System.Drawing.Point(18, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(269, 26);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "Ingrese Documento";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -374,19 +351,12 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Cliente";
             // 
-            // TBTotal
-            // 
-            this.TBTotal.Location = new System.Drawing.Point(94, 310);
-            this.TBTotal.Name = "TBTotal";
-            this.TBTotal.Size = new System.Drawing.Size(96, 20);
-            this.TBTotal.TabIndex = 18;
-            // 
             // PBuscarProductos
             // 
             this.PBuscarProductos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PBuscarProductos.Controls.Add(this.textBox4);
             this.PBuscarProductos.Controls.Add(this.iconButton1);
-            this.PBuscarProductos.Location = new System.Drawing.Point(39, 21);
+            this.PBuscarProductos.Location = new System.Drawing.Point(29, 16);
             this.PBuscarProductos.Name = "PBuscarProductos";
             this.PBuscarProductos.Size = new System.Drawing.Size(244, 29);
             this.PBuscarProductos.TabIndex = 8;
@@ -420,6 +390,45 @@
             this.iconButton1.TabIndex = 3;
             this.iconButton1.UseVisualStyleBackColor = false;
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.iconButton2);
+            this.panel1.Location = new System.Drawing.Point(7, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(244, 29);
+            this.panel1.TabIndex = 20;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBox1.Location = new System.Drawing.Point(7, 3);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(193, 19);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.Text = "Buscar Cliente...";
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 32;
+            this.iconButton2.Location = new System.Drawing.Point(206, 2);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(24, 25);
+            this.iconButton2.TabIndex = 3;
+            this.iconButton2.UseVisualStyleBackColor = false;
+            // 
             // VentasVendedorUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -443,6 +452,8 @@
             this.PCliente.PerformLayout();
             this.PBuscarProductos.ResumeLayout(false);
             this.PBuscarProductos.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -462,8 +473,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn CEliminar;
         private FontAwesome.Sharp.IconButton BRegistrarVenta;
         private System.Windows.Forms.Panel PCliente;
-        private FontAwesome.Sharp.IconButton BtnBuscarCliente;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.TextBox TApellido;
@@ -483,5 +492,8 @@
         private System.Windows.Forms.Panel PBuscarProductos;
         private System.Windows.Forms.TextBox textBox4;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox textBox1;
+        private FontAwesome.Sharp.IconButton iconButton2;
     }
 }
