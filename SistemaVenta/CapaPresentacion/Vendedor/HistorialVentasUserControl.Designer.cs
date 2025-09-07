@@ -30,14 +30,14 @@
         {
             this.LHistorialVenta = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.CBCategoria = new System.Windows.Forms.ComboBox();
+            this.LBuscar = new System.Windows.Forms.Label();
             this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CBCategoria = new System.Windows.Forms.ComboBox();
-            this.LBuscar = new System.Windows.Forms.Label();
+            this.CMetodoPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,43 +59,13 @@
             this.CFecha,
             this.CVendedor,
             this.CCliente,
-            this.CProducto,
-            this.CCantidad,
-            this.CTotal});
+            this.CTotal,
+            this.CMetodoPago,
+            this.CDetalle});
             this.dataGridView1.Location = new System.Drawing.Point(204, 135);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(646, 542);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // CFecha
-            // 
-            this.CFecha.HeaderText = "Fecha";
-            this.CFecha.Name = "CFecha";
-            // 
-            // CVendedor
-            // 
-            this.CVendedor.HeaderText = "Vendedor";
-            this.CVendedor.Name = "CVendedor";
-            // 
-            // CCliente
-            // 
-            this.CCliente.HeaderText = "Cliente";
-            this.CCliente.Name = "CCliente";
-            // 
-            // CProducto
-            // 
-            this.CProducto.HeaderText = "Producto";
-            this.CProducto.Name = "CProducto";
-            // 
-            // CCantidad
-            // 
-            this.CCantidad.HeaderText = "Cantidad";
-            this.CCantidad.Name = "CCantidad";
-            // 
-            // CTotal
-            // 
-            this.CTotal.HeaderText = "Total";
-            this.CTotal.Name = "CTotal";
             // 
             // CBCategoria
             // 
@@ -104,7 +74,8 @@
             this.CBCategoria.FormattingEnabled = true;
             this.CBCategoria.Items.AddRange(new object[] {
             "Fecha",
-            "Cliente"});
+            "Cliente",
+            "Vendedor"});
             this.CBCategoria.Location = new System.Drawing.Point(204, 108);
             this.CBCategoria.Name = "CBCategoria";
             this.CBCategoria.Size = new System.Drawing.Size(123, 21);
@@ -121,7 +92,40 @@
             this.LBuscar.TabIndex = 4;
             this.LBuscar.Text = "Buscar por:";
             // 
-            // HistorialVentaUserControl
+            // CFecha
+            // 
+            this.CFecha.HeaderText = "Fecha";
+            this.CFecha.Name = "CFecha";
+            // 
+            // CVendedor
+            // 
+            this.CVendedor.HeaderText = "Vendedor";
+            this.CVendedor.Name = "CVendedor";
+            // 
+            // CCliente
+            // 
+            this.CCliente.HeaderText = "Cliente";
+            this.CCliente.Name = "CCliente";
+            // 
+            // CTotal
+            // 
+            this.CTotal.HeaderText = "Total";
+            this.CTotal.Name = "CTotal";
+            // 
+            // CMetodoPago
+            // 
+            this.CMetodoPago.HeaderText = "Metodo de Pago";
+            this.CMetodoPago.Name = "CMetodoPago";
+            // 
+            // CDetalle
+            // 
+            this.CDetalle.HeaderText = "Detalle";
+            this.CDetalle.Name = "CDetalle";
+            this.CDetalle.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CDetalle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.CDetalle.Text = "Detalle";
+            // 
+            // HistorialVentasUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -130,7 +134,7 @@
             this.Controls.Add(this.CBCategoria);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.LHistorialVenta);
-            this.Name = "HistorialVentaUserControl";
+            this.Name = "HistorialVentasUserControl";
             this.Size = new System.Drawing.Size(1201, 660);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -142,13 +146,13 @@
 
         private System.Windows.Forms.Label LHistorialVenta;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox CBCategoria;
+        private System.Windows.Forms.Label LBuscar;
         private System.Windows.Forms.DataGridViewTextBoxColumn CFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn CVendedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn CTotal;
-        private System.Windows.Forms.ComboBox CBCategoria;
-        private System.Windows.Forms.Label LBuscar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CMetodoPago;
+        private System.Windows.Forms.DataGridViewButtonColumn CDetalle;
     }
 }

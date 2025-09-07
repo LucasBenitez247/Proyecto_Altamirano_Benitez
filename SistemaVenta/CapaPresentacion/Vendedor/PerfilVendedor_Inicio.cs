@@ -121,6 +121,9 @@ namespace CapaPresentacion
             AbrirUserControl(new VentasVendedorUserControl());
         }
 
-        
+        private void BtnVerLista_Click(object sender, EventArgs e)
+        {
+            AbrirUserControl(new VerListaClientesUserControl());
+        }
     }
 }

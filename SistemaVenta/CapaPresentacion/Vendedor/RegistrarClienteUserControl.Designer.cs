@@ -28,26 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.PFormulario = new System.Windows.Forms.Panel();
+            this.BtnCancelar = new FontAwesome.Sharp.IconButton();
+            this.BtnLimpiar = new FontAwesome.Sharp.IconButton();
+            this.BtnRegistrar = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.RBOtro = new System.Windows.Forms.RadioButton();
             this.RBFemenino = new System.Windows.Forms.RadioButton();
             this.RBMasculino = new System.Windows.Forms.RadioButton();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.TProvincia = new System.Windows.Forms.TextBox();
             this.TApellido = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.LCodigoPostal = new System.Windows.Forms.Label();
+            this.LProvincia = new System.Windows.Forms.Label();
             this.LNombre = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TCodigoPostal = new System.Windows.Forms.TextBox();
+            this.TCalleNro = new System.Windows.Forms.TextBox();
             this.TNombre = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.LCiudad = new System.Windows.Forms.Label();
+            this.LCalleNro = new System.Windows.Forms.Label();
             this.LApellido = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.LSexo = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.TCiudad = new System.Windows.Forms.TextBox();
+            this.LGenero = new System.Windows.Forms.Label();
+            this.LDireccionCompleta = new System.Windows.Forms.Label();
             this.LInformacionPersonal = new System.Windows.Forms.Label();
             this.LInformacionContacto = new System.Windows.Forms.Label();
             this.TCorreo = new System.Windows.Forms.TextBox();
@@ -55,7 +58,7 @@
             this.LDni = new System.Windows.Forms.Label();
             this.LCorreo = new System.Windows.Forms.Label();
             this.TTelefono = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TDni = new System.Windows.Forms.TextBox();
             this.LRegistroCliente = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -69,21 +72,37 @@
             this.PProvincia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCodigo_Postal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider4 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider5 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider6 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider7 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider8 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider9 = new System.Windows.Forms.ErrorProvider(this.components);
             this.PFormulario.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider9)).BeginInit();
             this.SuspendLayout();
             // 
             // PFormulario
             // 
             this.PFormulario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.PFormulario.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.PFormulario.Controls.Add(this.iconButton4);
-            this.PFormulario.Controls.Add(this.iconButton3);
-            this.PFormulario.Controls.Add(this.iconButton2);
+            this.PFormulario.Controls.Add(this.BtnCancelar);
+            this.PFormulario.Controls.Add(this.BtnLimpiar);
+            this.PFormulario.Controls.Add(this.BtnRegistrar);
             this.PFormulario.Controls.Add(this.panel1);
             this.PFormulario.Controls.Add(this.LRegistroCliente);
             this.PFormulario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -92,6 +111,70 @@
             this.PFormulario.Size = new System.Drawing.Size(522, 624);
             this.PFormulario.TabIndex = 3;
             // 
+            // BtnCancelar
+            // 
+            this.BtnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
+            this.BtnCancelar.FlatAppearance.BorderSize = 2;
+            this.BtnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BtnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCancelar.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.BtnCancelar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnCancelar.IconSize = 32;
+            this.BtnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCancelar.Location = new System.Drawing.Point(366, 558);
+            this.BtnCancelar.Name = "BtnCancelar";
+            this.BtnCancelar.Size = new System.Drawing.Size(146, 33);
+            this.BtnCancelar.TabIndex = 26;
+            this.BtnCancelar.Text = "Eliminar";
+            this.BtnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // BtnLimpiar
+            // 
+            this.BtnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Navy;
+            this.BtnLimpiar.FlatAppearance.BorderSize = 2;
+            this.BtnLimpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.BtnLimpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.BtnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            this.BtnLimpiar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnLimpiar.IconSize = 32;
+            this.BtnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnLimpiar.Location = new System.Drawing.Point(192, 558);
+            this.BtnLimpiar.Name = "BtnLimpiar";
+            this.BtnLimpiar.Size = new System.Drawing.Size(146, 33);
+            this.BtnLimpiar.TabIndex = 25;
+            this.BtnLimpiar.Text = "Limpiar";
+            this.BtnLimpiar.UseVisualStyleBackColor = true;
+            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
+            // 
+            // BtnRegistrar
+            // 
+            this.BtnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BtnRegistrar.FlatAppearance.BorderSize = 2;
+            this.BtnRegistrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BtnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.BtnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRegistrar.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
+            this.BtnRegistrar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnRegistrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnRegistrar.IconSize = 32;
+            this.BtnRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnRegistrar.Location = new System.Drawing.Point(13, 558);
+            this.BtnRegistrar.Name = "BtnRegistrar";
+            this.BtnRegistrar.Size = new System.Drawing.Size(146, 33);
+            this.BtnRegistrar.TabIndex = 24;
+            this.BtnRegistrar.Text = "Registrar";
+            this.BtnRegistrar.UseVisualStyleBackColor = true;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
@@ -99,20 +182,20 @@
             this.panel1.Controls.Add(this.RBOtro);
             this.panel1.Controls.Add(this.RBFemenino);
             this.panel1.Controls.Add(this.RBMasculino);
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.TProvincia);
             this.panel1.Controls.Add(this.TApellido);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.LCodigoPostal);
+            this.panel1.Controls.Add(this.LProvincia);
             this.panel1.Controls.Add(this.LNombre);
-            this.panel1.Controls.Add(this.textBox5);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.TCodigoPostal);
+            this.panel1.Controls.Add(this.TCalleNro);
             this.panel1.Controls.Add(this.TNombre);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.LCiudad);
+            this.panel1.Controls.Add(this.LCalleNro);
             this.panel1.Controls.Add(this.LApellido);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.LSexo);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.TCiudad);
+            this.panel1.Controls.Add(this.LGenero);
+            this.panel1.Controls.Add(this.LDireccionCompleta);
             this.panel1.Controls.Add(this.LInformacionPersonal);
             this.panel1.Controls.Add(this.LInformacionContacto);
             this.panel1.Controls.Add(this.TCorreo);
@@ -120,32 +203,11 @@
             this.panel1.Controls.Add(this.LDni);
             this.panel1.Controls.Add(this.LCorreo);
             this.panel1.Controls.Add(this.TTelefono);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.TDni);
             this.panel1.Location = new System.Drawing.Point(11, 42);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(501, 495);
             this.panel1.TabIndex = 3;
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.iconButton2.FlatAppearance.BorderSize = 2;
-            this.iconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
-            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 32;
-            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(13, 558);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(146, 33);
-            this.iconButton2.TabIndex = 24;
-            this.iconButton2.Text = "Registrar";
-            this.iconButton2.UseVisualStyleBackColor = true;
             // 
             // RBOtro
             // 
@@ -180,135 +242,143 @@
             this.RBMasculino.Text = "Masculino";
             this.RBMasculino.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // TProvincia
             // 
-            this.textBox4.Location = new System.Drawing.Point(286, 382);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(198, 20);
-            this.textBox4.TabIndex = 17;
+            this.TProvincia.Location = new System.Drawing.Point(286, 382);
+            this.TProvincia.Name = "TProvincia";
+            this.TProvincia.Size = new System.Drawing.Size(198, 20);
+            this.TProvincia.TabIndex = 17;
+            this.TProvincia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TProvincia_KeyPress);
             // 
             // TApellido
             // 
-            this.TApellido.Location = new System.Drawing.Point(331, 51);
+            this.TApellido.Location = new System.Drawing.Point(327, 50);
             this.TApellido.Name = "TApellido";
-            this.TApellido.Size = new System.Drawing.Size(157, 20);
+            this.TApellido.Size = new System.Drawing.Size(146, 20);
             this.TApellido.TabIndex = 4;
+            this.TApellido.TextChanged += new System.EventHandler(this.TApellido_TextChanged);
+            this.TApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TApellido_KeyPress);
             // 
-            // label4
+            // LCodigoPostal
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label4.Location = new System.Drawing.Point(282, 417);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 20);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Código Postal:";
+            this.LCodigoPostal.AutoSize = true;
+            this.LCodigoPostal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LCodigoPostal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LCodigoPostal.Location = new System.Drawing.Point(282, 417);
+            this.LCodigoPostal.Name = "LCodigoPostal";
+            this.LCodigoPostal.Size = new System.Drawing.Size(111, 20);
+            this.LCodigoPostal.TabIndex = 18;
+            this.LCodigoPostal.Text = "Código Postal:";
             // 
-            // label5
+            // LProvincia
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label5.Location = new System.Drawing.Point(282, 359);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 20);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Provincia:";
+            this.LProvincia.AutoSize = true;
+            this.LProvincia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LProvincia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LProvincia.Location = new System.Drawing.Point(282, 359);
+            this.LProvincia.Name = "LProvincia";
+            this.LProvincia.Size = new System.Drawing.Size(76, 20);
+            this.LProvincia.TabIndex = 16;
+            this.LProvincia.Text = "Provincia:";
             // 
             // LNombre
             // 
             this.LNombre.AutoSize = true;
             this.LNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LNombre.Location = new System.Drawing.Point(7, 51);
+            this.LNombre.Location = new System.Drawing.Point(12, 50);
             this.LNombre.Name = "LNombre";
             this.LNombre.Size = new System.Drawing.Size(69, 20);
             this.LNombre.TabIndex = 0;
             this.LNombre.Text = "Nombre:";
             // 
-            // textBox5
+            // TCodigoPostal
             // 
-            this.textBox5.Location = new System.Drawing.Point(286, 440);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(198, 20);
-            this.textBox5.TabIndex = 19;
+            this.TCodigoPostal.Location = new System.Drawing.Point(286, 440);
+            this.TCodigoPostal.Name = "TCodigoPostal";
+            this.TCodigoPostal.Size = new System.Drawing.Size(198, 20);
+            this.TCodigoPostal.TabIndex = 19;
+            this.TCodigoPostal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TCodigoPostal_KeyPress);
             // 
-            // textBox2
+            // TCalleNro
             // 
-            this.textBox2.Location = new System.Drawing.Point(286, 276);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(198, 20);
-            this.textBox2.TabIndex = 13;
+            this.TCalleNro.Location = new System.Drawing.Point(286, 276);
+            this.TCalleNro.Name = "TCalleNro";
+            this.TCalleNro.Size = new System.Drawing.Size(198, 20);
+            this.TCalleNro.TabIndex = 13;
+            this.TCalleNro.Leave += new System.EventHandler(this.TCalleNro_Leave);
             // 
             // TNombre
             // 
-            this.TNombre.Location = new System.Drawing.Point(82, 53);
+            this.TNombre.Location = new System.Drawing.Point(91, 52);
             this.TNombre.Name = "TNombre";
-            this.TNombre.Size = new System.Drawing.Size(157, 20);
+            this.TNombre.Size = new System.Drawing.Size(146, 20);
             this.TNombre.TabIndex = 2;
+            this.TNombre.TextChanged += new System.EventHandler(this.TNombre_TextChanged);
+            this.TNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNombre_KeyPress);
             // 
-            // label2
+            // LCiudad
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label2.Location = new System.Drawing.Point(282, 311);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 20);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Ciudad:";
+            this.LCiudad.AutoSize = true;
+            this.LCiudad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LCiudad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LCiudad.Location = new System.Drawing.Point(282, 311);
+            this.LCiudad.Name = "LCiudad";
+            this.LCiudad.Size = new System.Drawing.Size(63, 20);
+            this.LCiudad.TabIndex = 14;
+            this.LCiudad.Text = "Ciudad:";
             // 
-            // label3
+            // LCalleNro
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label3.Location = new System.Drawing.Point(282, 253);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(119, 20);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Calle y Número:";
+            this.LCalleNro.AutoSize = true;
+            this.LCalleNro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LCalleNro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LCalleNro.Location = new System.Drawing.Point(282, 253);
+            this.LCalleNro.Name = "LCalleNro";
+            this.LCalleNro.Size = new System.Drawing.Size(119, 20);
+            this.LCalleNro.TabIndex = 12;
+            this.LCalleNro.Text = "Calle y Número:";
             // 
             // LApellido
             // 
             this.LApellido.AutoSize = true;
             this.LApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LApellido.Location = new System.Drawing.Point(256, 53);
+            this.LApellido.Location = new System.Drawing.Point(252, 52);
             this.LApellido.Name = "LApellido";
             this.LApellido.Size = new System.Drawing.Size(69, 20);
             this.LApellido.TabIndex = 3;
             this.LApellido.Text = "Apellido:";
             // 
-            // textBox3
+            // TCiudad
             // 
-            this.textBox3.Location = new System.Drawing.Point(286, 334);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(198, 20);
-            this.textBox3.TabIndex = 15;
+            this.TCiudad.Location = new System.Drawing.Point(286, 334);
+            this.TCiudad.Name = "TCiudad";
+            this.TCiudad.Size = new System.Drawing.Size(198, 20);
+            this.TCiudad.TabIndex = 15;
+            this.TCiudad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TCiudad_KeyPress);
             // 
-            // LSexo
+            // LGenero
             // 
-            this.LSexo.AutoSize = true;
-            this.LSexo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LSexo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LSexo.Location = new System.Drawing.Point(9, 134);
-            this.LSexo.Name = "LSexo";
-            this.LSexo.Size = new System.Drawing.Size(67, 20);
-            this.LSexo.TabIndex = 14;
-            this.LSexo.Text = "Genero:";
+            this.LGenero.AutoSize = true;
+            this.LGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LGenero.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LGenero.Location = new System.Drawing.Point(9, 134);
+            this.LGenero.Name = "LGenero";
+            this.LGenero.Size = new System.Drawing.Size(67, 20);
+            this.LGenero.TabIndex = 14;
+            this.LGenero.Text = "Genero:";
             // 
-            // label1
+            // LDireccionCompleta
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label1.Location = new System.Drawing.Point(282, 215);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 24);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Dirección completa:";
+            this.LDireccionCompleta.AutoSize = true;
+            this.LDireccionCompleta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LDireccionCompleta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LDireccionCompleta.Location = new System.Drawing.Point(282, 215);
+            this.LDireccionCompleta.Name = "LDireccionCompleta";
+            this.LDireccionCompleta.Size = new System.Drawing.Size(177, 24);
+            this.LDireccionCompleta.TabIndex = 11;
+            this.LDireccionCompleta.Text = "Dirección completa:";
             // 
             // LInformacionPersonal
             // 
@@ -338,6 +408,7 @@
             this.TCorreo.Name = "TCorreo";
             this.TCorreo.Size = new System.Drawing.Size(185, 20);
             this.TCorreo.TabIndex = 6;
+            this.TCorreo.Validating += new System.ComponentModel.CancelEventHandler(this.TCorreo_Validating);
             // 
             // LTelefono
             // 
@@ -355,7 +426,7 @@
             this.LDni.AutoSize = true;
             this.LDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LDni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LDni.Location = new System.Drawing.Point(25, 88);
+            this.LDni.Location = new System.Drawing.Point(34, 87);
             this.LDni.Name = "LDni";
             this.LDni.Size = new System.Drawing.Size(41, 20);
             this.LDni.TabIndex = 10;
@@ -378,13 +449,15 @@
             this.TTelefono.Name = "TTelefono";
             this.TTelefono.Size = new System.Drawing.Size(185, 20);
             this.TTelefono.TabIndex = 8;
+            this.TTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TTelefono_KeyPress);
             // 
-            // textBox1
+            // TDni
             // 
-            this.textBox1.Location = new System.Drawing.Point(82, 90);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(157, 20);
-            this.textBox1.TabIndex = 11;
+            this.TDni.Location = new System.Drawing.Point(91, 89);
+            this.TDni.Name = "TDni";
+            this.TDni.Size = new System.Drawing.Size(146, 20);
+            this.TDni.TabIndex = 11;
+            this.TDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TDni_KeyPress);
             // 
             // LRegistroCliente
             // 
@@ -474,47 +547,41 @@
             this.CEliminar.HeaderText = "Eliminar";
             this.CEliminar.Name = "CEliminar";
             // 
-            // iconButton3
+            // errorProvider1
             // 
-            this.iconButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton3.FlatAppearance.BorderColor = System.Drawing.Color.Navy;
-            this.iconButton3.FlatAppearance.BorderSize = 2;
-            this.iconButton3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.iconButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 32;
-            this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.Location = new System.Drawing.Point(192, 558);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(146, 33);
-            this.iconButton3.TabIndex = 25;
-            this.iconButton3.Text = "Limpiar";
-            this.iconButton3.UseVisualStyleBackColor = true;
+            this.errorProvider1.ContainerControl = this;
             // 
-            // iconButton4
+            // errorProvider2
             // 
-            this.iconButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton4.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
-            this.iconButton4.FlatAppearance.BorderSize = 2;
-            this.iconButton4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.iconButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.CircleXmark;
-            this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 32;
-            this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton4.Location = new System.Drawing.Point(366, 558);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(146, 33);
-            this.iconButton4.TabIndex = 26;
-            this.iconButton4.Text = "Cancelar";
-            this.iconButton4.UseVisualStyleBackColor = true;
+            this.errorProvider2.ContainerControl = this;
+            // 
+            // errorProvider3
+            // 
+            this.errorProvider3.ContainerControl = this;
+            // 
+            // errorProvider4
+            // 
+            this.errorProvider4.ContainerControl = this;
+            // 
+            // errorProvider5
+            // 
+            this.errorProvider5.ContainerControl = this;
+            // 
+            // errorProvider6
+            // 
+            this.errorProvider6.ContainerControl = this;
+            // 
+            // errorProvider7
+            // 
+            this.errorProvider7.ContainerControl = this;
+            // 
+            // errorProvider8
+            // 
+            this.errorProvider8.ContainerControl = this;
+            // 
+            // errorProvider9
+            // 
+            this.errorProvider9.ContainerControl = this;
             // 
             // RegistrarClienteUserControl
             // 
@@ -531,6 +598,15 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider9)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -538,15 +614,15 @@
         #endregion
 
         private System.Windows.Forms.Panel PFormulario;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TProvincia;
+        private System.Windows.Forms.Label LCodigoPostal;
+        private System.Windows.Forms.Label LProvincia;
+        private System.Windows.Forms.TextBox TCodigoPostal;
+        private System.Windows.Forms.TextBox TCalleNro;
+        private System.Windows.Forms.Label LCiudad;
+        private System.Windows.Forms.Label LCalleNro;
+        private System.Windows.Forms.TextBox TCiudad;
+        private System.Windows.Forms.Label LDireccionCompleta;
         private System.Windows.Forms.Label LInformacionContacto;
         private System.Windows.Forms.TextBox TCorreo;
         private System.Windows.Forms.Label LTelefono;
@@ -557,10 +633,10 @@
         private System.Windows.Forms.Label LNombre;
         private System.Windows.Forms.TextBox TNombre;
         private System.Windows.Forms.Label LApellido;
-        private System.Windows.Forms.Label LSexo;
+        private System.Windows.Forms.Label LGenero;
         private System.Windows.Forms.Label LInformacionPersonal;
         private System.Windows.Forms.Label LDni;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TDni;
         private System.Windows.Forms.Label LRegistroCliente;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
@@ -577,8 +653,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PProvincia;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCodigo_Postal;
         private System.Windows.Forms.DataGridViewButtonColumn CEliminar;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton4;
-        private FontAwesome.Sharp.IconButton iconButton3;
+        private FontAwesome.Sharp.IconButton BtnRegistrar;
+        private FontAwesome.Sharp.IconButton BtnCancelar;
+        private FontAwesome.Sharp.IconButton BtnLimpiar;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
+        private System.Windows.Forms.ErrorProvider errorProvider3;
+        private System.Windows.Forms.ErrorProvider errorProvider4;
+        private System.Windows.Forms.ErrorProvider errorProvider5;
+        private System.Windows.Forms.ErrorProvider errorProvider6;
+        private System.Windows.Forms.ErrorProvider errorProvider7;
+        private System.Windows.Forms.ErrorProvider errorProvider8;
+        private System.Windows.Forms.ErrorProvider errorProvider9;
     }
 }

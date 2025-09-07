@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PerfilVendedor_Inicio));
             this.PContenedor = new System.Windows.Forms.Panel();
             this.PSubMenuClientes = new System.Windows.Forms.Panel();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.BtnVerLista = new FontAwesome.Sharp.IconButton();
             this.BtnClientesRegistrar = new FontAwesome.Sharp.IconButton();
             this.BtnInicio = new FontAwesome.Sharp.IconButton();
             this.BtnClientes = new FontAwesome.Sharp.IconButton();
@@ -54,7 +54,7 @@
             // 
             // PSubMenuClientes
             // 
-            this.PSubMenuClientes.Controls.Add(this.iconButton2);
+            this.PSubMenuClientes.Controls.Add(this.BtnVerLista);
             this.PSubMenuClientes.Controls.Add(this.BtnClientesRegistrar);
             this.PSubMenuClientes.Location = new System.Drawing.Point(4, 389);
             this.PSubMenuClientes.Name = "PSubMenuClientes";
@@ -63,29 +63,30 @@
             this.PSubMenuClientes.Visible = false;
             this.PSubMenuClientes.MouseLeave += new System.EventHandler(this.PSubMenuClientes_MouseLeave);
             // 
-            // iconButton2
+            // BtnVerLista
             // 
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
-            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 32;
-            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(0, 57);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(154, 58);
-            this.iconButton2.TabIndex = 6;
-            this.iconButton2.Text = "Ver lista";
-            this.iconButton2.UseCompatibleTextRendering = true;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.BtnVerLista.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.BtnVerLista.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnVerLista.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnVerLista.FlatAppearance.BorderSize = 0;
+            this.BtnVerLista.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BtnVerLista.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.BtnVerLista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnVerLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnVerLista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnVerLista.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
+            this.BtnVerLista.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnVerLista.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnVerLista.IconSize = 32;
+            this.BtnVerLista.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnVerLista.Location = new System.Drawing.Point(0, 57);
+            this.BtnVerLista.Name = "BtnVerLista";
+            this.BtnVerLista.Size = new System.Drawing.Size(154, 58);
+            this.BtnVerLista.TabIndex = 6;
+            this.BtnVerLista.Text = "Ver lista";
+            this.BtnVerLista.UseCompatibleTextRendering = true;
+            this.BtnVerLista.UseVisualStyleBackColor = false;
+            this.BtnVerLista.Click += new System.EventHandler(this.BtnVerLista_Click);
             // 
             // BtnClientesRegistrar
             // 
@@ -98,7 +99,7 @@
             this.BtnClientesRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnClientesRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnClientesRegistrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnClientesRegistrar.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.BtnClientesRegistrar.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
             this.BtnClientesRegistrar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BtnClientesRegistrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnClientesRegistrar.IconSize = 32;
@@ -297,7 +298,7 @@
         private FontAwesome.Sharp.IconButton BtnVentas;
         private FontAwesome.Sharp.IconButton BtnHistorial;
         private FontAwesome.Sharp.IconButton BtnCatalogo;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton BtnVerLista;
     }
 }
 
