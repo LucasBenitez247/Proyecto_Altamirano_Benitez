@@ -32,12 +32,12 @@
             this.BtnDueñoNegocio = new System.Windows.Forms.Button();
             this.BtnAdministrador = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.LUsuario = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.LContraseña = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.LLogin = new System.Windows.Forms.Label();
             this.BtnIniciarSesion = new System.Windows.Forms.Button();
+            this.LLogin = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.LContraseña = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.LUsuario = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,6 +69,7 @@
             this.BtnDueñoNegocio.TabIndex = 1;
             this.BtnDueñoNegocio.Text = "Dueño de Negocio";
             this.BtnDueñoNegocio.UseVisualStyleBackColor = false;
+            this.BtnDueñoNegocio.Click += new System.EventHandler(this.BtnDueñoNegocio_Click);
             // 
             // BtnAdministrador
             // 
@@ -98,53 +99,6 @@
             this.panel1.Size = new System.Drawing.Size(484, 285);
             this.panel1.TabIndex = 3;
             // 
-            // LUsuario
-            // 
-            this.LUsuario.AutoSize = true;
-            this.LUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LUsuario.Location = new System.Drawing.Point(90, 67);
-            this.LUsuario.Name = "LUsuario";
-            this.LUsuario.Size = new System.Drawing.Size(224, 20);
-            this.LUsuario.TabIndex = 0;
-            this.LUsuario.Text = "Ingrese su nombre de usuario:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(94, 100);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(291, 20);
-            this.textBox1.TabIndex = 1;
-            // 
-            // LContraseña
-            // 
-            this.LContraseña.AutoSize = true;
-            this.LContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LContraseña.Location = new System.Drawing.Point(90, 140);
-            this.LContraseña.Name = "LContraseña";
-            this.LContraseña.Size = new System.Drawing.Size(96, 20);
-            this.LContraseña.TabIndex = 2;
-            this.LContraseña.Text = "Contraseña:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(94, 172);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(291, 20);
-            this.textBox2.TabIndex = 3;
-            // 
-            // LLogin
-            // 
-            this.LLogin.AutoSize = true;
-            this.LLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LLogin.Location = new System.Drawing.Point(189, 13);
-            this.LLogin.Name = "LLogin";
-            this.LLogin.Size = new System.Drawing.Size(80, 31);
-            this.LLogin.TabIndex = 4;
-            this.LLogin.Text = "Login";
-            // 
             // BtnIniciarSesion
             // 
             this.BtnIniciarSesion.BackColor = System.Drawing.Color.Navy;
@@ -161,6 +115,53 @@
             this.BtnIniciarSesion.TabIndex = 5;
             this.BtnIniciarSesion.Text = "Iniciar Sesión";
             this.BtnIniciarSesion.UseVisualStyleBackColor = false;
+            // 
+            // LLogin
+            // 
+            this.LLogin.AutoSize = true;
+            this.LLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LLogin.Location = new System.Drawing.Point(189, 13);
+            this.LLogin.Name = "LLogin";
+            this.LLogin.Size = new System.Drawing.Size(80, 31);
+            this.LLogin.TabIndex = 4;
+            this.LLogin.Text = "Login";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(94, 172);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(291, 20);
+            this.textBox2.TabIndex = 3;
+            // 
+            // LContraseña
+            // 
+            this.LContraseña.AutoSize = true;
+            this.LContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LContraseña.Location = new System.Drawing.Point(90, 140);
+            this.LContraseña.Name = "LContraseña";
+            this.LContraseña.Size = new System.Drawing.Size(96, 20);
+            this.LContraseña.TabIndex = 2;
+            this.LContraseña.Text = "Contraseña:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(94, 100);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(291, 20);
+            this.textBox1.TabIndex = 1;
+            // 
+            // LUsuario
+            // 
+            this.LUsuario.AutoSize = true;
+            this.LUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LUsuario.Location = new System.Drawing.Point(90, 67);
+            this.LUsuario.Name = "LUsuario";
+            this.LUsuario.Size = new System.Drawing.Size(224, 20);
+            this.LUsuario.TabIndex = 0;
+            this.LUsuario.Text = "Ingrese su nombre de usuario:";
             // 
             // Login
             // 

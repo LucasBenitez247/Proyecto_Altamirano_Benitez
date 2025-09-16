@@ -1,6 +1,6 @@
-﻿namespace CapaPresentacion.Vendedor
+﻿namespace CapaPresentacion.Dueño_de_Negocio
 {
-    partial class VendedorInicioUserControl
+    partial class DueñoNegocioInicioUserControl
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -29,43 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.PContenedor = new System.Windows.Forms.Panel();
             this.LblHora = new System.Windows.Forms.Label();
             this.LblFecha = new System.Windows.Forms.Label();
             this.FechaHora = new System.Windows.Forms.Timer(this.components);
-            this.panel1.SuspendLayout();
-            this.PContenedor.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel1.Controls.Add(this.PContenedor);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1182, 660);
-            this.panel1.TabIndex = 0;
-            // 
-            // PContenedor
-            // 
-            this.PContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.PContenedor.Controls.Add(this.LblHora);
-            this.PContenedor.Controls.Add(this.LblFecha);
-            this.PContenedor.Location = new System.Drawing.Point(-9, 0);
-            this.PContenedor.Name = "PContenedor";
-            this.PContenedor.Size = new System.Drawing.Size(1201, 660);
-            this.PContenedor.TabIndex = 2;
             // 
             // LblHora
             // 
             this.LblHora.AutoSize = true;
             this.LblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LblHora.Location = new System.Drawing.Point(285, 89);
+            this.LblHora.Location = new System.Drawing.Point(315, 91);
             this.LblHora.Name = "LblHora";
             this.LblHora.Size = new System.Drawing.Size(212, 91);
-            this.LblHora.TabIndex = 1;
+            this.LblHora.TabIndex = 3;
             this.LblHora.Text = "Hora";
             // 
             // LblFecha
@@ -73,10 +50,10 @@
             this.LblFecha.AutoSize = true;
             this.LblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LblFecha.Location = new System.Drawing.Point(235, 189);
+            this.LblFecha.Location = new System.Drawing.Point(265, 191);
             this.LblFecha.Name = "LblFecha";
             this.LblFecha.Size = new System.Drawing.Size(131, 46);
-            this.LblFecha.TabIndex = 0;
+            this.LblFecha.TabIndex = 2;
             this.LblFecha.Text = "Fecha";
             // 
             // FechaHora
@@ -84,24 +61,22 @@
             this.FechaHora.Enabled = true;
             this.FechaHora.Tick += new System.EventHandler(this.FechaHora_Tick);
             // 
-            // VendedorInicioUserControl
+            // DueñoNegocioInicioUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
-            this.Name = "VendedorInicioUserControl";
-            this.Size = new System.Drawing.Size(1182, 660);
-            this.panel1.ResumeLayout(false);
-            this.PContenedor.ResumeLayout(false);
-            this.PContenedor.PerformLayout();
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.Controls.Add(this.LblHora);
+            this.Controls.Add(this.LblFecha);
+            this.Name = "DueñoNegocioInicioUserControl";
+            this.Size = new System.Drawing.Size(1201, 660);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel PContenedor;
         private System.Windows.Forms.Label LblHora;
         private System.Windows.Forms.Label LblFecha;
         private System.Windows.Forms.Timer FechaHora;

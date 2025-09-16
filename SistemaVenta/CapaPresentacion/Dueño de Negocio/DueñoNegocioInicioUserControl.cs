@@ -8,19 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CapaPresentacion.Vendedor
+namespace CapaPresentacion.Dueño_de_Negocio
 {
-    public partial class VendedorInicioUserControl : UserControl
+    public partial class DueñoNegocioInicioUserControl : UserControl
     {
-        public VendedorInicioUserControl()
+        public DueñoNegocioInicioUserControl()
         {
             InitializeComponent();
         }
 
         private void FechaHora_Tick(object sender, EventArgs e)
         {
-            LblFecha.Text = DateTime.Now.ToLongDateString();
             LblHora.Text = DateTime.Now.ToLongTimeString();
+            LblFecha.Text = DateTime.Now.ToLongDateString();
         }
     }
 }

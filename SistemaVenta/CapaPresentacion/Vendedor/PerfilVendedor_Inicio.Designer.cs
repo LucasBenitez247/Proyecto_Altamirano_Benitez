@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PerfilVendedor_Inicio));
             this.PContenedor = new System.Windows.Forms.Panel();
+            this.LblHora = new System.Windows.Forms.Label();
+            this.LblFecha = new System.Windows.Forms.Label();
             this.PSubMenuClientes = new System.Windows.Forms.Panel();
             this.BtnVerLista = new FontAwesome.Sharp.IconButton();
             this.BtnClientesRegistrar = new FontAwesome.Sharp.IconButton();
@@ -40,6 +43,8 @@
             this.BtnCatalogo = new FontAwesome.Sharp.IconButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BtnSalir = new FontAwesome.Sharp.IconButton();
+            this.HoraFecha = new System.Windows.Forms.Timer(this.components);
+            this.PContenedor.SuspendLayout();
             this.PSubMenuClientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -47,10 +52,34 @@
             // PContenedor
             // 
             this.PContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.PContenedor.Controls.Add(this.LblHora);
+            this.PContenedor.Controls.Add(this.LblFecha);
             this.PContenedor.Location = new System.Drawing.Point(157, 77);
             this.PContenedor.Name = "PContenedor";
             this.PContenedor.Size = new System.Drawing.Size(1201, 660);
             this.PContenedor.TabIndex = 1;
+            // 
+            // LblHora
+            // 
+            this.LblHora.AutoSize = true;
+            this.LblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LblHora.Location = new System.Drawing.Point(285, 89);
+            this.LblHora.Name = "LblHora";
+            this.LblHora.Size = new System.Drawing.Size(212, 91);
+            this.LblHora.TabIndex = 1;
+            this.LblHora.Text = "Hora";
+            // 
+            // LblFecha
+            // 
+            this.LblFecha.AutoSize = true;
+            this.LblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LblFecha.Location = new System.Drawing.Point(235, 189);
+            this.LblFecha.Name = "LblFecha";
+            this.LblFecha.Size = new System.Drawing.Size(131, 46);
+            this.LblFecha.TabIndex = 0;
+            this.LblFecha.Text = "Fecha";
             // 
             // PSubMenuClientes
             // 
@@ -261,6 +290,11 @@
             this.BtnSalir.UseVisualStyleBackColor = true;
             this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
+            // HoraFecha
+            // 
+            this.HoraFecha.Enabled = true;
+            this.HoraFecha.Tick += new System.EventHandler(this.HoraFecha_Tick);
+            // 
             // PerfilVendedor_Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,6 +315,8 @@
             this.Text = "Vendedor";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PerfilVendedor_KeyDown);
+            this.PContenedor.ResumeLayout(false);
+            this.PContenedor.PerformLayout();
             this.PSubMenuClientes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -299,6 +335,9 @@
         private FontAwesome.Sharp.IconButton BtnHistorial;
         private FontAwesome.Sharp.IconButton BtnCatalogo;
         private FontAwesome.Sharp.IconButton BtnVerLista;
+        private System.Windows.Forms.Label LblFecha;
+        private System.Windows.Forms.Label LblHora;
+        private System.Windows.Forms.Timer HoraFecha;
     }
 }
 

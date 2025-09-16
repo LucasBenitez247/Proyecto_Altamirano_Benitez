@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaPresentacion.Dueño_de_Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +22,12 @@ namespace CapaPresentacion
         {
             PerfilVendedor_Inicio PerfilVendedor_Inicio = new PerfilVendedor_Inicio();
             PerfilVendedor_Inicio.Show();
+        }
+
+        private void BtnDueñoNegocio_Click(object sender, EventArgs e)
+        {
+            PerfilDueñoNegocio perfilDueñoNegocio = new PerfilDueñoNegocio();   
+            perfilDueñoNegocio.Show();
         }
     }
 }

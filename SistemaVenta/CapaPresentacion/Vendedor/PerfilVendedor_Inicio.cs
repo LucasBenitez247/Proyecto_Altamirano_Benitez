@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CapaPresentacion.Vendedor;
+using System;
 using System.Windows.Forms;
-using CapaPresentacion.Vendedor;
 
 namespace CapaPresentacion
 {
@@ -45,11 +38,11 @@ namespace CapaPresentacion
         {
             if (e.Control && e.KeyCode == Keys.S) // Detecta Ctrl + S
             {
-                Application.Exit(); 
+                Application.Exit();
             }
         }
 
-      
+
 
         private void AbrirUserControl(UserControl uc)
         {
@@ -58,7 +51,7 @@ namespace CapaPresentacion
             PContenedor.Controls.Add(uc);   // agrega el nuevo control
         }
 
-       
+
 
 
         private void BtnInicio_Click(object sender, EventArgs e)
@@ -68,7 +61,7 @@ namespace CapaPresentacion
 
         private void BtnCatalogo_Click(object sender, EventArgs e)
         {
-            AbrirUserControl(new CatalogoProductosVendedorUserControl() );
+            AbrirUserControl(new CatalogoProductosVendedorUserControl());
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
@@ -125,5 +118,13 @@ namespace CapaPresentacion
         {
             AbrirUserControl(new VerListaClientesUserControl());
         }
+
+        private void HoraFecha_Tick(object sender, EventArgs e)
+        {
+            LblFecha.Text = DateTime.Now.ToLongDateString();
+            LblHora.Text = DateTime.Now.ToLongTimeString();
+        }
+
+
     }
 }

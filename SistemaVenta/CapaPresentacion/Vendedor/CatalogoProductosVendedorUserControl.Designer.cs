@@ -28,67 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DGCatalogoProductos = new System.Windows.Forms.DataGridView();
-            this.CImagen = new System.Windows.Forms.DataGridViewImageColumn();
-            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.TBBuscar = new System.Windows.Forms.TextBox();
             this.BtnBuscar = new FontAwesome.Sharp.IconButton();
             this.LBucarPor = new System.Windows.Forms.Label();
             this.CBBuscarPor = new System.Windows.Forms.ComboBox();
             this.PBuscarProductos = new System.Windows.Forms.Panel();
+            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGCatalogoProductos)).BeginInit();
             this.PBuscarProductos.SuspendLayout();
             this.SuspendLayout();
             // 
             // DGCatalogoProductos
             // 
+            this.DGCatalogoProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.DGCatalogoProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGCatalogoProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CImagen,
             this.CNombre,
             this.CDescripcion,
             this.CCategoria,
             this.CPrecio,
             this.CStock});
-            this.DGCatalogoProductos.Location = new System.Drawing.Point(88, 168);
+            this.DGCatalogoProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DGCatalogoProductos.Location = new System.Drawing.Point(88, 179);
             this.DGCatalogoProductos.Name = "DGCatalogoProductos";
-            this.DGCatalogoProductos.Size = new System.Drawing.Size(924, 150);
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGCatalogoProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.DGCatalogoProductos.Size = new System.Drawing.Size(787, 366);
             this.DGCatalogoProductos.TabIndex = 0;
-            // 
-            // CImagen
-            // 
-            this.CImagen.HeaderText = "Imagen";
-            this.CImagen.Name = "CImagen";
-            // 
-            // CNombre
-            // 
-            this.CNombre.HeaderText = "Nombre";
-            this.CNombre.Name = "CNombre";
-            // 
-            // CDescripcion
-            // 
-            this.CDescripcion.HeaderText = "Descripción";
-            this.CDescripcion.Name = "CDescripcion";
-            // 
-            // CCategoria
-            // 
-            this.CCategoria.HeaderText = "Categoria";
-            this.CCategoria.Name = "CCategoria";
-            // 
-            // CPrecio
-            // 
-            this.CPrecio.HeaderText = "Precio";
-            this.CPrecio.Name = "CPrecio";
-            // 
-            // CStock
-            // 
-            this.CStock.HeaderText = "Stock";
-            this.CStock.Name = "CStock";
+            this.DGCatalogoProductos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGCatalogoProductos_CellFormatting_1);
             // 
             // label1
             // 
@@ -166,6 +150,46 @@
             this.PBuscarProductos.Size = new System.Drawing.Size(244, 29);
             this.PBuscarProductos.TabIndex = 6;
             // 
+            // CNombre
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.CNombre.DefaultCellStyle = dataGridViewCellStyle1;
+            this.CNombre.Frozen = true;
+            this.CNombre.HeaderText = "Nombre";
+            this.CNombre.Name = "CNombre";
+            this.CNombre.Width = 130;
+            // 
+            // CDescripcion
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.CDescripcion.DefaultCellStyle = dataGridViewCellStyle2;
+            this.CDescripcion.Frozen = true;
+            this.CDescripcion.HeaderText = "Descripción";
+            this.CDescripcion.Name = "CDescripcion";
+            this.CDescripcion.Width = 150;
+            // 
+            // CCategoria
+            // 
+            this.CCategoria.HeaderText = "Categoria";
+            this.CCategoria.Name = "CCategoria";
+            this.CCategoria.Width = 200;
+            // 
+            // CPrecio
+            // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            this.CPrecio.DefaultCellStyle = dataGridViewCellStyle3;
+            this.CPrecio.HeaderText = "Precio";
+            this.CPrecio.Name = "CPrecio";
+            this.CPrecio.Width = 130;
+            // 
+            // CStock
+            // 
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.CStock.DefaultCellStyle = dataGridViewCellStyle4;
+            this.CStock.HeaderText = "Stock";
+            this.CStock.Name = "CStock";
+            this.CStock.Width = 130;
+            // 
             // CatalogoProductosVendedorUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -178,6 +202,7 @@
             this.Controls.Add(this.DGCatalogoProductos);
             this.Name = "CatalogoProductosVendedorUserControl";
             this.Size = new System.Drawing.Size(1201, 660);
+            this.Load += new System.EventHandler(this.CatalogoProductosVendedorUserControl_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.DGCatalogoProductos)).EndInit();
             this.PBuscarProductos.ResumeLayout(false);
             this.PBuscarProductos.PerformLayout();
@@ -189,17 +214,16 @@
         #endregion
 
         private System.Windows.Forms.DataGridView DGCatalogoProductos;
-        private System.Windows.Forms.DataGridViewImageColumn CImagen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CStock;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TBBuscar;
         private FontAwesome.Sharp.IconButton BtnBuscar;
         private System.Windows.Forms.Label LBucarPor;
         private System.Windows.Forms.ComboBox CBBuscarPor;
         private System.Windows.Forms.Panel PBuscarProductos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CPrecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CStock;
     }
 }

@@ -44,6 +44,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -57,6 +58,36 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dueño de Negocio\DueñoNegocioEstadisticasUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dueño de Negocio\DueñoNegocioEstadisticasUserControl.Designer.cs">
+      <DependentUpon>DueñoNegocioEstadisticasUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dueño de Negocio\DueñoNegocioInicioUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dueño de Negocio\DueñoNegocioInicioUserControl.Designer.cs">
+      <DependentUpon>DueñoNegocioInicioUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dueño de Negocio\DueñoNegocioInventarioUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dueño de Negocio\DueñoNegocioInventarioUserControl.Designer.cs">
+      <DependentUpon>DueñoNegocioInventarioUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dueño de Negocio\DueñoNegocioReportesUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dueño de Negocio\DueñoNegocioReportesUserControl.Designer.cs">
+      <DependentUpon>DueñoNegocioReportesUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dueño de Negocio\PerfilDueñoNegocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dueño de Negocio\PerfilDueñoNegocio.Designer.cs">
+      <DependentUpon>PerfilDueñoNegocio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +144,21 @@
     <Compile Include="Vendedor\VerListaClientesUserControl.Designer.cs">
       <DependentUpon>VerListaClientesUserControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Dueño de Negocio\DueñoNegocioEstadisticasUserControl.resx">
+      <DependentUpon>DueñoNegocioEstadisticasUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dueño de Negocio\DueñoNegocioInicioUserControl.resx">
+      <DependentUpon>DueñoNegocioInicioUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dueño de Negocio\DueñoNegocioInventarioUserControl.resx">
+      <DependentUpon>DueñoNegocioInventarioUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dueño de Negocio\DueñoNegocioReportesUserControl.resx">
+      <DependentUpon>DueñoNegocioReportesUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dueño de Negocio\PerfilDueñoNegocio.resx">
+      <DependentUpon>PerfilDueñoNegocio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,7 +212,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Administrador\" />
-    <Folder Include="Dueño de negocio\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LogoF1Store.png" />
