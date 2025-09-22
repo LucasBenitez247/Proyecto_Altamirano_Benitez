@@ -40,8 +40,8 @@
             this.CCodigo_Postal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.TBuscarCliente = new System.Windows.Forms.TextBox();
+            this.IBtnBuscarCliente = new FontAwesome.Sharp.IconButton();
             this.LListClientes = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -119,41 +119,41 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.iconButton2);
+            this.panel1.Controls.Add(this.TBuscarCliente);
+            this.panel1.Controls.Add(this.IBtnBuscarCliente);
             this.panel1.Location = new System.Drawing.Point(87, 70);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(244, 29);
             this.panel1.TabIndex = 21;
             // 
-            // textBox1
+            // TBuscarCliente
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.textBox1.Location = new System.Drawing.Point(7, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(193, 19);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "Buscar Cliente...";
+            this.TBuscarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TBuscarCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TBuscarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBuscarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.TBuscarCliente.Location = new System.Drawing.Point(7, 3);
+            this.TBuscarCliente.Name = "TBuscarCliente";
+            this.TBuscarCliente.Size = new System.Drawing.Size(193, 19);
+            this.TBuscarCliente.TabIndex = 2;
+            this.TBuscarCliente.Text = "Buscar Cliente...";
             // 
-            // iconButton2
+            // IBtnBuscarCliente
             // 
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 32;
-            this.iconButton2.Location = new System.Drawing.Point(206, 2);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(24, 25);
-            this.iconButton2.TabIndex = 3;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.IBtnBuscarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.IBtnBuscarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IBtnBuscarCliente.FlatAppearance.BorderSize = 0;
+            this.IBtnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.IBtnBuscarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.IBtnBuscarCliente.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.IBtnBuscarCliente.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.IBtnBuscarCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.IBtnBuscarCliente.IconSize = 32;
+            this.IBtnBuscarCliente.Location = new System.Drawing.Point(206, 2);
+            this.IBtnBuscarCliente.Name = "IBtnBuscarCliente";
+            this.IBtnBuscarCliente.Size = new System.Drawing.Size(24, 25);
+            this.IBtnBuscarCliente.TabIndex = 3;
+            this.IBtnBuscarCliente.UseVisualStyleBackColor = false;
             // 
             // LListClientes
             // 
@@ -198,8 +198,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CCodigo_Postal;
         private System.Windows.Forms.DataGridViewButtonColumn CEliminar;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private System.Windows.Forms.TextBox TBuscarCliente;
+        private FontAwesome.Sharp.IconButton IBtnBuscarCliente;
         private System.Windows.Forms.Label LListClientes;
     }
 }

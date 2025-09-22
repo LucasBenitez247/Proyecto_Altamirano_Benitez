@@ -29,5 +29,10 @@ namespace CapaPresentacion
             PerfilDueñoNegocio perfilDueñoNegocio = new PerfilDueñoNegocio();   
             perfilDueñoNegocio.Show();
         }
+
+        private void BtnAdministrador_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

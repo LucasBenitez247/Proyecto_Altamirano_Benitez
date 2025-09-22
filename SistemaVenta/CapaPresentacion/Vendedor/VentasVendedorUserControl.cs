@@ -46,6 +46,8 @@ namespace CapaPresentacion.Vendedor
 
                     // Formatear precio como moneda
                     DWCPrecio.DefaultCellStyle.Format = "C2";
+
+                 
                 }
                 catch (Exception ex)
                 {
@@ -56,6 +58,12 @@ namespace CapaPresentacion.Vendedor
         private void VentasVendedorUserControl_Load(object sender, EventArgs e)
         {
             CargarProductos();
+        }
+
+        private void IBtnBuscarClientes_Click(object sender, EventArgs e)
+        {
+            BuscarClientes buscarClientes = new BuscarClientes();
+            buscarClientes.ShowDialog();
         }
     }
 }
