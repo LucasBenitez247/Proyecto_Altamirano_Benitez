@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class PerfilVendedor_Inicio
+    partial class PerfilVendedor
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PerfilVendedor_Inicio));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PerfilVendedor));
             this.PContenedor = new System.Windows.Forms.Panel();
             this.LblHora = new System.Windows.Forms.Label();
             this.LblFecha = new System.Windows.Forms.Label();

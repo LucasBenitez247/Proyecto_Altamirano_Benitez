@@ -160,6 +160,7 @@
             this.BtnNuevaCompra.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnNuevaCompra.UseCompatibleTextRendering = true;
             this.BtnNuevaCompra.UseVisualStyleBackColor = true;
+            this.BtnNuevaCompra.Click += new System.EventHandler(this.BtnNuevaCompra_Click);
             // 
             // ComprasUserControlAdministrador
             // 

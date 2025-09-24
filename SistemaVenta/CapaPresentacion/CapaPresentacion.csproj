@@ -58,6 +58,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administrador\AgregarNuevaCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\AgregarNuevaCompra.Designer.cs">
+      <DependentUpon>AgregarNuevaCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\ComprasUserControlAdministrador.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -160,11 +166,11 @@
     <Compile Include="Vendedor\HistorialVentasUserControl.Designer.cs">
       <DependentUpon>HistorialVentasUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vendedor\PerfilVendedor_Inicio.cs">
+    <Compile Include="Vendedor\PerfilVendedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vendedor\PerfilVendedor_Inicio.Designer.cs">
-      <DependentUpon>PerfilVendedor_Inicio.cs</DependentUpon>
+    <Compile Include="Vendedor\PerfilVendedor.Designer.cs">
+      <DependentUpon>PerfilVendedor.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -186,6 +192,9 @@
     <Compile Include="Vendedor\VerListaClientesUserControl.Designer.cs">
       <DependentUpon>VerListaClientesUserControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Administrador\AgregarNuevaCompra.resx">
+      <DependentUpon>AgregarNuevaCompra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administrador\ComprasUserControlAdministrador.resx">
       <DependentUpon>ComprasUserControlAdministrador.cs</DependentUpon>
     </EmbeddedResource>
@@ -237,8 +246,8 @@
     <EmbeddedResource Include="Vendedor\HistorialVentasUserControl.resx">
       <DependentUpon>HistorialVentasUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vendedor\PerfilVendedor_Inicio.resx">
-      <DependentUpon>PerfilVendedor_Inicio.cs</DependentUpon>
+    <EmbeddedResource Include="Vendedor\PerfilVendedor.resx">
+      <DependentUpon>PerfilVendedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -273,7 +282,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CapaEntidad\CapaEntidad.csproj">
+      <Project>{d3055ea1-4cec-462a-a518-95052697c508}</Project>
+      <Name>CapaEntidad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
+      <Project>{1f291a9d-b30e-46cc-b3ce-b40748a95322}</Project>
+      <Name>CapaNegocio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LogoF1Store.png" />
   </ItemGroup>

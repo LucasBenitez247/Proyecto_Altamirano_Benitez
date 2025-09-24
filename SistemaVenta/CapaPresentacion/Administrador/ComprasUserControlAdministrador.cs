@@ -16,5 +16,12 @@ namespace CapaPresentacion.Administrador
         {
             InitializeComponent();
         }
+
+        private void BtnNuevaCompra_Click(object sender, EventArgs e)
+        {
+            AgregarNuevaCompra agregarCompraForm = new AgregarNuevaCompra();
+            agregarCompraForm.ShowDialog();
+
+        }
     }
 }

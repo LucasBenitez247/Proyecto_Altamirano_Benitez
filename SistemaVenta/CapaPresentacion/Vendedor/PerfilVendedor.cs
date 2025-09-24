@@ -4,10 +4,10 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class PerfilVendedor_Inicio : Form
+    public partial class PerfilVendedor : Form
     {
         private Timer hideTimer;
-        public PerfilVendedor_Inicio()
+        public PerfilVendedor()
         {
             InitializeComponent();
             hideTimer = new Timer();

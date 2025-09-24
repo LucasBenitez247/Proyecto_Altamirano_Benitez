@@ -34,9 +34,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnIniciarSesion = new System.Windows.Forms.Button();
             this.LLogin = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TxtClave = new System.Windows.Forms.TextBox();
             this.LContraseña = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxtMail_usuario = new System.Windows.Forms.TextBox();
             this.LUsuario = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -91,9 +91,9 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel1.Controls.Add(this.BtnIniciarSesion);
             this.panel1.Controls.Add(this.LLogin);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.TxtClave);
             this.panel1.Controls.Add(this.LContraseña);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.TxtMail_usuario);
             this.panel1.Controls.Add(this.LUsuario);
             this.panel1.Location = new System.Drawing.Point(143, 29);
             this.panel1.Name = "panel1";
@@ -116,6 +116,7 @@
             this.BtnIniciarSesion.TabIndex = 5;
             this.BtnIniciarSesion.Text = "Iniciar Sesión";
             this.BtnIniciarSesion.UseVisualStyleBackColor = false;
+            this.BtnIniciarSesion.Click += new System.EventHandler(this.BtnIniciarSesion_Click);
             // 
             // LLogin
             // 
@@ -128,12 +129,13 @@
             this.LLogin.TabIndex = 4;
             this.LLogin.Text = "Login";
             // 
-            // textBox2
+            // TxtClave
             // 
-            this.textBox2.Location = new System.Drawing.Point(94, 172);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(291, 20);
-            this.textBox2.TabIndex = 3;
+            this.TxtClave.Location = new System.Drawing.Point(94, 172);
+            this.TxtClave.Name = "TxtClave";
+            this.TxtClave.PasswordChar = '*';
+            this.TxtClave.Size = new System.Drawing.Size(291, 20);
+            this.TxtClave.TabIndex = 3;
             // 
             // LContraseña
             // 
@@ -146,12 +148,12 @@
             this.LContraseña.TabIndex = 2;
             this.LContraseña.Text = "Contraseña:";
             // 
-            // textBox1
+            // TxtMail_usuario
             // 
-            this.textBox1.Location = new System.Drawing.Point(94, 100);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(291, 20);
-            this.textBox1.TabIndex = 1;
+            this.TxtMail_usuario.Location = new System.Drawing.Point(94, 102);
+            this.TxtMail_usuario.Name = "TxtMail_usuario";
+            this.TxtMail_usuario.Size = new System.Drawing.Size(291, 20);
+            this.TxtMail_usuario.TabIndex = 1;
             // 
             // LUsuario
             // 
@@ -188,10 +190,10 @@
         private System.Windows.Forms.Button BtnAdministrador;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label LUsuario;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtMail_usuario;
         private System.Windows.Forms.Label LContraseña;
         private System.Windows.Forms.Button BtnIniciarSesion;
         private System.Windows.Forms.Label LLogin;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TxtClave;
     }
 }
