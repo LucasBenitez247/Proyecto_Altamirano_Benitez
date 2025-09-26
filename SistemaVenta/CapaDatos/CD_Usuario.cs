@@ -64,19 +64,16 @@ namespace CapaDatos
         public bool Registrar(Usuario obj)
         {
             bool respuesta = false;
-            Conexion conexion = new Conexion();
 
             try
             {
-                using (SqlConnection oconexion = conexion.CrearConexion())
+                using (SqlConnection oconexion = new Conexion().CrearConexion())
                 {
-                    string query = @"INSERT INTO Usuario 
+                    string query = @"INSERT INTO usuarios
                                     (nombre, apellido, correo, contrasenia, id_perfil, estado_usuario)
                                     VALUES (@nombre, @apellido, @correo, @contrasenia, @id_perfil, @estado_usuario)";
 
                     SqlCommand cmd = new SqlCommand(query, oconexion);
-                    cmd.CommandType = CommandType.Text;
-
                     cmd.Parameters.AddWithValue("@nombre", obj.Nombre_usuario);
                     cmd.Parameters.AddWithValue("@apellido", obj.Apellido_usuario);
                     cmd.Parameters.AddWithValue("@correo", obj.Mail_usuario);
@@ -85,11 +82,40 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("@estado_usuario", obj.Estado_usuario);
 
                     oconexion.Open();
-                    respuesta = cmd.ExecuteNonQuery() > 0;
+                    respuesta = cmd.ExecuteNonQuery() > 0; // true si insertó
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                // Guardar el error para debug
+                Console.WriteLine("Error en Registrar Usuario: " + ex.Message);
+                respuesta = false;
+            }
+
+            return respuesta;
+        }
+
+        // Implementación del método Eliminar
+        public bool Eliminar(int idUsuario)
+        {
+            bool respuesta = false;
+
+            try
+            {
+                using (SqlConnection oconexion = new Conexion().CrearConexion())
+                {
+                    string query = "DELETE FROM Usuarios WHERE Id_usuario = @Id";
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.Parameters.AddWithValue("@Id", idUsuario);
+                    oconexion.Open();
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+                    respuesta = filasAfectadas > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Guardar el error para debug
+                Console.WriteLine("Error en Eliminar Usuario: " + ex.Message);
                 respuesta = false;
             }
 

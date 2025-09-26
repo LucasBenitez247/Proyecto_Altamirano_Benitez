@@ -9,15 +9,22 @@ namespace CapaNegocio
 {
     public class CN_Usuario
     {
-        private CD_Usuario objcd_usuario = new CD_Usuario();
-        public List<Usuario> Listar()
+        private CD_Usuario objCapaDatos = new CD_Usuario();
+
+        public bool Registrar(Usuario usuario)
         {
-            return objcd_usuario.Listar();
+            return objCapaDatos.Registrar(usuario);
         }
 
-        public bool Registrar(Usuario obj)
+        public List<Usuario> Listar()
         {
-            return objcd_usuario.Registrar(obj);
+            return objCapaDatos.Listar();
+        }
+
+        // Agrega este método para exponer Eliminar
+        public bool Eliminar(int idUsuario)
+        {
+            return objCapaDatos.Eliminar(idUsuario);
         }
     }
 }

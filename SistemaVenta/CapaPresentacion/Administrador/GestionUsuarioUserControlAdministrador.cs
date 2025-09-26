@@ -18,6 +18,7 @@ namespace CapaPresentacion.Administrador
         public GestionUsuarioUserControlAdministrador()
         {
             InitializeComponent();
+            CargarUsuarios();
         }
 
         private void LimpiarCampos()
@@ -107,6 +108,27 @@ namespace CapaPresentacion.Administrador
             else
             {
                 MessageBox.Show("Error al registrar el usuario");
+            }
+        }
+
+        private void DGUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && DGUsuarios.Columns[e.ColumnIndex].Name == "Eliminar")
+            {
+                int idUsuario = Convert.ToInt32(DGUsuarios.Rows[e.RowIndex].Cells["Id_usuario"].Value);
+                if (MessageBox.Show("¿Está seguro de eliminar este usuario?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    bool eliminado = new CN_Usuario().Eliminar(idUsuario);
+                    if (eliminado)
+                    {
+                        MessageBox.Show("Usuario eliminado correctamente");
+                        CargarUsuarios();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al eliminar el usuario");
+                    }
+                }
             }
         }
     }

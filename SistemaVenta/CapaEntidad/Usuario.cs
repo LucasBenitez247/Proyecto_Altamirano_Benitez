@@ -12,12 +12,12 @@ namespace CapaEntidad
         public string Nombre_usuario { get; set; }
         public string Apellido_usuario { get; set; }
         public string Mail_usuario { get; set; }
-        public string Telefono_usuario { get; set; }
+       // public string Telefono_usuario { get; set; }
         public string Contrasenia_usuario { get; set; }
         public int Id_perfil { get; set; }
         public int Estado_usuario { get; set; }
 
-        public int Dni { get; set; }
+       // public int Dni { get; set; }
 
     }
 }

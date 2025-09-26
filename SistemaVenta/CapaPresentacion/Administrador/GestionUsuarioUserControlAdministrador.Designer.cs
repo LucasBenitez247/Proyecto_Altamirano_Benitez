@@ -49,12 +49,7 @@
             this.LApellido = new System.Windows.Forms.Label();
             this.LRegistroUsuario = new System.Windows.Forms.Label();
             this.DGUsuarios = new System.Windows.Forms.DataGridView();
-            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.PFormulario.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGUsuarios)).BeginInit();
@@ -312,46 +307,19 @@
             // 
             this.DGUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CNombre,
-            this.CApellido,
-            this.CCorreo,
-            this.CTelefono,
-            this.CDireccion,
-            this.CEliminar});
+            this.Eliminar});
             this.DGUsuarios.Location = new System.Drawing.Point(523, 6);
             this.DGUsuarios.Name = "DGUsuarios";
             this.DGUsuarios.Size = new System.Drawing.Size(651, 621);
             this.DGUsuarios.TabIndex = 6;
+            this.DGUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGUsuarios_CellContentClick);
             // 
-            // CNombre
+            // Eliminar
             // 
-            this.CNombre.HeaderText = "Nombre";
-            this.CNombre.Name = "CNombre";
-            // 
-            // CApellido
-            // 
-            this.CApellido.HeaderText = "Apellido";
-            this.CApellido.Name = "CApellido";
-            // 
-            // CCorreo
-            // 
-            this.CCorreo.HeaderText = "Correo";
-            this.CCorreo.Name = "CCorreo";
-            // 
-            // CTelefono
-            // 
-            this.CTelefono.HeaderText = "Contraseña";
-            this.CTelefono.Name = "CTelefono";
-            // 
-            // CDireccion
-            // 
-            this.CDireccion.HeaderText = "Estado";
-            this.CDireccion.Name = "CDireccion";
-            // 
-            // CEliminar
-            // 
-            this.CEliminar.HeaderText = "Eliminar";
-            this.CEliminar.Name = "CEliminar";
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // GestionUsuarioUserControlAdministrador
             // 
@@ -393,11 +361,6 @@
         private System.Windows.Forms.Label LEstado;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TRContrasenia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CApellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCorreo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CTelefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CDireccion;
-        private System.Windows.Forms.DataGridViewButtonColumn CEliminar;
+        private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
     }
 }
