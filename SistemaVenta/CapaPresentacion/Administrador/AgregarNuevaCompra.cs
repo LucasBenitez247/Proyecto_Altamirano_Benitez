@@ -16,5 +16,11 @@ namespace CapaPresentacion.Administrador
         {
             InitializeComponent();
         }
+
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            TNombre.Clear();
+            TCantidad.Clear();
+        }
     }
 }

@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TCantidad = new System.Windows.Forms.TextBox();
             this.LCantidad = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TNombre = new System.Windows.Forms.TextBox();
             this.LNombre = new System.Windows.Forms.Label();
-            this.CBCategoria = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.LCategoria = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.BtnRegistrar = new FontAwesome.Sharp.IconButton();
             this.BtnLimpiar = new FontAwesome.Sharp.IconButton();
+            this.CBCategoria = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // textBox2
+            // TCantidad
             // 
-            this.textBox2.Location = new System.Drawing.Point(98, 155);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(291, 20);
-            this.textBox2.TabIndex = 12;
+            this.TCantidad.Location = new System.Drawing.Point(98, 155);
+            this.TCantidad.Name = "TCantidad";
+            this.TCantidad.Size = new System.Drawing.Size(291, 20);
+            this.TCantidad.TabIndex = 12;
             // 
             // LCantidad
             // 
@@ -58,12 +58,12 @@
             this.LCantidad.TabIndex = 11;
             this.LCantidad.Text = "Cantidad:";
             // 
-            // textBox1
+            // TNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(98, 83);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(291, 20);
-            this.textBox1.TabIndex = 10;
+            this.TNombre.Location = new System.Drawing.Point(98, 83);
+            this.TNombre.Name = "TNombre";
+            this.TNombre.Size = new System.Drawing.Size(291, 20);
+            this.TNombre.TabIndex = 10;
             // 
             // LNombre
             // 
@@ -76,30 +76,16 @@
             this.LNombre.TabIndex = 9;
             this.LNombre.Text = "Nombre";
             // 
-            // CBCategoria
+            // LCategoria
             // 
-            this.CBCategoria.BackColor = System.Drawing.Color.White;
-            this.CBCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.CBCategoria.FormattingEnabled = true;
-            this.CBCategoria.Items.AddRange(new object[] {
-            "Fecha",
-            "Cliente",
-            "Vendedor"});
-            this.CBCategoria.Location = new System.Drawing.Point(98, 278);
-            this.CBCategoria.Name = "CBCategoria";
-            this.CBCategoria.Size = new System.Drawing.Size(291, 21);
-            this.CBCategoria.TabIndex = 13;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label1.Location = new System.Drawing.Point(94, 255);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 20);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Cantidad:";
+            this.LCategoria.AutoSize = true;
+            this.LCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LCategoria.Location = new System.Drawing.Point(94, 255);
+            this.LCategoria.Name = "LCategoria";
+            this.LCategoria.Size = new System.Drawing.Size(78, 20);
+            this.LCategoria.TabIndex = 14;
+            this.LCategoria.Text = "Categoria";
             // 
             // dateTimePicker1
             // 
@@ -164,6 +150,21 @@
             this.BtnLimpiar.Text = "Limpiar";
             this.BtnLimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnLimpiar.UseVisualStyleBackColor = true;
+            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
+            // 
+            // CBCategoria
+            // 
+            this.CBCategoria.BackColor = System.Drawing.Color.White;
+            this.CBCategoria.ForeColor = System.Drawing.Color.Black;
+            this.CBCategoria.FormattingEnabled = true;
+            this.CBCategoria.Items.AddRange(new object[] {
+            "Fecha",
+            "Cliente",
+            "Vendedor"});
+            this.CBCategoria.Location = new System.Drawing.Point(98, 278);
+            this.CBCategoria.Name = "CBCategoria";
+            this.CBCategoria.Size = new System.Drawing.Size(291, 21);
+            this.CBCategoria.TabIndex = 13;
             // 
             // AgregarNuevaCompra
             // 
@@ -175,11 +176,11 @@
             this.Controls.Add(this.BtnRegistrar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.LCategoria);
             this.Controls.Add(this.CBCategoria);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.TCantidad);
             this.Controls.Add(this.LCantidad);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TNombre);
             this.Controls.Add(this.LNombre);
             this.Name = "AgregarNuevaCompra";
             this.Text = "AgregarNuevaCompra";
@@ -190,15 +191,15 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TCantidad;
         private System.Windows.Forms.Label LCantidad;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TNombre;
         private System.Windows.Forms.Label LNombre;
-        private System.Windows.Forms.ComboBox CBCategoria;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LCategoria;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label2;
         private FontAwesome.Sharp.IconButton BtnRegistrar;
         private FontAwesome.Sharp.IconButton BtnLimpiar;
+        private System.Windows.Forms.ComboBox CBCategoria;
     }
 }
