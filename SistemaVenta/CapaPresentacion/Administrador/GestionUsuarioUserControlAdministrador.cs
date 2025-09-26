@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -172,6 +173,85 @@ namespace CapaPresentacion.Administrador
         private void BtnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
+        }
+
+        private void TNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+            {
+                errorProvider1.SetError(TNombre, "Solo puede ingresar letras y espacios");
+                e.Handled = true;
+            }
+            else
+            {
+                errorProvider1.SetError(TNombre, "");
+            }
+        }
+
+        private void TApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+            {
+                errorProvider2.SetError(TApellido, "Solo puede ingresar letras y espacios");
+                e.Handled = true;
+            }
+            else
+            {
+                errorProvider2.SetError(TApellido, "");
+            }
+        }
+
+        private void TCorreo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string correo = TCorreo.Text;
+            string patron = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+
+            if (!Regex.IsMatch(correo, patron))
+            {
+                errorProvider3.SetError(TCorreo, "Formato de correo inválido");
+                // e.Cancel = false;   //  No bloquea, solo muestra error
+            }
+            else
+            {
+                errorProvider3.SetError(TCorreo, "");
+            }
+        }
+
+        private void TContrasenia_TextChanged(object sender, EventArgs e)
+        {
+            string contrasenia = TContrasenia.Text;
+
+            if (string.IsNullOrWhiteSpace(contrasenia))
+            {
+                // Si está vacío, no muestra error
+                errorProvider4.SetError(TContrasenia, "");
+                return;
+            }
+
+            // Patrón: mínimo 6 caracteres, al menos una letra y un número
+            string patron = @"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$";
+
+            if (!Regex.IsMatch(contrasenia, patron))
+            {
+                errorProvider4.SetError(TContrasenia,
+                    "La contraseña debe tener al menos 6 caracteres e incluir letras y números");
+            }
+            else
+            {
+                errorProvider4.SetError(TContrasenia, "");
+            }
+        }
+
+        private void TRContrasenia_TextChanged(object sender, EventArgs e)
+        {
+            if (TRContrasenia.Text != TContrasenia.Text)
+            {
+                errorProvider5.SetError(TRContrasenia, "Las contraseñas no coinciden");
+            }
+            else
+            {
+                errorProvider5.SetError(TRContrasenia, "");
+            }
         }
     }
 }

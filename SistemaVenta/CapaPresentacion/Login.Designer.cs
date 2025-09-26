@@ -47,9 +47,9 @@
             this.panel1.Controls.Add(this.LContraseña);
             this.panel1.Controls.Add(this.TxtMail_usuario);
             this.panel1.Controls.Add(this.LUsuario);
-            this.panel1.Location = new System.Drawing.Point(143, 29);
+            this.panel1.Location = new System.Drawing.Point(-5, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(484, 285);
+            this.panel1.Size = new System.Drawing.Size(495, 393);
             this.panel1.TabIndex = 3;
             // 
             // BtnIniciarSesion
@@ -124,9 +124,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(486, 383);
             this.Controls.Add(this.panel1);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

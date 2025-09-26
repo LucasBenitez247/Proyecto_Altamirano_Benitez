@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.PFormulario = new System.Windows.Forms.Panel();
             this.BtnCancelar = new FontAwesome.Sharp.IconButton();
             this.BtnLimpiar = new FontAwesome.Sharp.IconButton();
@@ -49,10 +50,20 @@
             this.LApellido = new System.Windows.Forms.Label();
             this.LRegistroUsuario = new System.Windows.Forms.Label();
             this.DGUsuarios = new System.Windows.Forms.DataGridView();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider4 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider5 = new System.Windows.Forms.ErrorProvider(this.components);
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.PFormulario.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGUsuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).BeginInit();
             this.SuspendLayout();
             // 
             // PFormulario
@@ -197,6 +208,7 @@
             this.TRContrasenia.Name = "TRContrasenia";
             this.TRContrasenia.Size = new System.Drawing.Size(206, 20);
             this.TRContrasenia.TabIndex = 19;
+            this.TRContrasenia.TextChanged += new System.EventHandler(this.TRContrasenia_TextChanged);
             // 
             // LContraseña
             // 
@@ -215,6 +227,7 @@
             this.TContrasenia.Name = "TContrasenia";
             this.TContrasenia.Size = new System.Drawing.Size(206, 20);
             this.TContrasenia.TabIndex = 17;
+            this.TContrasenia.TextChanged += new System.EventHandler(this.TContrasenia_TextChanged);
             // 
             // CBPerfil
             // 
@@ -256,6 +269,7 @@
             this.TCorreo.Name = "TCorreo";
             this.TCorreo.Size = new System.Drawing.Size(206, 20);
             this.TCorreo.TabIndex = 13;
+            this.TCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TCorreo_KeyPress);
             // 
             // TApellido
             // 
@@ -263,6 +277,7 @@
             this.TApellido.Name = "TApellido";
             this.TApellido.Size = new System.Drawing.Size(206, 20);
             this.TApellido.TabIndex = 4;
+            this.TApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TApellido_KeyPress);
             // 
             // LNombre
             // 
@@ -281,6 +296,7 @@
             this.TNombre.Name = "TNombre";
             this.TNombre.Size = new System.Drawing.Size(206, 20);
             this.TNombre.TabIndex = 2;
+            this.TNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNombre_KeyPress);
             // 
             // LApellido
             // 
@@ -316,12 +332,34 @@
             this.DGUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGUsuarios_CellClick);
             this.DGUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGUsuarios_CellContentClick);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
+            // 
+            // errorProvider3
+            // 
+            this.errorProvider3.ContainerControl = this;
+            // 
+            // errorProvider4
+            // 
+            this.errorProvider4.ContainerControl = this;
+            // 
+            // errorProvider5
+            // 
+            this.errorProvider5.ContainerControl = this;
+            // 
             // Eliminar
             // 
             this.Eliminar.HeaderText = "Eliminar";
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Eliminar.Text = "Eliminar";
+            this.Eliminar.UseColumnTextForButtonValue = true;
             // 
             // GestionUsuarioUserControlAdministrador
             // 
@@ -336,6 +374,11 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -363,6 +406,11 @@
         private System.Windows.Forms.Label LEstado;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TRContrasenia;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
+        private System.Windows.Forms.ErrorProvider errorProvider3;
+        private System.Windows.Forms.ErrorProvider errorProvider4;
+        private System.Windows.Forms.ErrorProvider errorProvider5;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
     }
 }
