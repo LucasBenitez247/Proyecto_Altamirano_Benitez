@@ -42,10 +42,10 @@ namespace CapaPresentacion
 
         private void BtnIniciarSesion_Click(object sender, EventArgs e)
         {
+            Usuario ousuario = new CN_Usuario().Listar().Where(u => u.Mail_usuario == TxtMail_usuario.Text && u.Contrasenia_usuario == TxtClave.Text).FirstOrDefault();
 
             List<Usuario> Test = new CN_Usuario().Listar();
 
-            Usuario ousuario = new CN_Usuario().Listar().Where(u => u.Mail_usuario == TxtMail_usuario.Text && u.Contrasenia_usuario == TxtClave.Text).FirstOrDefault();
 
            
 
@@ -80,6 +80,16 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Usuario o Contraseña Incorrecta","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void TxtMail_usuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtClave_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BtnVendedor = new System.Windows.Forms.Button();
-            this.BtnDueñoNegocio = new System.Windows.Forms.Button();
-            this.BtnAdministrador = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnIniciarSesion = new System.Windows.Forms.Button();
             this.LLogin = new System.Windows.Forms.Label();
@@ -40,51 +37,6 @@
             this.LUsuario = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // BtnVendedor
-            // 
-            this.BtnVendedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.BtnVendedor.FlatAppearance.BorderSize = 0;
-            this.BtnVendedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnVendedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnVendedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnVendedor.Location = new System.Drawing.Point(50, 342);
-            this.BtnVendedor.Name = "BtnVendedor";
-            this.BtnVendedor.Size = new System.Drawing.Size(182, 51);
-            this.BtnVendedor.TabIndex = 0;
-            this.BtnVendedor.Text = "Vendedor";
-            this.BtnVendedor.UseVisualStyleBackColor = false;
-            this.BtnVendedor.Click += new System.EventHandler(this.BtnVendedor_Click);
-            // 
-            // BtnDueñoNegocio
-            // 
-            this.BtnDueñoNegocio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.BtnDueñoNegocio.FlatAppearance.BorderSize = 0;
-            this.BtnDueñoNegocio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnDueñoNegocio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDueñoNegocio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnDueñoNegocio.Location = new System.Drawing.Point(302, 342);
-            this.BtnDueñoNegocio.Name = "BtnDueñoNegocio";
-            this.BtnDueñoNegocio.Size = new System.Drawing.Size(182, 51);
-            this.BtnDueñoNegocio.TabIndex = 1;
-            this.BtnDueñoNegocio.Text = "Dueño de Negocio";
-            this.BtnDueñoNegocio.UseVisualStyleBackColor = false;
-            this.BtnDueñoNegocio.Click += new System.EventHandler(this.BtnDueñoNegocio_Click);
-            // 
-            // BtnAdministrador
-            // 
-            this.BtnAdministrador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.BtnAdministrador.FlatAppearance.BorderSize = 0;
-            this.BtnAdministrador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnAdministrador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAdministrador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnAdministrador.Location = new System.Drawing.Point(581, 342);
-            this.BtnAdministrador.Name = "BtnAdministrador";
-            this.BtnAdministrador.Size = new System.Drawing.Size(182, 51);
-            this.BtnAdministrador.TabIndex = 2;
-            this.BtnAdministrador.Text = "Administrador";
-            this.BtnAdministrador.UseVisualStyleBackColor = false;
-            this.BtnAdministrador.Click += new System.EventHandler(this.BtnAdministrador_Click);
             // 
             // panel1
             // 
@@ -136,6 +88,7 @@
             this.TxtClave.PasswordChar = '*';
             this.TxtClave.Size = new System.Drawing.Size(291, 20);
             this.TxtClave.TabIndex = 3;
+            this.TxtClave.TextChanged += new System.EventHandler(this.TxtClave_TextChanged);
             // 
             // LContraseña
             // 
@@ -154,6 +107,7 @@
             this.TxtMail_usuario.Name = "TxtMail_usuario";
             this.TxtMail_usuario.Size = new System.Drawing.Size(291, 20);
             this.TxtMail_usuario.TabIndex = 1;
+            this.TxtMail_usuario.TextChanged += new System.EventHandler(this.TxtMail_usuario_TextChanged);
             // 
             // LUsuario
             // 
@@ -172,9 +126,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.BtnAdministrador);
-            this.Controls.Add(this.BtnDueñoNegocio);
-            this.Controls.Add(this.BtnVendedor);
             this.Name = "Login";
             this.Text = "Login";
             this.panel1.ResumeLayout(false);
@@ -184,10 +135,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button BtnVendedor;
-        private System.Windows.Forms.Button BtnDueñoNegocio;
-        private System.Windows.Forms.Button BtnAdministrador;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label LUsuario;
         private System.Windows.Forms.TextBox TxtMail_usuario;

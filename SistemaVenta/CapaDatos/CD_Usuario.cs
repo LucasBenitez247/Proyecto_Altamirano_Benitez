@@ -19,15 +19,15 @@ namespace CapaDatos
             {
                 using (SqlConnection oconexion = conexion.CrearConexion())
                 {
-                    string query = @"SELECT Id_usuario, 
-                                    Nombre_usuario, 
-                                    Apellido_usuario, 
-                                    Mail_usuario, 
-                                    Telefono_usuario, 
-                                    Contrasenia_usuario, 
-                                    Id_perfil, 
-                                    Estado_usuario 
-                             FROM Usuario";
+                    string query = @"SELECT id_usuario, 
+                                    nombre, 
+                                    apellido, 
+                                    correo, 
+                                   '' AS telefono_usuario, 
+                                    contrasenia, 
+                                    id_perfil, 
+                                    estado_usuario 
+                             FROM usuarios";
 
                     SqlCommand cmd = new SqlCommand(query, oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -39,14 +39,15 @@ namespace CapaDatos
                         {
                             lista.Add(new Usuario()
                             {
-                                Id_usuario = Convert.ToInt32(dr["Id_usuario"]),
-                                Nombre_usuario = dr["Nombre_usuario"].ToString(),
-                                Apellido_usuario = dr["Apellido_usuario"].ToString(),
-                                Mail_usuario = dr["Mail_usuario"].ToString(),
-                                Telefono_usuario = dr["Telefono_usuario"].ToString(),
-                                Contrasenia_usuario = dr["Contrasenia_usuario"].ToString(),
-                                Id_perfil = Convert.ToInt32(dr["Id_perfil"]),
-                                Estado_usuario = Convert.ToInt32(dr["Estado_usuario"])
+                                Id_usuario = Convert.ToInt32(dr["id_usuario"]),
+                                Nombre_usuario = dr["nombre"].ToString(),
+                                Apellido_usuario = dr["apellido"].ToString(),
+                                Mail_usuario = dr["correo"].ToString(),
+                                //Telefono_usuario = dr["telefono_usuario"].ToString(),
+                                Contrasenia_usuario = dr["contrasenia"].ToString(),
+                                Id_perfil = Convert.ToInt32(dr["id_perfil"]),
+                                Estado_usuario = Convert.ToInt32(dr["estado_usuario"])
+                             
                             });
                         }
                     }
@@ -58,6 +59,41 @@ namespace CapaDatos
             }
 
             return lista;
+        }
+
+        public bool Registrar(Usuario obj)
+        {
+            bool respuesta = false;
+            Conexion conexion = new Conexion();
+
+            try
+            {
+                using (SqlConnection oconexion = conexion.CrearConexion())
+                {
+                    string query = @"INSERT INTO Usuario 
+                                    (nombre, apellido, correo, contrasenia, id_perfil, estado_usuario)
+                                    VALUES (@nombre, @apellido, @correo, @contrasenia, @id_perfil, @estado_usuario)";
+
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    cmd.Parameters.AddWithValue("@nombre", obj.Nombre_usuario);
+                    cmd.Parameters.AddWithValue("@apellido", obj.Apellido_usuario);
+                    cmd.Parameters.AddWithValue("@correo", obj.Mail_usuario);
+                    cmd.Parameters.AddWithValue("@contrasenia", obj.Contrasenia_usuario);
+                    cmd.Parameters.AddWithValue("@id_perfil", obj.Id_perfil);
+                    cmd.Parameters.AddWithValue("@estado_usuario", obj.Estado_usuario);
+
+                    oconexion.Open();
+                    respuesta = cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (Exception)
+            {
+                respuesta = false;
+            }
+
+            return respuesta;
         }
     }
 }

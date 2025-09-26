@@ -16,6 +16,8 @@ namespace CapaEntidad
         public string Contrasenia_usuario { get; set; }
         public int Id_perfil { get; set; }
         public int Estado_usuario { get; set; }
-       
+
+        public int Dni { get; set; }
+
     }
 }
