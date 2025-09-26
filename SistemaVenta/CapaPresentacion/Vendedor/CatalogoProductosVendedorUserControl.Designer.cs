@@ -72,7 +72,6 @@
             this.DGCatalogoProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.DGCatalogoProductos.Size = new System.Drawing.Size(787, 366);
             this.DGCatalogoProductos.TabIndex = 0;
-            this.DGCatalogoProductos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGCatalogoProductos_CellFormatting_1);
             // 
             // label1
             // 
@@ -202,7 +201,6 @@
             this.Controls.Add(this.DGCatalogoProductos);
             this.Name = "CatalogoProductosVendedorUserControl";
             this.Size = new System.Drawing.Size(1201, 660);
-            this.Load += new System.EventHandler(this.CatalogoProductosVendedorUserControl_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.DGCatalogoProductos)).EndInit();
             this.PBuscarProductos.ResumeLayout(false);
             this.PBuscarProductos.PerformLayout();

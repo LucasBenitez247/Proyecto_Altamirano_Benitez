@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.PContenedor = new System.Windows.Forms.Panel();
             this.LblHora = new System.Windows.Forms.Label();
             this.LblFecha = new System.Windows.Forms.Label();
+            this.FechaHora = new System.Windows.Forms.Timer(this.components);
             this.PContenedor.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,6 +68,11 @@
             this.LblFecha.TabIndex = 0;
             this.LblFecha.Text = "Fecha";
             // 
+            // FechaHora
+            // 
+            this.FechaHora.Enabled = true;
+            this.FechaHora.Tick += new System.EventHandler(this.FechaHora_Tick);
+            // 
             // InicioUserControlAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -84,5 +91,6 @@
         private System.Windows.Forms.Panel PContenedor;
         private System.Windows.Forms.Label LblHora;
         private System.Windows.Forms.Label LblFecha;
+        private System.Windows.Forms.Timer FechaHora;
     }
 }

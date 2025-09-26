@@ -54,5 +54,11 @@ namespace CapaPresentacion.Administrador
         {
             Application.Exit();
         }
+
+        private void HoraFecha_Tick(object sender, EventArgs e)
+        {
+            LblFecha.Text = DateTime.Now.ToLongDateString();
+            LblHora.Text = DateTime.Now.ToLongTimeString();
+        }
     }
 }

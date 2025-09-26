@@ -20,6 +20,7 @@ namespace CapaPresentacion.Administrador
             InitializeComponent();
             CargarUsuarios();
         }
+        private int idUsuarioSeleccionado = 0; // por defecto ninguno
 
         private void LimpiarCampos()
         {
@@ -37,15 +38,14 @@ namespace CapaPresentacion.Administrador
             DGUsuarios.DataSource = listaUsuarios;
         }
 
+
         private void BtnRegistrar_Click(object sender, EventArgs e)
         {
             // Validaciones básicas
             if (string.IsNullOrWhiteSpace(TNombre.Text) ||
                 string.IsNullOrWhiteSpace(TApellido.Text) ||
                 string.IsNullOrWhiteSpace(TCorreo.Text) ||
-                string.IsNullOrWhiteSpace(TContrasenia.Text) // ||
-               // string.IsNullOrWhiteSpace(TDni.Text)
-                )
+                string.IsNullOrWhiteSpace(TContrasenia.Text))
             {
                 MessageBox.Show("Complete todos los campos.");
                 return;
@@ -67,15 +67,9 @@ namespace CapaPresentacion.Administrador
             int idPerfil;
             switch (CBPerfil.SelectedItem.ToString())
             {
-                case "Administrador":
-                    idPerfil = 1;
-                    break;
-                case "Vendedor":
-                    idPerfil = 2;
-                    break;
-                case "Dueño de negocio":
-                    idPerfil = 3;
-                    break;
+                case "Administrador": idPerfil = 1; break;
+                case "Vendedor": idPerfil = 2; break;
+                case "Dueño de negocio": idPerfil = 3; break;
                 default:
                     MessageBox.Show("Perfil inválido.");
                     return;
@@ -84,31 +78,44 @@ namespace CapaPresentacion.Administrador
             // Mapear estado
             int estado = CBEstado.SelectedItem.ToString() == "Activo" ? 1 : 0;
 
-            // Crear objeto Usuario
-            Usuario nuevo = new Usuario()
+            // Crear objeto Usuario (con Id si ya está seleccionado)
+            Usuario usuario = new Usuario()
             {
+                Id_usuario = idUsuarioSeleccionado, // ← clave para diferenciar entre registrar y modificar
                 Nombre_usuario = TNombre.Text.Trim(),
                 Apellido_usuario = TApellido.Text.Trim(),
                 Mail_usuario = TCorreo.Text.Trim(),
                 Contrasenia_usuario = TContrasenia.Text.Trim(),
-               // Dni = TDni.Text.Trim(),
                 Id_perfil = idPerfil,
                 Estado_usuario = estado
             };
 
-            // Registrar
-            bool resultado = new CN_Usuario().Registrar(nuevo);
-
-            if (resultado)
+            // Registrar o Modificar según corresponda
+            bool resultado;
+            if (idUsuarioSeleccionado == 0)
             {
-                MessageBox.Show("Usuario registrado con éxito");
-                LimpiarCampos();
-                CargarUsuarios(); // refresca tu DataGridView
+                // Insert
+                resultado = new CN_Usuario().Registrar(usuario);
+                if (resultado) MessageBox.Show("Usuario registrado con éxito");
             }
             else
             {
-                MessageBox.Show("Error al registrar el usuario");
+                // Update
+                resultado = new CN_Usuario().Modificar(usuario);
+                if (resultado) MessageBox.Show("Usuario modificado con éxito");
             }
+
+            if (resultado)
+            {
+                LimpiarCampos();
+                CargarUsuarios(); // refresca tu DataGridView
+                idUsuarioSeleccionado = 0; // resetear para volver a modo "insert"
+            }
+            else
+            {
+                MessageBox.Show("Error al guardar el usuario");
+            }
+
         }
 
         private void DGUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -130,6 +137,41 @@ namespace CapaPresentacion.Administrador
                     }
                 }
             }
+        }
+
+        private void DGUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Verificamos que la fila seleccionada sea válida
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow fila = DGUsuarios.Rows[e.RowIndex];
+
+                idUsuarioSeleccionado = Convert.ToInt32(fila.Cells["Id_usuario"].Value);
+
+                // Cargar datos en los TextBox
+                TNombre.Text = fila.Cells["Nombre_usuario"].Value.ToString();
+                TApellido.Text = fila.Cells["Apellido_usuario"].Value.ToString();
+                TCorreo.Text = fila.Cells["Mail_usuario"].Value.ToString();
+                TContrasenia.Text = fila.Cells["Contrasenia_usuario"].Value.ToString();
+
+                // Para ComboBox Perfil
+                int idPerfil = Convert.ToInt32(fila.Cells["Id_perfil"].Value);
+                switch (idPerfil)
+                {
+                    case 1: CBPerfil.SelectedItem = "Administrador"; break;
+                    case 2: CBPerfil.SelectedItem = "Vendedor"; break;
+                    case 3: CBPerfil.SelectedItem = "Dueño de negocio"; break;
+                }
+
+                // Para ComboBox Estado
+                int estado = Convert.ToInt32(fila.Cells["Estado_usuario"].Value);
+                CBEstado.SelectedItem = estado == 1 ? "Activo" : "Inactivo";
+            }
+        }
+
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
         }
     }
 }

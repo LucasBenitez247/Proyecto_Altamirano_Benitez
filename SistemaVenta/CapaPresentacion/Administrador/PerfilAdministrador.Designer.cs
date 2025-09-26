@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PerfilAdministrador));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PContenedor = new System.Windows.Forms.Panel();
@@ -39,6 +40,7 @@
             this.BtnCompras = new FontAwesome.Sharp.IconButton();
             this.BtnReportes = new FontAwesome.Sharp.IconButton();
             this.BtnSalir = new FontAwesome.Sharp.IconButton();
+            this.HoraFecha = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PContenedor.SuspendLayout();
             this.SuspendLayout();
@@ -221,6 +223,11 @@
             this.BtnSalir.UseVisualStyleBackColor = true;
             this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
+            // HoraFecha
+            // 
+            this.HoraFecha.Enabled = true;
+            this.HoraFecha.Tick += new System.EventHandler(this.HoraFecha_Tick);
+            // 
             // PerfilAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -257,5 +264,6 @@
         private FontAwesome.Sharp.IconButton BtnCompras;
         private FontAwesome.Sharp.IconButton BtnReportes;
         private FontAwesome.Sharp.IconButton BtnSalir;
+        private System.Windows.Forms.Timer HoraFecha;
     }
 }

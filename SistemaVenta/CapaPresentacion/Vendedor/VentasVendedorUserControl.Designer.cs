@@ -470,7 +470,6 @@
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Name = "VentasVendedorUserControl";
             this.Size = new System.Drawing.Size(1201, 660);
-            this.Load += new System.EventHandler(this.VentasVendedorUserControl_Load);
             this.PProductos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.PCarrito.ResumeLayout(false);

@@ -47,7 +47,7 @@ namespace CapaDatos
                                 Contrasenia_usuario = dr["contrasenia"].ToString(),
                                 Id_perfil = Convert.ToInt32(dr["id_perfil"]),
                                 Estado_usuario = Convert.ToInt32(dr["estado_usuario"])
-                             
+
                             });
                         }
                     }
@@ -120,6 +120,47 @@ namespace CapaDatos
             }
 
             return respuesta;
+        }
+
+        public bool Modificar(Usuario u)
+        {
+            bool respuesta = false;
+
+            try
+            {
+                using (SqlConnection oconexion = new Conexion().CrearConexion())
+                {
+                    string query = @"UPDATE usuarios 
+                             SET nombre = @Nombre,
+                                 apellido = @Apellido,
+                                 correo = @Mail,
+                                 contrasenia = @Contrasenia,
+                                 id_perfil = @Perfil,
+                                 estado_usuario = @Estado
+                             WHERE id_usuario = @Id";
+
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.Parameters.AddWithValue("@Id", u.Id_usuario);
+                    cmd.Parameters.AddWithValue("@Nombre", u.Nombre_usuario);
+                    cmd.Parameters.AddWithValue("@Apellido", u.Apellido_usuario);
+                    cmd.Parameters.AddWithValue("@Mail", u.Mail_usuario);
+                    cmd.Parameters.AddWithValue("@Contrasenia", u.Contrasenia_usuario);
+                    cmd.Parameters.AddWithValue("@Perfil", u.Id_perfil);
+                    cmd.Parameters.AddWithValue("@Estado", u.Estado_usuario);
+
+                    oconexion.Open();
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+                    respuesta = filasAfectadas > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en Modificar Usuario: " + ex.Message);
+                respuesta = false;
+            }
+
+            return respuesta;
+
         }
     }
 }

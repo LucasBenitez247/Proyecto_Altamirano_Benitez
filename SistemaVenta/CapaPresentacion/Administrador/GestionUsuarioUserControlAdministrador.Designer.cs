@@ -111,6 +111,7 @@
             this.BtnLimpiar.TabIndex = 25;
             this.BtnLimpiar.Text = "Limpiar";
             this.BtnLimpiar.UseVisualStyleBackColor = true;
+            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
             // 
             // BtnRegistrar
             // 
@@ -312,6 +313,7 @@
             this.DGUsuarios.Name = "DGUsuarios";
             this.DGUsuarios.Size = new System.Drawing.Size(651, 621);
             this.DGUsuarios.TabIndex = 6;
+            this.DGUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGUsuarios_CellClick);
             this.DGUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGUsuarios_CellContentClick);
             // 
             // Eliminar

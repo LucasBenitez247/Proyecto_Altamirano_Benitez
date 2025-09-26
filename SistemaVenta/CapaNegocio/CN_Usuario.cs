@@ -1,11 +1,14 @@
-﻿using System;
+﻿using CapaDatos;
+using CapaEntidad;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CapaDatos;
-using CapaEntidad;
+
 namespace CapaNegocio
+
 {
     public class CN_Usuario
     {
@@ -26,5 +29,11 @@ namespace CapaNegocio
         {
             return objCapaDatos.Eliminar(idUsuario);
         }
+
+        public bool Modificar(Usuario u)
+        {
+            return new CD_Usuario().Modificar(u);
+        }
+
     }
 }
