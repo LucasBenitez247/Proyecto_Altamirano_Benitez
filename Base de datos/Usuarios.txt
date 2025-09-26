@@ -1,0 +1,5 @@
+Administrador 		Correo: gabriel_sanchez88@gmail.com     Contraseña: g123456
+
+Vendedor 		Correo: Julian_Rodriguez11@gmail.com	Contraseña: j123456
+
+Dueño de negocio 	Correo: carlos_castillo@gmail.com	Contraseña: c123456
