@@ -40,7 +40,7 @@
             this.DWCStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DWCAgregar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.PCarrito = new System.Windows.Forms.Panel();
-            this.TBTotal = new System.Windows.Forms.TextBox();
+            this.TTotal = new System.Windows.Forms.TextBox();
             this.BRegistrarVenta = new FontAwesome.Sharp.IconButton();
             this.LTotal = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -180,7 +180,7 @@
             // PCarrito
             // 
             this.PCarrito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.PCarrito.Controls.Add(this.TBTotal);
+            this.PCarrito.Controls.Add(this.TTotal);
             this.PCarrito.Controls.Add(this.BRegistrarVenta);
             this.PCarrito.Controls.Add(this.LTotal);
             this.PCarrito.Controls.Add(this.dataGridView1);
@@ -190,12 +190,12 @@
             this.PCarrito.Size = new System.Drawing.Size(559, 436);
             this.PCarrito.TabIndex = 5;
             // 
-            // TBTotal
+            // TTotal
             // 
-            this.TBTotal.Location = new System.Drawing.Point(94, 310);
-            this.TBTotal.Name = "TBTotal";
-            this.TBTotal.Size = new System.Drawing.Size(96, 20);
-            this.TBTotal.TabIndex = 18;
+            this.TTotal.Location = new System.Drawing.Point(94, 310);
+            this.TTotal.Name = "TTotal";
+            this.TTotal.Size = new System.Drawing.Size(96, 20);
+            this.TTotal.TabIndex = 18;
             // 
             // BRegistrarVenta
             // 
@@ -218,6 +218,7 @@
             this.BRegistrarVenta.TabIndex = 4;
             this.BRegistrarVenta.Text = "Registrar Venta";
             this.BRegistrarVenta.UseVisualStyleBackColor = false;
+            this.BRegistrarVenta.Click += new System.EventHandler(this.BRegistrarVenta_Click);
             // 
             // LTotal
             // 
@@ -505,7 +506,7 @@
         private System.Windows.Forms.TextBox TDni;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TDireccion;
-        private System.Windows.Forms.TextBox TBTotal;
+        private System.Windows.Forms.TextBox TTotal;
         private System.Windows.Forms.Panel PBuscarProductos;
         private System.Windows.Forms.TextBox TBuscarProductos;
         private FontAwesome.Sharp.IconButton IBtnBuscarProductos;

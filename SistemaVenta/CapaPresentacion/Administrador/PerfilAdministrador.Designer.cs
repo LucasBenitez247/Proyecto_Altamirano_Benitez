@@ -125,9 +125,9 @@
             this.BtnProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnProductos.Location = new System.Drawing.Point(0, 257);
             this.BtnProductos.Name = "BtnProductos";
-            this.BtnProductos.Size = new System.Drawing.Size(151, 57);
+            this.BtnProductos.Size = new System.Drawing.Size(152, 57);
             this.BtnProductos.TabIndex = 16;
-            this.BtnProductos.Text = "Gestión de Productos";
+            this.BtnProductos.Text = "Gestión de Proveedor";
             this.BtnProductos.UseCompatibleTextRendering = true;
             this.BtnProductos.UseVisualStyleBackColor = true;
             this.BtnProductos.Click += new System.EventHandler(this.BtnProductos_Click);
@@ -150,7 +150,7 @@
             this.BtnGestionUsuarios.Name = "BtnGestionUsuarios";
             this.BtnGestionUsuarios.Size = new System.Drawing.Size(151, 57);
             this.BtnGestionUsuarios.TabIndex = 14;
-            this.BtnGestionUsuarios.Text = "Gestión de Usuarios";
+            this.BtnGestionUsuarios.Text = "Gestión de Usuario";
             this.BtnGestionUsuarios.UseCompatibleTextRendering = true;
             this.BtnGestionUsuarios.UseVisualStyleBackColor = true;
             this.BtnGestionUsuarios.Click += new System.EventHandler(this.BtnGestionUsuarios_Click);

@@ -50,12 +50,16 @@
             this.LApellido = new System.Windows.Forms.Label();
             this.LRegistroUsuario = new System.Windows.Forms.Label();
             this.DGUsuarios = new System.Windows.Forms.DataGridView();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider4 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider5 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.PFormulario.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGUsuarios)).BeginInit();
@@ -150,6 +154,10 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.CBEstado);
             this.panel1.Controls.Add(this.LEstado);
             this.panel1.Controls.Add(this.label1);
@@ -175,7 +183,7 @@
             this.CBEstado.Items.AddRange(new object[] {
             "Activo",
             "Inactivo"});
-            this.CBEstado.Location = new System.Drawing.Point(133, 335);
+            this.CBEstado.Location = new System.Drawing.Point(133, 421);
             this.CBEstado.Name = "CBEstado";
             this.CBEstado.Size = new System.Drawing.Size(206, 21);
             this.CBEstado.TabIndex = 22;
@@ -185,7 +193,7 @@
             this.LEstado.AutoSize = true;
             this.LEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LEstado.Location = new System.Drawing.Point(129, 312);
+            this.LEstado.Location = new System.Drawing.Point(129, 398);
             this.LEstado.Name = "LEstado";
             this.LEstado.Size = new System.Drawing.Size(64, 20);
             this.LEstado.TabIndex = 21;
@@ -196,7 +204,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label1.Location = new System.Drawing.Point(129, 267);
+            this.label1.Location = new System.Drawing.Point(129, 353);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(152, 20);
             this.label1.TabIndex = 18;
@@ -204,7 +212,7 @@
             // 
             // TRContrasenia
             // 
-            this.TRContrasenia.Location = new System.Drawing.Point(133, 290);
+            this.TRContrasenia.Location = new System.Drawing.Point(133, 376);
             this.TRContrasenia.Name = "TRContrasenia";
             this.TRContrasenia.Size = new System.Drawing.Size(206, 20);
             this.TRContrasenia.TabIndex = 19;
@@ -215,7 +223,7 @@
             this.LContraseña.AutoSize = true;
             this.LContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LContraseña.Location = new System.Drawing.Point(129, 212);
+            this.LContraseña.Location = new System.Drawing.Point(129, 298);
             this.LContraseña.Name = "LContraseña";
             this.LContraseña.Size = new System.Drawing.Size(96, 20);
             this.LContraseña.TabIndex = 16;
@@ -223,7 +231,7 @@
             // 
             // TContrasenia
             // 
-            this.TContrasenia.Location = new System.Drawing.Point(133, 235);
+            this.TContrasenia.Location = new System.Drawing.Point(133, 321);
             this.TContrasenia.Name = "TContrasenia";
             this.TContrasenia.Size = new System.Drawing.Size(206, 20);
             this.TContrasenia.TabIndex = 17;
@@ -236,7 +244,7 @@
             "Administrador",
             "Vendedor",
             "Dueño de negocio"});
-            this.CBPerfil.Location = new System.Drawing.Point(133, 138);
+            this.CBPerfil.Location = new System.Drawing.Point(133, 224);
             this.CBPerfil.Name = "CBPerfil";
             this.CBPerfil.Size = new System.Drawing.Size(206, 21);
             this.CBPerfil.TabIndex = 15;
@@ -246,7 +254,7 @@
             this.LPerfil.AutoSize = true;
             this.LPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LPerfil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LPerfil.Location = new System.Drawing.Point(129, 115);
+            this.LPerfil.Location = new System.Drawing.Point(129, 201);
             this.LPerfil.Name = "LPerfil";
             this.LPerfil.Size = new System.Drawing.Size(48, 20);
             this.LPerfil.TabIndex = 14;
@@ -257,7 +265,7 @@
             this.LCorreo.AutoSize = true;
             this.LCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LCorreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LCorreo.Location = new System.Drawing.Point(129, 162);
+            this.LCorreo.Location = new System.Drawing.Point(129, 248);
             this.LCorreo.Name = "LCorreo";
             this.LCorreo.Size = new System.Drawing.Size(61, 20);
             this.LCorreo.TabIndex = 12;
@@ -265,7 +273,7 @@
             // 
             // TCorreo
             // 
-            this.TCorreo.Location = new System.Drawing.Point(133, 185);
+            this.TCorreo.Location = new System.Drawing.Point(133, 271);
             this.TCorreo.Name = "TCorreo";
             this.TCorreo.Size = new System.Drawing.Size(206, 20);
             this.TCorreo.TabIndex = 13;
@@ -332,6 +340,15 @@
             this.DGUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGUsuarios_CellClick);
             this.DGUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGUsuarios_CellContentClick);
             // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Eliminar.Text = "Eliminar";
+            this.Eliminar.UseColumnTextForButtonValue = true;
+            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
@@ -352,14 +369,41 @@
             // 
             this.errorProvider5.ContainerControl = this;
             // 
-            // Eliminar
+            // textBox1
             // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Eliminar.Text = "Eliminar";
-            this.Eliminar.UseColumnTextForButtonValue = true;
+            this.textBox1.Location = new System.Drawing.Point(133, 133);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(206, 20);
+            this.textBox1.TabIndex = 24;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label2.Location = new System.Drawing.Point(129, 110);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 20);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "DNI:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(133, 178);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(206, 20);
+            this.textBox2.TabIndex = 26;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label3.Location = new System.Drawing.Point(129, 155);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 20);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Dirección:";
             // 
             // GestionUsuarioUserControlAdministrador
             // 
@@ -412,5 +456,9 @@
         private System.Windows.Forms.ErrorProvider errorProvider4;
         private System.Windows.Forms.ErrorProvider errorProvider5;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
     }
 }

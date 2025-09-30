@@ -76,6 +76,12 @@
     <Compile Include="Administrador\GestionProductosUserControlAdministrador.Designer.cs">
       <DependentUpon>GestionProductosUserControlAdministrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\GestionProveedorUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Administrador\GestionProveedorUserControl.Designer.cs">
+      <DependentUpon>GestionProveedorUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\GestionUsuarioUserControlAdministrador.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -87,6 +93,12 @@
     </Compile>
     <Compile Include="Administrador\InicioUserControlAdministrador.Designer.cs">
       <DependentUpon>InicioUserControlAdministrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\Lista de proveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\Lista de proveedores.Designer.cs">
+      <DependentUpon>Lista de proveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="Administrador\PerfilAdministrador.cs">
       <SubType>Form</SubType>
@@ -201,11 +213,17 @@
     <EmbeddedResource Include="Administrador\GestionProductosUserControlAdministrador.resx">
       <DependentUpon>GestionProductosUserControlAdministrador.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\GestionProveedorUserControl.resx">
+      <DependentUpon>GestionProveedorUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administrador\GestionUsuarioUserControlAdministrador.resx">
       <DependentUpon>GestionUsuarioUserControlAdministrador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\InicioUserControlAdministrador.resx">
       <DependentUpon>InicioUserControlAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\Lista de proveedores.resx">
+      <DependentUpon>Lista de proveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\PerfilAdministrador.resx">
       <DependentUpon>PerfilAdministrador.cs</DependentUpon>

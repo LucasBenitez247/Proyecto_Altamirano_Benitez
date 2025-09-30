@@ -17,10 +17,28 @@ namespace CapaPresentacion.Administrador
             InitializeComponent();
         }
 
-        private void BtnLimpiar_Click(object sender, EventArgs e)
+        
+
+        private void BtnRegistrar_Click(object sender, EventArgs e)
         {
-            TNombre.Clear();
-            TCantidad.Clear();
+            if (string.IsNullOrWhiteSpace(TNroOrden.Text) ||
+               string.IsNullOrWhiteSpace(TProveedor.Text) ||
+               string.IsNullOrWhiteSpace(TCodProducto.Text) ||
+               string.IsNullOrWhiteSpace(TProducto.Text) ||
+                string.IsNullOrWhiteSpace(TPrecioCompra.Text) ||
+                string.IsNullOrWhiteSpace(TPrecioVenta.Text) ||
+                string.IsNullOrWhiteSpace(NUDCantidad.Text)
+              )
+            {
+                MessageBox.Show("Complete todos los campos.");
+                return;
+            }
+        }
+
+        private void IBtnBuscarProveedores_Click(object sender, EventArgs e)
+        {
+            Lista_de_proveedores lista_De_Proveedores = new Lista_de_proveedores();
+            lista_De_Proveedores.ShowDialog();
         }
     }
 }

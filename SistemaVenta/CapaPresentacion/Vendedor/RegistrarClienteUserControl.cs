@@ -191,8 +191,24 @@ namespace CapaPresentacion.Vendedor
             }
         }
 
-       
-
+        private void BtnRegistrar_Click(object sender, EventArgs e)
+        {
+            // Validaciones básicas
+            if (string.IsNullOrWhiteSpace(TNombre.Text) ||
+                string.IsNullOrWhiteSpace(TApellido.Text) ||
+                string.IsNullOrWhiteSpace(TDni.Text) ||
+                string.IsNullOrWhiteSpace(TCorreo.Text) ||
+                string.IsNullOrWhiteSpace(TTelefono.Text) ||
+                string.IsNullOrWhiteSpace(TCalleNro.Text) ||
+                string.IsNullOrWhiteSpace(TCiudad.Text) ||
+                string.IsNullOrWhiteSpace(TProvincia.Text) ||
+                string.IsNullOrWhiteSpace(TCodigoPostal.Text) 
+               )
+            {
+                MessageBox.Show("Complete todos los campos.");
+                return;
+            }
+        }
     }
 
 }

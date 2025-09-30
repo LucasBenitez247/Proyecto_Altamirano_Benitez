@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaEntidad;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,6 +24,20 @@ namespace CapaPresentacion.Vendedor
         {
             BuscarClientes buscarClientes = new BuscarClientes();
             buscarClientes.ShowDialog();
+        }
+
+        private void BRegistrarVenta_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TNombre.Text) ||
+                string.IsNullOrWhiteSpace(TApellido.Text) ||
+                string.IsNullOrWhiteSpace(TDni.Text) ||
+                string.IsNullOrWhiteSpace(TDireccion.Text) ||   
+                string.IsNullOrWhiteSpace(TTotal.Text)
+                )
+            {
+                MessageBox.Show("Complete todos los campos.");
+                return;
+            }
         }
     }
 }

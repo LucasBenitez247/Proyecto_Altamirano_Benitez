@@ -33,28 +33,21 @@
             this.BtnLimpiar = new FontAwesome.Sharp.IconButton();
             this.BtnRegistrar = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.TTelefono = new System.Windows.Forms.TextBox();
+            this.LPrecio = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.LEstado = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.LCategoria = new System.Windows.Forms.Label();
-            this.TApellido = new System.Windows.Forms.TextBox();
+            this.TNroDocumento = new System.Windows.Forms.TextBox();
             this.LNombre = new System.Windows.Forms.Label();
-            this.TNombre = new System.Windows.Forms.TextBox();
+            this.TRazonSocial = new System.Windows.Forms.TextBox();
             this.LCódigo = new System.Windows.Forms.Label();
             this.LDescripcion = new System.Windows.Forms.Label();
-            this.TDni = new System.Windows.Forms.TextBox();
+            this.TCorreo = new System.Windows.Forms.TextBox();
             this.LRegistroProducto = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.LPrecio = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.LStock = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.CDNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNroDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CRazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCiudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.PFormulario.SuspendLayout();
@@ -95,7 +88,7 @@
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(146, 33);
             this.BtnCancelar.TabIndex = 26;
-            this.BtnCancelar.Text = "Eliminar";
+            this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = true;
             // 
             // BtnLimpiar
@@ -118,6 +111,7 @@
             this.BtnLimpiar.TabIndex = 25;
             this.BtnLimpiar.Text = "Limpiar";
             this.BtnLimpiar.UseVisualStyleBackColor = true;
+            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
             // 
             // BtnRegistrar
             // 
@@ -139,29 +133,44 @@
             this.BtnRegistrar.TabIndex = 24;
             this.BtnRegistrar.Text = "Registrar";
             this.BtnRegistrar.UseVisualStyleBackColor = true;
+            this.BtnRegistrar.Click += new System.EventHandler(this.BtnRegistrar_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.LStock);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.TTelefono);
             this.panel1.Controls.Add(this.LPrecio);
             this.panel1.Controls.Add(this.comboBox2);
             this.panel1.Controls.Add(this.LEstado);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.LCategoria);
-            this.panel1.Controls.Add(this.TApellido);
+            this.panel1.Controls.Add(this.TNroDocumento);
             this.panel1.Controls.Add(this.LNombre);
-            this.panel1.Controls.Add(this.TNombre);
+            this.panel1.Controls.Add(this.TRazonSocial);
             this.panel1.Controls.Add(this.LCódigo);
             this.panel1.Controls.Add(this.LDescripcion);
-            this.panel1.Controls.Add(this.TDni);
+            this.panel1.Controls.Add(this.TCorreo);
             this.panel1.Location = new System.Drawing.Point(11, 42);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(501, 495);
             this.panel1.TabIndex = 3;
+            // 
+            // TTelefono
+            // 
+            this.TTelefono.Location = new System.Drawing.Point(119, 255);
+            this.TTelefono.Name = "TTelefono";
+            this.TTelefono.Size = new System.Drawing.Size(206, 20);
+            this.TTelefono.TabIndex = 24;
+            // 
+            // LPrecio
+            // 
+            this.LPrecio.AutoSize = true;
+            this.LPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LPrecio.Location = new System.Drawing.Point(115, 232);
+            this.LPrecio.Name = "LPrecio";
+            this.LPrecio.Size = new System.Drawing.Size(75, 20);
+            this.LPrecio.TabIndex = 23;
+            this.LPrecio.Text = "Telefono:";
             // 
             // comboBox2
             // 
@@ -169,7 +178,7 @@
             this.comboBox2.Items.AddRange(new object[] {
             "Activo",
             "Inactivo"});
-            this.comboBox2.Location = new System.Drawing.Point(119, 378);
+            this.comboBox2.Location = new System.Drawing.Point(119, 322);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(206, 21);
             this.comboBox2.TabIndex = 22;
@@ -179,59 +188,36 @@
             this.LEstado.AutoSize = true;
             this.LEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LEstado.Location = new System.Drawing.Point(120, 355);
+            this.LEstado.Location = new System.Drawing.Point(120, 299);
             this.LEstado.Name = "LEstado";
             this.LEstado.Size = new System.Drawing.Size(64, 20);
             this.LEstado.TabIndex = 21;
             this.LEstado.Text = "Estado:";
             // 
-            // comboBox1
+            // TNroDocumento
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Administrador",
-            "Vendedor",
-            "Dueño de negocio"});
-            this.comboBox1.Location = new System.Drawing.Point(119, 239);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(206, 21);
-            this.comboBox1.TabIndex = 15;
-            // 
-            // LCategoria
-            // 
-            this.LCategoria.AutoSize = true;
-            this.LCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LCategoria.Location = new System.Drawing.Point(115, 216);
-            this.LCategoria.Name = "LCategoria";
-            this.LCategoria.Size = new System.Drawing.Size(82, 20);
-            this.LCategoria.TabIndex = 14;
-            this.LCategoria.Text = "Categoria:";
-            // 
-            // TApellido
-            // 
-            this.TApellido.Location = new System.Drawing.Point(119, 54);
-            this.TApellido.Name = "TApellido";
-            this.TApellido.Size = new System.Drawing.Size(206, 20);
-            this.TApellido.TabIndex = 4;
+            this.TNroDocumento.Location = new System.Drawing.Point(119, 54);
+            this.TNroDocumento.Name = "TNroDocumento";
+            this.TNroDocumento.Size = new System.Drawing.Size(206, 20);
+            this.TNroDocumento.TabIndex = 4;
             // 
             // LNombre
             // 
             this.LNombre.AutoSize = true;
             this.LNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LNombre.Location = new System.Drawing.Point(115, 77);
+            this.LNombre.Location = new System.Drawing.Point(115, 100);
             this.LNombre.Name = "LNombre";
-            this.LNombre.Size = new System.Drawing.Size(69, 20);
+            this.LNombre.Size = new System.Drawing.Size(108, 20);
             this.LNombre.TabIndex = 0;
-            this.LNombre.Text = "Nombre:";
+            this.LNombre.Text = "Razón social :";
             // 
-            // TNombre
+            // TRazonSocial
             // 
-            this.TNombre.Location = new System.Drawing.Point(119, 100);
-            this.TNombre.Name = "TNombre";
-            this.TNombre.Size = new System.Drawing.Size(206, 20);
-            this.TNombre.TabIndex = 2;
+            this.TRazonSocial.Location = new System.Drawing.Point(119, 123);
+            this.TRazonSocial.Name = "TRazonSocial";
+            this.TRazonSocial.Size = new System.Drawing.Size(206, 20);
+            this.TRazonSocial.TabIndex = 2;
             // 
             // LCódigo
             // 
@@ -240,28 +226,27 @@
             this.LCódigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.LCódigo.Location = new System.Drawing.Point(115, 31);
             this.LCódigo.Name = "LCódigo";
-            this.LCódigo.Size = new System.Drawing.Size(63, 20);
+            this.LCódigo.Size = new System.Drawing.Size(125, 20);
             this.LCódigo.TabIndex = 3;
-            this.LCódigo.Text = "Código:";
+            this.LCódigo.Text = "Nro Documento:";
             // 
             // LDescripcion
             // 
             this.LDescripcion.AutoSize = true;
             this.LDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LDescripcion.Location = new System.Drawing.Point(115, 123);
+            this.LDescripcion.Location = new System.Drawing.Point(115, 165);
             this.LDescripcion.Name = "LDescripcion";
-            this.LDescripcion.Size = new System.Drawing.Size(96, 20);
+            this.LDescripcion.Size = new System.Drawing.Size(61, 20);
             this.LDescripcion.TabIndex = 10;
-            this.LDescripcion.Text = "Descripcion:";
+            this.LDescripcion.Text = "Correo:";
             // 
-            // TDni
+            // TCorreo
             // 
-            this.TDni.Location = new System.Drawing.Point(119, 146);
-            this.TDni.Multiline = true;
-            this.TDni.Name = "TDni";
-            this.TDni.Size = new System.Drawing.Size(206, 67);
-            this.TDni.TabIndex = 11;
+            this.TCorreo.Location = new System.Drawing.Point(119, 188);
+            this.TCorreo.Name = "TCorreo";
+            this.TCorreo.Size = new System.Drawing.Size(206, 20);
+            this.TCorreo.TabIndex = 11;
             // 
             // LRegistroProducto
             // 
@@ -270,56 +255,17 @@
             this.LRegistroProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.LRegistroProducto.Location = new System.Drawing.Point(114, 0);
             this.LRegistroProducto.Name = "LRegistroProducto";
-            this.LRegistroProducto.Size = new System.Drawing.Size(307, 39);
+            this.LRegistroProducto.Size = new System.Drawing.Size(328, 39);
             this.LRegistroProducto.TabIndex = 1;
-            this.LRegistroProducto.Text = "Registrar Producto";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(119, 286);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(206, 20);
-            this.textBox1.TabIndex = 24;
-            // 
-            // LPrecio
-            // 
-            this.LPrecio.AutoSize = true;
-            this.LPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LPrecio.Location = new System.Drawing.Point(115, 263);
-            this.LPrecio.Name = "LPrecio";
-            this.LPrecio.Size = new System.Drawing.Size(57, 20);
-            this.LPrecio.TabIndex = 23;
-            this.LPrecio.Text = "Precio:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(119, 332);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(206, 20);
-            this.textBox2.TabIndex = 26;
-            // 
-            // LStock
-            // 
-            this.LStock.AutoSize = true;
-            this.LStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LStock.Location = new System.Drawing.Point(115, 309);
-            this.LStock.Name = "LStock";
-            this.LStock.Size = new System.Drawing.Size(54, 20);
-            this.LStock.TabIndex = 25;
-            this.LStock.Text = "Stock:";
+            this.LRegistroProducto.Text = "Registrar Proveedor";
             // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CDNI,
-            this.CNombre,
-            this.CApellido,
-            this.CCorreo,
+            this.CNroDocumento,
+            this.CRazonSocial,
             this.CTelefono,
-            this.CDireccion,
             this.CCiudad,
             this.CEliminar});
             this.dataGridView2.Location = new System.Drawing.Point(520, 5);
@@ -327,35 +273,23 @@
             this.dataGridView2.Size = new System.Drawing.Size(667, 621);
             this.dataGridView2.TabIndex = 6;
             // 
-            // CDNI
+            // CNroDocumento
             // 
-            this.CDNI.HeaderText = "Código:";
-            this.CDNI.Name = "CDNI";
+            this.CNroDocumento.HeaderText = "Nro Documento";
+            this.CNroDocumento.Name = "CNroDocumento";
+            this.CNroDocumento.Width = 140;
             // 
-            // CNombre
+            // CRazonSocial
             // 
-            this.CNombre.HeaderText = "Nombre";
-            this.CNombre.Name = "CNombre";
-            // 
-            // CApellido
-            // 
-            this.CApellido.HeaderText = "Descripción";
-            this.CApellido.Name = "CApellido";
-            // 
-            // CCorreo
-            // 
-            this.CCorreo.HeaderText = "Categoria";
-            this.CCorreo.Name = "CCorreo";
+            this.CRazonSocial.HeaderText = "Razón Social";
+            this.CRazonSocial.Name = "CRazonSocial";
+            this.CRazonSocial.Width = 140;
             // 
             // CTelefono
             // 
-            this.CTelefono.HeaderText = "Precio";
+            this.CTelefono.HeaderText = "Teléfono";
             this.CTelefono.Name = "CTelefono";
-            // 
-            // CDireccion
-            // 
-            this.CDireccion.HeaderText = "Stock";
-            this.CDireccion.Name = "CDireccion";
+            this.CTelefono.Width = 140;
             // 
             // CCiudad
             // 
@@ -393,26 +327,19 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label LEstado;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label LCategoria;
-        private System.Windows.Forms.TextBox TApellido;
+        private System.Windows.Forms.TextBox TNroDocumento;
         private System.Windows.Forms.Label LNombre;
-        private System.Windows.Forms.TextBox TNombre;
+        private System.Windows.Forms.TextBox TRazonSocial;
         private System.Windows.Forms.Label LCódigo;
-        private System.Windows.Forms.Label LDescripcion;
-        private System.Windows.Forms.TextBox TDni;
         private System.Windows.Forms.Label LRegistroProducto;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label LStock;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label LPrecio;
+        private System.Windows.Forms.TextBox TTelefono;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CDNI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CApellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCorreo;
+        private System.Windows.Forms.Label LPrecio;
+        private System.Windows.Forms.Label LDescripcion;
+        private System.Windows.Forms.TextBox TCorreo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CNroDocumento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CRazonSocial;
         private System.Windows.Forms.DataGridViewTextBoxColumn CTelefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CDireccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCiudad;
         private System.Windows.Forms.DataGridViewButtonColumn CEliminar;
     }
