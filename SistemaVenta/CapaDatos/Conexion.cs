@@ -20,6 +20,27 @@ namespace CapaDatos
         {
             return new SqlConnection(cadena);
         }
+
+        public bool ProbarConexion()
+        {
+            try
+            {
+                using (SqlConnection conn = CrearConexion())
+                {
+                    conn.Open();
+                    Console.WriteLine("Conexión exitosa.");
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al conectar: " + ex.Message);
+                return false;
+            }
+        }
+
+
+
     }
-   
-   }
+
+}

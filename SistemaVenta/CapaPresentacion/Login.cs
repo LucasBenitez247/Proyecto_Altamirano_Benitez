@@ -42,6 +42,8 @@ namespace CapaPresentacion
 
         private void BtnIniciarSesion_Click(object sender, EventArgs e)
         {
+           
+           
             Usuario ousuario = new CN_Usuario().Listar().Where(u => u.Mail_usuario == TxtMail_usuario.Text && u.Contrasenia_usuario == TxtClave.Text).FirstOrDefault();
 
             List<Usuario> Test = new CN_Usuario().Listar();
