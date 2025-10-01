@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.IBtnBuscar = new FontAwesome.Sharp.IconButton();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -37,17 +38,19 @@
             this.LReporteVentas = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.TBuscar = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.IBtnBuscar2 = new FontAwesome.Sharp.IconButton();
-            this.LbuscarPor = new System.Windows.Forms.Label();
             this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CMonto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TBuscar = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.IBtnBuscar2 = new FontAwesome.Sharp.IconButton();
+            this.LbuscarPor = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -156,6 +159,30 @@
             this.dataGridView1.Size = new System.Drawing.Size(650, 154);
             this.dataGridView1.TabIndex = 9;
             // 
+            // CFecha
+            // 
+            this.CFecha.HeaderText = "Fecha";
+            this.CFecha.Name = "CFecha";
+            this.CFecha.Width = 150;
+            // 
+            // CMonto
+            // 
+            this.CMonto.HeaderText = "Monto";
+            this.CMonto.Name = "CMonto";
+            this.CMonto.Width = 150;
+            // 
+            // CVendedor
+            // 
+            this.CVendedor.HeaderText = "Vendedor";
+            this.CVendedor.Name = "CVendedor";
+            this.CVendedor.Width = 150;
+            // 
+            // CCliente
+            // 
+            this.CCliente.HeaderText = "Cliente";
+            this.CCliente.Name = "CCliente";
+            this.CCliente.Width = 150;
+            // 
             // TBuscar
             // 
             this.TBuscar.Location = new System.Drawing.Point(400, 66);
@@ -192,6 +219,7 @@
             this.IBtnBuscar2.Text = "Buscar";
             this.IBtnBuscar2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.IBtnBuscar2.UseVisualStyleBackColor = true;
+            this.IBtnBuscar2.Click += new System.EventHandler(this.IBtnBuscar2_Click);
             // 
             // LbuscarPor
             // 
@@ -204,29 +232,9 @@
             this.LbuscarPor.TabIndex = 1;
             this.LbuscarPor.Text = "Buscar por:";
             // 
-            // CFecha
+            // errorProvider1
             // 
-            this.CFecha.HeaderText = "Fecha";
-            this.CFecha.Name = "CFecha";
-            this.CFecha.Width = 150;
-            // 
-            // CMonto
-            // 
-            this.CMonto.HeaderText = "Monto";
-            this.CMonto.Name = "CMonto";
-            this.CMonto.Width = 150;
-            // 
-            // CVendedor
-            // 
-            this.CVendedor.HeaderText = "Vendedor";
-            this.CVendedor.Name = "CVendedor";
-            this.CVendedor.Width = 150;
-            // 
-            // CCliente
-            // 
-            this.CCliente.HeaderText = "Cliente";
-            this.CCliente.Name = "CCliente";
-            this.CCliente.Width = 150;
+            this.errorProvider1.ContainerControl = this;
             // 
             // DueñoNegocioReportesUserControl
             // 
@@ -242,6 +250,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -265,5 +274,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CMonto;
         private System.Windows.Forms.DataGridViewTextBoxColumn CVendedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCliente;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

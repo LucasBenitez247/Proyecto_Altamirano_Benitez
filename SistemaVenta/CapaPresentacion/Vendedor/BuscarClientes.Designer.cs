@@ -79,6 +79,7 @@
             this.TBuscarCliente.Size = new System.Drawing.Size(193, 19);
             this.TBuscarCliente.TabIndex = 2;
             this.TBuscarCliente.Text = "Buscar Cliente...";
+            this.TBuscarCliente.Click += new System.EventHandler(this.TBuscarCliente_Click);
             // 
             // IBtnBuscarCliente
             // 

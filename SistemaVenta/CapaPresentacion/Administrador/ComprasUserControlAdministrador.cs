@@ -23,5 +23,14 @@ namespace CapaPresentacion.Administrador
             agregarCompraForm.ShowDialog();
 
         }
+
+        private void TBBuscar_Click(object sender, EventArgs e)
+        {
+            if (TBBuscar.Text == "Buscar compra...")
+            {
+                TBBuscar.Text = "";
+                return;
+            }
+        }
     }
 }

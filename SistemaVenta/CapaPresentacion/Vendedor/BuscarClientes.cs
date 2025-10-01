@@ -16,5 +16,14 @@ namespace CapaPresentacion.Vendedor
         {
             InitializeComponent();
         }
+
+        private void TBuscarCliente_Click(object sender, EventArgs e)
+        {
+            if(TBuscarCliente.Text == "Buscar Cliente...")
+            {
+                TBuscarCliente.Text = "";
+                return;
+            }
+        }
     }
 }

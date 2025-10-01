@@ -28,6 +28,8 @@ namespace CapaPresentacion.Administrador
             TNombre.Clear();
             TApellido.Clear();
             TCorreo.Clear();
+            textBox1.Clear();
+            textBox2.Clear();
             TContrasenia.Clear();
             TRContrasenia.Clear();
             CBPerfil.SelectedIndex = -1;
@@ -46,7 +48,7 @@ namespace CapaPresentacion.Administrador
             if (string.IsNullOrWhiteSpace(TNombre.Text) ||
                 string.IsNullOrWhiteSpace(TApellido.Text) ||
                 string.IsNullOrWhiteSpace(TCorreo.Text) ||
-                string.IsNullOrWhiteSpace(TContrasenia.Text))
+                string.IsNullOrWhiteSpace(TContrasenia.Text) || string.IsNullOrWhiteSpace(TRContrasenia.Text))
             {
                 MessageBox.Show("Complete todos los campos.");
                 return;
@@ -252,6 +254,11 @@ namespace CapaPresentacion.Administrador
             {
                 errorProvider5.SetError(TRContrasenia, "");
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

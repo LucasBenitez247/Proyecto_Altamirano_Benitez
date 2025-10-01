@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,9 +46,11 @@
             this.FechaFin = new System.Windows.Forms.Label();
             this.LFechaInicio = new System.Windows.Forms.Label();
             this.LReporteVentas = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -106,6 +109,8 @@
             this.TBuscar.Name = "TBuscar";
             this.TBuscar.Size = new System.Drawing.Size(165, 20);
             this.TBuscar.TabIndex = 8;
+            this.TBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBuscar_KeyPress);
+            this.TBuscar.Validating += new System.ComponentModel.CancelEventHandler(this.TBuscar_Validating);
             // 
             // comboBox1
             // 
@@ -129,13 +134,14 @@
             this.IBtnBuscar2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.IBtnBuscar2.IconSize = 24;
             this.IBtnBuscar2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.IBtnBuscar2.Location = new System.Drawing.Point(571, 62);
+            this.IBtnBuscar2.Location = new System.Drawing.Point(583, 59);
             this.IBtnBuscar2.Name = "IBtnBuscar2";
             this.IBtnBuscar2.Size = new System.Drawing.Size(93, 27);
             this.IBtnBuscar2.TabIndex = 6;
             this.IBtnBuscar2.Text = "Buscar";
             this.IBtnBuscar2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.IBtnBuscar2.UseVisualStyleBackColor = true;
+            this.IBtnBuscar2.Click += new System.EventHandler(this.IBtnBuscar2_Click);
             // 
             // LbuscarPor
             // 
@@ -228,6 +234,10 @@
             this.LReporteVentas.TabIndex = 0;
             this.LReporteVentas.Text = "Reporte de Ventas";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // ReportesUserControlAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,11 +246,13 @@
             this.Controls.Add(this.panel1);
             this.Name = "ReportesUserControlAdministrador";
             this.Size = new System.Drawing.Size(1190, 660);
+            this.Load += new System.EventHandler(this.ReportesUserControlAdministrador_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -264,5 +276,6 @@
         private System.Windows.Forms.Label FechaFin;
         private System.Windows.Forms.Label LFechaInicio;
         private System.Windows.Forms.Label LReporteVentas;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

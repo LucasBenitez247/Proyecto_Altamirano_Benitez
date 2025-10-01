@@ -34,17 +34,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DGCatalogoProductos = new System.Windows.Forms.DataGridView();
+            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.TBBuscar = new System.Windows.Forms.TextBox();
             this.BtnBuscar = new FontAwesome.Sharp.IconButton();
             this.LBucarPor = new System.Windows.Forms.Label();
             this.CBBuscarPor = new System.Windows.Forms.ComboBox();
             this.PBuscarProductos = new System.Windows.Forms.Panel();
-            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGCatalogoProductos)).BeginInit();
             this.PBuscarProductos.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +73,46 @@
             this.DGCatalogoProductos.Size = new System.Drawing.Size(787, 366);
             this.DGCatalogoProductos.TabIndex = 0;
             // 
+            // CNombre
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.CNombre.DefaultCellStyle = dataGridViewCellStyle1;
+            this.CNombre.Frozen = true;
+            this.CNombre.HeaderText = "Nombre";
+            this.CNombre.Name = "CNombre";
+            this.CNombre.Width = 130;
+            // 
+            // CDescripcion
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.CDescripcion.DefaultCellStyle = dataGridViewCellStyle2;
+            this.CDescripcion.Frozen = true;
+            this.CDescripcion.HeaderText = "Descripción";
+            this.CDescripcion.Name = "CDescripcion";
+            this.CDescripcion.Width = 150;
+            // 
+            // CCategoria
+            // 
+            this.CCategoria.HeaderText = "Categoria";
+            this.CCategoria.Name = "CCategoria";
+            this.CCategoria.Width = 200;
+            // 
+            // CPrecio
+            // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            this.CPrecio.DefaultCellStyle = dataGridViewCellStyle3;
+            this.CPrecio.HeaderText = "Precio";
+            this.CPrecio.Name = "CPrecio";
+            this.CPrecio.Width = 130;
+            // 
+            // CStock
+            // 
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.CStock.DefaultCellStyle = dataGridViewCellStyle4;
+            this.CStock.HeaderText = "Stock";
+            this.CStock.Name = "CStock";
+            this.CStock.Width = 130;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -95,6 +135,7 @@
             this.TBBuscar.Size = new System.Drawing.Size(193, 19);
             this.TBBuscar.TabIndex = 2;
             this.TBBuscar.Text = "Buscar productos...";
+            this.TBBuscar.Click += new System.EventHandler(this.TBBuscar_Click);
             // 
             // BtnBuscar
             // 
@@ -148,46 +189,6 @@
             this.PBuscarProductos.Name = "PBuscarProductos";
             this.PBuscarProductos.Size = new System.Drawing.Size(244, 29);
             this.PBuscarProductos.TabIndex = 6;
-            // 
-            // CNombre
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.CNombre.DefaultCellStyle = dataGridViewCellStyle1;
-            this.CNombre.Frozen = true;
-            this.CNombre.HeaderText = "Nombre";
-            this.CNombre.Name = "CNombre";
-            this.CNombre.Width = 130;
-            // 
-            // CDescripcion
-            // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.CDescripcion.DefaultCellStyle = dataGridViewCellStyle2;
-            this.CDescripcion.Frozen = true;
-            this.CDescripcion.HeaderText = "Descripción";
-            this.CDescripcion.Name = "CDescripcion";
-            this.CDescripcion.Width = 150;
-            // 
-            // CCategoria
-            // 
-            this.CCategoria.HeaderText = "Categoria";
-            this.CCategoria.Name = "CCategoria";
-            this.CCategoria.Width = 200;
-            // 
-            // CPrecio
-            // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            this.CPrecio.DefaultCellStyle = dataGridViewCellStyle3;
-            this.CPrecio.HeaderText = "Precio";
-            this.CPrecio.Name = "CPrecio";
-            this.CPrecio.Width = 130;
-            // 
-            // CStock
-            // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.CStock.DefaultCellStyle = dataGridViewCellStyle4;
-            this.CStock.HeaderText = "Stock";
-            this.CStock.Name = "CStock";
-            this.CStock.Width = 130;
             // 
             // CatalogoProductosVendedorUserControl
             // 

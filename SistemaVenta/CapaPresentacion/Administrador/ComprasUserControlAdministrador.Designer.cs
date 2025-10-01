@@ -119,6 +119,7 @@
             this.TBBuscar.Size = new System.Drawing.Size(193, 19);
             this.TBBuscar.TabIndex = 2;
             this.TBBuscar.Text = "Buscar compra...";
+            this.TBBuscar.Click += new System.EventHandler(this.TBBuscar_Click);
             // 
             // BtnBuscar
             // 

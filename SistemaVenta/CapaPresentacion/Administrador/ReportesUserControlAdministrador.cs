@@ -16,5 +16,45 @@ namespace CapaPresentacion.Administrador
         {
             InitializeComponent();
         }
+
+        private void TBuscar_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void TBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void IBtnBuscar2_Click(object sender, EventArgs e)
+        {
+            ValidarComboBox();
+            if (string.IsNullOrWhiteSpace(TBuscar.Text))
+            {
+                MessageBox.Show("Ingrese un término de búsqueda.");
+                return;
+            }
+            // Lógica de búsqueda aquí
+
+        }
+
+        private void ReportesUserControlAdministrador_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ValidarComboBox()
+        {
+            if (comboBox1.SelectedIndex == -1)
+            {
+                errorProvider1.SetError(comboBox1, "Debe seleccionar una opción");
+            }
+            else
+            {
+                errorProvider1.SetError(comboBox1, "");
+            }
+        }
+
     }
 }

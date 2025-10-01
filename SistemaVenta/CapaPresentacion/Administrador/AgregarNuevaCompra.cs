@@ -40,5 +40,10 @@ namespace CapaPresentacion.Administrador
             Lista_de_proveedores lista_De_Proveedores = new Lista_de_proveedores();
             lista_De_Proveedores.ShowDialog();
         }
+
+        private void TNroOrden_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.PFormulario = new System.Windows.Forms.Panel();
             this.BtnCancelar = new FontAwesome.Sharp.IconButton();
             this.BtnLimpiar = new FontAwesome.Sharp.IconButton();
@@ -47,12 +48,15 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.CNroDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CRazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCiudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.PFormulario.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // PFormulario
@@ -160,6 +164,7 @@
             this.TTelefono.Name = "TTelefono";
             this.TTelefono.Size = new System.Drawing.Size(206, 20);
             this.TTelefono.TabIndex = 24;
+            this.TTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TTelefono_KeyPress);
             // 
             // LPrecio
             // 
@@ -200,6 +205,8 @@
             this.TNroDocumento.Name = "TNroDocumento";
             this.TNroDocumento.Size = new System.Drawing.Size(206, 20);
             this.TNroDocumento.TabIndex = 4;
+            this.TNroDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNroDocumento_KeyPress);
+            this.TNroDocumento.Validating += new System.ComponentModel.CancelEventHandler(this.TNroDocumento_Validating);
             // 
             // LNombre
             // 
@@ -247,6 +254,8 @@
             this.TCorreo.Name = "TCorreo";
             this.TCorreo.Size = new System.Drawing.Size(206, 20);
             this.TCorreo.TabIndex = 11;
+            this.TCorreo.TextChanged += new System.EventHandler(this.TCorreo_TextChanged);
+            this.TCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TCorreo_KeyPress);
             // 
             // LRegistroProducto
             // 
@@ -265,6 +274,7 @@
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CNroDocumento,
             this.CRazonSocial,
+            this.cCorreo,
             this.CTelefono,
             this.CCiudad,
             this.CEliminar});
@@ -285,6 +295,12 @@
             this.CRazonSocial.Name = "CRazonSocial";
             this.CRazonSocial.Width = 140;
             // 
+            // cCorreo
+            // 
+            this.cCorreo.HeaderText = "Correo";
+            this.cCorreo.Name = "cCorreo";
+            this.cCorreo.Width = 150;
+            // 
             // CTelefono
             // 
             this.CTelefono.HeaderText = "Teléfono";
@@ -301,6 +317,11 @@
             this.CEliminar.HeaderText = "Eliminar";
             this.CEliminar.Name = "CEliminar";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.BlinkRate = 200;
+            this.errorProvider1.ContainerControl = this;
+            // 
             // GestionProductosUserControlAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -314,6 +335,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -339,8 +361,10 @@
         private System.Windows.Forms.TextBox TCorreo;
         private System.Windows.Forms.DataGridViewTextBoxColumn CNroDocumento;
         private System.Windows.Forms.DataGridViewTextBoxColumn CRazonSocial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCorreo;
         private System.Windows.Forms.DataGridViewTextBoxColumn CTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCiudad;
         private System.Windows.Forms.DataGridViewButtonColumn CEliminar;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

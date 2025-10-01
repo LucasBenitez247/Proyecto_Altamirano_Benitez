@@ -89,6 +89,7 @@
             this.TNroOrden.Name = "TNroOrden";
             this.TNroOrden.Size = new System.Drawing.Size(100, 20);
             this.TNroOrden.TabIndex = 2;
+            this.TNroOrden.Validating += new System.ComponentModel.CancelEventHandler(this.TNroOrden_Validating);
             // 
             // TProveedor
             // 

@@ -16,5 +16,14 @@ namespace CapaPresentacion.Administrador
         {
             InitializeComponent();
         }
+
+        private void TBBuscar_Click(object sender, EventArgs e)
+        {
+            if(TBBuscar.Text == "Buscar Proveedor...")
+            {
+                TBBuscar.Text = "";
+                return;
+            }
+        }
     }
 }
