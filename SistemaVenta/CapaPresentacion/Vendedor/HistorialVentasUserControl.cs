@@ -16,5 +16,19 @@ namespace CapaPresentacion.Vendedor
         {
             InitializeComponent();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Verifica si se hizo clic en la columna del botón "Detalle"
+            if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "CDetalle")
+            {
+                // Puedes pasar un ID de venta si lo necesitas
+                // int idVenta = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["IdVenta"].Value);
+
+                // Abre la ventana DetalleVenta como formulario modal
+                DetalleVenta detalleForm = new DetalleVenta();
+                detalleForm.ShowDialog();
+            }
+        }
     }
 }

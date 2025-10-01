@@ -70,17 +70,11 @@
     <Compile Include="Administrador\ComprasUserControlAdministrador.Designer.cs">
       <DependentUpon>ComprasUserControlAdministrador.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administrador\GestionProductosUserControlAdministrador.cs">
+    <Compile Include="Administrador\GestionProveedorUserControlAdministrador.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Administrador\GestionProductosUserControlAdministrador.Designer.cs">
-      <DependentUpon>GestionProductosUserControlAdministrador.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Administrador\GestionProveedorUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Administrador\GestionProveedorUserControl.Designer.cs">
-      <DependentUpon>GestionProveedorUserControl.cs</DependentUpon>
+    <Compile Include="Administrador\GestionProveedorUserControlAdministrador.Designer.cs">
+      <DependentUpon>GestionProveedorUserControlAdministrador.cs</DependentUpon>
     </Compile>
     <Compile Include="Administrador\GestionUsuarioUserControlAdministrador.cs">
       <SubType>UserControl</SubType>
@@ -160,6 +154,12 @@
     <Compile Include="Vendedor\BuscarClientes.Designer.cs">
       <DependentUpon>BuscarClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vendedor\DetalleVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vendedor\DetalleVenta.Designer.cs">
+      <DependentUpon>DetalleVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vendedor\VentasVendedorUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -210,11 +210,8 @@
     <EmbeddedResource Include="Administrador\ComprasUserControlAdministrador.resx">
       <DependentUpon>ComprasUserControlAdministrador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administrador\GestionProductosUserControlAdministrador.resx">
-      <DependentUpon>GestionProductosUserControlAdministrador.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Administrador\GestionProveedorUserControl.resx">
-      <DependentUpon>GestionProveedorUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="Administrador\GestionProveedorUserControlAdministrador.resx">
+      <DependentUpon>GestionProveedorUserControlAdministrador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\GestionUsuarioUserControlAdministrador.resx">
       <DependentUpon>GestionUsuarioUserControlAdministrador.cs</DependentUpon>

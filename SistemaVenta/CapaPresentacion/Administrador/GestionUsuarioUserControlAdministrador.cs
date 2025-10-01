@@ -124,17 +124,24 @@ namespace CapaPresentacion.Administrador
             if (e.RowIndex >= 0 && DGUsuarios.Columns[e.ColumnIndex].Name == "Eliminar")
             {
                 int idUsuario = Convert.ToInt32(DGUsuarios.Rows[e.RowIndex].Cells["Id_usuario"].Value);
-                if (MessageBox.Show("¿Está seguro de eliminar este usuario?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("¿Está seguro de desactivar este usuario?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    bool eliminado = new CN_Usuario().Eliminar(idUsuario);
-                    if (eliminado)
+                    // Crear un objeto usuario solo con el ID y estado inactivo
+                    Usuario usuarioInactivo = new Usuario
                     {
-                        MessageBox.Show("Usuario eliminado correctamente");
+                        Id_usuario = idUsuario,
+                        Estado_usuario = 0 // 0 = Inactivo
+                    };
+
+                    bool modificado = new CN_Usuario().Modificar(usuarioInactivo);
+                    if (modificado)
+                    {
+                        MessageBox.Show("Usuario desactivado correctamente");
                         CargarUsuarios();
                     }
                     else
                     {
-                        MessageBox.Show("Error al eliminar el usuario");
+                        MessageBox.Show("Error al desactivar el usuario");
                     }
                 }
             }

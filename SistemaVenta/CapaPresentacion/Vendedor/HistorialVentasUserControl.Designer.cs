@@ -30,8 +30,14 @@
         {
             this.LHistorialVenta = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.CBCategoria = new System.Windows.Forms.ComboBox();
-            this.LBuscar = new System.Windows.Forms.Label();
+            this.IBtnBuscar = new FontAwesome.Sharp.IconButton();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.FechaFin = new System.Windows.Forms.Label();
+            this.LFechaInicio = new System.Windows.Forms.Label();
+            this.PBuscarCliente = new System.Windows.Forms.Panel();
+            this.TBuscarCliente = new System.Windows.Forms.TextBox();
+            this.IBtnBuscarClientes = new FontAwesome.Sharp.IconButton();
             this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,6 +45,7 @@
             this.CMetodoPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.PBuscarCliente.SuspendLayout();
             this.SuspendLayout();
             // 
             // LHistorialVenta
@@ -66,31 +73,101 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(646, 542);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // CBCategoria
+            // IBtnBuscar
             // 
-            this.CBCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.CBCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.CBCategoria.FormattingEnabled = true;
-            this.CBCategoria.Items.AddRange(new object[] {
-            "Fecha",
-            "Cliente",
-            "Vendedor"});
-            this.CBCategoria.Location = new System.Drawing.Point(204, 108);
-            this.CBCategoria.Name = "CBCategoria";
-            this.CBCategoria.Size = new System.Drawing.Size(123, 21);
-            this.CBCategoria.TabIndex = 3;
+            this.IBtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IBtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.IBtnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IBtnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.IBtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
+            this.IBtnBuscar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.IBtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.IBtnBuscar.IconSize = 24;
+            this.IBtnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.IBtnBuscar.Location = new System.Drawing.Point(868, 81);
+            this.IBtnBuscar.Name = "IBtnBuscar";
+            this.IBtnBuscar.Size = new System.Drawing.Size(80, 27);
+            this.IBtnBuscar.TabIndex = 11;
+            this.IBtnBuscar.Text = "Buscar";
+            this.IBtnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.IBtnBuscar.UseVisualStyleBackColor = true;
             // 
-            // LBuscar
+            // dateTimePicker2
             // 
-            this.LBuscar.AutoSize = true;
-            this.LBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBuscar.ForeColor = System.Drawing.Color.Silver;
-            this.LBuscar.Location = new System.Drawing.Point(200, 85);
-            this.LBuscar.Name = "LBuscar";
-            this.LBuscar.Size = new System.Drawing.Size(90, 20);
-            this.LBuscar.TabIndex = 4;
-            this.LBuscar.Text = "Buscar por:";
+            this.dateTimePicker2.Location = new System.Drawing.Point(480, 81);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(132, 20);
+            this.dateTimePicker2.TabIndex = 9;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(715, 85);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(135, 20);
+            this.dateTimePicker1.TabIndex = 10;
+            // 
+            // FechaFin
+            // 
+            this.FechaFin.AutoSize = true;
+            this.FechaFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FechaFin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.FechaFin.Location = new System.Drawing.Point(635, 85);
+            this.FechaFin.Name = "FechaFin";
+            this.FechaFin.Size = new System.Drawing.Size(74, 17);
+            this.FechaFin.TabIndex = 8;
+            this.FechaFin.Text = "Fecha Fin:";
+            // 
+            // LFechaInicio
+            // 
+            this.LFechaInicio.AutoSize = true;
+            this.LFechaInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LFechaInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LFechaInicio.Location = new System.Drawing.Point(391, 81);
+            this.LFechaInicio.Name = "LFechaInicio";
+            this.LFechaInicio.Size = new System.Drawing.Size(87, 17);
+            this.LFechaInicio.TabIndex = 7;
+            this.LFechaInicio.Text = "Fecha Inicio:";
+            // 
+            // PBuscarCliente
+            // 
+            this.PBuscarCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PBuscarCliente.Controls.Add(this.TBuscarCliente);
+            this.PBuscarCliente.Controls.Add(this.IBtnBuscarClientes);
+            this.PBuscarCliente.Location = new System.Drawing.Point(204, 77);
+            this.PBuscarCliente.Name = "PBuscarCliente";
+            this.PBuscarCliente.Size = new System.Drawing.Size(165, 25);
+            this.PBuscarCliente.TabIndex = 21;
+            // 
+            // TBuscarCliente
+            // 
+            this.TBuscarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TBuscarCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TBuscarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBuscarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.TBuscarCliente.Location = new System.Drawing.Point(3, 3);
+            this.TBuscarCliente.Name = "TBuscarCliente";
+            this.TBuscarCliente.Size = new System.Drawing.Size(126, 15);
+            this.TBuscarCliente.TabIndex = 2;
+            this.TBuscarCliente.Text = "Buscar Cliente...";
+            // 
+            // IBtnBuscarClientes
+            // 
+            this.IBtnBuscarClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.IBtnBuscarClientes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IBtnBuscarClientes.FlatAppearance.BorderSize = 0;
+            this.IBtnBuscarClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.IBtnBuscarClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.IBtnBuscarClientes.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.IBtnBuscarClientes.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.IBtnBuscarClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.IBtnBuscarClientes.IconSize = 32;
+            this.IBtnBuscarClientes.Location = new System.Drawing.Point(135, 2);
+            this.IBtnBuscarClientes.Name = "IBtnBuscarClientes";
+            this.IBtnBuscarClientes.Size = new System.Drawing.Size(24, 25);
+            this.IBtnBuscarClientes.TabIndex = 3;
+            this.IBtnBuscarClientes.UseVisualStyleBackColor = false;
             // 
             // CFecha
             // 
@@ -124,19 +201,26 @@
             this.CDetalle.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CDetalle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.CDetalle.Text = "Detalle";
+            this.CDetalle.UseColumnTextForButtonValue = true;
             // 
             // HistorialVentasUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Controls.Add(this.LBuscar);
-            this.Controls.Add(this.CBCategoria);
+            this.Controls.Add(this.PBuscarCliente);
+            this.Controls.Add(this.IBtnBuscar);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.FechaFin);
+            this.Controls.Add(this.LFechaInicio);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.LHistorialVenta);
             this.Name = "HistorialVentasUserControl";
             this.Size = new System.Drawing.Size(1201, 660);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.PBuscarCliente.ResumeLayout(false);
+            this.PBuscarCliente.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,8 +230,14 @@
 
         private System.Windows.Forms.Label LHistorialVenta;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox CBCategoria;
-        private System.Windows.Forms.Label LBuscar;
+        private FontAwesome.Sharp.IconButton IBtnBuscar;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label FechaFin;
+        private System.Windows.Forms.Label LFechaInicio;
+        private System.Windows.Forms.Panel PBuscarCliente;
+        private System.Windows.Forms.TextBox TBuscarCliente;
+        private FontAwesome.Sharp.IconButton IBtnBuscarClientes;
         private System.Windows.Forms.DataGridViewTextBoxColumn CFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn CVendedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCliente;

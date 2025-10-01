@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CapaPresentacion.Administrador
+namespace CapaPresentacion.Vendedor
 {
-    public partial class GestionProveedorUserControl : UserControl
+    public partial class DetalleVenta : Form
     {
-        public GestionProveedorUserControl()
+        public DetalleVenta()
         {
             InitializeComponent();
         }

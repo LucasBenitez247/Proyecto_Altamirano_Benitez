@@ -40,7 +40,7 @@ namespace CapaPresentacion.Administrador
 
         private void BtnProductos_Click(object sender, EventArgs e)
         {
-            AbrirUserControl(new GestionProductosUserControlAdministrador());
+            AbrirUserControl(new GestionProveedorUserControlAdministrador());
         }
 
         

@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion.Administrador
 {
-    partial class GestionProductosUserControlAdministrador
+    partial class GestionProveedorUserControlAdministrador
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.PFormulario = new System.Windows.Forms.Panel();
             this.BtnCancelar = new FontAwesome.Sharp.IconButton();
             this.BtnLimpiar = new FontAwesome.Sharp.IconButton();
@@ -50,9 +51,17 @@
             this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCiudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider4 = new System.Windows.Forms.ErrorProvider(this.components);
             this.PFormulario.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).BeginInit();
             this.SuspendLayout();
             // 
             // PFormulario
@@ -160,6 +169,7 @@
             this.TTelefono.Name = "TTelefono";
             this.TTelefono.Size = new System.Drawing.Size(206, 20);
             this.TTelefono.TabIndex = 24;
+            this.TTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TTelefono_KeyPress);
             // 
             // LPrecio
             // 
@@ -200,6 +210,7 @@
             this.TNroDocumento.Name = "TNroDocumento";
             this.TNroDocumento.Size = new System.Drawing.Size(206, 20);
             this.TNroDocumento.TabIndex = 4;
+            this.TNroDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TNroDocumento_KeyPress);
             // 
             // LNombre
             // 
@@ -218,6 +229,7 @@
             this.TRazonSocial.Name = "TRazonSocial";
             this.TRazonSocial.Size = new System.Drawing.Size(206, 20);
             this.TRazonSocial.TabIndex = 2;
+            this.TRazonSocial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TRazonSocial_KeyPress);
             // 
             // LCódigo
             // 
@@ -247,6 +259,7 @@
             this.TCorreo.Name = "TCorreo";
             this.TCorreo.Size = new System.Drawing.Size(206, 20);
             this.TCorreo.TabIndex = 11;
+            this.TCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TCorreo_KeyPress);
             // 
             // LRegistroProducto
             // 
@@ -301,19 +314,39 @@
             this.CEliminar.HeaderText = "Eliminar";
             this.CEliminar.Name = "CEliminar";
             // 
-            // GestionProductosUserControlAdministrador
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
+            // 
+            // errorProvider3
+            // 
+            this.errorProvider3.ContainerControl = this;
+            // 
+            // errorProvider4
+            // 
+            this.errorProvider4.ContainerControl = this;
+            // 
+            // GestionProveedorUserControlAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.PFormulario);
-            this.Name = "GestionProductosUserControlAdministrador";
+            this.Name = "GestionProveedorUserControlAdministrador";
             this.Size = new System.Drawing.Size(1190, 660);
             this.PFormulario.ResumeLayout(false);
             this.PFormulario.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -342,5 +375,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCiudad;
         private System.Windows.Forms.DataGridViewButtonColumn CEliminar;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
+        private System.Windows.Forms.ErrorProvider errorProvider3;
+        private System.Windows.Forms.ErrorProvider errorProvider4;
     }
 }

@@ -16,6 +16,28 @@ namespace CapaPresentacion.Dueño_de_Negocio
         {
             InitializeComponent();
         }
+
+        private void IBtnBuscar2_Click(object sender, EventArgs e)
+        {
+            ValidarComboBox();
+            if (string.IsNullOrWhiteSpace(TBuscar.Text))
+            {
+                MessageBox.Show("Ingrese un término de búsqueda.");
+                return;
+            }
+        }
+
+        private void ValidarComboBox()
+        {
+            if (comboBox1.SelectedIndex == -1)
+            {
+                errorProvider1.SetError(comboBox1, "Debe seleccionar una opción");
+            }
+            else
+            {
+                errorProvider1.SetError(comboBox1, "");
+            }
+        }
     }
      
     }

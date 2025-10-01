@@ -324,9 +324,9 @@
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label11.Location = new System.Drawing.Point(753, 422);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(107, 20);
+            this.label11.Size = new System.Drawing.Size(48, 20);
             this.label11.TabIndex = 23;
-            this.label11.Text = "Total a Pagar:";
+            this.label11.Text = "Total:";
             // 
             // BtnRegistrar
             // 
