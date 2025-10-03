@@ -34,9 +34,9 @@
             this.BtnLimpiar = new FontAwesome.Sharp.IconButton();
             this.BtnRegistrar = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TDireccion = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TDni = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.CBEstado = new System.Windows.Forms.ComboBox();
             this.LEstado = new System.Windows.Forms.Label();
@@ -59,6 +59,8 @@
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider4 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider5 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider6 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider7 = new System.Windows.Forms.ErrorProvider(this.components);
             this.PFormulario.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGUsuarios)).BeginInit();
@@ -67,6 +69,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider7)).BeginInit();
             this.SuspendLayout();
             // 
             // PFormulario
@@ -153,9 +157,9 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.TDireccion);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.TDni);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.CBEstado);
             this.panel1.Controls.Add(this.LEstado);
@@ -176,12 +180,13 @@
             this.panel1.Size = new System.Drawing.Size(501, 495);
             this.panel1.TabIndex = 3;
             // 
-            // textBox2
+            // TDireccion
             // 
-            this.textBox2.Location = new System.Drawing.Point(133, 178);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(206, 20);
-            this.textBox2.TabIndex = 26;
+            this.TDireccion.Location = new System.Drawing.Point(133, 178);
+            this.TDireccion.Name = "TDireccion";
+            this.TDireccion.Size = new System.Drawing.Size(206, 20);
+            this.TDireccion.TabIndex = 26;
+            this.TDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TDireccion_KeyPress);
             // 
             // label3
             // 
@@ -194,12 +199,13 @@
             this.label3.TabIndex = 25;
             this.label3.Text = "Dirección:";
             // 
-            // textBox1
+            // TDni
             // 
-            this.textBox1.Location = new System.Drawing.Point(133, 133);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(206, 20);
-            this.textBox1.TabIndex = 24;
+            this.TDni.Location = new System.Drawing.Point(133, 133);
+            this.TDni.Name = "TDni";
+            this.TDni.Size = new System.Drawing.Size(206, 20);
+            this.TDni.TabIndex = 24;
+            this.TDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TDni_KeyPress);
             // 
             // label2
             // 
@@ -393,6 +399,14 @@
             // 
             this.errorProvider5.ContainerControl = this;
             // 
+            // errorProvider6
+            // 
+            this.errorProvider6.ContainerControl = this;
+            // 
+            // errorProvider7
+            // 
+            this.errorProvider7.ContainerControl = this;
+            // 
             // GestionUsuarioUserControlAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -411,6 +425,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -443,9 +459,11 @@
         private System.Windows.Forms.ErrorProvider errorProvider3;
         private System.Windows.Forms.ErrorProvider errorProvider4;
         private System.Windows.Forms.ErrorProvider errorProvider5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TDireccion;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TDni;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ErrorProvider errorProvider6;
+        private System.Windows.Forms.ErrorProvider errorProvider7;
     }
 }
