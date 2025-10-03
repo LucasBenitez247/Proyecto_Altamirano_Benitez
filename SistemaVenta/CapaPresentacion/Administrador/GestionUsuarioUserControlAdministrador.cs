@@ -260,5 +260,10 @@ namespace CapaPresentacion.Administrador
                 errorProvider5.SetError(TRContrasenia, "");
             }
         }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

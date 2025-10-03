@@ -64,6 +64,12 @@
     <Compile Include="Administrador\AgregarNuevaCompra.Designer.cs">
       <DependentUpon>AgregarNuevaCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\AltaProductosUserControlAdministrador.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Administrador\AltaProductosUserControlAdministrador.Designer.cs">
+      <DependentUpon>AltaProductosUserControlAdministrador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\ComprasUserControlAdministrador.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -206,6 +212,9 @@
     </Compile>
     <EmbeddedResource Include="Administrador\AgregarNuevaCompra.resx">
       <DependentUpon>AgregarNuevaCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\AltaProductosUserControlAdministrador.resx">
+      <DependentUpon>AltaProductosUserControlAdministrador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\ComprasUserControlAdministrador.resx">
       <DependentUpon>ComprasUserControlAdministrador.cs</DependentUpon>
