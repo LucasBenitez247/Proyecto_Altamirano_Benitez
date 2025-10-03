@@ -30,6 +30,11 @@
         {
             this.LHistorialVenta = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CMetodoPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
             this.IBtnBuscar = new FontAwesome.Sharp.IconButton();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -38,12 +43,6 @@
             this.PBuscarCliente = new System.Windows.Forms.Panel();
             this.TBuscarCliente = new System.Windows.Forms.TextBox();
             this.IBtnBuscarClientes = new FontAwesome.Sharp.IconButton();
-            this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CMetodoPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.PBuscarCliente.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +63,6 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CFecha,
-            this.CVendedor,
             this.CCliente,
             this.CTotal,
             this.CMetodoPago,
@@ -74,6 +72,40 @@
             this.dataGridView1.Size = new System.Drawing.Size(646, 542);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // CFecha
+            // 
+            this.CFecha.HeaderText = "Fecha";
+            this.CFecha.Name = "CFecha";
+            this.CFecha.Width = 120;
+            // 
+            // CCliente
+            // 
+            this.CCliente.HeaderText = "Cliente";
+            this.CCliente.Name = "CCliente";
+            this.CCliente.Width = 120;
+            // 
+            // CTotal
+            // 
+            this.CTotal.HeaderText = "Total";
+            this.CTotal.Name = "CTotal";
+            this.CTotal.Width = 120;
+            // 
+            // CMetodoPago
+            // 
+            this.CMetodoPago.HeaderText = "Metodo de Pago";
+            this.CMetodoPago.Name = "CMetodoPago";
+            this.CMetodoPago.Width = 120;
+            // 
+            // CDetalle
+            // 
+            this.CDetalle.HeaderText = "Detalle";
+            this.CDetalle.Name = "CDetalle";
+            this.CDetalle.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CDetalle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.CDetalle.Text = "Detalle";
+            this.CDetalle.UseColumnTextForButtonValue = true;
+            this.CDetalle.Width = 120;
             // 
             // IBtnBuscar
             // 
@@ -142,7 +174,7 @@
             // 
             // TBuscarCliente
             // 
-            this.TBuscarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TBuscarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.TBuscarCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TBuscarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBuscarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -154,7 +186,7 @@
             // 
             // IBtnBuscarClientes
             // 
-            this.IBtnBuscarClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.IBtnBuscarClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.IBtnBuscarClientes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.IBtnBuscarClientes.FlatAppearance.BorderSize = 0;
             this.IBtnBuscarClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -169,45 +201,11 @@
             this.IBtnBuscarClientes.TabIndex = 3;
             this.IBtnBuscarClientes.UseVisualStyleBackColor = false;
             // 
-            // CFecha
-            // 
-            this.CFecha.HeaderText = "Fecha";
-            this.CFecha.Name = "CFecha";
-            // 
-            // CVendedor
-            // 
-            this.CVendedor.HeaderText = "Vendedor";
-            this.CVendedor.Name = "CVendedor";
-            // 
-            // CCliente
-            // 
-            this.CCliente.HeaderText = "Cliente";
-            this.CCliente.Name = "CCliente";
-            // 
-            // CTotal
-            // 
-            this.CTotal.HeaderText = "Total";
-            this.CTotal.Name = "CTotal";
-            // 
-            // CMetodoPago
-            // 
-            this.CMetodoPago.HeaderText = "Metodo de Pago";
-            this.CMetodoPago.Name = "CMetodoPago";
-            // 
-            // CDetalle
-            // 
-            this.CDetalle.HeaderText = "Detalle";
-            this.CDetalle.Name = "CDetalle";
-            this.CDetalle.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CDetalle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.CDetalle.Text = "Detalle";
-            this.CDetalle.UseColumnTextForButtonValue = true;
-            // 
             // HistorialVentasUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.Controls.Add(this.PBuscarCliente);
             this.Controls.Add(this.IBtnBuscar);
             this.Controls.Add(this.dateTimePicker2);
@@ -239,7 +237,6 @@
         private System.Windows.Forms.TextBox TBuscarCliente;
         private FontAwesome.Sharp.IconButton IBtnBuscarClientes;
         private System.Windows.Forms.DataGridViewTextBoxColumn CFecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CVendedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn CTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn CMetodoPago;

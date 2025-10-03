@@ -30,29 +30,21 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PerfilAdministrador));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PContenedor = new System.Windows.Forms.Panel();
             this.LblHora = new System.Windows.Forms.Label();
             this.LblFecha = new System.Windows.Forms.Label();
+            this.HoraFecha = new System.Windows.Forms.Timer(this.components);
+            this.BtnBackUp = new FontAwesome.Sharp.IconButton();
+            this.BtnSalir = new FontAwesome.Sharp.IconButton();
+            this.BtnReportes = new FontAwesome.Sharp.IconButton();
             this.BtnInicio = new FontAwesome.Sharp.IconButton();
             this.BtnProductos = new FontAwesome.Sharp.IconButton();
             this.BtnGestionUsuarios = new FontAwesome.Sharp.IconButton();
             this.BtnCompras = new FontAwesome.Sharp.IconButton();
-            this.BtnReportes = new FontAwesome.Sharp.IconButton();
-            this.BtnSalir = new FontAwesome.Sharp.IconButton();
-            this.HoraFecha = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PContenedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-1, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(162, 74);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
             // 
             // PContenedor
             // 
@@ -85,6 +77,79 @@
             this.LblFecha.Size = new System.Drawing.Size(131, 46);
             this.LblFecha.TabIndex = 0;
             this.LblFecha.Text = "Fecha";
+            // 
+            // HoraFecha
+            // 
+            this.HoraFecha.Enabled = true;
+            this.HoraFecha.Tick += new System.EventHandler(this.HoraFecha_Tick);
+            // 
+            // BtnBackUp
+            // 
+            this.BtnBackUp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBackUp.FlatAppearance.BorderSize = 0;
+            this.BtnBackUp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BtnBackUp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.BtnBackUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBackUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBackUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnBackUp.IconChar = FontAwesome.Sharp.IconChar.Database;
+            this.BtnBackUp.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnBackUp.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnBackUp.IconSize = 32;
+            this.BtnBackUp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnBackUp.Location = new System.Drawing.Point(0, 383);
+            this.BtnBackUp.Name = "BtnBackUp";
+            this.BtnBackUp.Size = new System.Drawing.Size(152, 57);
+            this.BtnBackUp.TabIndex = 20;
+            this.BtnBackUp.Text = "Back-Up";
+            this.BtnBackUp.UseCompatibleTextRendering = true;
+            this.BtnBackUp.UseVisualStyleBackColor = true;
+            this.BtnBackUp.Click += new System.EventHandler(this.BtnBackUp_Click);
+            // 
+            // BtnSalir
+            // 
+            this.BtnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSalir.FlatAppearance.BorderSize = 0;
+            this.BtnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BtnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.BtnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnSalir.IconChar = FontAwesome.Sharp.IconChar.SignOut;
+            this.BtnSalir.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnSalir.IconSize = 32;
+            this.BtnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnSalir.Location = new System.Drawing.Point(1232, 12);
+            this.BtnSalir.Name = "BtnSalir";
+            this.BtnSalir.Size = new System.Drawing.Size(115, 57);
+            this.BtnSalir.TabIndex = 19;
+            this.BtnSalir.Text = "Salir";
+            this.BtnSalir.UseVisualStyleBackColor = true;
+            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
+            // 
+            // BtnReportes
+            // 
+            this.BtnReportes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnReportes.FlatAppearance.BorderSize = 0;
+            this.BtnReportes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BtnReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.BtnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnReportes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnReportes.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
+            this.BtnReportes.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnReportes.IconSize = 32;
+            this.BtnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnReportes.Location = new System.Drawing.Point(-1, 320);
+            this.BtnReportes.Name = "BtnReportes";
+            this.BtnReportes.Size = new System.Drawing.Size(152, 57);
+            this.BtnReportes.TabIndex = 18;
+            this.BtnReportes.Text = "Reportes";
+            this.BtnReportes.UseCompatibleTextRendering = true;
+            this.BtnReportes.UseVisualStyleBackColor = true;
+            this.BtnReportes.Click += new System.EventHandler(this.BtnReportes_Click);
             // 
             // BtnInicio
             // 
@@ -178,55 +243,14 @@
             this.BtnCompras.UseVisualStyleBackColor = true;
             this.BtnCompras.Click += new System.EventHandler(this.BtnCompras_Click);
             // 
-            // BtnReportes
+            // pictureBox1
             // 
-            this.BtnReportes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnReportes.FlatAppearance.BorderSize = 0;
-            this.BtnReportes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.BtnReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.BtnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnReportes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnReportes.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
-            this.BtnReportes.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnReportes.IconSize = 32;
-            this.BtnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnReportes.Location = new System.Drawing.Point(-1, 320);
-            this.BtnReportes.Name = "BtnReportes";
-            this.BtnReportes.Size = new System.Drawing.Size(152, 57);
-            this.BtnReportes.TabIndex = 18;
-            this.BtnReportes.Text = "Reportes";
-            this.BtnReportes.UseCompatibleTextRendering = true;
-            this.BtnReportes.UseVisualStyleBackColor = true;
-            this.BtnReportes.Click += new System.EventHandler(this.BtnReportes_Click);
-            // 
-            // BtnSalir
-            // 
-            this.BtnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnSalir.FlatAppearance.BorderSize = 0;
-            this.BtnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.BtnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.BtnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnSalir.IconChar = FontAwesome.Sharp.IconChar.SignOut;
-            this.BtnSalir.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnSalir.IconSize = 32;
-            this.BtnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnSalir.Location = new System.Drawing.Point(1232, 12);
-            this.BtnSalir.Name = "BtnSalir";
-            this.BtnSalir.Size = new System.Drawing.Size(115, 57);
-            this.BtnSalir.TabIndex = 19;
-            this.BtnSalir.Text = "Salir";
-            this.BtnSalir.UseVisualStyleBackColor = true;
-            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
-            // 
-            // HoraFecha
-            // 
-            this.HoraFecha.Enabled = true;
-            this.HoraFecha.Tick += new System.EventHandler(this.HoraFecha_Tick);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(-1, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(162, 74);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
             // 
             // PerfilAdministrador
             // 
@@ -234,6 +258,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Controls.Add(this.BtnBackUp);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.BtnReportes);
             this.Controls.Add(this.BtnInicio);
@@ -245,9 +270,9 @@
             this.Name = "PerfilAdministrador";
             this.Text = "PerfilAdministrador";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.PContenedor.ResumeLayout(false);
             this.PContenedor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -265,5 +290,6 @@
         private FontAwesome.Sharp.IconButton BtnReportes;
         private FontAwesome.Sharp.IconButton BtnSalir;
         private System.Windows.Forms.Timer HoraFecha;
+        private FontAwesome.Sharp.IconButton BtnBackUp;
     }
 }
