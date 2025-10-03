@@ -22,7 +22,7 @@ namespace CapaPresentacion.Vendedor
             // Verifica si se hizo clic en la columna del botón "Detalle"
             if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "CDetalle")
             {
-                // Puedes pasar un ID de venta si lo necesitas
+                // pasar un ID de venta si es necesario
                 // int idVenta = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["IdVenta"].Value);
 
                 // Abre la ventana DetalleVenta como formulario modal
