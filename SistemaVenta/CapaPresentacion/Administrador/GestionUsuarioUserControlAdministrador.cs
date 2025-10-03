@@ -82,7 +82,7 @@ namespace CapaPresentacion.Administrador
             // Crear objeto Usuario (con Id si ya está seleccionado)
             Usuario usuario = new Usuario()
             {
-                Id_usuario = idUsuarioSeleccionado, // ← clave para diferenciar entre registrar y modificar
+                Id_usuario = idUsuarioSeleccionado, // clave para diferenciar entre registrar y modificar
                 Nombre_usuario = TNombre.Text.Trim(),
                 Apellido_usuario = TApellido.Text.Trim(),
                 Mail_usuario = TCorreo.Text.Trim(),
