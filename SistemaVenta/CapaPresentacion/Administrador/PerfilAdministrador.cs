@@ -60,5 +60,10 @@ namespace CapaPresentacion.Administrador
             LblFecha.Text = DateTime.Now.ToLongDateString();
             LblHora.Text = DateTime.Now.ToLongTimeString();
         }
+
+        private void BtnBackUp_Click(object sender, EventArgs e)
+        {
+            AbrirUserControl(new BackUpUserControl());
+        }
     }
 }

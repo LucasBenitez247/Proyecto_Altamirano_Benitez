@@ -64,6 +64,12 @@
     <Compile Include="Administrador\AgregarNuevaCompra.Designer.cs">
       <DependentUpon>AgregarNuevaCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\BackUpUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Administrador\BackUpUserControl.Designer.cs">
+      <DependentUpon>BackUpUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\ComprasUserControlAdministrador.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -207,6 +213,9 @@
     <EmbeddedResource Include="Administrador\AgregarNuevaCompra.resx">
       <DependentUpon>AgregarNuevaCompra.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\BackUpUserControl.resx">
+      <DependentUpon>BackUpUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administrador\ComprasUserControlAdministrador.resx">
       <DependentUpon>ComprasUserControlAdministrador.cs</DependentUpon>
     </EmbeddedResource>
@@ -251,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vendedor\CatalogoProductosVendedorUserControl.resx">
       <DependentUpon>CatalogoProductosVendedorUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vendedor\DetalleVenta.resx">
+      <DependentUpon>DetalleVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vendedor\VentasVendedorUserControl.resx">
       <DependentUpon>VentasVendedorUserControl.cs</DependentUpon>
