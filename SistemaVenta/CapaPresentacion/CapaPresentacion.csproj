@@ -64,12 +64,6 @@
     <Compile Include="Administrador\AgregarNuevaCompra.Designer.cs">
       <DependentUpon>AgregarNuevaCompra.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administrador\BackUpUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Administrador\BackUpUserControl.Designer.cs">
-      <DependentUpon>BackUpUserControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Administrador\ComprasUserControlAdministrador.cs">
       <SubType>UserControl</SubType>
     </Compile>
