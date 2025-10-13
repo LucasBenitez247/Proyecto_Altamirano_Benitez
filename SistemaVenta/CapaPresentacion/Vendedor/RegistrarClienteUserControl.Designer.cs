@@ -34,6 +34,8 @@
             this.BtnLimpiar = new FontAwesome.Sharp.IconButton();
             this.BtnRegistrar = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.CBEstado = new System.Windows.Forms.ComboBox();
+            this.LEstado = new System.Windows.Forms.Label();
             this.RBOtro = new System.Windows.Forms.RadioButton();
             this.RBFemenino = new System.Windows.Forms.RadioButton();
             this.RBMasculino = new System.Windows.Forms.RadioButton();
@@ -62,16 +64,6 @@
             this.LRegistroCliente = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCiudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PProvincia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCodigo_Postal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -180,6 +172,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.CBEstado);
+            this.panel1.Controls.Add(this.LEstado);
             this.panel1.Controls.Add(this.RBOtro);
             this.panel1.Controls.Add(this.RBFemenino);
             this.panel1.Controls.Add(this.RBMasculino);
@@ -209,6 +203,28 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(501, 495);
             this.panel1.TabIndex = 3;
+            // 
+            // CBEstado
+            // 
+            this.CBEstado.FormattingEnabled = true;
+            this.CBEstado.Items.AddRange(new object[] {
+            "Activo",
+            "Inactivo"});
+            this.CBEstado.Location = new System.Drawing.Point(13, 439);
+            this.CBEstado.Name = "CBEstado";
+            this.CBEstado.Size = new System.Drawing.Size(206, 21);
+            this.CBEstado.TabIndex = 24;
+            // 
+            // LEstado
+            // 
+            this.LEstado.AutoSize = true;
+            this.LEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LEstado.Location = new System.Drawing.Point(9, 416);
+            this.LEstado.Name = "LEstado";
+            this.LEstado.Size = new System.Drawing.Size(71, 20);
+            this.LEstado.TabIndex = 23;
+            this.LEstado.Text = "Estado:";
             // 
             // RBOtro
             // 
@@ -482,71 +498,11 @@
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CNombre,
-            this.CApellido,
-            this.CDNI,
-            this.CCorreo,
-            this.CTelefono,
-            this.CDireccion,
-            this.CCiudad,
-            this.PProvincia,
-            this.CCodigo_Postal,
-            this.CEliminar});
-            this.dataGridView2.Location = new System.Drawing.Point(531, 3);
+            this.dataGridView2.Location = new System.Drawing.Point(528, 3);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(651, 621);
             this.dataGridView2.TabIndex = 5;
-            // 
-            // CNombre
-            // 
-            this.CNombre.HeaderText = "Nombre";
-            this.CNombre.Name = "CNombre";
-            // 
-            // CApellido
-            // 
-            this.CApellido.HeaderText = "Apellido";
-            this.CApellido.Name = "CApellido";
-            // 
-            // CDNI
-            // 
-            this.CDNI.HeaderText = "DNI";
-            this.CDNI.Name = "CDNI";
-            // 
-            // CCorreo
-            // 
-            this.CCorreo.HeaderText = "Correo";
-            this.CCorreo.Name = "CCorreo";
-            // 
-            // CTelefono
-            // 
-            this.CTelefono.HeaderText = "Teléfono";
-            this.CTelefono.Name = "CTelefono";
-            // 
-            // CDireccion
-            // 
-            this.CDireccion.HeaderText = "Dirección(Calle y Nro)";
-            this.CDireccion.Name = "CDireccion";
-            // 
-            // CCiudad
-            // 
-            this.CCiudad.HeaderText = "Ciudad";
-            this.CCiudad.Name = "CCiudad";
-            // 
-            // PProvincia
-            // 
-            this.PProvincia.HeaderText = "Provincia";
-            this.PProvincia.Name = "PProvincia";
-            // 
-            // CCodigo_Postal
-            // 
-            this.CCodigo_Postal.HeaderText = "Código Postal";
-            this.CCodigo_Postal.Name = "CCodigo_Postal";
-            // 
-            // CEliminar
-            // 
-            this.CEliminar.HeaderText = "Eliminar";
-            this.CEliminar.Name = "CEliminar";
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
             // errorProvider1
             // 
@@ -644,16 +600,6 @@
         private System.Windows.Forms.RadioButton RBOtro;
         private System.Windows.Forms.RadioButton RBFemenino;
         private System.Windows.Forms.RadioButton RBMasculino;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CApellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CDNI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCorreo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CTelefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CDireccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCiudad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PProvincia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCodigo_Postal;
-        private System.Windows.Forms.DataGridViewButtonColumn CEliminar;
         private FontAwesome.Sharp.IconButton BtnRegistrar;
         private FontAwesome.Sharp.IconButton BtnCancelar;
         private FontAwesome.Sharp.IconButton BtnLimpiar;
@@ -666,5 +612,7 @@
         private System.Windows.Forms.ErrorProvider errorProvider7;
         private System.Windows.Forms.ErrorProvider errorProvider8;
         private System.Windows.Forms.ErrorProvider errorProvider9;
+        private System.Windows.Forms.ComboBox CBEstado;
+        private System.Windows.Forms.Label LEstado;
     }
 }
