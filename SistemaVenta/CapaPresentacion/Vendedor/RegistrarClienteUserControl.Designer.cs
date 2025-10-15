@@ -34,8 +34,6 @@
             this.BtnLimpiar = new FontAwesome.Sharp.IconButton();
             this.BtnRegistrar = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.CBEstado = new System.Windows.Forms.ComboBox();
-            this.LEstado = new System.Windows.Forms.Label();
             this.RBOtro = new System.Windows.Forms.RadioButton();
             this.RBFemenino = new System.Windows.Forms.RadioButton();
             this.RBMasculino = new System.Windows.Forms.RadioButton();
@@ -172,8 +170,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.CBEstado);
-            this.panel1.Controls.Add(this.LEstado);
             this.panel1.Controls.Add(this.RBOtro);
             this.panel1.Controls.Add(this.RBFemenino);
             this.panel1.Controls.Add(this.RBMasculino);
@@ -203,28 +199,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(501, 495);
             this.panel1.TabIndex = 3;
-            // 
-            // CBEstado
-            // 
-            this.CBEstado.FormattingEnabled = true;
-            this.CBEstado.Items.AddRange(new object[] {
-            "Activo",
-            "Inactivo"});
-            this.CBEstado.Location = new System.Drawing.Point(13, 439);
-            this.CBEstado.Name = "CBEstado";
-            this.CBEstado.Size = new System.Drawing.Size(206, 21);
-            this.CBEstado.TabIndex = 24;
-            // 
-            // LEstado
-            // 
-            this.LEstado.AutoSize = true;
-            this.LEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LEstado.Location = new System.Drawing.Point(9, 416);
-            this.LEstado.Name = "LEstado";
-            this.LEstado.Size = new System.Drawing.Size(71, 20);
-            this.LEstado.TabIndex = 23;
-            this.LEstado.Text = "Estado:";
             // 
             // RBOtro
             // 
@@ -612,7 +586,5 @@
         private System.Windows.Forms.ErrorProvider errorProvider7;
         private System.Windows.Forms.ErrorProvider errorProvider8;
         private System.Windows.Forms.ErrorProvider errorProvider9;
-        private System.Windows.Forms.ComboBox CBEstado;
-        private System.Windows.Forms.Label LEstado;
     }
 }

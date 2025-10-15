@@ -61,8 +61,8 @@ namespace CapaDatos
                 using (SqlConnection oconexion = new Conexion().CrearConexion())
                 {
                     string query = @"INSERT INTO Clientes 
-                ( Nombre_cliente, Apellido_cliente, Dni_cliente, Genero_cliente, Correo_cliente, Telefono_cliente, Direccion_cliente, Ciudad_cliente, Provincia_cliente, Cod_postal_cliente, Estado_cliente)
-                VALUES (@nombre, @apellido, @dni, @genero, @correo, @telefono, @direccion, @ciudad, @provincia, @cod_postal, @estado_cliente)";
+                     ( Nombre_cliente, Apellido_cliente, Dni_cliente, Genero_cliente, Correo_cliente, Telefono_cliente, Direccion_cliente, Ciudad_cliente, Provincia_cliente, Cod_postal_cliente, Estado_cliente)
+                    VALUES (@nombre, @apellido, @dni, @genero, @correo, @telefono, @direccion, @ciudad, @provincia, @cod_postal, @estado_cliente)";
                     SqlCommand cmd = new SqlCommand(query, oconexion);
                     cmd.Parameters.AddWithValue("@nombre", obj.Nombre_cliente);
                     cmd.Parameters.AddWithValue("@apellido", obj.Apellido_cliente);
@@ -94,17 +94,17 @@ namespace CapaDatos
             {
                 using (SqlConnection oconexion = new Conexion().CrearConexion())
                 {
-                    string query = @"UPDATE clientes SET 
-                        Nombre = @nombre,
-                        Apellido = @apellido,
-                        Dni = @dni,
-                        Genero = @genero,
-                        Correo = @correo,
-                        Telefono = @telefono,
-                        Direccion = @direccion,
-                        Ciudad = @ciudad,
-                        Provincia = @provincia,
-                        Cod_postal = @cod_postal,
+                    string query = @"UPDATE Clientes SET 
+                        Nombre_cliente = @nombre,
+                        Apellido_cliente = @apellido,
+                        Dni_cliente = @dni,
+                        Genero_cliente = @genero,
+                        Correo_cliente = @correo,
+                        Telefono_cliente = @telefono,
+                        Direccion_cliente = @direccion,
+                        Ciudad_cliente = @ciudad,
+                        Provincia_cliente = @provincia,
+                        Cod_postal_cliente = @cod_postal,
                         Estado_cliente = @estado_cliente
                         WHERE Id_cliente = @id_cliente";
                     SqlCommand cmd = new SqlCommand(query, oconexion);

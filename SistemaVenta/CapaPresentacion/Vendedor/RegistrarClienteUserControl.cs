@@ -250,7 +250,7 @@ namespace CapaPresentacion.Vendedor
                             RBOtro.Checked ? "Otro" : "";
 
             int codPostal = int.TryParse(TCodigoPostal.Text, out int cp) ? cp : 0;
-
+           
             Cliente cliente = new Cliente()
             {
                 Id_cliente = idClienteSeleccionado,
@@ -265,6 +265,7 @@ namespace CapaPresentacion.Vendedor
                 Provincia_cliente = TProvincia.Text.Trim(),
                 Cod_postal_cliente = codPostal,
                 Estado_cliente = 1 // Activo por defecto
+              
             };
 
             bool resultado = false;
@@ -316,6 +317,21 @@ namespace CapaPresentacion.Vendedor
                 TCiudad.Text = fila.Cells["Ciudad_cliente"].Value?.ToString();
                 TProvincia.Text = fila.Cells["Provincia_cliente"].Value?.ToString();
                 TCodigoPostal.Text = fila.Cells["Cod_postal_cliente"].Value?.ToString();
+                
+                string genero = fila.Cells["Genero_cliente"].Value?.ToString();
+                if (genero == "Masculino")
+                    RBMasculino.Checked = true;
+                else if (genero == "Femenino")
+                    RBFemenino.Checked = true;
+                else if (genero == "Otro")
+                    RBOtro.Checked = true;
+                else
+                {
+                    RBMasculino.Checked = false;
+                    RBFemenino.Checked = false;
+                    RBOtro.Checked = false;
+                }
+              
             }
         }
     }
