@@ -64,6 +64,12 @@
     <Compile Include="Administrador\AgregarNuevaCompra.Designer.cs">
       <DependentUpon>AgregarNuevaCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\AgregarProductosFormAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\AgregarProductosFormAdministrador.Designer.cs">
+      <DependentUpon>AgregarProductosFormAdministrador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\BackUpUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -105,6 +111,12 @@
     </Compile>
     <Compile Include="Administrador\PerfilAdministrador.Designer.cs">
       <DependentUpon>PerfilAdministrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\ProductosUserControlAdministrador.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Administrador\ProductosUserControlAdministrador.Designer.cs">
+      <DependentUpon>ProductosUserControlAdministrador.cs</DependentUpon>
     </Compile>
     <Compile Include="Administrador\ReportesUserControlAdministrador.cs">
       <SubType>UserControl</SubType>
@@ -213,6 +225,9 @@
     <EmbeddedResource Include="Administrador\AgregarNuevaCompra.resx">
       <DependentUpon>AgregarNuevaCompra.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\AgregarProductosFormAdministrador.resx">
+      <DependentUpon>AgregarProductosFormAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administrador\BackUpUserControl.resx">
       <DependentUpon>BackUpUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\PerfilAdministrador.resx">
       <DependentUpon>PerfilAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\ProductosUserControlAdministrador.resx">
+      <DependentUpon>ProductosUserControlAdministrador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\ReportesUserControlAdministrador.resx">
       <DependentUpon>ReportesUserControlAdministrador.cs</DependentUpon>

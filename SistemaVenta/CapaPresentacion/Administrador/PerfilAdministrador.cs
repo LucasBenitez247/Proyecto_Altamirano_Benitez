@@ -65,5 +65,10 @@ namespace CapaPresentacion.Administrador
         {
             AbrirUserControl(new BackUpUserControl());
         }
+
+        private void btnAgregarProductos_Click(object sender, EventArgs e)
+        {
+            AbrirUserControl(new pnlProductos());
+        }
     }
 }

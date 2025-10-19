@@ -265,5 +265,10 @@ namespace CapaPresentacion.Administrador
         {
 
         }
+
+        private void PFormulario_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

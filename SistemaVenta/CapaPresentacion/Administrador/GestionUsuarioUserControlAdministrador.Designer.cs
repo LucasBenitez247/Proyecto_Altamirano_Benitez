@@ -83,6 +83,7 @@
             this.PFormulario.Name = "PFormulario";
             this.PFormulario.Size = new System.Drawing.Size(522, 624);
             this.PFormulario.TabIndex = 4;
+            this.PFormulario.Paint += new System.Windows.Forms.PaintEventHandler(this.PFormulario_Paint);
             // 
             // BtnCancelar
             // 
@@ -104,7 +105,6 @@
             this.BtnCancelar.TabIndex = 26;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = true;
-            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // BtnLimpiar
             // 
