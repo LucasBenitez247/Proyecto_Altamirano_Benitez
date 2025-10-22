@@ -263,6 +263,14 @@ namespace CapaPresentacion.Administrador
             }
         }
 
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PFormulario_Paint(object sender, PaintEventArgs e)
+        {
+
         
 
         private void TDireccion_KeyPress(object sender, KeyPressEventArgs e)

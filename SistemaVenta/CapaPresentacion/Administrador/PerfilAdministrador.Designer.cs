@@ -42,6 +42,7 @@
             this.BtnGestionUsuarios = new FontAwesome.Sharp.IconButton();
             this.BtnCompras = new FontAwesome.Sharp.IconButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAgregarProductos = new FontAwesome.Sharp.IconButton();
             this.PContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -252,12 +253,36 @@
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
+            // btnAgregarProductos
+            // 
+            this.btnAgregarProductos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarProductos.FlatAppearance.BorderSize = 0;
+            this.btnAgregarProductos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnAgregarProductos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnAgregarProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarProductos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnAgregarProductos.IconChar = FontAwesome.Sharp.IconChar.ProductHunt;
+            this.btnAgregarProductos.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnAgregarProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAgregarProductos.IconSize = 32;
+            this.btnAgregarProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarProductos.Location = new System.Drawing.Point(-1, 446);
+            this.btnAgregarProductos.Name = "btnAgregarProductos";
+            this.btnAgregarProductos.Size = new System.Drawing.Size(152, 57);
+            this.btnAgregarProductos.TabIndex = 21;
+            this.btnAgregarProductos.Text = "Agregar    Productos";
+            this.btnAgregarProductos.UseCompatibleTextRendering = true;
+            this.btnAgregarProductos.UseVisualStyleBackColor = true;
+            this.btnAgregarProductos.Click += new System.EventHandler(this.btnAgregarProductos_Click);
+            // 
             // PerfilAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Controls.Add(this.btnAgregarProductos);
             this.Controls.Add(this.BtnBackUp);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.BtnReportes);
@@ -291,5 +316,6 @@
         private FontAwesome.Sharp.IconButton BtnSalir;
         private System.Windows.Forms.Timer HoraFecha;
         private FontAwesome.Sharp.IconButton BtnBackUp;
+        private FontAwesome.Sharp.IconButton btnAgregarProductos;
     }
 }

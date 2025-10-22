@@ -14,7 +14,7 @@ namespace CapaEntidad
         public decimal Precio_producto { get; set; }
         public int Estado_producto { get; set; }
         public int Stock_producto { get; set; }
-        public string Categoria_producto { get; set; }  
+        public int Categoria_producto { get; set; }  
 
 
     }
