@@ -68,6 +68,9 @@ namespace CapaPresentacion.Administrador
                 {
                     MessageBox.Show("Producto registrado exitosamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     limpiarFormulario();
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+
                 }
                 else
                 {
@@ -111,12 +114,6 @@ namespace CapaPresentacion.Administrador
             {
                 errorProvider1.SetError(txtNombre, ""); // Limpia el error si está correcto
             }
-
-
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
-            {
-                e.Handled = true; // Bloquea la tecla
-            }
         }
 
         private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
@@ -130,10 +127,7 @@ namespace CapaPresentacion.Administrador
             {
                 errorProvider1.SetError(txtDescripcion, ""); // Limpia el error si está correcto
             }
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
-            {
-                e.Handled = true; // Bloquea la tecla
-            }
+            
         }
 
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
@@ -261,5 +255,9 @@ namespace CapaPresentacion.Administrador
     };
         }
 
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

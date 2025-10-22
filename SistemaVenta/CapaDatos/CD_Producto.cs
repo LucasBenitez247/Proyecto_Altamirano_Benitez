@@ -118,5 +118,53 @@ namespace CapaDatos
 
 
         }
+
+        public bool editarProducto(Producto producto)
+        {
+            try
+            {
+                using (SqlConnection oconexion = new Conexion().CrearConexion())
+                {
+                    string query = "UPDATE Producto SET Nombre_producto = @Nombre_producto, Descripcion_producto = @Descripcion_producto, " +
+                                   "Precio_producto = @Precio_producto, Id_estado_producto = @Estado_producto, Stock_producto = @Stock_producto, " +
+                                   "Id_categoria = @Id_categoria WHERE Id_Producto = @Id_producto";
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.Parameters.AddWithValue("@Nombre_producto", producto.Nombre_producto);
+                    cmd.Parameters.AddWithValue("@Descripcion_producto", producto.Descripcion_producto);
+                    cmd.Parameters.AddWithValue("@Precio_producto", producto.Precio_producto);
+                    cmd.Parameters.AddWithValue("@Stock_producto", producto.Stock_producto);
+                    cmd.Parameters.AddWithValue("@Id_categoria", producto.Categoria_producto);
+                    cmd.Parameters.AddWithValue("@Estado_producto", producto.Estado_producto);
+                    cmd.Parameters.AddWithValue("@Id_producto", producto.Id_producto);
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al actualizar producto: " + ex.Message);
+            }
+        }
+
+        public bool eliminarProducto(int idProducto)
+        {
+            try
+            {
+                using (SqlConnection oconexion = new Conexion().CrearConexion())
+                {
+                    string query = "DELETE FROM Producto WHERE Id_Producto = @Id_producto";
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.Parameters.AddWithValue("@Id_producto", idProducto);
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar producto: " + ex.Message);
+            }
+        }
     }
 }

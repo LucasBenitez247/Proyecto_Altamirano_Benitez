@@ -41,5 +41,33 @@ namespace CapaNegocio
             CD_Producto cdProducto = new CD_Producto();
             return cdProducto.ObtenerEstados();
         }
+
+        public bool editarProducto(Producto producto)
+        {
+            try
+            {
+                CD_Producto cdProducto = new CD_Producto(); // Capa de datos
+                cdProducto.editarProducto(producto);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public bool eliminarProducto(int idProducto)
+        {
+            try
+            {
+                CD_Producto cdProducto = new CD_Producto(); // Capa de datos
+                cdProducto.eliminarProducto(idProducto);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

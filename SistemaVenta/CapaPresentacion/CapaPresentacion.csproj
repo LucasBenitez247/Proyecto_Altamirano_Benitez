@@ -106,6 +106,12 @@
     <Compile Include="Administrador\Lista de proveedores.Designer.cs">
       <DependentUpon>Lista de proveedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\ModificarProductosFormAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\ModificarProductosFormAdministrador.Designer.cs">
+      <DependentUpon>ModificarProductosFormAdministrador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\PerfilAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\Lista de proveedores.resx">
       <DependentUpon>Lista de proveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\ModificarProductosFormAdministrador.resx">
+      <DependentUpon>ModificarProductosFormAdministrador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\PerfilAdministrador.resx">
       <DependentUpon>PerfilAdministrador.cs</DependentUpon>
