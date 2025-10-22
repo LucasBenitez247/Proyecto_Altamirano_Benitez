@@ -29,16 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCiudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PProvincia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCodigo_Postal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.TBuscarCliente = new System.Windows.Forms.TextBox();
             this.IBtnBuscarCliente = new FontAwesome.Sharp.IconButton();
@@ -50,71 +40,10 @@
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CNombre,
-            this.CApellido,
-            this.CDNI,
-            this.CCorreo,
-            this.CTelefono,
-            this.CDireccion,
-            this.CCiudad,
-            this.PProvincia,
-            this.CCodigo_Postal,
-            this.CEliminar});
             this.dataGridView2.Location = new System.Drawing.Point(78, 116);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(1077, 532);
             this.dataGridView2.TabIndex = 6;
-            // 
-            // CNombre
-            // 
-            this.CNombre.HeaderText = "Nombre";
-            this.CNombre.Name = "CNombre";
-            // 
-            // CApellido
-            // 
-            this.CApellido.HeaderText = "Apellido";
-            this.CApellido.Name = "CApellido";
-            // 
-            // CDNI
-            // 
-            this.CDNI.HeaderText = "DNI";
-            this.CDNI.Name = "CDNI";
-            // 
-            // CCorreo
-            // 
-            this.CCorreo.HeaderText = "Correo";
-            this.CCorreo.Name = "CCorreo";
-            // 
-            // CTelefono
-            // 
-            this.CTelefono.HeaderText = "Teléfono";
-            this.CTelefono.Name = "CTelefono";
-            // 
-            // CDireccion
-            // 
-            this.CDireccion.HeaderText = "Dirección(Calle y Nro)";
-            this.CDireccion.Name = "CDireccion";
-            // 
-            // CCiudad
-            // 
-            this.CCiudad.HeaderText = "Ciudad";
-            this.CCiudad.Name = "CCiudad";
-            // 
-            // PProvincia
-            // 
-            this.PProvincia.HeaderText = "Provincia";
-            this.PProvincia.Name = "PProvincia";
-            // 
-            // CCodigo_Postal
-            // 
-            this.CCodigo_Postal.HeaderText = "Código Postal";
-            this.CCodigo_Postal.Name = "CCodigo_Postal";
-            // 
-            // CEliminar
-            // 
-            this.CEliminar.HeaderText = "Eliminar";
-            this.CEliminar.Name = "CEliminar";
             // 
             // panel1
             // 
@@ -187,16 +116,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CApellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CDNI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCorreo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CTelefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CDireccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCiudad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PProvincia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCodigo_Postal;
-        private System.Windows.Forms.DataGridViewButtonColumn CEliminar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox TBuscarCliente;
         private FontAwesome.Sharp.IconButton IBtnBuscarCliente;
