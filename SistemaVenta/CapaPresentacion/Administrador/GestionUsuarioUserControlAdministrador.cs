@@ -27,6 +27,8 @@ namespace CapaPresentacion.Administrador
         {
             TNombre.Clear();
             TApellido.Clear();
+            TDni.Clear();
+            TDireccion.Clear();
             TCorreo.Clear();
             TContrasenia.Clear();
             TRContrasenia.Clear();
@@ -269,6 +271,40 @@ namespace CapaPresentacion.Administrador
         private void PFormulario_Paint(object sender, PaintEventArgs e)
         {
 
+        
+
+        private void TDireccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string direccion = TDireccion.Text.Trim();
+
+            // Regex: al menos una letra, puede contener letras, números, espacios, guiones y º°
+            string patron = @"^[a-zA-ZÁÉÍÓÚÑáéíóúñ0-9\s\-\.º°]+$";
+
+            if (string.IsNullOrWhiteSpace(direccion))
+            {
+                errorProvider7.SetError(TDireccion, "La dirección no puede estar vacía");
+            }
+            else if (!Regex.IsMatch(direccion, patron))
+            {
+                errorProvider7.SetError(TDireccion, "Ingrese una dirección válida (solo letras y números)");
+            }
+            else
+            {
+                errorProvider7.SetError(TDireccion, "");
+            }
+        }
+
+        private void TDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                errorProvider6.SetError(TDni, "Solo puede ingresar números");
+                e.Handled = true;
+            }
+            else
+            {
+                errorProvider6.SetError(TDni, "");
+            }
         }
     }
 }
