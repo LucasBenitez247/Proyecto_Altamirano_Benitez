@@ -34,6 +34,20 @@ namespace CapaPresentacion.Vendedor
                 buscarClientes.ClienteSeleccionado -= FormBusqueda_ClienteSeleccionado;
             }
         }
+        private void IBtnBuscarProductos_Click(object sender, EventArgs e)
+        {
+            using (BuscarProducto buscarProducto = new BuscarProducto())
+            {
+                //  Suscribe el método local al evento del otro formulario 
+              //  buscarProducto.ClienteSeleccionado += FormBusqueda_ClienteSeleccionado;
+
+                // Mostrar el formulario como un diálogo modal
+                buscarProducto.ShowDialog(this);
+
+                // (Opcional pero recomendado) Desuscribirse después de que se cierre
+               // buscarProducto.ClienteSeleccionado -= FormBusqueda_ClienteSeleccionado;
+            }
+        }
         // 4. Este es el método que se ejecutará cuando se seleccione un cliente en el otro form
         private void FormBusqueda_ClienteSeleccionado(object sender, Cliente cliente)
         {
@@ -61,5 +75,7 @@ namespace CapaPresentacion.Vendedor
                 return;
             }
         }
+
+        
     }
 }

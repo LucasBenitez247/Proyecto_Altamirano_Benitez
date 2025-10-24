@@ -24,39 +24,39 @@ namespace CapaPresentacion.Vendedor
         private void CargarClientes()
         {
             List<Cliente> listaClientes = new CN_Cliente().Listar();
-            dataGridView2.DataSource = listaClientes;
+            dataGridViewClientes.DataSource = listaClientes;
             // Cambia los encabezados de las columnas
-            if (dataGridView2.Columns["Id_cliente"] != null)
-                dataGridView2.Columns["Id_cliente"].HeaderText = "ID Cliente";
-            if (dataGridView2.Columns["Nombre_cliente"] != null)
-                dataGridView2.Columns["Nombre_cliente"].HeaderText = "Nombre";
-            if (dataGridView2.Columns["Apellido_cliente"] != null)
-                dataGridView2.Columns["Apellido_cliente"].HeaderText = "Apellido";
-            if (dataGridView2.Columns["Dni_cliente"] != null)
-                dataGridView2.Columns["Dni_cliente"].HeaderText = "DNI";
-            if (dataGridView2.Columns["Genero_cliente"] != null)
-                dataGridView2.Columns["Genero_cliente"].HeaderText = "Género";
-            if (dataGridView2.Columns["Correo_cliente"] != null)
-                dataGridView2.Columns["Correo_cliente"].HeaderText = "Correo";
-            if (dataGridView2.Columns["Telefono_cliente"] != null)
-                dataGridView2.Columns["Telefono_cliente"].HeaderText = "Teléfono";
-            if (dataGridView2.Columns["Direccion_cliente"] != null)
-                dataGridView2.Columns["Direccion_cliente"].HeaderText = "Dirección";
-            if (dataGridView2.Columns["Ciudad_cliente"] != null)
-                dataGridView2.Columns["Ciudad_cliente"].HeaderText = "Ciudad";
-            if (dataGridView2.Columns["Provincia_cliente"] != null)
-                dataGridView2.Columns["Provincia_cliente"].HeaderText = "Provincia";
-            if (dataGridView2.Columns["Cod_postal_cliente"] != null)
-                dataGridView2.Columns["Cod_postal_cliente"].HeaderText = "Código Postal";
-            if (dataGridView2.Columns["Estado_cliente"] != null)
-                dataGridView2.Columns["Estado_cliente"].HeaderText = "Estado";
+            if (dataGridViewClientes.Columns["Id_cliente"] != null)
+                dataGridViewClientes.Columns["Id_cliente"].HeaderText = "ID Cliente";
+            if (dataGridViewClientes.Columns["Nombre_cliente"] != null)
+                dataGridViewClientes.Columns["Nombre_cliente"].HeaderText = "Nombre";
+            if (dataGridViewClientes.Columns["Apellido_cliente"] != null)
+                dataGridViewClientes.Columns["Apellido_cliente"].HeaderText = "Apellido";
+            if (dataGridViewClientes.Columns["Dni_cliente"] != null)
+                dataGridViewClientes.Columns["Dni_cliente"].HeaderText = "DNI";
+            if (dataGridViewClientes.Columns["Genero_cliente"] != null)
+                dataGridViewClientes.Columns["Genero_cliente"].HeaderText = "Género";
+            if (dataGridViewClientes.Columns["Correo_cliente"] != null)
+                dataGridViewClientes.Columns["Correo_cliente"].HeaderText = "Correo";
+            if (dataGridViewClientes.Columns["Telefono_cliente"] != null)
+                dataGridViewClientes.Columns["Telefono_cliente"].HeaderText = "Teléfono";
+            if (dataGridViewClientes.Columns["Direccion_cliente"] != null)
+                dataGridViewClientes.Columns["Direccion_cliente"].HeaderText = "Dirección";
+            if (dataGridViewClientes.Columns["Ciudad_cliente"] != null)
+                dataGridViewClientes.Columns["Ciudad_cliente"].HeaderText = "Ciudad";
+            if (dataGridViewClientes.Columns["Provincia_cliente"] != null)
+                dataGridViewClientes.Columns["Provincia_cliente"].HeaderText = "Provincia";
+            if (dataGridViewClientes.Columns["Cod_postal_cliente"] != null)
+                dataGridViewClientes.Columns["Cod_postal_cliente"].HeaderText = "Código Postal";
+            if (dataGridViewClientes.Columns["Estado_cliente"] != null)
+                dataGridViewClientes.Columns["Estado_cliente"].HeaderText = "Estado";
         }
 
         private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0) 
             {
-                DataGridViewRow fila = dataGridView2.Rows[e.RowIndex];
+                DataGridViewRow fila = dataGridViewClientes.Rows[e.RowIndex];
 
                 // Crea un objeto Cliente con los datos de la fila seleccionada
                 Cliente clienteSeleccionado = new Cliente

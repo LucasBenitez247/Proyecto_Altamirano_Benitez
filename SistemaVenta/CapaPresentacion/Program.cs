@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaPresentacion.Dueño_de_Negocio;
 using CapaPresentacion.Administrador;
+using CapaPresentacion.Vendedor;
 namespace CapaPresentacion
 {
     internal static class Program
