@@ -36,6 +36,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.TProducto = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.BtnBuscarCodProducto = new FontAwesome.Sharp.IconButton();
             this.TCodProducto = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -45,6 +46,7 @@
             this.CSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PCarrito = new System.Windows.Forms.Panel();
             this.TTotal = new System.Windows.Forms.TextBox();
+            this.BRegistrarVenta = new FontAwesome.Sharp.IconButton();
             this.LTotal = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +59,7 @@
             this.PCliente = new System.Windows.Forms.Panel();
             this.PBuscarCliente = new System.Windows.Forms.Panel();
             this.TBuscarCliente = new System.Windows.Forms.TextBox();
+            this.IBtnBuscarClientes = new FontAwesome.Sharp.IconButton();
             this.label3 = new System.Windows.Forms.Label();
             this.TDireccion = new System.Windows.Forms.TextBox();
             this.TApellido = new System.Windows.Forms.TextBox();
@@ -69,9 +72,6 @@
             this.PBuscarProductos = new System.Windows.Forms.Panel();
             this.TBuscarProductos = new System.Windows.Forms.TextBox();
             this.IBtnBuscarProductos = new FontAwesome.Sharp.IconButton();
-            this.IBtnBuscarClientes = new FontAwesome.Sharp.IconButton();
-            this.BRegistrarVenta = new FontAwesome.Sharp.IconButton();
-            this.BtnBuscarCodProducto = new FontAwesome.Sharp.IconButton();
             this.PProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -102,12 +102,12 @@
             // 
             this.PProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.PProductos.Controls.Add(this.NUDCantidad);
+            this.PProductos.Controls.Add(this.IBtnBuscarProductos);
             this.PProductos.Controls.Add(this.label10);
             this.PProductos.Controls.Add(this.TPrecioVenta);
             this.PProductos.Controls.Add(this.label9);
             this.PProductos.Controls.Add(this.TProducto);
             this.PProductos.Controls.Add(this.label7);
-            this.PProductos.Controls.Add(this.BtnBuscarCodProducto);
             this.PProductos.Controls.Add(this.TCodProducto);
             this.PProductos.Controls.Add(this.label6);
             this.PProductos.Controls.Add(this.dataGridView2);
@@ -169,6 +169,23 @@
             this.label7.Size = new System.Drawing.Size(73, 20);
             this.label7.TabIndex = 27;
             this.label7.Text = "Producto";
+            // 
+            // BtnBuscarCodProducto
+            // 
+            this.BtnBuscarCodProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BtnBuscarCodProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBuscarCodProducto.FlatAppearance.BorderSize = 0;
+            this.BtnBuscarCodProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBuscarCodProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.BtnBuscarCodProducto.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.BtnBuscarCodProducto.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnBuscarCodProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnBuscarCodProducto.IconSize = 32;
+            this.BtnBuscarCodProducto.Location = new System.Drawing.Point(281, 20);
+            this.BtnBuscarCodProducto.Name = "BtnBuscarCodProducto";
+            this.BtnBuscarCodProducto.Size = new System.Drawing.Size(24, 25);
+            this.BtnBuscarCodProducto.TabIndex = 26;
+            this.BtnBuscarCodProducto.UseVisualStyleBackColor = false;
             // 
             // TCodProducto
             // 
@@ -241,6 +258,29 @@
             this.TTotal.Name = "TTotal";
             this.TTotal.Size = new System.Drawing.Size(96, 20);
             this.TTotal.TabIndex = 18;
+            // 
+            // BRegistrarVenta
+            // 
+            this.BRegistrarVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BRegistrarVenta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BRegistrarVenta.FlatAppearance.BorderSize = 0;
+            this.BRegistrarVenta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BRegistrarVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.BRegistrarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BRegistrarVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BRegistrarVenta.ForeColor = System.Drawing.Color.Silver;
+            this.BRegistrarVenta.IconChar = FontAwesome.Sharp.IconChar.CartShopping;
+            this.BRegistrarVenta.IconColor = System.Drawing.Color.Silver;
+            this.BRegistrarVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BRegistrarVenta.IconSize = 32;
+            this.BRegistrarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BRegistrarVenta.Location = new System.Drawing.Point(202, 373);
+            this.BRegistrarVenta.Name = "BRegistrarVenta";
+            this.BRegistrarVenta.Size = new System.Drawing.Size(197, 43);
+            this.BRegistrarVenta.TabIndex = 4;
+            this.BRegistrarVenta.Text = "Registrar Venta";
+            this.BRegistrarVenta.UseVisualStyleBackColor = false;
+            this.BRegistrarVenta.Click += new System.EventHandler(this.BRegistrarVenta_Click);
             // 
             // LTotal
             // 
@@ -352,6 +392,24 @@
             this.TBuscarCliente.TabIndex = 2;
             this.TBuscarCliente.Text = "Buscar Cliente...";
             // 
+            // IBtnBuscarClientes
+            // 
+            this.IBtnBuscarClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.IBtnBuscarClientes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IBtnBuscarClientes.FlatAppearance.BorderSize = 0;
+            this.IBtnBuscarClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.IBtnBuscarClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.IBtnBuscarClientes.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.IBtnBuscarClientes.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.IBtnBuscarClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.IBtnBuscarClientes.IconSize = 32;
+            this.IBtnBuscarClientes.Location = new System.Drawing.Point(206, 2);
+            this.IBtnBuscarClientes.Name = "IBtnBuscarClientes";
+            this.IBtnBuscarClientes.Size = new System.Drawing.Size(24, 25);
+            this.IBtnBuscarClientes.TabIndex = 3;
+            this.IBtnBuscarClientes.UseVisualStyleBackColor = false;
+            this.IBtnBuscarClientes.Click += new System.EventHandler(this.IBtnBuscarClientes_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -438,7 +496,6 @@
             // 
             this.PBuscarProductos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PBuscarProductos.Controls.Add(this.TBuscarProductos);
-            this.PBuscarProductos.Controls.Add(this.IBtnBuscarProductos);
             this.PBuscarProductos.Location = new System.Drawing.Point(29, 16);
             this.PBuscarProductos.Name = "PBuscarProductos";
             this.PBuscarProductos.Size = new System.Drawing.Size(244, 29);
@@ -467,70 +524,12 @@
             this.IBtnBuscarProductos.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.IBtnBuscarProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.IBtnBuscarProductos.IconSize = 32;
-            this.IBtnBuscarProductos.Location = new System.Drawing.Point(206, 2);
+            this.IBtnBuscarProductos.Location = new System.Drawing.Point(154, 42);
             this.IBtnBuscarProductos.Name = "IBtnBuscarProductos";
             this.IBtnBuscarProductos.Size = new System.Drawing.Size(24, 25);
             this.IBtnBuscarProductos.TabIndex = 3;
             this.IBtnBuscarProductos.UseVisualStyleBackColor = false;
             this.IBtnBuscarProductos.Click += new System.EventHandler(this.IBtnBuscarProductos_Click);
-            // 
-            // IBtnBuscarClientes
-            // 
-            this.IBtnBuscarClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.IBtnBuscarClientes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.IBtnBuscarClientes.FlatAppearance.BorderSize = 0;
-            this.IBtnBuscarClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.IBtnBuscarClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.IBtnBuscarClientes.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.IBtnBuscarClientes.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.IBtnBuscarClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.IBtnBuscarClientes.IconSize = 32;
-            this.IBtnBuscarClientes.Location = new System.Drawing.Point(206, 2);
-            this.IBtnBuscarClientes.Name = "IBtnBuscarClientes";
-            this.IBtnBuscarClientes.Size = new System.Drawing.Size(24, 25);
-            this.IBtnBuscarClientes.TabIndex = 3;
-            this.IBtnBuscarClientes.UseVisualStyleBackColor = false;
-            this.IBtnBuscarClientes.Click += new System.EventHandler(this.IBtnBuscarClientes_Click);
-            // 
-            // BRegistrarVenta
-            // 
-            this.BRegistrarVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.BRegistrarVenta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BRegistrarVenta.FlatAppearance.BorderSize = 0;
-            this.BRegistrarVenta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.BRegistrarVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
-            this.BRegistrarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BRegistrarVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BRegistrarVenta.ForeColor = System.Drawing.Color.Silver;
-            this.BRegistrarVenta.IconChar = FontAwesome.Sharp.IconChar.CartShopping;
-            this.BRegistrarVenta.IconColor = System.Drawing.Color.Silver;
-            this.BRegistrarVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BRegistrarVenta.IconSize = 32;
-            this.BRegistrarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BRegistrarVenta.Location = new System.Drawing.Point(202, 373);
-            this.BRegistrarVenta.Name = "BRegistrarVenta";
-            this.BRegistrarVenta.Size = new System.Drawing.Size(197, 43);
-            this.BRegistrarVenta.TabIndex = 4;
-            this.BRegistrarVenta.Text = "Registrar Venta";
-            this.BRegistrarVenta.UseVisualStyleBackColor = false;
-            this.BRegistrarVenta.Click += new System.EventHandler(this.BRegistrarVenta_Click);
-            // 
-            // BtnBuscarCodProducto
-            // 
-            this.BtnBuscarCodProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.BtnBuscarCodProducto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBuscarCodProducto.FlatAppearance.BorderSize = 0;
-            this.BtnBuscarCodProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBuscarCodProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.BtnBuscarCodProducto.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.BtnBuscarCodProducto.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnBuscarCodProducto.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnBuscarCodProducto.IconSize = 32;
-            this.BtnBuscarCodProducto.Location = new System.Drawing.Point(154, 41);
-            this.BtnBuscarCodProducto.Name = "BtnBuscarCodProducto";
-            this.BtnBuscarCodProducto.Size = new System.Drawing.Size(24, 25);
-            this.BtnBuscarCodProducto.TabIndex = 26;
-            this.BtnBuscarCodProducto.UseVisualStyleBackColor = false;
             // 
             // VentasVendedorUserControl
             // 
@@ -543,6 +542,7 @@
             this.Controls.Add(this.PCarrito);
             this.Controls.Add(this.PProductos);
             this.Controls.Add(this.CBCategoria);
+            this.Controls.Add(this.BtnBuscarCodProducto);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Name = "VentasVendedorUserControl";
             this.Size = new System.Drawing.Size(1201, 660);

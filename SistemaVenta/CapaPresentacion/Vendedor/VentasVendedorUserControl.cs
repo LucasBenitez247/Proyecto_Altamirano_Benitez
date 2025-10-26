@@ -36,16 +36,13 @@ namespace CapaPresentacion.Vendedor
         }
         private void IBtnBuscarProductos_Click(object sender, EventArgs e)
         {
-            using (BuscarProducto buscarProducto = new BuscarProducto())
+            using (BuscarProducto formBusquedaProd = new BuscarProducto())
             {
-                //  Suscribe el método local al evento del otro formulario 
-              //  buscarProducto.ClienteSeleccionado += FormBusqueda_ClienteSeleccionado;
-
-                // Mostrar el formulario como un diálogo modal
-                buscarProducto.ShowDialog(this);
-
-                // (Opcional pero recomendado) Desuscribirse después de que se cierre
-               // buscarProducto.ClienteSeleccionado -= FormBusqueda_ClienteSeleccionado;
+                // Suscríbete al evento ProductoSeleccionado ANTES de mostrar
+                formBusquedaProd.ProductoSeleccionado += FormBusqueda_ProductoSeleccionado;
+                formBusquedaProd.ShowDialog(this); // Muestra como diálogo
+                // Desuscríbete después de cerrar
+                formBusquedaProd.ProductoSeleccionado -= FormBusqueda_ProductoSeleccionado;
             }
         }
         // 4. Este es el método que se ejecutará cuando se seleccione un cliente en el otro form
@@ -59,6 +56,21 @@ namespace CapaPresentacion.Vendedor
                 TDni.Text = cliente.Dni_cliente;
                 TDireccion.Text = cliente.Direccion_cliente;
                 // Actualiza aquí los demás TextBox que necesites
+            }
+        }
+
+        private void FormBusqueda_ProductoSeleccionado(object sender, Producto producto)
+        {
+            if (producto != null)
+            {
+                // Rellena los TextBox de producto
+                TCodProducto.Text = producto.Id_producto.ToString();
+                TProducto.Text = producto.Nombre_producto;
+                TPrecioVenta.Text = producto.Precio_producto.ToString("0.00"); // Formato con 2 decimales
+
+                // Acciones adicionales después de seleccionar el producto
+                NUDCantidad.Value = 1; // Resetea cantidad
+                NUDCantidad.Select(); // Pone el foco en cantidad para añadir rápido
             }
         }
 
