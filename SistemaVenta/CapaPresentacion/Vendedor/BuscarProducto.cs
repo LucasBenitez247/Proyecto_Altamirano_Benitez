@@ -71,19 +71,14 @@ namespace CapaPresentacion.Vendedor
                 DataGridViewRow fila = dgvProductos.Rows[e.RowIndex];
                 try
                 {
-                    // Crear objeto Producto con datos de la fila
-                    // *** USA LOS NOMBRES ('Name') DE LAS COLUMNAS DEL DISEÑADOR ***
-                    // O el índice si estás 100% seguro del orden
+                    
                     Producto productoSeleccionado = new Producto
                     {
-                        // Asegúrate que estos nombres coincidan con los 'Name' de las columnas
-                        // O usa el índice si llenaste manualmente: fila.Cells[0].Value, fila.Cells[1].Value, etc.
-                        Id_producto = Convert.ToInt32(fila.Cells["idProducto"].Value ?? 0),     // Asume 'Name'="Id_producto"
-                        Nombre_producto = fila.Cells["nombre"].Value?.ToString() ?? "", // Asume 'Name'="Nombre_producto"
-                        Precio_producto = Convert.ToDecimal(fila.Cells["precio"].Value ?? 0),// Asume 'Name'="Precio_producto"
-                        // Puedes añadir Descripción, Stock si los necesitas pasar
-                        Descripcion_producto = fila.Cells["descripcion"].Value?.ToString() ?? "", // Asume 'Name'="Descripcion_producto"
-                        Stock_producto = Convert.ToInt32(fila.Cells["stock"].Value ?? 0)         // Asume 'Name'="Stock_producto"
+                        Id_producto = Convert.ToInt32(fila.Cells["idProducto"].Value ?? 0),     
+                        Nombre_producto = fila.Cells["nombre"].Value?.ToString() ?? "", 
+                        Precio_producto = Convert.ToDecimal(fila.Cells["precio"].Value ?? 0),
+                        Descripcion_producto = fila.Cells["descripcion"].Value?.ToString() ?? "", 
+                        Stock_producto = Convert.ToInt32(fila.Cells["stock"].Value ?? 0)         
                     };
 
                     // Disparar el evento
