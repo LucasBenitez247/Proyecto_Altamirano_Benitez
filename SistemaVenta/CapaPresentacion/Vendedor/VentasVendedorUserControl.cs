@@ -114,6 +114,7 @@ namespace CapaPresentacion.Vendedor
             // --- Aquí iría la lógica para guardar la venta en la base de datos ---
 
 
+
             MessageBox.Show($"Venta registrada.\nTotal: {totalVenta:C}\nPaga con: {pagoCon:C}\nCambio: {TCambio.Text}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             // LimpiarFormularioCompleto(); // Crearías este método para limpiar todo
         }
@@ -361,7 +362,7 @@ namespace CapaPresentacion.Vendedor
                 {
                     // Si no es suficiente, muestra 0.00 o limpia el campo
                     TCambio.Text = "0.00";
-                    // Opcional: TCambio.Clear();
+                    
                 }
             }
             else

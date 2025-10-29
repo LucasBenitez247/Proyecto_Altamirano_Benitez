@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PCliente = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.TDireccion = new System.Windows.Forms.TextBox();
@@ -44,8 +44,8 @@
             this.TDni = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.CBTipo_Documento = new System.Windows.Forms.ComboBox();
+            this.DTPFecha_venta = new System.Windows.Forms.DateTimePicker();
             this.LFecha = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -236,9 +236,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.CBTipo_Documento);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.DTPFecha_venta);
             this.panel1.Controls.Add(this.LFecha);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Location = new System.Drawing.Point(16, 3);
@@ -246,22 +246,22 @@
             this.panel1.Size = new System.Drawing.Size(597, 126);
             this.panel1.TabIndex = 22;
             // 
-            // comboBox1
+            // CBTipo_Documento
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.CBTipo_Documento.FormattingEnabled = true;
+            this.CBTipo_Documento.Items.AddRange(new object[] {
             "Boleta"});
-            this.comboBox1.Location = new System.Drawing.Point(290, 72);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(195, 21);
-            this.comboBox1.TabIndex = 16;
+            this.CBTipo_Documento.Location = new System.Drawing.Point(290, 72);
+            this.CBTipo_Documento.Name = "CBTipo_Documento";
+            this.CBTipo_Documento.Size = new System.Drawing.Size(195, 21);
+            this.CBTipo_Documento.TabIndex = 16;
             // 
-            // dateTimePicker1
+            // DTPFecha_venta
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(20, 69);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 15;
+            this.DTPFecha_venta.Location = new System.Drawing.Point(20, 69);
+            this.DTPFecha_venta.Name = "DTPFecha_venta";
+            this.DTPFecha_venta.Size = new System.Drawing.Size(200, 20);
+            this.DTPFecha_venta.TabIndex = 15;
             // 
             // LFecha
             // 
@@ -350,14 +350,14 @@
             this.CCantidad,
             this.CSubTotal1,
             this.CEliminar});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Location = new System.Drawing.Point(26, 121);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(639, 230);
@@ -618,8 +618,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label LFecha;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DateTimePicker DTPFecha_venta;
+        private System.Windows.Forms.ComboBox CBTipo_Documento;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TCodProducto;
         private System.Windows.Forms.Label label7;
