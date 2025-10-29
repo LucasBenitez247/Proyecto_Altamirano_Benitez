@@ -191,6 +191,18 @@ namespace CapaPresentacion.Vendedor
 
                     int cantidadActual = Convert.ToInt32(dataGridView1.Rows[filaExistenteIndex].Cells["CCantidad"].Value);
                     cantidadActual += cantidad;
+
+
+                    if (cantidadActual > stockDisponible)
+                    {
+                        MessageBox.Show($"No hay suficiente stock. Disponible: {stockDisponible}", "Stock Insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        LimpiarCamposProducto();
+                        return;
+                    }
+                    
+
+                   
+
                     decimal subtotalActual = precioVenta * cantidadActual;
 
                     // Actualiza la fila existente
