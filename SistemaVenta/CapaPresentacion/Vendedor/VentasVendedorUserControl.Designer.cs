@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PCliente = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.TDireccion = new System.Windows.Forms.TextBox();
@@ -70,9 +70,9 @@
             this.PProductos = new System.Windows.Forms.Panel();
             this.BtnAgregar = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TCambio = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TPagarCon = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.PCliente.SuspendLayout();
             this.PBuscarCliente.SuspendLayout();
@@ -350,14 +350,14 @@
             this.CCantidad,
             this.CSubTotal1,
             this.CEliminar});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Location = new System.Drawing.Point(26, 121);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(639, 230);
@@ -524,10 +524,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.TCambio);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.BRegistrarVenta);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.TPagarCon);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.TTotal);
             this.panel2.Controls.Add(this.LTotal);
@@ -536,12 +536,12 @@
             this.panel2.Size = new System.Drawing.Size(321, 502);
             this.panel2.TabIndex = 23;
             // 
-            // textBox2
+            // TCambio
             // 
-            this.textBox2.Location = new System.Drawing.Point(104, 297);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(117, 20);
-            this.textBox2.TabIndex = 22;
+            this.TCambio.Location = new System.Drawing.Point(104, 297);
+            this.TCambio.Name = "TCambio";
+            this.TCambio.Size = new System.Drawing.Size(117, 20);
+            this.TCambio.TabIndex = 22;
             // 
             // label4
             // 
@@ -553,12 +553,13 @@
             this.label4.TabIndex = 21;
             this.label4.Text = "Cambio:";
             // 
-            // textBox1
+            // TPagarCon
             // 
-            this.textBox1.Location = new System.Drawing.Point(103, 208);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(117, 20);
-            this.textBox1.TabIndex = 20;
+            this.TPagarCon.Location = new System.Drawing.Point(103, 208);
+            this.TPagarCon.Name = "TPagarCon";
+            this.TPagarCon.Size = new System.Drawing.Size(117, 20);
+            this.TPagarCon.TabIndex = 20;
+            this.TPagarCon.TextChanged += new System.EventHandler(this.TPagarCon_TextChanged);
             // 
             // label2
             // 
@@ -641,9 +642,9 @@
         private System.Windows.Forms.Panel PProductos;
         private FontAwesome.Sharp.IconButton BtnAgregar;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TCambio;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TPagarCon;
         private System.Windows.Forms.Label label2;
     }
 }

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace CapaPresentacion.Vendedor
             InitializeComponent();
         }
 
-       
+
         private void IBtnBuscarClientes_Click(object sender, EventArgs e)
         {
             using (BuscarClientes buscarClientes = new BuscarClientes())
@@ -56,7 +57,7 @@ namespace CapaPresentacion.Vendedor
                 TApellido.Text = cliente.Apellido_cliente;
                 TDni.Text = cliente.Dni_cliente;
                 TDireccion.Text = cliente.Direccion_cliente;
-                
+
             }
         }
 
@@ -80,13 +81,47 @@ namespace CapaPresentacion.Vendedor
             if (string.IsNullOrWhiteSpace(TNombre.Text) ||
                 string.IsNullOrWhiteSpace(TApellido.Text) ||
                 string.IsNullOrWhiteSpace(TDni.Text) ||
-                string.IsNullOrWhiteSpace(TDireccion.Text) ||   
+                string.IsNullOrWhiteSpace(TDireccion.Text) ||
                 string.IsNullOrWhiteSpace(TTotal.Text)
                 )
             {
                 MessageBox.Show("Complete todos los campos.");
                 return;
             }
+            // Validar Carrito no vacío
+            if (dataGridView1.Rows.Count == 0)
+            {
+                MessageBox.Show("Debe agregar productos al carrito.", "Carrito Vacío", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            // Validar Total
+            if (!decimal.TryParse(TTotal.Text, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out decimal totalVenta) || totalVenta <= 0)
+            {
+                MessageBox.Show("El total de la venta no es válido.", "Total Inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Validar Pago
+            if (!decimal.TryParse(TPagarCon.Text, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out decimal pagoCon) || pagoCon < totalVenta)
+            {
+                MessageBox.Show("El monto ingresado en 'Pagar con' es insuficiente o inválido.", "Monto de Pago Inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TPagarCon.Focus(); // Pone el foco en el campo de pago
+                return;
+            }
+
+            // --- Aquí iría la lógica para guardar la venta en la base de datos ---
+
+
+            MessageBox.Show($"Venta registrada.\nTotal: {totalVenta:C}\nPaga con: {pagoCon:C}\nCambio: {TCambio.Text}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // LimpiarFormularioCompleto(); // Crearías este método para limpiar todo
+        }
+
+        private void RecalcularTotalYCambio()
+        {
+            CalcularTotalCarrito(); // Calcula y actualiza TTotal
+            CalcularCambio();      // Calcula y actualiza TCambio basado en el nuevo TTotal y TPagarCon
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
@@ -108,14 +143,14 @@ namespace CapaPresentacion.Vendedor
                 NUDCantidad.Focus();
                 return;
             }
-            
-           //Valida stock
+
+            //Valida stock
             if (NUDCantidad.Value > stockDisponible)
             {
-                 MessageBox.Show($"No hay suficiente stock. Disponible: {stockDisponible}", "Stock Insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                 return;
+                MessageBox.Show($"No hay suficiente stock. Disponible: {stockDisponible}", "Stock Insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            
+
 
             try
             {
@@ -135,8 +170,8 @@ namespace CapaPresentacion.Vendedor
 
                 bool productoYaExiste = false;
                 int filaExistenteIndex = -1;
-               
-                string nombreColumnaCodigo = "CCodigo"; 
+
+                string nombreColumnaCodigo = "CCodigo";
 
                 // Busca si el producto ya está en el carrito
                 foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -153,7 +188,7 @@ namespace CapaPresentacion.Vendedor
 
                 if (productoYaExiste)
                 {
-                    
+
                     int cantidadActual = Convert.ToInt32(dataGridView1.Rows[filaExistenteIndex].Cells["CCantidad"].Value);
                     cantidadActual += cantidad;
                     decimal subtotalActual = precioVenta * cantidadActual;
@@ -164,7 +199,7 @@ namespace CapaPresentacion.Vendedor
                 }
                 else
                 {
-                    
+
                     dataGridView1.Rows.Add(new object[] {
                         nombreProducto,         // CNombre
                         idProducto,             // CCodigo
@@ -180,6 +215,7 @@ namespace CapaPresentacion.Vendedor
 
                 // Recalcula el total del carrito
                 CalcularTotalCarrito();
+                RecalcularTotalYCambio();
 
             }
             catch (FormatException ex)
@@ -191,7 +227,7 @@ namespace CapaPresentacion.Vendedor
                 MessageBox.Show("Ocurrió un error al agregar el producto al carrito: " + ex.Message, "Error Inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-      
+
 
         // Limpia los campos de selección de producto
         private void LimpiarCamposProducto()
@@ -199,7 +235,7 @@ namespace CapaPresentacion.Vendedor
             TCodProducto.Clear();
             TProducto.Clear();
             TPrecioVenta.Clear();
-            NUDCantidad.Value = 1; 
+            NUDCantidad.Value = 1;
             IBtnBuscarProductos.Focus(); // Pone el foco de nuevo en el botón buscar producto
         }
 
@@ -207,8 +243,8 @@ namespace CapaPresentacion.Vendedor
         private void CalcularTotalCarrito()
         {
             decimal total = 0;
-            
-            string nombreColumnaSubtotal = "CSubTotal1"; 
+
+            string nombreColumnaSubtotal = "CSubTotal1";
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
@@ -220,7 +256,7 @@ namespace CapaPresentacion.Vendedor
                     total += subtotal;
                 }
             }
-           
+
             TTotal.Text = total.ToString("0.00");
         }
 
@@ -247,8 +283,8 @@ namespace CapaPresentacion.Vendedor
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-            string nombreColumnaEliminar = "CEliminar"; 
+
+            string nombreColumnaEliminar = "CEliminar";
 
             if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == nombreColumnaEliminar)
             {
@@ -260,6 +296,7 @@ namespace CapaPresentacion.Vendedor
                     {
                         dataGridView1.Rows.RemoveAt(e.RowIndex);
                         CalcularTotalCarrito(); // Recalcular total después de eliminar
+                        RecalcularTotalYCambio();
                     }
                 }
             }
@@ -273,7 +310,7 @@ namespace CapaPresentacion.Vendedor
             {
                 // Cambia el cursor del DataGridView a Mano
                 dataGridView1.Cursor = Cursors.Hand;
-  
+
             }
         }
 
@@ -281,6 +318,45 @@ namespace CapaPresentacion.Vendedor
         {
             // Siempre restaura el cursor a su valor predeterminado al salir de una celda
             dataGridView1.Cursor = Cursors.Default;
+        }
+
+        private void TPagarCon_TextChanged(object sender, EventArgs e)
+        {
+            CalcularCambio();
+        }
+
+        private void CalcularCambio()
+        {
+            // Intenta convertir el texto de TTotal a decimal
+            // Usamos CultureInfo.InvariantCulture para asegurar que use '.' como separador decimal
+            if (!decimal.TryParse(TTotal.Text, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out decimal totalAPagar))
+            {
+                TCambio.Clear(); // Si el total no es válido, limpia el cambio
+                return;
+            }
+
+            // Intenta convertir el texto de TPagarCon a decimal
+            if (decimal.TryParse(TPagarCon.Text, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out decimal pagoCon))
+            {
+                // Verifica si el monto pagado es suficiente
+                if (pagoCon >= totalAPagar)
+                {
+                    decimal cambio = pagoCon - totalAPagar;
+                    // Muestra el cambio formateado con dos decimales
+                    TCambio.Text = cambio.ToString("0.00", CultureInfo.InvariantCulture);
+                }
+                else
+                {
+                    // Si no es suficiente, muestra 0.00 o limpia el campo
+                    TCambio.Text = "0.00";
+                    // Opcional: TCambio.Clear();
+                }
+            }
+            else
+            {
+                // Si el monto pagado no es un número válido, limpia el cambio
+                TCambio.Clear();
+            }
         }
     }
 }
