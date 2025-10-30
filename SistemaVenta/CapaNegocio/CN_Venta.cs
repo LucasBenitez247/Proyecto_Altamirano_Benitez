@@ -14,7 +14,7 @@ namespace CapaNegocio
 
         public bool RegistrarVenta(Venta venta, List<Detalle_venta> detalleVenta, out string mensaje)
         {
-            // Aquí puedes añadir reglas de negocio si es necesario
+            //  añadir reglas de negocio si es necesario
             // Por ejemplo, validar que el total no sea negativo, etc.
             if (venta.Total_venta <= 0)
             {
