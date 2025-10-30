@@ -63,7 +63,7 @@ namespace CapaPresentacion
                 }
                 else if (ousuario.Id_perfil == 2)
                 {
-                    PerfilVendedor frmVend = new PerfilVendedor();
+                    PerfilVendedor frmVend = new PerfilVendedor(ousuario);
                     frmVend.Show();
                 }
                 else if (ousuario.Id_perfil == 3)

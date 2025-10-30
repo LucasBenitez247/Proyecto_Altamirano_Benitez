@@ -12,7 +12,7 @@ namespace CapaEntidad
         public int Id_cliente { get; set; }
         public int Id_usuario { get; set; }
         public string Tipo_documento { get; set; }
-        public string Fecha_venta { get; set; }
+        public DateTime Fecha_venta { get; set; }
         public decimal Total_venta { get; set; }
     }
 }
