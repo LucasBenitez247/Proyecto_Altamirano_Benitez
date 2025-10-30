@@ -24,5 +24,11 @@ namespace CapaNegocio
 
             return objCapaDatos.RegistrarVenta(venta, detalleVenta, out mensaje);
         }
+        public List<Venta> Listar()
+        {
+            // Agregar reglas de negocio si fuera necesario
+            // (ej. filtrar ventas por usuario)
+            return objCapaDatos.Listar();
+        }
     }
 }

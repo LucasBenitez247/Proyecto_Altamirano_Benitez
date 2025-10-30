@@ -30,11 +30,6 @@
         {
             this.LHistorialVenta = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CMetodoPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
             this.IBtnBuscar = new FontAwesome.Sharp.IconButton();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -43,6 +38,11 @@
             this.PBuscarCliente = new System.Windows.Forms.Panel();
             this.TBuscarCliente = new System.Windows.Forms.TextBox();
             this.IBtnBuscarClientes = new FontAwesome.Sharp.IconButton();
+            this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.PBuscarCliente.SuspendLayout();
             this.SuspendLayout();
@@ -65,47 +65,13 @@
             this.CFecha,
             this.CCliente,
             this.CTotal,
-            this.CMetodoPago,
+            this.CTipoDocumento,
             this.CDetalle});
             this.dataGridView1.Location = new System.Drawing.Point(204, 135);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(646, 542);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // CFecha
-            // 
-            this.CFecha.HeaderText = "Fecha";
-            this.CFecha.Name = "CFecha";
-            this.CFecha.Width = 120;
-            // 
-            // CCliente
-            // 
-            this.CCliente.HeaderText = "Cliente";
-            this.CCliente.Name = "CCliente";
-            this.CCliente.Width = 120;
-            // 
-            // CTotal
-            // 
-            this.CTotal.HeaderText = "Total";
-            this.CTotal.Name = "CTotal";
-            this.CTotal.Width = 120;
-            // 
-            // CMetodoPago
-            // 
-            this.CMetodoPago.HeaderText = "Metodo de Pago";
-            this.CMetodoPago.Name = "CMetodoPago";
-            this.CMetodoPago.Width = 120;
-            // 
-            // CDetalle
-            // 
-            this.CDetalle.HeaderText = "Detalle";
-            this.CDetalle.Name = "CDetalle";
-            this.CDetalle.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CDetalle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.CDetalle.Text = "Detalle";
-            this.CDetalle.UseColumnTextForButtonValue = true;
-            this.CDetalle.Width = 120;
             // 
             // IBtnBuscar
             // 
@@ -201,6 +167,40 @@
             this.IBtnBuscarClientes.TabIndex = 3;
             this.IBtnBuscarClientes.UseVisualStyleBackColor = false;
             // 
+            // CFecha
+            // 
+            this.CFecha.HeaderText = "Fecha";
+            this.CFecha.Name = "CFecha";
+            this.CFecha.Width = 120;
+            // 
+            // CCliente
+            // 
+            this.CCliente.HeaderText = "Cliente";
+            this.CCliente.Name = "CCliente";
+            this.CCliente.Width = 120;
+            // 
+            // CTotal
+            // 
+            this.CTotal.HeaderText = "Total";
+            this.CTotal.Name = "CTotal";
+            this.CTotal.Width = 120;
+            // 
+            // CTipoDocumento
+            // 
+            this.CTipoDocumento.HeaderText = "Tipo Documento";
+            this.CTipoDocumento.Name = "CTipoDocumento";
+            this.CTipoDocumento.Width = 120;
+            // 
+            // CDetalle
+            // 
+            this.CDetalle.HeaderText = "Detalle";
+            this.CDetalle.Name = "CDetalle";
+            this.CDetalle.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CDetalle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.CDetalle.Text = "Detalle";
+            this.CDetalle.UseColumnTextForButtonValue = true;
+            this.CDetalle.Width = 120;
+            // 
             // HistorialVentasUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -239,7 +239,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn CTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CMetodoPago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CTipoDocumento;
         private System.Windows.Forms.DataGridViewButtonColumn CDetalle;
     }
 }

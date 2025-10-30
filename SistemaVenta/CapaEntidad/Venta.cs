@@ -14,5 +14,9 @@ namespace CapaEntidad
         public string Tipo_documento { get; set; }
         public DateTime Fecha_venta { get; set; }
         public decimal Total_venta { get; set; }
+
+        //no estan en la base de datos  
+        public string Nombre_cliente { get; set; }
+        public string Apellido_cliente { get; set; }
     }
 }

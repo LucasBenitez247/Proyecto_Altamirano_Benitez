@@ -85,5 +85,61 @@ namespace CapaDatos
             }
             return respuesta;
         }
+
+        public List<Venta> Listar()
+        {
+            List<Venta> lista = new List<Venta>();
+            Conexion conexion = new Conexion();
+
+            try
+            {
+                using (SqlConnection oconexion = conexion.CrearConexion())
+                {
+                    // Unimos Venta con Clientes para obtener el nombre
+                    string query = @"
+                        SELECT 
+                            v.Id_venta,
+                            v.Id_cliente,
+                            v.Id_usuario,
+                            v.Tipo_documento,
+                            v.Fecha_venta,
+                            v.Total_venta,
+                            c.Nombre_cliente,
+                            c.Apellido_cliente
+                        FROM Venta v
+                        INNER JOIN Clientes c ON v.Id_cliente = c.Id_cliente
+                        ORDER BY v.Fecha_venta DESC"; // Ordenar por más recientes
+
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    oconexion.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new Venta()
+                            {
+                                Id_venta = Convert.ToInt32(dr["Id_venta"]),
+                                Id_cliente = Convert.ToInt32(dr["Id_cliente"]),
+                                Id_usuario = Convert.ToInt32(dr["Id_usuario"]),
+                                Tipo_documento = dr["Tipo_documento"].ToString(),
+                                Fecha_venta = Convert.ToDateTime(dr["Fecha_venta"]),
+                                Total_venta = Convert.ToDecimal(dr["Total_venta"]),
+                                // Llenamos las propiedades adicionales
+                                Nombre_cliente = dr["Nombre_cliente"].ToString(),
+                                Apellido_cliente = dr["Apellido_cliente"].ToString()
+                            });
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Registra el error (en un entorno real, usarías un logger)
+                Console.WriteLine("Error al listar ventas: " + ex.Message);
+                lista = new List<Venta>(); // Devuelve lista vacía en caso de error
+            }
+            return lista;
+        }
     }
 }
+
