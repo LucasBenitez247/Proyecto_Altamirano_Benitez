@@ -87,6 +87,7 @@
             // 
             this.TFecha.Location = new System.Drawing.Point(31, 97);
             this.TFecha.Name = "TFecha";
+            this.TFecha.ReadOnly = true;
             this.TFecha.Size = new System.Drawing.Size(100, 20);
             this.TFecha.TabIndex = 3;
             // 
@@ -94,6 +95,7 @@
             // 
             this.TDni.Location = new System.Drawing.Point(33, 185);
             this.TDni.Name = "TDni";
+            this.TDni.ReadOnly = true;
             this.TDni.Size = new System.Drawing.Size(100, 20);
             this.TDni.TabIndex = 6;
             // 
@@ -123,6 +125,7 @@
             // 
             this.TNombre.Location = new System.Drawing.Point(216, 185);
             this.TNombre.Name = "TNombre";
+            this.TNombre.ReadOnly = true;
             this.TNombre.Size = new System.Drawing.Size(100, 20);
             this.TNombre.TabIndex = 8;
             // 
@@ -139,6 +142,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CProducto,
@@ -196,11 +200,13 @@
             this.BtnImprimir.Text = "Imprimir";
             this.BtnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnImprimir.UseVisualStyleBackColor = true;
+            this.BtnImprimir.Click += new System.EventHandler(this.BtnImprimir_Click);
             // 
             // TTipoDocumento
             // 
             this.TTipoDocumento.Location = new System.Drawing.Point(216, 97);
             this.TTipoDocumento.Name = "TTipoDocumento";
+            this.TTipoDocumento.ReadOnly = true;
             this.TTipoDocumento.Size = new System.Drawing.Size(100, 20);
             this.TTipoDocumento.TabIndex = 27;
             // 
@@ -219,6 +225,7 @@
             // 
             this.TApellido.Location = new System.Drawing.Point(383, 185);
             this.TApellido.Name = "TApellido";
+            this.TApellido.ReadOnly = true;
             this.TApellido.Size = new System.Drawing.Size(100, 20);
             this.TApellido.TabIndex = 29;
             // 
@@ -238,7 +245,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ClientSize = new System.Drawing.Size(717, 501);
+            this.ClientSize = new System.Drawing.Size(734, 501);
             this.Controls.Add(this.TApellido);
             this.Controls.Add(this.LApellido);
             this.Controls.Add(this.TTipoDocumento);

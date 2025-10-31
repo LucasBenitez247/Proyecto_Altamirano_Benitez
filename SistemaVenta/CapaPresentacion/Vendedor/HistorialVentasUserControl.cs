@@ -19,6 +19,7 @@ namespace CapaPresentacion.Vendedor
         public HistorialVentasUserControl()
         {
             InitializeComponent();
+            dataGridView1.AllowUserToAddRows = false;
             CargarVentas();
         }
         private void CargarVentas()
