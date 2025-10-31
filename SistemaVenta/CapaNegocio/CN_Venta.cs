@@ -30,5 +30,9 @@ namespace CapaNegocio
             // (ej. filtrar ventas por usuario)
             return objCapaDatos.Listar();
         }
+        public List<Detalle_venta> ObtenerDetallesVenta(int idVenta)
+        {
+            return objCapaDatos.ObtenerDetallesVenta(idVenta);
+        }
     }
 }

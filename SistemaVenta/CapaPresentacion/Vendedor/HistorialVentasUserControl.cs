@@ -14,6 +14,8 @@ namespace CapaPresentacion.Vendedor
 {
     public partial class HistorialVentasUserControl : UserControl
     {
+        //Lista para guardar las ventas cargadas
+        private List<Venta> listaVentasGlobal;
         public HistorialVentasUserControl()
         {
             InitializeComponent();
@@ -29,20 +31,20 @@ namespace CapaPresentacion.Vendedor
             {
                 // Obtener la lista de ventas desde la capa de negocio
                 CN_Venta cnVenta = new CN_Venta();
-                List<Venta> listaVentas = cnVenta.Listar();
+                listaVentasGlobal = cnVenta.Listar();
 
-                if (listaVentas == null)
+                if (listaVentasGlobal == null)
                 {
                     MessageBox.Show("No se pudieron cargar las ventas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 // Recorrer la lista y añadir cada venta al DataGridView
-                foreach (Venta venta in listaVentas)
+                foreach (Venta venta in listaVentasGlobal)
                 {
                     dataGridView1.Rows.Add(new object[]
                     {
-                        venta.Fecha_venta.ToString("dd/MM/yyyy HH:mm"), // Columna CFecha
+                        venta.Fecha_venta.ToString("dd/MM/yyyy"), // Columna CFecha
                         $"{venta.Nombre_cliente} {venta.Apellido_cliente}", // Columna CCliente
                         venta.Total_venta.ToString("0.00"), // Columna CTotal
                         venta.Tipo_documento, // Columna CTipoDocumento
@@ -61,11 +63,11 @@ namespace CapaPresentacion.Vendedor
             // Verifica si se hizo clic en la columna del botón "Detalle"
             if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "CDetalle")
             {
-                // pasar un ID de venta si es necesario
-                // int idVenta = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["IdVenta"].Value);
+                // 1. Obtener la venta seleccionada usando el índice de la fila
+                Venta ventaSeleccionada = listaVentasGlobal[e.RowIndex];
 
-                // Abre la ventana DetalleVenta como formulario modal
-                DetalleVenta detalleForm = new DetalleVenta();
+                // 2. Abrir DetalleVenta pasándole la venta completa
+                DetalleVenta detalleForm = new DetalleVenta(ventaSeleccionada);
                 detalleForm.ShowDialog();
             }
         }

@@ -31,11 +31,11 @@
             this.LDetalleVenta = new System.Windows.Forms.Label();
             this.LFecha = new System.Windows.Forms.Label();
             this.LInfoVenta = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TFecha = new System.Windows.Forms.TextBox();
+            this.TDni = new System.Windows.Forms.TextBox();
             this.LInfoCliente = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.TNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.CProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,9 +43,9 @@
             this.CCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnImprimir = new FontAwesome.Sharp.IconButton();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.LMetodoPago = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.TTipoDocumento = new System.Windows.Forms.TextBox();
+            this.LTipoDocumento = new System.Windows.Forms.Label();
+            this.TApellido = new System.Windows.Forms.TextBox();
             this.LApellido = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -83,19 +83,19 @@
             this.LInfoVenta.TabIndex = 2;
             this.LInfoVenta.Text = "Información de la Venta:";
             // 
-            // textBox1
+            // TFecha
             // 
-            this.textBox1.Location = new System.Drawing.Point(31, 97);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.TFecha.Location = new System.Drawing.Point(31, 97);
+            this.TFecha.Name = "TFecha";
+            this.TFecha.Size = new System.Drawing.Size(100, 20);
+            this.TFecha.TabIndex = 3;
             // 
-            // textBox2
+            // TDni
             // 
-            this.textBox2.Location = new System.Drawing.Point(33, 185);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 6;
+            this.TDni.Location = new System.Drawing.Point(33, 185);
+            this.TDni.Name = "TDni";
+            this.TDni.Size = new System.Drawing.Size(100, 20);
+            this.TDni.TabIndex = 6;
             // 
             // LInfoCliente
             // 
@@ -119,12 +119,12 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "DNI:";
             // 
-            // textBox3
+            // TNombre
             // 
-            this.textBox3.Location = new System.Drawing.Point(216, 185);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 8;
+            this.TNombre.Location = new System.Drawing.Point(216, 185);
+            this.TNombre.Name = "TNombre";
+            this.TNombre.Size = new System.Drawing.Size(100, 20);
+            this.TNombre.TabIndex = 8;
             // 
             // label1
             // 
@@ -197,30 +197,30 @@
             this.BtnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnImprimir.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // TTipoDocumento
             // 
-            this.textBox4.Location = new System.Drawing.Point(216, 97);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 27;
+            this.TTipoDocumento.Location = new System.Drawing.Point(216, 97);
+            this.TTipoDocumento.Name = "TTipoDocumento";
+            this.TTipoDocumento.Size = new System.Drawing.Size(100, 20);
+            this.TTipoDocumento.TabIndex = 27;
             // 
-            // LMetodoPago
+            // LTipoDocumento
             // 
-            this.LMetodoPago.AutoSize = true;
-            this.LMetodoPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LMetodoPago.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LMetodoPago.Location = new System.Drawing.Point(213, 78);
-            this.LMetodoPago.Name = "LMetodoPago";
-            this.LMetodoPago.Size = new System.Drawing.Size(111, 16);
-            this.LMetodoPago.TabIndex = 26;
-            this.LMetodoPago.Text = "Metodo de Pago:";
+            this.LTipoDocumento.AutoSize = true;
+            this.LTipoDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LTipoDocumento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LTipoDocumento.Location = new System.Drawing.Point(213, 78);
+            this.LTipoDocumento.Name = "LTipoDocumento";
+            this.LTipoDocumento.Size = new System.Drawing.Size(110, 16);
+            this.LTipoDocumento.TabIndex = 26;
+            this.LTipoDocumento.Text = "Tipo Documento:";
             // 
-            // textBox5
+            // TApellido
             // 
-            this.textBox5.Location = new System.Drawing.Point(383, 185);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 29;
+            this.TApellido.Location = new System.Drawing.Point(383, 185);
+            this.TApellido.Name = "TApellido";
+            this.TApellido.Size = new System.Drawing.Size(100, 20);
+            this.TApellido.TabIndex = 29;
             // 
             // LApellido
             // 
@@ -239,23 +239,24 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(717, 501);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.TApellido);
             this.Controls.Add(this.LApellido);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.LMetodoPago);
+            this.Controls.Add(this.TTipoDocumento);
+            this.Controls.Add(this.LTipoDocumento);
             this.Controls.Add(this.BtnImprimir);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.TNombre);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.TDni);
             this.Controls.Add(this.LInfoCliente);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TFecha);
             this.Controls.Add(this.LInfoVenta);
             this.Controls.Add(this.LFecha);
             this.Controls.Add(this.LDetalleVenta);
             this.Name = "DetalleVenta";
             this.Text = "DetalleVenta";
+            this.Load += new System.EventHandler(this.DetalleVenta_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -267,11 +268,11 @@
         private System.Windows.Forms.Label LDetalleVenta;
         private System.Windows.Forms.Label LFecha;
         private System.Windows.Forms.Label LInfoVenta;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TFecha;
+        private System.Windows.Forms.TextBox TDni;
         private System.Windows.Forms.Label LInfoCliente;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TNombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn CProducto;
@@ -279,9 +280,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn CSubTotal;
         private FontAwesome.Sharp.IconButton BtnImprimir;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label LMetodoPago;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox TTipoDocumento;
+        private System.Windows.Forms.Label LTipoDocumento;
+        private System.Windows.Forms.TextBox TApellido;
         private System.Windows.Forms.Label LApellido;
     }
 }

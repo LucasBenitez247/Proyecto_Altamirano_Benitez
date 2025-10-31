@@ -14,5 +14,10 @@ namespace CapaEntidad
         public decimal Precio_unitario { get; set; }
         public int Cantidad { get; set; }
 
+        //no estan en la base de datos , solo los almacena tempralmente
+        public string Nombre_producto { get; set; }
+        // Propiedad calculada para el subtotal
+        public decimal Subtotal { get { return Precio_unitario * Cantidad; } }
+
     }
 }

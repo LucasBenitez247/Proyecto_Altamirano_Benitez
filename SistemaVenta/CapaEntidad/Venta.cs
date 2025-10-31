@@ -15,8 +15,9 @@ namespace CapaEntidad
         public DateTime Fecha_venta { get; set; }
         public decimal Total_venta { get; set; }
 
-        //no estan en la base de datos  
+        //no estan en la base de datos , solo los almacena tempralmente 
         public string Nombre_cliente { get; set; }
         public string Apellido_cliente { get; set; }
+        public string Dni_cliente { get; set; }
     }
 }

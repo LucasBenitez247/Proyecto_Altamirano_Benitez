@@ -105,7 +105,8 @@ namespace CapaDatos
                             v.Fecha_venta,
                             v.Total_venta,
                             c.Nombre_cliente,
-                            c.Apellido_cliente
+                            c.Apellido_cliente,
+                            c.Dni_cliente
                         FROM Venta v
                         INNER JOIN Clientes c ON v.Id_cliente = c.Id_cliente
                         ORDER BY v.Fecha_venta DESC"; // Ordenar por más recientes
@@ -126,7 +127,9 @@ namespace CapaDatos
                                 Total_venta = Convert.ToDecimal(dr["Total_venta"]),
                                 // Llenamos las propiedades adicionales
                                 Nombre_cliente = dr["Nombre_cliente"].ToString(),
-                                Apellido_cliente = dr["Apellido_cliente"].ToString()
+                                Apellido_cliente = dr["Apellido_cliente"].ToString(),
+                                Dni_cliente = dr["Dni_cliente"].ToString()
+
                             });
                         }
                     }
@@ -137,6 +140,48 @@ namespace CapaDatos
                 // Registra el error (en un entorno real, usarías un logger)
                 Console.WriteLine("Error al listar ventas: " + ex.Message);
                 lista = new List<Venta>(); // Devuelve lista vacía en caso de error
+            }
+            return lista;
+        }
+        public List<Detalle_venta> ObtenerDetallesVenta(int idVenta)
+        {
+            List<Detalle_venta> lista = new List<Detalle_venta>();
+            Conexion conexion = new Conexion();
+
+            try
+            {
+                using (SqlConnection oconexion = conexion.CrearConexion())
+                {
+                    string query = @"
+                        SELECT 
+                            p.Nombre_producto,
+                            dv.Precio_unitario,
+                            dv.Cantidad
+                        FROM Detalle_venta dv
+                        INNER JOIN Producto p ON dv.Id_producto = p.Id_producto
+                        WHERE dv.Id_venta = @idVenta";
+
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.Parameters.AddWithValue("@idVenta", idVenta);
+                    oconexion.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new Detalle_venta()
+                            {
+                                Nombre_producto = dr["Nombre_producto"].ToString(),
+                                Precio_unitario = Convert.ToDecimal(dr["Precio_unitario"]),
+                                Cantidad = Convert.ToInt32(dr["Cantidad"])
+                            });
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al obtener detalles: " + ex.Message);
+                lista = new List<Detalle_venta>();
             }
             return lista;
         }
