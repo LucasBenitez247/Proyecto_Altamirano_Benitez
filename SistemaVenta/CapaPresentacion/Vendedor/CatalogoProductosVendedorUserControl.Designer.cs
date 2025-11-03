@@ -68,6 +68,9 @@
             this.TBBuscar.Size = new System.Drawing.Size(193, 19);
             this.TBBuscar.TabIndex = 2;
             this.TBBuscar.Text = "Buscar productos...";
+            this.TBBuscar.TextChanged += new System.EventHandler(this.TBBuscar_TextChanged);
+            this.TBBuscar.Enter += new System.EventHandler(this.TBBuscar_Enter);
+            this.TBBuscar.Leave += new System.EventHandler(this.TBBuscar_Leave);
             // 
             // BtnBuscar
             // 
@@ -85,6 +88,7 @@
             this.BtnBuscar.Size = new System.Drawing.Size(24, 25);
             this.BtnBuscar.TabIndex = 3;
             this.BtnBuscar.UseVisualStyleBackColor = false;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // LBucarPor
             // 
@@ -111,6 +115,7 @@
             this.CBBuscarPor.Size = new System.Drawing.Size(121, 21);
             this.CBBuscarPor.TabIndex = 5;
             this.CBBuscarPor.Text = "Buscar por:";
+            this.CBBuscarPor.SelectedIndexChanged += new System.EventHandler(this.CBBuscarPor_SelectedIndexChanged);
             // 
             // PBuscarProductos
             // 
