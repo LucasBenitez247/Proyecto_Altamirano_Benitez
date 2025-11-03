@@ -82,20 +82,20 @@ namespace CapaPresentacion.Vendedor
         }
         private void AplicarFiltros()
         {
-            // 1. Get text filter
+            
             string textoBusqueda = TBuscarCliente.Text.ToLower().Trim();
             bool filtrarPorTexto = !string.IsNullOrWhiteSpace(textoBusqueda) && textoBusqueda != "buscar cliente...";
 
-            // 2. Get date filter
+            
             // El .Date quita la hora, asegurando que empezamos desde las 00:00:00
             DateTime fechaInicio = dateTimePicker2.Value.Date;
             // El .AddDays(1).AddTicks(-1) asegura que incluimos hasta las 23:59:59 de ese día
             DateTime fechaFin = dateTimePicker1.Value.Date.AddDays(1).AddTicks(-1);
 
-            // 3. Start with the full list
+           
             List<Venta> listaTemp = listaVentasGlobal;
 
-            // 4. Apply text filter (if any)
+           
             if (filtrarPorTexto)
             {
                 listaTemp = listaTemp.Where(v =>
@@ -104,12 +104,12 @@ namespace CapaPresentacion.Vendedor
                 ).ToList();
             }
 
-            // 5. Apply date filter (sobre la lista ya filtrada por texto)
+           
             listaTemp = listaTemp.Where(v =>
                 v.Fecha_venta >= fechaInicio && v.Fecha_venta <= fechaFin
             ).ToList();
 
-            // 6. Asignar a la lista global filtrada y recargar grilla
+            
             listaVentasFiltrada = listaTemp;
             CargarGrilla();
         }
@@ -118,7 +118,7 @@ namespace CapaPresentacion.Vendedor
 
             if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "CDetalle")
             {
-                // Ahora usamos 'listaVentasFiltrada' que siempre está actualizada
+                // Usamos 'listaVentasFiltrada' que siempre está actualizada
                 if (e.RowIndex < listaVentasFiltrada.Count)
                 {
                     Venta ventaSeleccionada = listaVentasFiltrada[e.RowIndex];
