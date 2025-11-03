@@ -76,6 +76,9 @@
             this.TBuscarCliente.Size = new System.Drawing.Size(193, 19);
             this.TBuscarCliente.TabIndex = 2;
             this.TBuscarCliente.Text = "Buscar Productos...";
+            this.TBuscarCliente.TextChanged += new System.EventHandler(this.TBuscarCliente_TextChanged);
+            this.TBuscarCliente.Enter += new System.EventHandler(this.TBuscarCliente_Enter);
+            this.TBuscarCliente.Leave += new System.EventHandler(this.TBuscarCliente_Leave);
             // 
             // IBtnBuscarCliente
             // 

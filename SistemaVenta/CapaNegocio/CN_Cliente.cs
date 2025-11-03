@@ -17,7 +17,7 @@ namespace CapaNegocio
             try
             {
                 bool resultado = objCapaDatos.Registrar(cliente);
-                return resultado ? "Cliente guardado correctamente" : "No se pudo guardar el cliente";
+                return resultado ? "OK" : "No se pudo guardar el cliente";
             }
             catch (Exception ex)
             {

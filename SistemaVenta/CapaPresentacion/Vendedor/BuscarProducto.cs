@@ -24,7 +24,11 @@ namespace CapaPresentacion.Vendedor
         {
             InitializeComponent(); 
             cargarDatos();  
-            CargarProductos();  
+            CargarProductos();
+
+            // Conectamos los eventos para manejar el texto placeholder
+            this.TBuscarCliente.Enter += new System.EventHandler(this.TBuscarCliente_Enter);
+            this.TBuscarCliente.Leave += new System.EventHandler(this.TBuscarCliente_Leave);
         }
         private void CargarProductos()
         {
@@ -106,6 +110,64 @@ namespace CapaPresentacion.Vendedor
         protected virtual void OnProductoSeleccionado(Producto producto)
         {
             ProductoSeleccionado?.Invoke(this, producto);
+        }
+
+        private void TBuscarCliente_TextChanged(object sender, EventArgs e)
+        {
+            string textoBusqueda = TBuscarCliente.Text.ToLower().Trim();
+
+            // Evitar filtrar si el texto es el placeholder
+            if (textoBusqueda == "buscar productos...")
+            {
+                return;
+            }
+
+            // 1. Filtrar la lista en memoria (listaProductos)
+            List<Producto> productosFiltrados = listaProductos.Where(p =>
+                p.Nombre_producto.ToLower().Contains(textoBusqueda)
+            ).ToList();
+
+            // 2. Limpiar la grilla
+            dgvProductos.Rows.Clear();
+
+            // 3. Cargar la grilla con los productos filtrados
+            foreach (var producto in productosFiltrados)
+            {
+                var categoria = listaCategorias.FirstOrDefault(c => c.Id_categoria == producto.Categoria_producto);
+                var estado = listaEstados.FirstOrDefault(est => est.Id_estado_producto == producto.Estado_producto);
+
+                string nombreCategoria = categoria != null ? categoria.Descripcion_categoria : "Sin categoría";
+                string nombreEstado = estado != null ? estado.Descripcion_estado_producto : "Sin estado";
+
+                dgvProductos.Rows.Add(
+                    producto.Id_producto,
+                    producto.Nombre_producto,
+                    producto.Descripcion_producto,
+                    nombreEstado,
+                    producto.Precio_producto,
+                    producto.Stock_producto,
+                    nombreCategoria
+                );
+            }
+        }
+
+        private void TBuscarCliente_Enter(object sender, EventArgs e)
+        {
+            if (TBuscarCliente.Text == "Buscar Productos...")
+            {
+                TBuscarCliente.Text = "";
+                TBuscarCliente.ForeColor = Color.Black; // Cambia el color al escribir
+            }
+        }
+
+        private void TBuscarCliente_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TBuscarCliente.Text))
+            {
+                TBuscarCliente.Text = "Buscar Productos...";
+                TBuscarCliente.ForeColor = Color.Gray; // Color del placeholder
+                CargarProductos(); // Vuelve a mostrar todos los productos si se vacía
+            }
         }
     }
 }

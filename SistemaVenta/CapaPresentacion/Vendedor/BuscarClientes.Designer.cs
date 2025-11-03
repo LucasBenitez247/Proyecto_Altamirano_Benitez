@@ -31,8 +31,8 @@
             this.LListClientes = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.TBuscarCliente = new System.Windows.Forms.TextBox();
-            this.dataGridViewClientes = new System.Windows.Forms.DataGridView();
             this.IBtnBuscarCliente = new FontAwesome.Sharp.IconButton();
+            this.dataGridViewClientes = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).BeginInit();
             this.SuspendLayout();
@@ -69,15 +69,9 @@
             this.TBuscarCliente.Size = new System.Drawing.Size(193, 19);
             this.TBuscarCliente.TabIndex = 2;
             this.TBuscarCliente.Text = "Buscar Cliente...";
-            // 
-            // dataGridViewClientes
-            // 
-            this.dataGridViewClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewClientes.Location = new System.Drawing.Point(12, 78);
-            this.dataGridViewClientes.Name = "dataGridViewClientes";
-            this.dataGridViewClientes.Size = new System.Drawing.Size(776, 402);
-            this.dataGridViewClientes.TabIndex = 23;
-            this.dataGridViewClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellDoubleClick);
+            this.TBuscarCliente.TextChanged += new System.EventHandler(this.TBuscarCliente_TextChanged);
+            this.TBuscarCliente.Enter += new System.EventHandler(this.TBuscarCliente_Enter);
+            this.TBuscarCliente.Leave += new System.EventHandler(this.TBuscarCliente_Leave);
             // 
             // IBtnBuscarCliente
             // 
@@ -95,6 +89,15 @@
             this.IBtnBuscarCliente.Size = new System.Drawing.Size(24, 25);
             this.IBtnBuscarCliente.TabIndex = 3;
             this.IBtnBuscarCliente.UseVisualStyleBackColor = false;
+            // 
+            // dataGridViewClientes
+            // 
+            this.dataGridViewClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewClientes.Location = new System.Drawing.Point(12, 78);
+            this.dataGridViewClientes.Name = "dataGridViewClientes";
+            this.dataGridViewClientes.Size = new System.Drawing.Size(776, 402);
+            this.dataGridViewClientes.TabIndex = 23;
+            this.dataGridViewClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellDoubleClick);
             // 
             // BuscarClientes
             // 

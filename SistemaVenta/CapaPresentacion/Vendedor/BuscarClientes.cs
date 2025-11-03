@@ -16,15 +16,35 @@ namespace CapaPresentacion.Vendedor
     {
 
         public event EventHandler<Cliente> ClienteSeleccionado;
+
+        // Lista global para guardar los clientes
+        private List<Cliente> listaClientesGlobal;
         public BuscarClientes()
         {
             InitializeComponent();
             CargarClientes();
+
+           // Conectar los eventos del TextBox
+            this.TBuscarCliente.Enter += new System.EventHandler(this.TBuscarCliente_Enter);
+            this.TBuscarCliente.Leave += new System.EventHandler(this.TBuscarCliente_Leave);
+            this.TBuscarCliente.TextChanged += new System.EventHandler(this.TBuscarCliente_TextChanged);
+
+            // Mejorar el placeholder 
+            TBuscarCliente.ForeColor = Color.Gray;
         }
         private void CargarClientes()
         {
-            List<Cliente> listaClientes = new CN_Cliente().Listar();
-            dataGridViewClientes.DataSource = listaClientes;
+            // 1. Carga la lista desde la BD a la variable global
+            listaClientesGlobal = new CN_Cliente().Listar();
+
+            // 2. Asigna la lista completa al DataGridView
+            dataGridViewClientes.DataSource = listaClientesGlobal;
+
+            // 3. Formatea las columnas
+            FormatearColumnas();
+        }
+        private void FormatearColumnas()
+        {
             // Cambia los encabezados de las columnas
             if (dataGridViewClientes.Columns["Id_cliente"] != null)
                 dataGridViewClientes.Columns["Id_cliente"].HeaderText = "ID Cliente";
@@ -54,33 +74,70 @@ namespace CapaPresentacion.Vendedor
 
         private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) 
+            if (e.RowIndex >= 0)
             {
-                DataGridViewRow fila = dataGridViewClientes.Rows[e.RowIndex];
+                // Obtener el cliente de la lista filtrada
+                // Obtenemos el cliente directamente del DataSource actual de la grilla
+                Cliente clienteSeleccionado = (dataGridViewClientes.Rows[e.RowIndex].DataBoundItem as Cliente);
 
-                // Crea un objeto Cliente con los datos de la fila seleccionada
-                Cliente clienteSeleccionado = new Cliente
+                if (clienteSeleccionado != null)
                 {
-                    
-                    Id_cliente = Convert.ToInt32(fila.Cells["Id_cliente"].Value ?? 0), 
-                    Nombre_cliente = fila.Cells["Nombre_cliente"].Value?.ToString() ?? "", 
-                    Apellido_cliente = fila.Cells["Apellido_cliente"].Value?.ToString() ?? "",
-                    Dni_cliente = fila.Cells["Dni_cliente"].Value?.ToString() ?? "",
-                    Direccion_cliente = fila.Cells["Direccion_cliente"].Value?.ToString() ?? ""
-                    
-                };
-
-                // Dispara el evento, pasando el cliente seleccionado
-                OnClienteSeleccionado(clienteSeleccionado);
-
-                // Cierra este formulario
-                this.Close();
+                    // Dispara el evento, pasando el cliente seleccionado
+                    OnClienteSeleccionado(clienteSeleccionado);
+                    this.Close();
+                }
             }
 
         }
         protected virtual void OnClienteSeleccionado(Cliente cliente)
         {
             ClienteSeleccionado?.Invoke(this, cliente);
+        }
+
+        private void TBuscarCliente_TextChanged(object sender, EventArgs e)
+        {
+            string textoBusqueda = TBuscarCliente.Text.ToLower().Trim();
+
+            // No filtrar si el texto es el placeholder
+            if (textoBusqueda == "buscar cliente...")
+            {
+                return;
+            }
+
+            // Filtrar por Nombre, Apellido o DNI
+            List<Cliente> clientesFiltrados = listaClientesGlobal.Where(c =>
+                c.Nombre_cliente.ToLower().Contains(textoBusqueda) ||
+                c.Apellido_cliente.ToLower().Contains(textoBusqueda) ||
+                c.Dni_cliente.Contains(textoBusqueda) // DNI no necesita ToLower
+            ).ToList();
+
+            // Actualizar el DataSource
+            dataGridViewClientes.DataSource = clientesFiltrados;
+
+            // Re-aplicar formato de cabeceras (se pierde al cambiar el DataSource)
+            FormatearColumnas();
+        }
+
+        private void TBuscarCliente_Enter(object sender, EventArgs e)
+        {
+            if (TBuscarCliente.Text == "Buscar Cliente...")
+            {
+                TBuscarCliente.Text = "";
+                TBuscarCliente.ForeColor = Color.Black;
+            }
+        }
+
+        private void TBuscarCliente_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TBuscarCliente.Text))
+            {
+                TBuscarCliente.Text = "Buscar Cliente...";
+                TBuscarCliente.ForeColor = Color.Gray;
+
+                // Mostrar todos los clientes de nuevo
+                dataGridViewClientes.DataSource = listaClientesGlobal;
+                FormatearColumnas();
+            }
         }
     }
 }

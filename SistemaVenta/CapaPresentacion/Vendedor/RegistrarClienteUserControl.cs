@@ -38,6 +38,8 @@ namespace CapaPresentacion.Vendedor
             RBMasculino.Checked = false;
             RBFemenino.Checked = false;
             RBOtro.Checked = false;
+
+            idClienteSeleccionado = 0;
         }
         private void CargarClientes()
         {
@@ -268,37 +270,38 @@ namespace CapaPresentacion.Vendedor
               
             };
 
-            bool resultado = false;
-
+            
             if (idClienteSeleccionado == 0)
             {
+                // REGISTRAR 
                 string resultadoStr = new CN_Cliente().Registrar(cliente);
                 if (resultadoStr == "OK")
                 {
-                    MessageBox.Show("Cliente registrado con éxito");
-                    resultado = true;
+                    MessageBox.Show("Cliente registrado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimpiarCampos();
+                    CargarClientes();
                 }
                 else
                 {
-                    MessageBox.Show("Error al registrar el cliente: " + resultadoStr);
-                    resultado = false;
+                    // Esto mostrará "Error al registrar el cliente: No se pudo guardar el cliente" si falla
+                    MessageBox.Show("Error al registrar el cliente: " + resultadoStr, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                resultado = new CN_Cliente().Modificar(cliente);
-                if (resultado) MessageBox.Show("Cliente modificado con éxito");
-            }
-
-            if (resultado)
-            {
-                LimpiarCampos();
-                CargarClientes();
-                idClienteSeleccionado = 0;
-            }
-            else
-            {
-                MessageBox.Show("Error al guardar el cliente");
+                // MODIFICAR 
+                bool resultadoMod = new CN_Cliente().Modificar(cliente);
+                if (resultadoMod)
+                {
+                    MessageBox.Show("Cliente modificado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimpiarCampos();
+                    CargarClientes();
+                }
+                else
+                {
+                    
+                    MessageBox.Show("No se pudo modificar el cliente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -307,6 +310,9 @@ namespace CapaPresentacion.Vendedor
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow fila = dataGridView2.Rows[e.RowIndex];
+
+                // Guarda el ID del cliente seleccionado
+                idClienteSeleccionado = Convert.ToInt32(fila.Cells["Id_cliente"].Value);
 
                 TNombre.Text = fila.Cells["Nombre_cliente"].Value?.ToString();
                 TApellido.Text = fila.Cells["Apellido_cliente"].Value?.ToString();
