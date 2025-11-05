@@ -18,12 +18,19 @@ namespace CapaPresentacion.Administrador
         private List<Producto> listaProductos = new List<Producto>();
         private List<Categoria_producto> listaCategorias = new List<Categoria_producto>();
         private List<Estado_producto> listaEstados = new List<Estado_producto>();
+        private List<Talle_producto> listaTalles = new List<Talle_producto>();
 
         public pnlProductos()
         {
             InitializeComponent();
             inicializarControles(); // Inicializar controles del comboBox
             cargarDatos(); // Cargar datos desde la capa de negocio
+            Console.WriteLine($"Talles cargados: {listaTalles.Count}");
+            foreach (var t in listaTalles)
+            {
+                Console.WriteLine($"ID: {t.Id_talle_producto}, Descripción: {t.Descripcion_talle}");
+            }
+
             cargarProductos(); // Cargar productos en el DataGridView
         }
 
@@ -39,7 +46,7 @@ namespace CapaPresentacion.Administrador
         }
         private void lblHasta_Load(object sender, EventArgs e)
         {
-
+            cboBuscarPor.SelectedIndex = 0; // Seleccionar la primera opción por defecto
 
         }
 
@@ -51,19 +58,23 @@ namespace CapaPresentacion.Administrador
             {
                 var categoria = listaCategorias.FirstOrDefault(c => c.Id_categoria == producto.Categoria_producto); // Buscar la categoría correspondiente
                 var estado = listaEstados.FirstOrDefault(e => e.Id_estado_producto == producto.Estado_producto); // Buscar el estado correspondiente
+                var talle = listaTalles.FirstOrDefault(t => t.Id_talle_producto == producto.Talle_producto); // Buscar el talle correspondiente
 
                 string nombreCategoria = categoria != null ? categoria.Descripcion_categoria : "Sin categoría"; // Manejar caso de categoría no encontrada
                 string nombreEstado = estado != null ? estado.Descripcion_estado_producto : "Sin estado"; // Manejar caso de estado no encontrado
+                string nombreTalle = talle != null ? talle.Descripcion_talle : "Sin talle"; // Manejar caso de talle no encontrado
 
                 // Agregar fila al DataGridView
                 dgvProductos.Rows.Add(
                     producto.Id_producto,
+                    producto.Codigo_producto,
                     producto.Nombre_producto,
                     producto.Descripcion_producto,
                     nombreEstado,
                     producto.Precio_producto,
                     producto.Stock_producto,
-                    nombreCategoria
+                    nombreCategoria,
+                    nombreTalle
                 );
             }
         }
@@ -82,7 +93,7 @@ namespace CapaPresentacion.Administrador
         private void BtnNuevaCompra_Click(object sender, EventArgs e)
         {
             AgregarProductosFormAdministrador agregarProductosForm = new AgregarProductosFormAdministrador();
-            
+
             if (agregarProductosForm.ShowDialog() == DialogResult.OK)
             {
                 cargarDatos(); // Este método debe volver a consultar la base de datos y actualizar el DataGridView
@@ -114,6 +125,7 @@ namespace CapaPresentacion.Administrador
             listaProductos = new CN_Producto().listarProductos();
             listaCategorias = new CN_Producto().obtenerCategoria();
             listaEstados = new CN_Producto().listarEstados();
+            listaTalles = new CN_Producto().listarTalles();
         }
 
 
@@ -151,6 +163,7 @@ namespace CapaPresentacion.Administrador
 
                 dgvProductos.Rows.Add(
                     producto.Id_producto,
+                    producto.Codigo_producto,
                     producto.Nombre_producto,
                     producto.Descripcion_producto,
                     nombreEstado,
@@ -174,13 +187,13 @@ namespace CapaPresentacion.Administrador
                     // Obtener los datos del producto seleccionado
                     Producto producto = new Producto();
                     producto.Id_producto = Convert.ToInt32(dgvProductos.Rows[e.RowIndex].Cells["idProducto"].Value);
+                    producto.Codigo_producto = dgvProductos.Rows[e.RowIndex].Cells["codProducto"].Value.ToString();
                     producto.Nombre_producto = dgvProductos.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
                     producto.Descripcion_producto = dgvProductos.Rows[e.RowIndex].Cells["descripcion"].Value.ToString();
-                    producto.Precio_producto = Convert.ToDecimal(dgvProductos.Rows[e.RowIndex].Cells["precio"].Value);
-                    producto.Stock_producto = Convert.ToInt32(dgvProductos.Rows[e.RowIndex].Cells["stock"].Value);
-                    producto.Categoria_producto = listaCategorias.FirstOrDefault(c => c.Descripcion_categoria == dgvProductos.Rows[e.RowIndex].Cells["Categoria"].Value.ToString())?.Id_categoria ?? 0;
-                    producto.Estado_producto = listaEstados.FirstOrDefault(es => es.Descripcion_estado_producto == dgvProductos.Rows[e.RowIndex].Cells["Estado"].Value.ToString())?.Id_estado_producto ?? 0;
-                    
+                    producto.Categoria_producto = listaCategorias.FirstOrDefault(c => c.Descripcion_categoria == dgvProductos.Rows[e.RowIndex].Cells["categoria"].Value.ToString())?.Id_categoria ?? 0;
+                    producto.Estado_producto = listaEstados.FirstOrDefault(es => es.Descripcion_estado_producto == dgvProductos.Rows[e.RowIndex].Cells["estado"].Value.ToString())?.Id_estado_producto ?? 0;
+                    producto.Talle_producto = listaTalles.FirstOrDefault(t => t.Descripcion_talle == dgvProductos.Rows[e.RowIndex].Cells["Talle"].Value.ToString())?.Id_talle_producto ?? 0;
+
                     ModificarProductosFormAdministrador modificarProductosForm = new ModificarProductosFormAdministrador(producto);
                     modificarProductosForm.ShowDialog();
 
@@ -196,10 +209,10 @@ namespace CapaPresentacion.Administrador
                             string mensaje = string.Empty;
                             Producto producto = new Producto()
                             {
-                                Id_producto = Convert.ToInt32(dgvProductos.Rows[e.RowIndex].Cells["idProducto"].Value)
+                                Codigo_producto = dgvProductos.Rows[e.RowIndex].Cells["codProducto"].Value.ToString(),
                             };
 
-                            bool respuesta = new CN_Producto().eliminarProducto(producto.Id_producto);
+                            bool respuesta = new CN_Producto().eliminarProducto(producto.Codigo_producto);
 
                             if (respuesta)
                             {
@@ -231,6 +244,7 @@ namespace CapaPresentacion.Administrador
 
 
         }
+
 
     }
 }

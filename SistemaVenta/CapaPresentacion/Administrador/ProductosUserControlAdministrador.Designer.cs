@@ -36,16 +36,18 @@
             this.cboBuscarPor = new System.Windows.Forms.ComboBox();
             this.BtnNuevaCompra = new FontAwesome.Sharp.IconButton();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Talle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Modificar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlBuscarPor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -94,6 +96,7 @@
             // 
             // cboBuscarPor
             // 
+            this.cboBuscarPor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBuscarPor.FormattingEnabled = true;
             this.cboBuscarPor.Location = new System.Drawing.Point(158, 29);
             this.cboBuscarPor.Name = "cboBuscarPor";
@@ -131,12 +134,14 @@
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idProducto,
+            this.codProducto,
             this.nombre,
             this.descripcion,
             this.estado,
             this.precio,
             this.stock,
             this.categoria,
+            this.Talle,
             this.Modificar,
             this.Eliminar});
             this.dgvProductos.Location = new System.Drawing.Point(46, 248);
@@ -145,14 +150,16 @@
             this.dgvProductos.TabIndex = 16;
             this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // idProducto
             // 
             this.idProducto.HeaderText = "Id Producto";
             this.idProducto.Name = "idProducto";
+            this.idProducto.Visible = false;
+            // 
+            // codProducto
+            // 
+            this.codProducto.HeaderText = "Cód. del Producto";
+            this.codProducto.Name = "codProducto";
             // 
             // nombre
             // 
@@ -184,6 +191,11 @@
             this.categoria.HeaderText = "Categoria";
             this.categoria.Name = "categoria";
             // 
+            // Talle
+            // 
+            this.Talle.HeaderText = "Talle";
+            this.Talle.Name = "Talle";
+            // 
             // Modificar
             // 
             this.Modificar.HeaderText = "Modificar";
@@ -193,6 +205,10 @@
             // 
             this.Eliminar.HeaderText = "Eliminar";
             this.Eliminar.Name = "Eliminar";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // pnlProductos
             // 
@@ -226,12 +242,14 @@
         private System.Windows.Forms.TextBox txtBuscador;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Talle;
         private System.Windows.Forms.DataGridViewButtonColumn Modificar;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
     }

@@ -112,6 +112,12 @@
     <Compile Include="Administrador\ModificarProductosFormAdministrador.Designer.cs">
       <DependentUpon>ModificarProductosFormAdministrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\ModificarProveedorFormAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\ModificarProveedorFormAdministrador.Designer.cs">
+      <DependentUpon>ModificarProveedorFormAdministrador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\PerfilAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\ModificarProductosFormAdministrador.resx">
       <DependentUpon>ModificarProductosFormAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\ModificarProveedorFormAdministrador.resx">
+      <DependentUpon>ModificarProveedorFormAdministrador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\PerfilAdministrador.resx">
       <DependentUpon>PerfilAdministrador.cs</DependentUpon>
