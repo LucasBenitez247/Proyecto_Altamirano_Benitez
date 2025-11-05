@@ -17,7 +17,7 @@ namespace CapaNegocio
             try
             {
                 bool resultado = objCapaDatos.Registrar(cliente);
-                return resultado ? "Cliente guardado correctamente" : "No se pudo guardar el cliente";
+                return resultado ? "OK" : "No se pudo guardar el cliente";
             }
             catch (Exception ex)
             {
@@ -33,6 +33,11 @@ namespace CapaNegocio
         public bool Modificar(Cliente c)
         {
             return objCapaDatos.Modificar(c);
+        }
+
+        public List<ReporteClienteFrecuente> GetClientesFrecuentes(DateTime fechaInicio, DateTime fechaFin)
+        {
+            return objCapaDatos.GetClientesFrecuentes(fechaInicio, fechaFin);
         }
 
     }

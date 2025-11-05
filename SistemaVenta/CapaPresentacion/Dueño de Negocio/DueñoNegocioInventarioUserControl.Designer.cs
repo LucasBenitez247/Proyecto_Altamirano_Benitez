@@ -40,9 +40,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TStock = new System.Windows.Forms.TextBox();
             this.PStock = new System.Windows.Forms.Panel();
-            this.IBtnBuscar = new FontAwesome.Sharp.IconButton();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.BtnBuscar = new FontAwesome.Sharp.IconButton();
+            this.DtpFechaInicio = new System.Windows.Forms.DateTimePicker();
+            this.DtpFechaFin = new System.Windows.Forms.DateTimePicker();
             this.FechaFin = new System.Windows.Forms.Label();
             this.LFechaInicio = new System.Windows.Forms.Label();
             this.PTotalProductos.SuspendLayout();
@@ -63,9 +63,9 @@
             // 
             // TTotalProductos
             // 
-            this.TTotalProductos.Location = new System.Drawing.Point(41, 49);
+            this.TTotalProductos.Location = new System.Drawing.Point(13, 49);
             this.TTotalProductos.Name = "TTotalProductos";
-            this.TTotalProductos.Size = new System.Drawing.Size(100, 20);
+            this.TTotalProductos.Size = new System.Drawing.Size(203, 20);
             this.TTotalProductos.TabIndex = 4;
             // 
             // label1
@@ -121,7 +121,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label3.Location = new System.Drawing.Point(90, 10);
+            this.label3.Location = new System.Drawing.Point(94, 10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 24);
             this.label3.TabIndex = 0;
@@ -129,9 +129,9 @@
             // 
             // TStock
             // 
-            this.TStock.Location = new System.Drawing.Point(65, 49);
+            this.TStock.Location = new System.Drawing.Point(23, 49);
             this.TStock.Name = "TStock";
-            this.TStock.Size = new System.Drawing.Size(100, 20);
+            this.TStock.Size = new System.Drawing.Size(195, 20);
             this.TStock.TabIndex = 5;
             // 
             // PStock
@@ -144,38 +144,39 @@
             this.PStock.Size = new System.Drawing.Size(232, 134);
             this.PStock.TabIndex = 5;
             // 
-            // IBtnBuscar
+            // BtnBuscar
             // 
-            this.IBtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.IBtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.IBtnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IBtnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.IBtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
-            this.IBtnBuscar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.IBtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.IBtnBuscar.IconSize = 24;
-            this.IBtnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.IBtnBuscar.Location = new System.Drawing.Point(668, 20);
-            this.IBtnBuscar.Name = "IBtnBuscar";
-            this.IBtnBuscar.Size = new System.Drawing.Size(93, 27);
-            this.IBtnBuscar.TabIndex = 11;
-            this.IBtnBuscar.Text = "Buscar";
-            this.IBtnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.IBtnBuscar.UseVisualStyleBackColor = true;
+            this.BtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
+            this.BtnBuscar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnBuscar.IconSize = 24;
+            this.BtnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnBuscar.Location = new System.Drawing.Point(668, 20);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(93, 27);
+            this.BtnBuscar.TabIndex = 11;
+            this.BtnBuscar.Text = "Buscar";
+            this.BtnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnBuscar.UseVisualStyleBackColor = true;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
-            // dateTimePicker2
+            // DtpFechaInicio
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(280, 20);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(135, 20);
-            this.dateTimePicker2.TabIndex = 9;
+            this.DtpFechaInicio.Location = new System.Drawing.Point(280, 20);
+            this.DtpFechaInicio.Name = "DtpFechaInicio";
+            this.DtpFechaInicio.Size = new System.Drawing.Size(135, 20);
+            this.DtpFechaInicio.TabIndex = 9;
             // 
-            // dateTimePicker1
+            // DtpFechaFin
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(515, 24);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(135, 20);
-            this.dateTimePicker1.TabIndex = 10;
+            this.DtpFechaFin.Location = new System.Drawing.Point(515, 24);
+            this.DtpFechaFin.Name = "DtpFechaFin";
+            this.DtpFechaFin.Size = new System.Drawing.Size(135, 20);
+            this.DtpFechaFin.TabIndex = 10;
             // 
             // FechaFin
             // 
@@ -204,9 +205,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.Controls.Add(this.IBtnBuscar);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.BtnBuscar);
+            this.Controls.Add(this.DtpFechaInicio);
+            this.Controls.Add(this.DtpFechaFin);
             this.Controls.Add(this.FechaFin);
             this.Controls.Add(this.LFechaInicio);
             this.Controls.Add(this.PEstadistica);
@@ -214,6 +215,7 @@
             this.Controls.Add(this.PTotalProductos);
             this.Name = "DueñoNegocioInventarioUserControl";
             this.Size = new System.Drawing.Size(1201, 660);
+            this.Load += new System.EventHandler(this.DueñoNegocioInventarioUserControl_Load);
             this.PTotalProductos.ResumeLayout(false);
             this.PTotalProductos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
@@ -237,9 +239,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TStock;
         private System.Windows.Forms.Panel PStock;
-        private FontAwesome.Sharp.IconButton IBtnBuscar;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private FontAwesome.Sharp.IconButton BtnBuscar;
+        private System.Windows.Forms.DateTimePicker DtpFechaInicio;
+        private System.Windows.Forms.DateTimePicker DtpFechaFin;
         private System.Windows.Forms.Label FechaFin;
         private System.Windows.Forms.Label LFechaInicio;
     }
