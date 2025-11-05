@@ -19,5 +19,8 @@ namespace CapaEntidad
         public string Nombre_cliente { get; set; }
         public string Apellido_cliente { get; set; }
         public string Dni_cliente { get; set; }
+
+        public string Nombre_usuario { get; set; }
+        public string Apellido_usuario { get; set; }
     }
 }

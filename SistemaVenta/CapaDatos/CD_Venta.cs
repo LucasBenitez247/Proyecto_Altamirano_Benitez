@@ -41,7 +41,7 @@ namespace CapaDatos
                         // Ejecuta y obtiene el nuevo Id_venta
                         int idVentaGenerada = Convert.ToInt32(cmdVenta.ExecuteScalar());
 
-                        // Paso 2 y 3: Insertar Detalles y Actualizar Stock (para cada producto en el carrito)
+                        //Inserta Detalles y Actualizar Stock (para cada producto en el carrito)
                         foreach (Detalle_venta detalle in detalleVenta)
                         {
                             // Asigna el ID de la venta al detalle
@@ -125,7 +125,7 @@ namespace CapaDatos
                                 Tipo_documento = dr["Tipo_documento"].ToString(),
                                 Fecha_venta = Convert.ToDateTime(dr["Fecha_venta"]),
                                 Total_venta = Convert.ToDecimal(dr["Total_venta"]),
-                                // Llenamos las propiedades adicionales
+                                // Propiedades adicionales
                                 Nombre_cliente = dr["Nombre_cliente"].ToString(),
                                 Apellido_cliente = dr["Apellido_cliente"].ToString(),
                                 Dni_cliente = dr["Dni_cliente"].ToString()
@@ -137,7 +137,7 @@ namespace CapaDatos
             }
             catch (Exception ex)
             {
-                // Registra el error (en un entorno real, usarías un logger)
+                
                 Console.WriteLine("Error al listar ventas: " + ex.Message);
                 lista = new List<Venta>(); // Devuelve lista vacía en caso de error
             }
@@ -184,6 +184,98 @@ namespace CapaDatos
                 lista = new List<Detalle_venta>();
             }
             return lista;
+        }
+
+        public List<Venta> ListarReporte(DateTime fechaInicio, DateTime fechaFin)
+        {
+            List<Venta> lista = new List<Venta>();
+            Conexion conexion = new Conexion();
+
+            try
+            {
+                using (SqlConnection oconexion = conexion.CrearConexion())
+                {
+                    // Query que une Venta con Clientes y con Usuarios
+                    string query = @"
+                        SELECT 
+                            v.Id_venta, v.Fecha_venta, v.Tipo_documento, v.Total_venta,
+                            c.Nombre_cliente, c.Apellido_cliente,
+                            u.nombre AS Nombre_usuario, 
+                            u.apellido AS Apellido_usuario
+                        FROM Venta v
+                        INNER JOIN Clientes c ON v.Id_cliente = c.Id_cliente
+                        INNER JOIN usuarios u ON v.Id_usuario = u.id_usuario
+                        WHERE v.Fecha_venta BETWEEN @fechaInicio AND @fechaFin
+                        ORDER BY v.Fecha_venta DESC";
+
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio);
+                    cmd.Parameters.AddWithValue("@fechaFin", fechaFin);
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new Venta()
+                            {
+                                Id_venta = Convert.ToInt32(dr["Id_venta"]),
+                                Fecha_venta = Convert.ToDateTime(dr["Fecha_venta"]),
+                                Tipo_documento = dr["Tipo_documento"].ToString(),
+                                Total_venta = Convert.ToDecimal(dr["Total_venta"]),
+                                Nombre_cliente = dr["Nombre_cliente"].ToString(),
+                                Apellido_cliente = dr["Apellido_cliente"].ToString(),
+                                Nombre_usuario = dr["Nombre_usuario"].ToString(),
+                                Apellido_usuario = dr["Apellido_usuario"].ToString()
+                            });
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al listar reporte: " + ex.Message);
+                lista = new List<Venta>();
+            }
+            return lista;
+        }
+
+        public List<ReporteVentasPorMes> GetVentasPorMes(DateTime fechaInicio, DateTime fechaFin)
+        {
+            List<ReporteVentasPorMes> lista = new List<ReporteVentasPorMes>();
+            using (SqlConnection oconexion = new Conexion().CrearConexion())
+            {
+                try
+                {
+                    string query = @"
+                        SELECT 
+                            FORMAT(Fecha_venta, 'yyyy-MM') as Mes,
+                            SUM(Total_venta) as Total
+                        FROM Venta
+                        WHERE Fecha_venta BETWEEN @fechaInicio AND @fechaFin
+                        GROUP BY FORMAT(Fecha_venta, 'yyyy-MM')
+                        ORDER BY Mes ASC";
+
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio);
+                    cmd.Parameters.AddWithValue("@fechaFin", fechaFin);
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new ReporteVentasPorMes()
+                            {
+                                Mes = dr["Mes"].ToString(),
+                                Total = Convert.ToDecimal(dr["Total"])
+                            });
+                        }
+                    }
+                }
+                catch (Exception) { lista = new List<ReporteVentasPorMes>(); }
+                return lista;
+            }
         }
     }
 }

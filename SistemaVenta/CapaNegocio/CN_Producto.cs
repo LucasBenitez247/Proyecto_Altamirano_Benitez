@@ -69,5 +69,11 @@ namespace CapaNegocio
                 throw new Exception(ex.Message);
             }
         }
+
+        public List<ReporteProductoVendido> GetProductosMasVendidos(DateTime fechaInicio, DateTime fechaFin)
+        {
+            CD_Producto cdProducto = new CD_Producto();
+            return cdProducto.GetProductosMasVendidos(fechaInicio, fechaFin);
+        }
     }
 }

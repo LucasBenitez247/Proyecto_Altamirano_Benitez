@@ -166,5 +166,47 @@ namespace CapaDatos
                 throw new Exception("Error al eliminar producto: " + ex.Message);
             }
         }
+
+        public List<ReporteProductoVendido> GetProductosMasVendidos(DateTime fechaInicio, DateTime fechaFin)
+        {
+            List<ReporteProductoVendido> lista = new List<ReporteProductoVendido>();
+            using (SqlConnection oconexion = new Conexion().CrearConexion())
+            {
+                try
+                {
+                    string query = @"
+                        SELECT TOP 10
+                            p.Nombre_producto,
+                            p.Stock_producto,
+                            SUM(dv.Cantidad) as CantidadTotal
+                        FROM Detalle_venta dv
+                        INNER JOIN Producto p ON dv.Id_producto = p.Id_producto
+                        INNER JOIN Venta v ON dv.Id_venta = v.Id_venta
+                        WHERE v.Fecha_venta BETWEEN @fechaInicio AND @fechaFin
+                        GROUP BY p.Nombre_producto, p.Stock_producto
+                        ORDER BY CantidadTotal DESC";
+
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio);
+                    cmd.Parameters.AddWithValue("@fechaFin", fechaFin);
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new ReporteProductoVendido()
+                            {
+                                Producto = dr["Nombre_producto"].ToString(),
+                                StockActual = Convert.ToInt32(dr["Stock_producto"]),
+                                Cantidad = Convert.ToInt32(dr["CantidadTotal"])
+                            });
+                        }
+                    }
+                }
+                catch (Exception) { lista = new List<ReporteProductoVendido>(); }
+                return lista;
+            }
+        }
     }
 }

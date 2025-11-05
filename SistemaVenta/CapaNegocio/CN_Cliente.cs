@@ -35,5 +35,10 @@ namespace CapaNegocio
             return objCapaDatos.Modificar(c);
         }
 
+        public List<ReporteClienteFrecuente> GetClientesFrecuentes(DateTime fechaInicio, DateTime fechaFin)
+        {
+            return objCapaDatos.GetClientesFrecuentes(fechaInicio, fechaFin);
+        }
+
     }
 }
