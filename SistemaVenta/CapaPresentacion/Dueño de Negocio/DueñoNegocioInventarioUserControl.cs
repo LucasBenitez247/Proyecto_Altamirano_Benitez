@@ -80,7 +80,7 @@ namespace CapaPresentacion.Dueño_de_Negocio
 
             foreach (var item in datos)
             {
-                // Añadimos el producto (X) y la cantidad vendida (Y)
+                // Añade el producto (X) y la cantidad vendida (Y)
                 serieVentas.Points.AddXY(item.Producto, item.Cantidad);
             }
 
