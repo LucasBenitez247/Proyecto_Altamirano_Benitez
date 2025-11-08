@@ -157,6 +157,11 @@ namespace CapaPresentacion.Administrador
             // Configurar DataGridView para que las columnas Modificar y Eliminar muestren texto
             dgvProveedores.Columns["CModificar"].DefaultCellStyle.NullValue = "Modificar";
             dgvProveedores.Columns["CEliminar"].DefaultCellStyle.NullValue = "Eliminar";
+            if (cboBuscarPor.Items.Count > 0)
+            {
+                cboBuscarPor.SelectedIndex = 0;
+            }
+
         }
 
         private void cargarProveedores()
@@ -210,26 +215,29 @@ namespace CapaPresentacion.Administrador
             }
             else if(dgvProveedores.Columns[e.ColumnIndex].Name == "CEliminar" && e.RowIndex >= 0)
             {
-                // Lógica para eliminar el proveedor
-                string RazonSocial = dgvProveedores.Rows[e.RowIndex].Cells["CRazonSocial"].Value.ToString();
-                int idProveedor = Convert.ToInt32(dgvProveedores.Rows[e.RowIndex].Cells["idProveedor"].Value);
-                DialogResult result = MessageBox.Show($"¿Estás seguro de eliminar al proveedor:  {RazonSocial}?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if(result == DialogResult.Yes)
+                string RazonSocial = dgvProveedores.Rows[e.RowIndex].Cells["CRazonSocial"].Value.ToString(); // Obtener la razón social del proveedor para mostrar en el mensaje
+                int idProveedor = Convert.ToInt32(dgvProveedores.Rows[e.RowIndex].Cells["idProveedor"].Value); // Obtener el ID del proveedor a eliminar
+
+                DialogResult result = MessageBox.Show($"¿Estás seguro de dar de baja al proveedor: {RazonSocial}?", "Confirmar baja lógica", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
                 {
-                    CapaNegocio.CN_Proveedor cnProveedor = new CapaNegocio.CN_Proveedor();
-                    bool eliminado = cnProveedor.Eliminar(idProveedor);
-                    if(eliminado)
+                    CN_Proveedor cnProveedor = new CN_Proveedor();
+                    bool dadoDeBaja = cnProveedor.Eliminar(idProveedor); // Baja lógica
+
+                    if (dadoDeBaja)
                     {
-                        MessageBox.Show($"El proveedor {RazonSocial} fue eliminado exitosamente.");
-                        cargarProveedores(); // Actualizar la lista después de eliminar
+                        MessageBox.Show($"El proveedor {RazonSocial} fue dado de baja correctamente.");
+                        cargarProveedores(); // Recarga el DataGridView con el estado actualizado
                     }
                     else
                     {
-                        MessageBox.Show("No se pudo eliminar el proveedor.");
+                        MessageBox.Show("No se pudo dar de baja al proveedor.");
                     }
                 }
             }
+
         }
+        
 
         private void txtBuscador_TextChanged(object sender, EventArgs e)
         {

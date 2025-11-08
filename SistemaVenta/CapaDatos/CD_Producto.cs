@@ -231,7 +231,7 @@ namespace CapaDatos
             {
                 using (SqlConnection oconexion = new Conexion().CrearConexion())
                 {
-                    string query = "DELETE FROM Producto WHERE Codigo_producto = @Codigo_producto";
+                    string query = "UPDATE Producto SET Id_estado_producto = 2 WHERE Codigo_producto = @Codigo_producto";
                     SqlCommand cmd = new SqlCommand(query, oconexion);
                     cmd.Parameters.AddWithValue("@Codigo_producto", codProducto);
                     oconexion.Open();

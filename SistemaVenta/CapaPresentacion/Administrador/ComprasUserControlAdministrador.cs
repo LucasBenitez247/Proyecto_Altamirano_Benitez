@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaEntidad;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,16 +13,23 @@ namespace CapaPresentacion.Administrador
 {
     public partial class ComprasUserControlAdministrador : UserControl
     {
-        public ComprasUserControlAdministrador()
+        private Usuario usuarioActual;
+        public ComprasUserControlAdministrador(Usuario usuario)
         {
             InitializeComponent();
+            this.setUsuario(usuario);
         }
 
         private void BtnNuevaCompra_Click(object sender, EventArgs e)
         {
-            AgregarNuevaCompra agregarCompraForm = new AgregarNuevaCompra();
+            AgregarNuevaCompra agregarCompraForm = new AgregarNuevaCompra(usuarioActual);
             agregarCompraForm.ShowDialog();
 
+        }
+
+        public void setUsuario(Usuario usuario)
+        {
+            this.usuarioActual = usuario;
         }
     }
 }

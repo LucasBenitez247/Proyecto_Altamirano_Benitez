@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaEntidad;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,16 @@ namespace CapaPresentacion.Administrador
 {
     public partial class PerfilAdministrador : Form
     {
-        public PerfilAdministrador()
+        private Usuario usuarioActual;
+        public PerfilAdministrador(Usuario pUsuario)
         {
             InitializeComponent();
+            setUsuario(pUsuario);
+        }
+
+        public void setUsuario(Usuario usuario)
+        {
+            this.usuarioActual = usuario;
         }
         private void AbrirUserControl(UserControl uc)
         {
@@ -35,7 +43,7 @@ namespace CapaPresentacion.Administrador
 
         private void BtnCompras_Click(object sender, EventArgs e)
         {
-            AbrirUserControl(new ComprasUserControlAdministrador());
+            AbrirUserControl(new ComprasUserControlAdministrador(usuarioActual));
         }
 
         private void BtnProductos_Click(object sender, EventArgs e)

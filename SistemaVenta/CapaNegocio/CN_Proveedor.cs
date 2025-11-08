@@ -25,7 +25,7 @@ namespace CapaNegocio
         // Agrega este método para exponer Eliminar
         public bool Eliminar(int idProveedor)
         {
-            return objCapaDatos.Eliminar(idProveedor);
+            return objCapaDatos.bajaProveedor(idProveedor);
         }
 
         public bool Modificar(Proveedor u)

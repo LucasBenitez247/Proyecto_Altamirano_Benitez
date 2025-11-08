@@ -16,11 +16,15 @@ namespace CapaPresentacion
 {
     public partial class Login : Form
     {
+        private Usuario ousuario;
+
         public Login()
         {
             InitializeComponent();
            
         }
+
+        
 
         private void BtnVendedor_Click(object sender, EventArgs e)
         {
@@ -36,13 +40,20 @@ namespace CapaPresentacion
 
         private void BtnAdministrador_Click(object sender, EventArgs e)
         {
-           PerfilAdministrador perfilAdministrador = new PerfilAdministrador();
-              perfilAdministrador.Show();
+            if (ousuario != null)
+            {
+                PerfilAdministrador perfilAdministrador = new PerfilAdministrador(ousuario);
+                perfilAdministrador.Show();
+            }
+            else
+            {
+                MessageBox.Show("Primero iniciá sesión para acceder al perfil de administrador", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void BtnIniciarSesion_Click(object sender, EventArgs e)
         {
-            Usuario ousuario = new CN_Usuario().Listar().Where(u => u.Mail_usuario == TxtMail_usuario.Text && u.Contrasenia_usuario == TxtClave.Text).FirstOrDefault();
+            ousuario = new CN_Usuario().Listar().Where(u => u.Mail_usuario == TxtMail_usuario.Text && u.Contrasenia_usuario == TxtClave.Text).FirstOrDefault();
 
             List<Usuario> Test = new CN_Usuario().Listar();
 
@@ -58,7 +69,7 @@ namespace CapaPresentacion
 
                 if (ousuario.Id_perfil == 1)
                 {
-                    PerfilAdministrador frmAdmin = new PerfilAdministrador();
+                    PerfilAdministrador frmAdmin = new PerfilAdministrador(ousuario);
                     frmAdmin.Show();
                 }
                 else if (ousuario.Id_perfil == 2)

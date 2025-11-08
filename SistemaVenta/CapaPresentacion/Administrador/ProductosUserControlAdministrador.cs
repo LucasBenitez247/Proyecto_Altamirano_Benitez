@@ -217,8 +217,10 @@ namespace CapaPresentacion.Administrador
                             if (respuesta)
                             {
                                 mensaje = "Producto eliminado correctamente.";
-                                dgvProductos.Rows.RemoveAt(e.RowIndex); // Eliminar la fila del DataGridView
-                            } else
+                                cargarDatos();       // Vuelve a consultar la base de datos
+                                cargarProductos();   // Vuelve a llenar el DataGridView con los datos actualizados
+                            }
+                            else
                             {
                                 mensaje = "No se pudo eliminar el producto.";
                                 MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -242,9 +244,7 @@ namespace CapaPresentacion.Administrador
 
             }
 
-
         }
-
 
     }
 }

@@ -92,7 +92,7 @@ namespace CapaDatos
         }
 
         // Implementación del método Eliminar
-        public bool Eliminar(int Id_proveedor)
+        public bool bajaProveedor(int Id_proveedor)
         {
             bool respuesta = false;
 
@@ -100,7 +100,7 @@ namespace CapaDatos
             {
                 using (SqlConnection oconexion = new Conexion().CrearConexion())
                 {
-                    string query = "DELETE FROM Proveedor WHERE Id_proveedor = @Id";
+                    string query = "UPDATE Proveedor SET Estado_proveedor = 0 WHERE Id_proveedor = @id";
                     SqlCommand cmd = new SqlCommand(query, oconexion);
                     cmd.Parameters.AddWithValue("@Id", Id_proveedor);
                     oconexion.Open();
