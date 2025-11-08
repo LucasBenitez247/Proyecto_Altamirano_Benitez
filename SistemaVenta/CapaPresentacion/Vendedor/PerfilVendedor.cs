@@ -1,15 +1,19 @@
 ﻿using CapaPresentacion.Vendedor;
 using System;
 using System.Windows.Forms;
+using CapaEntidad;
 
 namespace CapaPresentacion
 {
     public partial class PerfilVendedor : Form
     {
         private Timer hideTimer;
-        public PerfilVendedor()
+        private Usuario usuarioLogueado;
+        public PerfilVendedor(Usuario oUsuario = null)
         {
             InitializeComponent();
+            usuarioLogueado = oUsuario;
+
             hideTimer = new Timer();
             hideTimer.Interval = 200; // milisegundos de retardo antes de ocultar
             hideTimer.Tick += HideTimer_Tick;
@@ -111,7 +115,15 @@ namespace CapaPresentacion
 
         private void BtnVentas_Click(object sender, EventArgs e)
         {
-            AbrirUserControl(new VentasVendedorUserControl());
+            // 1. Crea la instancia del UserControl
+            VentasVendedorUserControl ucVentas = new VentasVendedorUserControl();
+
+            // 2. Asigna el usuario a la propiedad pública 'UsuarioActual' del UserControl
+            ucVentas.UsuarioActual = usuarioLogueado;
+
+            // 3. Abre el UserControl ya configurado
+            AbrirUserControl(ucVentas);
+       
         }
 
         private void BtnVerLista_Click(object sender, EventArgs e)

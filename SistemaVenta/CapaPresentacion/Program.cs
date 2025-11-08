@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaPresentacion.Dueño_de_Negocio;
 using CapaPresentacion.Administrador;
+using CapaPresentacion.Vendedor;
 namespace CapaPresentacion
 {
     internal static class Program
@@ -17,7 +18,7 @@ namespace CapaPresentacion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PerfilVendedor());
+            Application.Run(new Login());
         }
     }
 }

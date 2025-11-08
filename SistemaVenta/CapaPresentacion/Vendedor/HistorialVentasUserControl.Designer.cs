@@ -33,7 +33,7 @@
             this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CMetodoPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
             this.IBtnBuscar = new FontAwesome.Sharp.IconButton();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -65,7 +65,7 @@
             this.CFecha,
             this.CCliente,
             this.CTotal,
-            this.CMetodoPago,
+            this.CTipoDocumento,
             this.CDetalle});
             this.dataGridView1.Location = new System.Drawing.Point(204, 135);
             this.dataGridView1.Name = "dataGridView1";
@@ -91,11 +91,11 @@
             this.CTotal.Name = "CTotal";
             this.CTotal.Width = 120;
             // 
-            // CMetodoPago
+            // CTipoDocumento
             // 
-            this.CMetodoPago.HeaderText = "Metodo de Pago";
-            this.CMetodoPago.Name = "CMetodoPago";
-            this.CMetodoPago.Width = 120;
+            this.CTipoDocumento.HeaderText = "Tipo Documento";
+            this.CTipoDocumento.Name = "CTipoDocumento";
+            this.CTipoDocumento.Width = 120;
             // 
             // CDetalle
             // 
@@ -125,6 +125,7 @@
             this.IBtnBuscar.Text = "Buscar";
             this.IBtnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.IBtnBuscar.UseVisualStyleBackColor = true;
+            this.IBtnBuscar.Click += new System.EventHandler(this.IBtnBuscar_Click);
             // 
             // dateTimePicker2
             // 
@@ -183,6 +184,9 @@
             this.TBuscarCliente.Size = new System.Drawing.Size(126, 15);
             this.TBuscarCliente.TabIndex = 2;
             this.TBuscarCliente.Text = "Buscar Cliente...";
+            this.TBuscarCliente.TextChanged += new System.EventHandler(this.TBuscarCliente_TextChanged);
+            this.TBuscarCliente.Enter += new System.EventHandler(this.TBuscarCliente_Enter);
+            this.TBuscarCliente.Leave += new System.EventHandler(this.TBuscarCliente_Leave);
             // 
             // IBtnBuscarClientes
             // 
@@ -239,7 +243,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn CTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CMetodoPago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CTipoDocumento;
         private System.Windows.Forms.DataGridViewButtonColumn CDetalle;
     }
 }

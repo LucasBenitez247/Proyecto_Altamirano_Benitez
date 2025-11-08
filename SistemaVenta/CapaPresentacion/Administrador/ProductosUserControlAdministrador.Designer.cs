@@ -34,21 +34,21 @@
             this.pnlBuscarPor = new System.Windows.Forms.Panel();
             this.txtBuscador = new System.Windows.Forms.TextBox();
             this.cboBuscarPor = new System.Windows.Forms.ComboBox();
-            this.BtnNuevaCompra = new FontAwesome.Sharp.IconButton();
-            this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Modificar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.BtnNuevaCompra = new FontAwesome.Sharp.IconButton();
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Modificar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.pnlBuscarPor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // lblProductos
@@ -101,6 +101,10 @@
             this.cboBuscarPor.TabIndex = 3;
             this.cboBuscarPor.SelectedIndexChanged += new System.EventHandler(this.cboBuscarPor_SelectedIndexChanged);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // BtnNuevaCompra
             // 
             this.BtnNuevaCompra.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -126,6 +130,51 @@
             this.BtnNuevaCompra.UseVisualStyleBackColor = true;
             this.BtnNuevaCompra.Click += new System.EventHandler(this.BtnNuevaCompra_Click);
             // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Name = "Eliminar";
+            // 
+            // Modificar
+            // 
+            this.Modificar.HeaderText = "Modificar";
+            this.Modificar.Name = "Modificar";
+            // 
+            // categoria
+            // 
+            this.categoria.HeaderText = "Categoria";
+            this.categoria.Name = "categoria";
+            // 
+            // stock
+            // 
+            this.stock.HeaderText = "Stock";
+            this.stock.Name = "stock";
+            // 
+            // precio
+            // 
+            this.precio.HeaderText = "Precio";
+            this.precio.Name = "precio";
+            // 
+            // estado
+            // 
+            this.estado.HeaderText = "Estado";
+            this.estado.Name = "estado";
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "Descripcion";
+            this.descripcion.Name = "descripcion";
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            // 
+            // idProducto
+            // 
+            this.idProducto.HeaderText = "Id Producto";
+            this.idProducto.Name = "idProducto";
+            // 
             // dgvProductos
             // 
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -145,55 +194,6 @@
             this.dgvProductos.TabIndex = 16;
             this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // idProducto
-            // 
-            this.idProducto.HeaderText = "Id Producto";
-            this.idProducto.Name = "idProducto";
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "Descripcion";
-            this.descripcion.Name = "descripcion";
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Estado";
-            this.estado.Name = "estado";
-            // 
-            // precio
-            // 
-            this.precio.HeaderText = "Precio";
-            this.precio.Name = "precio";
-            // 
-            // stock
-            // 
-            this.stock.HeaderText = "Stock";
-            this.stock.Name = "stock";
-            // 
-            // categoria
-            // 
-            this.categoria.HeaderText = "Categoria";
-            this.categoria.Name = "categoria";
-            // 
-            // Modificar
-            // 
-            this.Modificar.HeaderText = "Modificar";
-            this.Modificar.Name = "Modificar";
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Name = "Eliminar";
-            // 
             // pnlProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -208,8 +208,8 @@
             this.Load += new System.EventHandler(this.lblHasta_Load);
             this.pnlBuscarPor.ResumeLayout(false);
             this.pnlBuscarPor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,9 +222,9 @@
         private System.Windows.Forms.Panel pnlBuscarPor;
         private System.Windows.Forms.ComboBox cboBuscarPor;
         private FontAwesome.Sharp.IconButton BtnNuevaCompra;
-        private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.TextBox txtBuscador;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;

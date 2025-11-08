@@ -131,5 +131,45 @@ namespace CapaDatos
             }
             return respuesta;
         }
+
+        public List<ReporteClienteFrecuente> GetClientesFrecuentes(DateTime fechaInicio, DateTime fechaFin)
+        {
+            List<ReporteClienteFrecuente> lista = new List<ReporteClienteFrecuente>();
+            using (SqlConnection oconexion = new Conexion().CrearConexion())
+            {
+                try
+                {
+                    string query = @"
+                        SELECT TOP 5
+                            c.Nombre_cliente,
+                            c.Apellido_cliente,
+                            COUNT(v.Id_venta) as TotalCompras
+                        FROM Venta v
+                        INNER JOIN Clientes c ON v.Id_cliente = c.Id_cliente
+                        WHERE v.Fecha_venta BETWEEN @fechaInicio AND @fechaFin
+                        GROUP BY c.Nombre_cliente, c.Apellido_cliente
+                        ORDER BY TotalCompras DESC";
+
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio);
+                    cmd.Parameters.AddWithValue("@fechaFin", fechaFin);
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new ReporteClienteFrecuente()
+                            {
+                                Cliente = dr["Nombre_cliente"].ToString() + " " + dr["Apellido_cliente"].ToString(),
+                                Compras = Convert.ToInt32(dr["TotalCompras"])
+                            });
+                        }
+                    }
+                }
+                catch (Exception) { lista = new List<ReporteClienteFrecuente>(); }
+                return lista;
+            }
+        }
     }
 }
