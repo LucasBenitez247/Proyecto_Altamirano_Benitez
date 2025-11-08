@@ -59,9 +59,10 @@
             this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlBuscarPor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblProductos
@@ -114,10 +115,6 @@
             this.cboBuscarPor.Size = new System.Drawing.Size(94, 21);
             this.cboBuscarPor.TabIndex = 3;
             this.cboBuscarPor.SelectedIndexChanged += new System.EventHandler(this.cboBuscarPor_SelectedIndexChanged);
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
             // 
             // BtnNuevaCompra
             // 
@@ -259,8 +256,8 @@
             this.Load += new System.EventHandler(this.lblHasta_Load);
             this.pnlBuscarPor.ResumeLayout(false);
             this.pnlBuscarPor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,9 +270,9 @@
         private System.Windows.Forms.Panel pnlBuscarPor;
         private System.Windows.Forms.ComboBox cboBuscarPor;
         private FontAwesome.Sharp.IconButton BtnNuevaCompra;
+        private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.TextBox txtBuscador;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn codProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
