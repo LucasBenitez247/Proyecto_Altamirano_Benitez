@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.IBtnBuscar = new FontAwesome.Sharp.IconButton();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.DtpFechaInicio = new System.Windows.Forms.DateTimePicker();
+            this.DtpFechaFin = new System.Windows.Forms.DateTimePicker();
             this.FechaFin = new System.Windows.Forms.Label();
             this.LFechaInicio = new System.Windows.Forms.Label();
             this.LReporteVentas = new System.Windows.Forms.Label();
@@ -57,8 +57,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.panel1.Controls.Add(this.IBtnBuscar);
-            this.panel1.Controls.Add(this.dateTimePicker2);
-            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.DtpFechaInicio);
+            this.panel1.Controls.Add(this.DtpFechaFin);
             this.panel1.Controls.Add(this.FechaFin);
             this.panel1.Controls.Add(this.LFechaInicio);
             this.panel1.Controls.Add(this.LReporteVentas);
@@ -85,20 +85,24 @@
             this.IBtnBuscar.Text = "Buscar";
             this.IBtnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.IBtnBuscar.UseVisualStyleBackColor = true;
+            this.IBtnBuscar.TextChanged += new System.EventHandler(this.IBtnBuscar_TextChanged);
+            this.IBtnBuscar.Click += new System.EventHandler(this.IBtnBuscar_Click);
+            this.IBtnBuscar.Enter += new System.EventHandler(this.IBtnBuscar_Enter);
+            this.IBtnBuscar.Leave += new System.EventHandler(this.IBtnBuscar_Leave);
             // 
-            // dateTimePicker2
+            // DtpFechaInicio
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(195, 61);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(132, 20);
-            this.dateTimePicker2.TabIndex = 5;
+            this.DtpFechaInicio.Location = new System.Drawing.Point(195, 61);
+            this.DtpFechaInicio.Name = "DtpFechaInicio";
+            this.DtpFechaInicio.Size = new System.Drawing.Size(132, 20);
+            this.DtpFechaInicio.TabIndex = 5;
             // 
-            // dateTimePicker1
+            // DtpFechaFin
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(430, 65);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(135, 20);
-            this.dateTimePicker1.TabIndex = 5;
+            this.DtpFechaFin.Location = new System.Drawing.Point(430, 65);
+            this.DtpFechaFin.Name = "DtpFechaFin";
+            this.DtpFechaFin.Size = new System.Drawing.Size(135, 20);
+            this.DtpFechaFin.TabIndex = 5;
             // 
             // FechaFin
             // 
@@ -156,7 +160,7 @@
             this.CCliente});
             this.dataGridView1.Location = new System.Drawing.Point(88, 108);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(650, 154);
+            this.dataGridView1.Size = new System.Drawing.Size(650, 255);
             this.dataGridView1.TabIndex = 9;
             // 
             // CFecha
@@ -189,13 +193,16 @@
             this.TBuscar.Name = "TBuscar";
             this.TBuscar.Size = new System.Drawing.Size(165, 20);
             this.TBuscar.TabIndex = 8;
+            this.TBuscar.TextChanged += new System.EventHandler(this.TBuscar_TextChanged);
+            this.TBuscar.Enter += new System.EventHandler(this.TBuscar_Enter);
+            this.TBuscar.Leave += new System.EventHandler(this.TBuscar_Leave);
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "Registro Fecha",
-            "Vendedor"});
+            "Vendedor",
+            "Cliente"});
             this.comboBox1.Location = new System.Drawing.Point(223, 67);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
@@ -245,6 +252,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "DueñoNegocioReportesUserControl";
             this.Size = new System.Drawing.Size(1201, 660);
+            this.Load += new System.EventHandler(this.DueñoNegocioReportesUserControl_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -261,8 +269,8 @@
         private System.Windows.Forms.Label LFechaInicio;
         private System.Windows.Forms.Label LReporteVentas;
         private System.Windows.Forms.Label FechaFin;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker DtpFechaInicio;
+        private System.Windows.Forms.DateTimePicker DtpFechaFin;
         private FontAwesome.Sharp.IconButton IBtnBuscar;
         private System.Windows.Forms.Panel panel2;
         private FontAwesome.Sharp.IconButton IBtnBuscar2;

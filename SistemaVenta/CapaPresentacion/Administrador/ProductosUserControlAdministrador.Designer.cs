@@ -34,6 +34,8 @@
             this.pnlBuscarPor = new System.Windows.Forms.Panel();
             this.txtBuscador = new System.Windows.Forms.TextBox();
             this.cboBuscarPor = new System.Windows.Forms.ComboBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.BtnNuevaCompra = new FontAwesome.Sharp.IconButton();
             this.BtnNuevaCompra = new FontAwesome.Sharp.IconButton();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,10 +49,19 @@
             this.Talle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Modificar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Modificar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlBuscarPor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // lblProductos
@@ -104,6 +115,10 @@
             this.cboBuscarPor.TabIndex = 3;
             this.cboBuscarPor.SelectedIndexChanged += new System.EventHandler(this.cboBuscarPor_SelectedIndexChanged);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // BtnNuevaCompra
             // 
             this.BtnNuevaCompra.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -129,7 +144,7 @@
             this.BtnNuevaCompra.UseVisualStyleBackColor = true;
             this.BtnNuevaCompra.Click += new System.EventHandler(this.BtnNuevaCompra_Click);
             // 
-            // dgvProductos
+            // Eliminar
             // 
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -149,7 +164,15 @@
             this.dgvProductos.Size = new System.Drawing.Size(830, 201);
             this.dgvProductos.TabIndex = 16;
             this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Name = "Eliminar";
             // 
+            // Modificar
+            // 
+            this.Modificar.HeaderText = "Modificar";
+            this.Modificar.Name = "Modificar";
+            // 
+            // categoria
             // idProducto
             // 
             this.idProducto.HeaderText = "Id Producto";
@@ -157,39 +180,36 @@
             this.idProducto.Visible = false;
             // 
             // codProducto
+            this.categoria.HeaderText = "Categoria";
+            this.categoria.Name = "categoria";
             // 
             this.codProducto.HeaderText = "Cód. del Producto";
             this.codProducto.Name = "codProducto";
             // 
             // nombre
             // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "Descripcion";
-            this.descripcion.Name = "descripcion";
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Estado";
-            this.estado.Name = "estado";
+            this.stock.HeaderText = "Stock";
+            this.stock.Name = "stock";
             // 
             // precio
             // 
             this.precio.HeaderText = "Precio";
             this.precio.Name = "precio";
             // 
-            // stock
+            // estado
             // 
-            this.stock.HeaderText = "Stock";
-            this.stock.Name = "stock";
+            this.estado.HeaderText = "Estado";
+            this.estado.Name = "estado";
             // 
-            // categoria
+            // descripcion
             // 
-            this.categoria.HeaderText = "Categoria";
-            this.categoria.Name = "categoria";
+            this.descripcion.HeaderText = "Descripcion";
+            this.descripcion.Name = "descripcion";
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
             // 
             // Talle
             // 
@@ -197,14 +217,29 @@
             this.Talle.Name = "Talle";
             // 
             // Modificar
+            // idProducto
             // 
-            this.Modificar.HeaderText = "Modificar";
-            this.Modificar.Name = "Modificar";
+            this.idProducto.HeaderText = "Id Producto";
+            this.idProducto.Name = "idProducto";
             // 
-            // Eliminar
+            // dgvProductos
             // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Name = "Eliminar";
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idProducto,
+            this.nombre,
+            this.descripcion,
+            this.estado,
+            this.precio,
+            this.stock,
+            this.categoria,
+            this.Modificar,
+            this.Eliminar});
+            this.dgvProductos.Location = new System.Drawing.Point(46, 248);
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.Size = new System.Drawing.Size(830, 201);
+            this.dgvProductos.TabIndex = 16;
+            this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
             // 
             // errorProvider1
             // 
@@ -224,8 +259,8 @@
             this.Load += new System.EventHandler(this.lblHasta_Load);
             this.pnlBuscarPor.ResumeLayout(false);
             this.pnlBuscarPor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,9 +273,9 @@
         private System.Windows.Forms.Panel pnlBuscarPor;
         private System.Windows.Forms.ComboBox cboBuscarPor;
         private FontAwesome.Sharp.IconButton BtnNuevaCompra;
-        private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.TextBox txtBuscador;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn codProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
