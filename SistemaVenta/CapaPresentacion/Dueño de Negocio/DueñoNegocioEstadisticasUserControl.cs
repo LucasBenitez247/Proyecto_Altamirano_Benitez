@@ -86,9 +86,9 @@ namespace CapaPresentacion.Dueño_de_Negocio
             List<ReporteProductoVendido> datos = new CN_Producto().GetProductosMasVendidos(fechaInicio, fechaFin);
 
             // Limpiar gráfico
-            chart1.Series.Clear();
-            chart1.ChartAreas[0].AxisX.Title = "Producto";
-            chart1.ChartAreas[0].AxisY.Title = "Cantidad Vendida";
+           // chart1.Series.Clear();
+           // chart1.ChartAreas[0].AxisX.Title = "Producto";
+           // chart1.ChartAreas[0].AxisY.Title = "Cantidad Vendida";
 
             Series serieProductos = new Series("Productos")
             {
@@ -104,7 +104,7 @@ namespace CapaPresentacion.Dueño_de_Negocio
                 serieProductos.Points.Add(punto);
             }
 
-            chart1.Series.Add(serieProductos);
+            //chart1.Series.Add(serieProductos);
         }
 
         private void CargarClientesFrecuentes(DateTime fechaInicio, DateTime fechaFin)
