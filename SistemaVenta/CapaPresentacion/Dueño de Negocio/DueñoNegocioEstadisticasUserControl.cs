@@ -48,7 +48,7 @@ namespace CapaPresentacion.Dueño_de_Negocio
             try
             {
                 CargarVentasPorMes(fechaInicio, fechaFin);
-                CargarProductosMasVendidos(fechaInicio, fechaFin);
+                CargarVentasPorDia(fechaInicio, fechaFin);
                 CargarClientesFrecuentes(fechaInicio, fechaFin);
             }
             catch (Exception ex)
@@ -81,31 +81,28 @@ namespace CapaPresentacion.Dueño_de_Negocio
         }
 
 
-        private void CargarProductosMasVendidos(DateTime fechaInicio, DateTime fechaFin)
+        private void CargarVentasPorDia(DateTime fechaInicio, DateTime fechaFin)
         {
-            List<ReporteProductoVendido> datos = new CN_Producto().GetProductosMasVendidos(fechaInicio, fechaFin);
+            List<ReporteVentasPorDia> datos = new CN_Venta().GetVentasPorDia(fechaInicio, fechaFin);
 
             // Limpiar gráfico
-            chart1.Series.Clear();
-            chart1.ChartAreas[0].AxisX.Title = "Producto";
-            chart1.ChartAreas[0].AxisY.Title = "Cantidad Vendida";
+            CDiasVentas.Series.Clear();
+            CDiasVentas.ChartAreas[0].AxisX.Title = "Día de la Semana";
+            CDiasVentas.ChartAreas[0].AxisY.Title = "Total Vendido ($)";
 
-            Series serieProductos = new Series("Productos")
+            Series serieDias = new Series("Total Vendido")
             {
-                ChartType = SeriesChartType.Pie // Gráfico de Torta
+                ChartType = SeriesChartType.Column // Gráfico de Columnas
             };
 
             foreach (var item in datos)
             {
-                // Para el gráfico de torta, usamos el nombre como etiqueta
-                DataPoint punto = new DataPoint(0, item.Cantidad);
-                punto.LegendText = $"{item.Producto} ({item.Cantidad})";
-               // punto.Label = item.Producto;
-                serieProductos.Points.Add(punto);
+                serieDias.Points.AddXY(item.DiaSemana, item.TotalVentas);
             }
 
-            chart1.Series.Add(serieProductos);
+            CDiasVentas.Series.Add(serieDias);
         }
+
 
         private void CargarClientesFrecuentes(DateTime fechaInicio, DateTime fechaFin)
         {

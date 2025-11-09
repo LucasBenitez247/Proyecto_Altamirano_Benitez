@@ -51,6 +51,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReporteClienteFrecuente.cs" />
     <Compile Include="ReporteProductoVendido.cs" />
+    <Compile Include="ReporteVentasPorDia.cs" />
     <Compile Include="ReporteVentasPorMes.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Venta.cs" />

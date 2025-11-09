@@ -277,6 +277,47 @@ namespace CapaDatos
                 return lista;
             }
         }
+
+        public List<ReporteVentasPorDia> GetVentasPorDia(DateTime fechaInicio, DateTime fechaFin)
+        {
+            List<ReporteVentasPorDia> lista = new List<ReporteVentasPorDia>();
+            using (SqlConnection oconexion = new Conexion().CrearConexion())
+            {
+                try
+                {
+                    // Usamos DATENAME para obtener el nombre del día (ej. 'Lunes')
+                    // y DATEPART para ordenarlos correctamente (1=Domingo, 2=Lunes, etc.)
+                    string query = @"
+                        SELECT 
+                            DATENAME(weekday, Fecha_venta) as DiaSemana,
+                            SUM(Total_venta) as Total,
+                            DATEPART(weekday, Fecha_venta) as DiaNro
+                        FROM Venta
+                        WHERE Fecha_venta BETWEEN @fechaInicio AND @fechaFin
+                        GROUP BY DATENAME(weekday, Fecha_venta), DATEPART(weekday, Fecha_venta)
+                        ORDER BY DiaNro ASC";
+
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio);
+                    cmd.Parameters.AddWithValue("@fechaFin", fechaFin);
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new ReporteVentasPorDia()
+                            {
+                                DiaSemana = dr["DiaSemana"].ToString(),
+                                TotalVentas = Convert.ToDecimal(dr["Total"])
+                            });
+                        }
+                    }
+                }
+                catch (Exception) { lista = new List<ReporteVentasPorDia>(); }
+                return lista;
+            }
+        }
     }
 }
 
