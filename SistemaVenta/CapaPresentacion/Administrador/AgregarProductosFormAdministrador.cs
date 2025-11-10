@@ -41,7 +41,7 @@ namespace CapaPresentacion.Administrador
                 Codigo_producto = txtCodigoProducto.Text,
                 Nombre_producto = txtNombre.Text,
                 Descripcion_producto = txtDescripcion.Text,
-                Estado_producto = ((Estado)cboEstado.SelectedItem).Estado_usuario,
+                Estado_producto = Convert.ToInt32(cboEstado.SelectedValue),
                 Talle_producto = cboTalle.Enabled ? ((Talle_producto)cboTalle.SelectedItem).Id_talle_producto : 0,
                 Categoria_producto = ((Categoria_producto)cboCategoria.SelectedItem).Id_categoria
             };
@@ -271,8 +271,8 @@ namespace CapaPresentacion.Administrador
         {
             return new List<Estado>
     {
-        new Estado { Estado_usuario = 1, Estado_descripcion = "Inactivo" },
-        new Estado { Estado_usuario = 2, Estado_descripcion = "Activo" }
+        new Estado { Estado_usuario = 1, Estado_descripcion = "Activo" },
+        new Estado { Estado_usuario = 2, Estado_descripcion = "Inactivo" }
     };
         }
 
