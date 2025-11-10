@@ -42,6 +42,12 @@ namespace CapaNegocio
             return cdProducto.ObtenerEstados();
         }
 
+        public List <Talle_producto> listarTalles()
+        {
+            CD_Producto cdProducto = new CD_Producto();
+            return cdProducto.ObtenerTalles();
+        }
+
         public bool editarProducto(Producto producto)
         {
             try
@@ -56,12 +62,12 @@ namespace CapaNegocio
             }
         }
 
-        public bool eliminarProducto(int idProducto)
+        public bool eliminarProducto(string codProducto)
         {
             try
             {
                 CD_Producto cdProducto = new CD_Producto(); // Capa de datos
-                cdProducto.eliminarProducto(idProducto);
+                cdProducto.eliminarProducto(codProducto);
                 return true;
             }
             catch (Exception ex)

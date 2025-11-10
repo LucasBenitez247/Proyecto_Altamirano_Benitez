@@ -9,13 +9,13 @@ namespace CapaEntidad
     public class Producto
     {
         public int Id_producto { get; set; }
+        public string Codigo_producto { get; set; }
         public string Nombre_producto { get; set; }
         public string Descripcion_producto { get; set; }
         public decimal Precio_producto { get; set; }
         public int Estado_producto { get; set; }
         public int Stock_producto { get; set; }
-        public int Categoria_producto { get; set; }  
-
-
+        public int Categoria_producto { get; set; }
+        public int Talle_producto { get; set; }
     }
 }

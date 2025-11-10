@@ -1,0 +1,85 @@
+[33m5c0314e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mProductos-Y-Proveedores[m[33m)[m Hago un nuevo commit, porque en el anterior se produjo errores
+[33ma0cbdc5[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Reportes
+[33mf9292ba[m Merge branch 'master' into Productos-Y-Proveedores
+[33m5009ec5[m Aquí subo el desarrollo de gestión del proveedor y gestión de productos.
+[33m7f708bd[m Última versión
+[33m3f98647[m Filtros de búsqueda
+[33m43bb1a7[m Mejoras para buscar clientes y producto,registrar y modificar clientes
+[33m5ad2157[m Mejoras en detalle venta
+[33m48cfd56[m Detalle venta
+[33ma6c85a7[m Historial de ventas
+[33mf6a0017[m Merge branch 'master' of https://github.com/LucasBenitez247/Proyecto_Altamirano_Benitez
+[33m78387cb[m Registra en la base de datos la venta
+[33m811f02d[m Delete Base de datos/scriptActualizado.sql
+[33ma195311[m Add files via upload
+[33mf0dd355[m Última versión
+[33mc8056ad[m Merge branch 'master' of https://github.com/LucasBenitez247/Proyecto_Altamirano_Benitez
+[33mc187b51[m Mejoras al formulario Ventas
+[33m7458b9b[m Agrego la nueva base de datos
+[33m30cbd28[m Delete Base de datos/Consulta_SistemaVenta_.sql
+[33ma9882fc[m Mejoras en ventas
+[33me159652[m Mejoras en ventas
+[33m0ee45dd[m Mejoras en formulario Ventas
+[33m5cf66b2[m Cargar los datos del producto al formulario ventas
+[33m6854db6[m Agregue lista de productos en venta vendedor
+[33mdc65e84[m Buscar clientes y al seleccionar carga los datos a los TexBoxs para la compra
+[33m2023b9e[m[33m ([m[1;32mmaster[m[33m)[m Merge branch 'master' of https://github.com/LucasBenitez247/Proyecto_Altamirano_Benitez
+[33mff14498[m Merge pull request #1 from LucasBenitez247/Alta-productos
+[33m3faa462[m[33m ([m[1;31morigin/Alta-productos[m[33m, [m[1;32mAlta-productos[m[33m)[m Merge branch 'master' into Alta-productos
+[33mca9df06[m Merge branch 'master' of https://github.com/LucasBenitez247/Proyecto_Altamirano_Benitez
+[33mffae663[m Mejore la lista de productos (agregué columna Modificar y Eliminar)
+[33m0dd063b[m Subo la funcionalidad para agregar productos(falta boton editar- eliminar)
+[33m40fa546[m modifique el registrar clientes y agregue  listar clientes
+[33me6951b5[m Merge branch 'master' of https://github.com/LucasBenitez247/Proyecto_Altamirano_Benitez
+[33m68feab0[m Mejoras en registrar cliente
+[33m8c12502[m Update Consulta_SistemaVenta_.sql
+[33mb462d63[m modificaciones del 03/10
+[33mb844784[m Mejoras en Ventas Vendedor
+[33m8bb818f[m fusiono con master
+[33m92584db[m fusiono con master
+[33me559ec2[m Fusiono con master
+[33m2e8813e[m Validaciones en formulario de Registrar Usuario
+[33mbeaac0f[m Estoy realizando el alta de productos
+[33m4c3cd48[m Última versión
+[33m644b618[m Última versión
+[33m066f7d5[m Actualice el DataGridView de registrar usuario
+[33me0914b3[m Formmulario detalle venta,Back-UP
+[33m070f056[m Merge branch 'master' of https://github.com/LucasBenitez247/Proyecto_Altamirano_Benitez
+[33m3b4bedc[m Agregue detalle venta, agregue filtro de fecha en historial venta
+[33mf7650c6[m Update Consulta_SistemaVenta_.sql
+[33m585ab78[m Válidaciones, compra y  Proveedor
+[33mecabfb3[m Merge branch 'master' of https://github.com/LucasBenitez247/Proyecto_Altamirano_Benitez
+[33m3b957aa[m Última versión
+[33mfe9d982[m Add files via upload
+[33m440792a[m Delete Base de datos/Consulta_SistemaVenta_.sql
+[33me0f5857[m Add files via upload
+[33ma3c15cb[m Add files via upload
+[33m8b978ba[m Merge branch 'master' of https://github.com/LucasBenitez247/Proyecto_Altamirano_Benitez
+[33mfaa6096[m Última versión
+[33m755d844[m Add files via upload
+[33m97220ff[m Delete Base de datos/Usuarios.txt
+[33m143b0d4[m Merge branch 'master' of https://github.com/LucasBenitez247/Proyecto_Altamirano_Benitez
+[33m03155ab[m Última versión
+[33mc90a1c7[m Add files via upload
+[33m88c9d12[m Delete Consulta_SistemaVenta_.sql
+[33mbda0d63[m Add files via upload
+[33m0078bc4[m Add files via upload
+[33md2a1740[m Delete Base de datos
+[33med91eb4[m Create Base de datos
+[33m4aefaaa[m Delete SistemaVenta/Consulta_SistemaVenta_.sql
+[33m0bc6059[m Add files via upload
+[33m32f1d0a[m Delete Base de datos/Sistema_venta.sql
+[33m3e67c1e[m Última versión
+[33md3783f6[m Última versión
+[33m35b06ec[m Merge branch 'master' of https://github.com/LucasBenitez247/Proyecto_Altamirano_Benitez
+[33mfdcc9c5[m última versión
+[33m4143fd6[m Add files via upload
+[33m0f72910[m Perfil Administrador
+[33mb195b88[m Última vesión
+[33m06206a4[m Entidadedes
+[33m5ffd04a[m Validación del formulario Registrar Cliente
+[33m602dace[m Última versión
+[33me6aac35[m Última versión
+[33mb30a55a[m Última versión
+[33m3b47775[m Creación del repositorio
+[33m4b99935[m Agregar .gitattributes y .gitignore.

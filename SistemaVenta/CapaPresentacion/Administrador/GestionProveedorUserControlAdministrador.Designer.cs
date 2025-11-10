@@ -36,7 +36,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.TTelefono = new System.Windows.Forms.TextBox();
             this.LPrecio = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cboEstado = new System.Windows.Forms.ComboBox();
             this.LEstado = new System.Windows.Forms.Label();
             this.TNroDocumento = new System.Windows.Forms.TextBox();
             this.LNombre = new System.Windows.Forms.Label();
@@ -45,23 +45,34 @@
             this.LDescripcion = new System.Windows.Forms.Label();
             this.TCorreo = new System.Windows.Forms.TextBox();
             this.LRegistroProducto = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.CNroDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CRazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCiudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider4 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pnlListaProveedores = new System.Windows.Forms.Panel();
+            this.pnlBuscarPor = new System.Windows.Forms.Panel();
+            this.txtBuscador = new System.Windows.Forms.TextBox();
+            this.cboBuscarPor = new System.Windows.Forms.ComboBox();
+            this.lblBuscarPor = new System.Windows.Forms.Label();
+            this.dgvProveedores = new System.Windows.Forms.DataGridView();
+            this.idProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CRazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CModificar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.CEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label1 = new System.Windows.Forms.Label();
             this.PFormulario.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).BeginInit();
+            this.pnlListaProveedores.SuspendLayout();
+            this.pnlBuscarPor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).BeginInit();
             this.SuspendLayout();
             // 
             // PFormulario
@@ -73,10 +84,11 @@
             this.PFormulario.Controls.Add(this.BtnRegistrar);
             this.PFormulario.Controls.Add(this.panel1);
             this.PFormulario.Controls.Add(this.LRegistroProducto);
+            this.PFormulario.Dock = System.Windows.Forms.DockStyle.Left;
             this.PFormulario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.PFormulario.Location = new System.Drawing.Point(0, 3);
+            this.PFormulario.Location = new System.Drawing.Point(0, 0);
             this.PFormulario.Name = "PFormulario";
-            this.PFormulario.Size = new System.Drawing.Size(522, 624);
+            this.PFormulario.Size = new System.Drawing.Size(522, 660);
             this.PFormulario.TabIndex = 5;
             // 
             // BtnCancelar
@@ -99,6 +111,7 @@
             this.BtnCancelar.TabIndex = 26;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // BtnLimpiar
             // 
@@ -150,7 +163,7 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.TTelefono);
             this.panel1.Controls.Add(this.LPrecio);
-            this.panel1.Controls.Add(this.comboBox2);
+            this.panel1.Controls.Add(this.cboEstado);
             this.panel1.Controls.Add(this.LEstado);
             this.panel1.Controls.Add(this.TNroDocumento);
             this.panel1.Controls.Add(this.LNombre);
@@ -182,16 +195,17 @@
             this.LPrecio.TabIndex = 23;
             this.LPrecio.Text = "Telefono:";
             // 
-            // comboBox2
+            // cboEstado
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEstado.FormattingEnabled = true;
+            this.cboEstado.Items.AddRange(new object[] {
             "Activo",
             "Inactivo"});
-            this.comboBox2.Location = new System.Drawing.Point(119, 322);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(206, 21);
-            this.comboBox2.TabIndex = 22;
+            this.cboEstado.Location = new System.Drawing.Point(119, 322);
+            this.cboEstado.Name = "cboEstado";
+            this.cboEstado.Size = new System.Drawing.Size(206, 21);
+            this.cboEstado.TabIndex = 22;
             // 
             // LEstado
             // 
@@ -272,48 +286,6 @@
             this.LRegistroProducto.TabIndex = 1;
             this.LRegistroProducto.Text = "Registrar Proveedor";
             // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CNroDocumento,
-            this.CRazonSocial,
-            this.CTelefono,
-            this.CCiudad,
-            this.CEliminar});
-            this.dataGridView2.Location = new System.Drawing.Point(520, 5);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(667, 621);
-            this.dataGridView2.TabIndex = 6;
-            // 
-            // CNroDocumento
-            // 
-            this.CNroDocumento.HeaderText = "Nro Documento";
-            this.CNroDocumento.Name = "CNroDocumento";
-            this.CNroDocumento.Width = 140;
-            // 
-            // CRazonSocial
-            // 
-            this.CRazonSocial.HeaderText = "Razón Social";
-            this.CRazonSocial.Name = "CRazonSocial";
-            this.CRazonSocial.Width = 140;
-            // 
-            // CTelefono
-            // 
-            this.CTelefono.HeaderText = "Teléfono";
-            this.CTelefono.Name = "CTelefono";
-            this.CTelefono.Width = 140;
-            // 
-            // CCiudad
-            // 
-            this.CCiudad.HeaderText = "Estado";
-            this.CCiudad.Name = "CCiudad";
-            // 
-            // CEliminar
-            // 
-            this.CEliminar.HeaderText = "Eliminar";
-            this.CEliminar.Name = "CEliminar";
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
@@ -330,23 +302,158 @@
             // 
             this.errorProvider4.ContainerControl = this;
             // 
+            // pnlListaProveedores
+            // 
+            this.pnlListaProveedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.pnlListaProveedores.Controls.Add(this.pnlBuscarPor);
+            this.pnlListaProveedores.Controls.Add(this.dgvProveedores);
+            this.pnlListaProveedores.Controls.Add(this.label1);
+            this.pnlListaProveedores.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlListaProveedores.Location = new System.Drawing.Point(523, 0);
+            this.pnlListaProveedores.Name = "pnlListaProveedores";
+            this.pnlListaProveedores.Size = new System.Drawing.Size(667, 660);
+            this.pnlListaProveedores.TabIndex = 6;
+            // 
+            // pnlBuscarPor
+            // 
+            this.pnlBuscarPor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pnlBuscarPor.Controls.Add(this.txtBuscador);
+            this.pnlBuscarPor.Controls.Add(this.cboBuscarPor);
+            this.pnlBuscarPor.Controls.Add(this.lblBuscarPor);
+            this.pnlBuscarPor.Location = new System.Drawing.Point(17, 100);
+            this.pnlBuscarPor.Name = "pnlBuscarPor";
+            this.pnlBuscarPor.Size = new System.Drawing.Size(638, 80);
+            this.pnlBuscarPor.TabIndex = 8;
+            // 
+            // txtBuscador
+            // 
+            this.txtBuscador.Location = new System.Drawing.Point(269, 29);
+            this.txtBuscador.Name = "txtBuscador";
+            this.txtBuscador.Size = new System.Drawing.Size(275, 20);
+            this.txtBuscador.TabIndex = 9;
+            this.txtBuscador.TextChanged += new System.EventHandler(this.txtBuscador_TextChanged);
+            // 
+            // cboBuscarPor
+            // 
+            this.cboBuscarPor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBuscarPor.FormattingEnabled = true;
+            this.cboBuscarPor.Items.AddRange(new object[] {
+            "Número de Documento",
+            "Razón Social"});
+            this.cboBuscarPor.Location = new System.Drawing.Point(158, 29);
+            this.cboBuscarPor.Name = "cboBuscarPor";
+            this.cboBuscarPor.Size = new System.Drawing.Size(94, 21);
+            this.cboBuscarPor.TabIndex = 3;
+            // 
+            // lblBuscarPor
+            // 
+            this.lblBuscarPor.AutoSize = true;
+            this.lblBuscarPor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuscarPor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lblBuscarPor.Location = new System.Drawing.Point(51, 32);
+            this.lblBuscarPor.Name = "lblBuscarPor";
+            this.lblBuscarPor.Size = new System.Drawing.Size(85, 18);
+            this.lblBuscarPor.TabIndex = 2;
+            this.lblBuscarPor.Text = "Buscar por:";
+            // 
+            // dgvProveedores
+            // 
+            this.dgvProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProveedores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idProveedor,
+            this.CDni,
+            this.CRazonSocial,
+            this.cCorreo,
+            this.CTelefono,
+            this.CEstado,
+            this.CModificar,
+            this.CEliminar});
+            this.dgvProveedores.Location = new System.Drawing.Point(17, 197);
+            this.dgvProveedores.Name = "dgvProveedores";
+            this.dgvProveedores.Size = new System.Drawing.Size(638, 311);
+            this.dgvProveedores.TabIndex = 7;
+            this.dgvProveedores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedores_CellContentClick);
+            // 
+            // idProveedor
+            // 
+            this.idProveedor.HeaderText = "ID";
+            this.idProveedor.Name = "idProveedor";
+            this.idProveedor.Visible = false;
+            this.idProveedor.Width = 70;
+            // 
+            // CDni
+            // 
+            this.CDni.HeaderText = "DNI";
+            this.CDni.Name = "CDni";
+            this.CDni.Width = 70;
+            // 
+            // CRazonSocial
+            // 
+            this.CRazonSocial.HeaderText = "Razón Social";
+            this.CRazonSocial.Name = "CRazonSocial";
+            this.CRazonSocial.Width = 120;
+            // 
+            // cCorreo
+            // 
+            this.cCorreo.HeaderText = "Correo Electrónico";
+            this.cCorreo.Name = "cCorreo";
+            this.cCorreo.Width = 150;
+            // 
+            // CTelefono
+            // 
+            this.CTelefono.HeaderText = "Teléfono";
+            this.CTelefono.Name = "CTelefono";
+            this.CTelefono.Width = 80;
+            // 
+            // CEstado
+            // 
+            this.CEstado.HeaderText = "Estado";
+            this.CEstado.Name = "CEstado";
+            this.CEstado.Width = 50;
+            // 
+            // CModificar
+            // 
+            this.CModificar.HeaderText = "Modificar";
+            this.CModificar.Name = "CModificar";
+            // 
+            // CEliminar
+            // 
+            this.CEliminar.HeaderText = "Eliminar";
+            this.CEliminar.Name = "CEliminar";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label1.Location = new System.Drawing.Point(224, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(216, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Lista de Proveedores";
+            // 
             // GestionProveedorUserControlAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.pnlListaProveedores);
             this.Controls.Add(this.PFormulario);
             this.Name = "GestionProveedorUserControlAdministrador";
             this.Size = new System.Drawing.Size(1190, 660);
+            this.Load += new System.EventHandler(this.GestionProveedorUserControlAdministrador_Load);
             this.PFormulario.ResumeLayout(false);
             this.PFormulario.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).EndInit();
+            this.pnlListaProveedores.ResumeLayout(false);
+            this.pnlListaProveedores.PerformLayout();
+            this.pnlBuscarPor.ResumeLayout(false);
+            this.pnlBuscarPor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -358,7 +465,7 @@
         private FontAwesome.Sharp.IconButton BtnLimpiar;
         private FontAwesome.Sharp.IconButton BtnRegistrar;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cboEstado;
         private System.Windows.Forms.Label LEstado;
         private System.Windows.Forms.TextBox TNroDocumento;
         private System.Windows.Forms.Label LNombre;
@@ -366,18 +473,27 @@
         private System.Windows.Forms.Label LCódigo;
         private System.Windows.Forms.Label LRegistroProducto;
         private System.Windows.Forms.TextBox TTelefono;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label LPrecio;
         private System.Windows.Forms.Label LDescripcion;
         private System.Windows.Forms.TextBox TCorreo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CNroDocumento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CRazonSocial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CTelefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CCiudad;
-        private System.Windows.Forms.DataGridViewButtonColumn CEliminar;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ErrorProvider errorProvider2;
         private System.Windows.Forms.ErrorProvider errorProvider3;
         private System.Windows.Forms.ErrorProvider errorProvider4;
+        private System.Windows.Forms.Panel pnlListaProveedores;
+        private System.Windows.Forms.DataGridView dgvProveedores;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel pnlBuscarPor;
+        private System.Windows.Forms.TextBox txtBuscador;
+        private System.Windows.Forms.ComboBox cboBuscarPor;
+        private System.Windows.Forms.Label lblBuscarPor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idProveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CDni;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CRazonSocial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCorreo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CTelefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CEstado;
+        private System.Windows.Forms.DataGridViewButtonColumn CModificar;
+        private System.Windows.Forms.DataGridViewButtonColumn CEliminar;
     }
 }
