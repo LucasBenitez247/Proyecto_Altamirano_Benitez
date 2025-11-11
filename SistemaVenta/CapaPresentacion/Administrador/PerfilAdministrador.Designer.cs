@@ -43,7 +43,6 @@
             this.BtnCompras = new FontAwesome.Sharp.IconButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAgregarProductos = new FontAwesome.Sharp.IconButton();
-            this.btnReporteVentas = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.PContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -100,7 +99,7 @@
             this.BtnBackUp.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnBackUp.IconSize = 32;
             this.BtnBackUp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnBackUp.Location = new System.Drawing.Point(0, 457);
+            this.BtnBackUp.Location = new System.Drawing.Point(-1, 383);
             this.BtnBackUp.Name = "BtnBackUp";
             this.BtnBackUp.Size = new System.Drawing.Size(152, 57);
             this.BtnBackUp.TabIndex = 20;
@@ -269,7 +268,7 @@
             this.btnAgregarProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAgregarProductos.IconSize = 32;
             this.btnAgregarProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarProductos.Location = new System.Drawing.Point(-1, 520);
+            this.btnAgregarProductos.Location = new System.Drawing.Point(-2, 446);
             this.btnAgregarProductos.Name = "btnAgregarProductos";
             this.btnAgregarProductos.Size = new System.Drawing.Size(152, 57);
             this.btnAgregarProductos.TabIndex = 21;
@@ -277,28 +276,6 @@
             this.btnAgregarProductos.UseCompatibleTextRendering = true;
             this.btnAgregarProductos.UseVisualStyleBackColor = true;
             this.btnAgregarProductos.Click += new System.EventHandler(this.btnAgregarProductos_Click);
-            // 
-            // btnReporteVentas
-            // 
-            this.btnReporteVentas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReporteVentas.FlatAppearance.BorderSize = 0;
-            this.btnReporteVentas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnReporteVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btnReporteVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReporteVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReporteVentas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnReporteVentas.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
-            this.btnReporteVentas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnReporteVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnReporteVentas.IconSize = 32;
-            this.btnReporteVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReporteVentas.Location = new System.Drawing.Point(-1, 383);
-            this.btnReporteVentas.Name = "btnReporteVentas";
-            this.btnReporteVentas.Size = new System.Drawing.Size(152, 57);
-            this.btnReporteVentas.TabIndex = 22;
-            this.btnReporteVentas.Text = "Reportes de Compras";
-            this.btnReporteVentas.UseCompatibleTextRendering = true;
-            this.btnReporteVentas.UseVisualStyleBackColor = true;
             // 
             // iconButton1
             // 
@@ -314,13 +291,14 @@
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 32;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(0, 599);
+            this.iconButton1.Location = new System.Drawing.Point(-1, 525);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(152, 57);
             this.iconButton1.TabIndex = 23;
             this.iconButton1.Text = "Informes Estadísticos";
             this.iconButton1.UseCompatibleTextRendering = true;
             this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // PerfilAdministrador
             // 
@@ -329,7 +307,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.ClientSize = new System.Drawing.Size(1364, 749);
             this.Controls.Add(this.iconButton1);
-            this.Controls.Add(this.btnReporteVentas);
             this.Controls.Add(this.btnAgregarProductos);
             this.Controls.Add(this.BtnBackUp);
             this.Controls.Add(this.BtnSalir);
@@ -365,7 +342,6 @@
         private System.Windows.Forms.Timer HoraFecha;
         private FontAwesome.Sharp.IconButton BtnBackUp;
         private FontAwesome.Sharp.IconButton btnAgregarProductos;
-        private FontAwesome.Sharp.IconButton btnReporteVentas;
         private FontAwesome.Sharp.IconButton iconButton1;
     }
 }

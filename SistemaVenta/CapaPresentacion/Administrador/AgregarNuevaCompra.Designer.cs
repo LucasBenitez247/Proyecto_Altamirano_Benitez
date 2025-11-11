@@ -59,7 +59,6 @@
             this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CPrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -242,6 +241,9 @@
             this.TPrecioCompra.Name = "TPrecioCompra";
             this.TPrecioCompra.Size = new System.Drawing.Size(100, 20);
             this.TPrecioCompra.TabIndex = 16;
+            this.TPrecioCompra.TextChanged += new System.EventHandler(this.TPrecioCompra_TextChanged);
+            this.TPrecioCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TPrecioCompra_KeyPress);
+            this.TPrecioCompra.Leave += new System.EventHandler(this.TPrecioCompra_Leave);
             this.TPrecioCompra.Validating += new System.ComponentModel.CancelEventHandler(this.TPrecioCompra_Validating);
             // 
             // label8
@@ -261,6 +263,9 @@
             this.TPrecioVenta.Name = "TPrecioVenta";
             this.TPrecioVenta.Size = new System.Drawing.Size(100, 20);
             this.TPrecioVenta.TabIndex = 18;
+            this.TPrecioVenta.TextChanged += new System.EventHandler(this.TPrecioVenta_TextChanged);
+            this.TPrecioVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TPrecioVenta_KeyPress);
+            this.TPrecioVenta.Leave += new System.EventHandler(this.TPrecioVenta_Leave);
             this.TPrecioVenta.Validating += new System.ComponentModel.CancelEventHandler(this.TPrecioVenta_Validating);
             // 
             // label9
@@ -299,7 +304,6 @@
             this.idProducto,
             this.codProducto,
             this.CProducto,
-            this.proveedor,
             this.precioVenta,
             this.CPrecioCompra,
             this.CCantidad,
@@ -398,12 +402,6 @@
             this.CProducto.HeaderText = "Producto";
             this.CProducto.Name = "CProducto";
             this.CProducto.Width = 170;
-            // 
-            // proveedor
-            // 
-            this.proveedor.HeaderText = "Proveedor";
-            this.proveedor.Name = "proveedor";
-            this.proveedor.Visible = false;
             // 
             // precioVenta
             // 
@@ -511,7 +509,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn codProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn CProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn proveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn precioVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn CPrecioCompra;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCantidad;
