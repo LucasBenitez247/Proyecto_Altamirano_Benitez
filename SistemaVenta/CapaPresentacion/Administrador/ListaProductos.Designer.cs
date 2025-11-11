@@ -30,11 +30,6 @@
         {
             this.pnlListaProveedores = new System.Windows.Forms.Panel();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.pnlBuscarPor = new System.Windows.Forms.Panel();
-            this.txtBuscador = new System.Windows.Forms.TextBox();
-            this.cboBuscarPor = new System.Windows.Forms.ComboBox();
-            this.lblBuscarPor = new System.Windows.Forms.Label();
-            this.lblListaProductos = new System.Windows.Forms.Label();
             this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +40,11 @@
             this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Talle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.pnlBuscarPor = new System.Windows.Forms.Panel();
+            this.txtBuscador = new System.Windows.Forms.TextBox();
+            this.cboBuscarPor = new System.Windows.Forms.ComboBox();
+            this.lblBuscarPor = new System.Windows.Forms.Label();
+            this.lblListaProductos = new System.Windows.Forms.Label();
             this.pnlListaProveedores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.pnlBuscarPor.SuspendLayout();
@@ -59,7 +59,7 @@
             this.pnlListaProveedores.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlListaProveedores.Location = new System.Drawing.Point(0, 0);
             this.pnlListaProveedores.Name = "pnlListaProveedores";
-            this.pnlListaProveedores.Size = new System.Drawing.Size(625, 344);
+            this.pnlListaProveedores.Size = new System.Drawing.Size(618, 353);
             this.pnlListaProveedores.TabIndex = 8;
             // 
             // dgvProductos
@@ -81,55 +81,6 @@
             this.dgvProductos.Size = new System.Drawing.Size(601, 165);
             this.dgvProductos.TabIndex = 17;
             this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
-            // 
-            // pnlBuscarPor
-            // 
-            this.pnlBuscarPor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.pnlBuscarPor.Controls.Add(this.txtBuscador);
-            this.pnlBuscarPor.Controls.Add(this.cboBuscarPor);
-            this.pnlBuscarPor.Controls.Add(this.lblBuscarPor);
-            this.pnlBuscarPor.Location = new System.Drawing.Point(12, 89);
-            this.pnlBuscarPor.Name = "pnlBuscarPor";
-            this.pnlBuscarPor.Size = new System.Drawing.Size(601, 88);
-            this.pnlBuscarPor.TabIndex = 8;
-            // 
-            // txtBuscador
-            // 
-            this.txtBuscador.Location = new System.Drawing.Point(256, 29);
-            this.txtBuscador.Name = "txtBuscador";
-            this.txtBuscador.Size = new System.Drawing.Size(310, 20);
-            this.txtBuscador.TabIndex = 9;
-            // 
-            // cboBuscarPor
-            // 
-            this.cboBuscarPor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboBuscarPor.FormattingEnabled = true;
-            this.cboBuscarPor.Location = new System.Drawing.Point(145, 29);
-            this.cboBuscarPor.Name = "cboBuscarPor";
-            this.cboBuscarPor.Size = new System.Drawing.Size(94, 21);
-            this.cboBuscarPor.TabIndex = 3;
-            // 
-            // lblBuscarPor
-            // 
-            this.lblBuscarPor.AutoSize = true;
-            this.lblBuscarPor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscarPor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lblBuscarPor.Location = new System.Drawing.Point(38, 32);
-            this.lblBuscarPor.Name = "lblBuscarPor";
-            this.lblBuscarPor.Size = new System.Drawing.Size(85, 18);
-            this.lblBuscarPor.TabIndex = 2;
-            this.lblBuscarPor.Text = "Buscar por:";
-            // 
-            // lblListaProductos
-            // 
-            this.lblListaProductos.AutoSize = true;
-            this.lblListaProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListaProductos.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblListaProductos.Location = new System.Drawing.Point(216, 37);
-            this.lblListaProductos.Name = "lblListaProductos";
-            this.lblListaProductos.Size = new System.Drawing.Size(191, 25);
-            this.lblListaProductos.TabIndex = 0;
-            this.lblListaProductos.Text = "Lista de Productos";
             // 
             // idProducto
             // 
@@ -190,11 +141,60 @@
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseColumnTextForButtonValue = true;
             // 
+            // pnlBuscarPor
+            // 
+            this.pnlBuscarPor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pnlBuscarPor.Controls.Add(this.txtBuscador);
+            this.pnlBuscarPor.Controls.Add(this.cboBuscarPor);
+            this.pnlBuscarPor.Controls.Add(this.lblBuscarPor);
+            this.pnlBuscarPor.Location = new System.Drawing.Point(12, 89);
+            this.pnlBuscarPor.Name = "pnlBuscarPor";
+            this.pnlBuscarPor.Size = new System.Drawing.Size(601, 88);
+            this.pnlBuscarPor.TabIndex = 8;
+            // 
+            // txtBuscador
+            // 
+            this.txtBuscador.Location = new System.Drawing.Point(256, 29);
+            this.txtBuscador.Name = "txtBuscador";
+            this.txtBuscador.Size = new System.Drawing.Size(310, 20);
+            this.txtBuscador.TabIndex = 9;
+            // 
+            // cboBuscarPor
+            // 
+            this.cboBuscarPor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBuscarPor.FormattingEnabled = true;
+            this.cboBuscarPor.Location = new System.Drawing.Point(145, 29);
+            this.cboBuscarPor.Name = "cboBuscarPor";
+            this.cboBuscarPor.Size = new System.Drawing.Size(94, 21);
+            this.cboBuscarPor.TabIndex = 3;
+            // 
+            // lblBuscarPor
+            // 
+            this.lblBuscarPor.AutoSize = true;
+            this.lblBuscarPor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuscarPor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lblBuscarPor.Location = new System.Drawing.Point(38, 32);
+            this.lblBuscarPor.Name = "lblBuscarPor";
+            this.lblBuscarPor.Size = new System.Drawing.Size(85, 18);
+            this.lblBuscarPor.TabIndex = 2;
+            this.lblBuscarPor.Text = "Buscar por:";
+            // 
+            // lblListaProductos
+            // 
+            this.lblListaProductos.AutoSize = true;
+            this.lblListaProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblListaProductos.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblListaProductos.Location = new System.Drawing.Point(216, 37);
+            this.lblListaProductos.Name = "lblListaProductos";
+            this.lblListaProductos.Size = new System.Drawing.Size(191, 25);
+            this.lblListaProductos.TabIndex = 0;
+            this.lblListaProductos.Text = "Lista de Productos";
+            // 
             // ListaProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 344);
+            this.ClientSize = new System.Drawing.Size(618, 353);
             this.Controls.Add(this.pnlListaProveedores);
             this.Name = "ListaProductos";
             this.Text = "ListaProductos";

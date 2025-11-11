@@ -31,8 +31,9 @@
             this.LBackUp = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboBasesDeDatos = new System.Windows.Forms.ComboBox();
             this.BtnInicio = new FontAwesome.Sharp.IconButton();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 
             // LBackUp
@@ -68,13 +69,13 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Seleccionar la base de datos";
             // 
-            // comboBox1
+            // cboBasesDeDatos
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(71, 205);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(323, 21);
-            this.comboBox1.TabIndex = 3;
+            this.cboBasesDeDatos.FormattingEnabled = true;
+            this.cboBasesDeDatos.Location = new System.Drawing.Point(71, 205);
+            this.cboBasesDeDatos.Name = "cboBasesDeDatos";
+            this.cboBasesDeDatos.Size = new System.Drawing.Size(323, 21);
+            this.cboBasesDeDatos.TabIndex = 3;
             // 
             // BtnInicio
             // 
@@ -97,6 +98,7 @@
             this.BtnInicio.Text = "Realizar Back-Up";
             this.BtnInicio.UseCompatibleTextRendering = true;
             this.BtnInicio.UseVisualStyleBackColor = true;
+            this.BtnInicio.Click += new System.EventHandler(this.BtnInicio_Click);
             // 
             // BackUpUserControl
             // 
@@ -104,12 +106,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.Controls.Add(this.BtnInicio);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cboBasesDeDatos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.LBackUp);
             this.Name = "BackUpUserControl";
             this.Size = new System.Drawing.Size(1190, 660);
+            this.Load += new System.EventHandler(this.BackUpUserControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,7 +123,8 @@
         private System.Windows.Forms.Label LBackUp;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboBasesDeDatos;
         private FontAwesome.Sharp.IconButton BtnInicio;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }
