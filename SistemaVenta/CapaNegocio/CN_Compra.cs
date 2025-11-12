@@ -53,7 +53,7 @@ namespace CapaNegocio
                 throw new Exception("El total de la compra debe ser mayor a cero.");
 
             // Calcular total si no viene precargado
-            compra.Total_compra = compra.Detalle_compra.Sum(d => d.Precio_compra);
+           // compra.Total_compra = compra.Detalle_compra.Sum(d => d.Precio_compra);
 
             // Llamar a la capa de datos
             return datos.InsertarCompra(compra);
