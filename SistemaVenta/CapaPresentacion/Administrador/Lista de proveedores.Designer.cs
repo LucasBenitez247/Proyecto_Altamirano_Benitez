@@ -34,11 +34,11 @@
             this.cboBuscarPor = new System.Windows.Forms.ComboBox();
             this.lblBuscarPor = new System.Windows.Forms.Label();
             this.dgvProveedores = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.idProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CRazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlListaProveedores.SuspendLayout();
             this.pnlBuscarPor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).BeginInit();
@@ -110,17 +110,7 @@
             this.dgvProveedores.Size = new System.Drawing.Size(480, 253);
             this.dgvProveedores.TabIndex = 7;
             this.dgvProveedores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedores_CellClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label1.Location = new System.Drawing.Point(140, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(216, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Lista de Proveedores";
+            this.dgvProveedores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedores_CellDoubleClick);
             // 
             // idProveedor
             // 
@@ -146,6 +136,17 @@
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseColumnTextForButtonValue = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label1.Location = new System.Drawing.Point(140, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(216, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Lista de Proveedores";
             // 
             // Lista_de_proveedores
             // 

@@ -101,21 +101,7 @@ namespace CapaPresentacion.Administrador
 
         private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && dgvProductos.Columns[e.ColumnIndex].Name == "btnSeleccionar")
-            {
-                var valorCelda = dgvProductos.Rows[e.RowIndex].Cells["idProducto"].Value?.ToString();
-
-                if (int.TryParse(valorCelda, out int idProducto))
-                {
-                    Producto producto = listaProductos.FirstOrDefault(p => p.Id_producto == idProducto);
-
-                    if (producto != null)
-                    {
-                        productoSeleccionado?.Invoke(producto); // Enviar el objeto completo
-                        this.Close(); // Cerrar el formulario hijo
-                    }
-                }
-            }
+           
         }
 
         private void ListaProductos_Load(object sender, EventArgs e)
@@ -142,6 +128,25 @@ namespace CapaPresentacion.Administrador
             listaCategorias = new CN_Producto().obtenerCategoria();
             listaEstados = new CN_Producto().listarEstados();
             listaTalles = new CN_Producto().listarTalles();
+        }
+
+        private void dgvProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var valorCelda = dgvProductos.Rows[e.RowIndex].Cells["idProducto"].Value?.ToString();
+
+                if (int.TryParse(valorCelda, out int idProducto))
+                {
+                    Producto producto = listaProductos.FirstOrDefault(p => p.Id_producto == idProducto);
+
+                    if (producto != null)
+                    {
+                        productoSeleccionado?.Invoke(producto); // Enviar el objeto completo
+                        this.Close(); // Cerrar el formulario hijo
+                    }
+                }
+            }
         }
     }
 }

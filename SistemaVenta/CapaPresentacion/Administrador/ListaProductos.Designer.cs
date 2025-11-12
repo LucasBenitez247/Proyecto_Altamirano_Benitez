@@ -81,6 +81,7 @@
             this.dgvProductos.Size = new System.Drawing.Size(601, 165);
             this.dgvProductos.TabIndex = 17;
             this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
+            this.dgvProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellDoubleClick);
             // 
             // idProducto
             // 
