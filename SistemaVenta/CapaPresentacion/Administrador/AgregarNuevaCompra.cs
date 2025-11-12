@@ -169,16 +169,19 @@ namespace CapaPresentacion.Administrador
 
             if (validarCampos())
             {
-                dgvCompras.Rows.Add(
-                    productoGlobal.Id_producto,
-                    TCodProducto.Text,
-                    TProducto.Text,
-                    TProveedor.Text,
-                    TPrecioVenta.Text,
-                    TPrecioCompra.Text,
-                    NUDCantidad.Value.ToString(),
-                    subtotal.ToString("0.00")
-                );
+                DataGridViewRow fila = new DataGridViewRow();
+                fila.CreateCells(dgvCompras);
+
+                fila.Cells[dgvCompras.Columns["idProducto"].Index].Value = productoGlobal.Id_producto;
+                fila.Cells[dgvCompras.Columns["codProducto"].Index].Value = TCodProducto.Text;
+                fila.Cells[dgvCompras.Columns["CProducto"].Index].Value = TProducto.Text;
+                fila.Cells[dgvCompras.Columns["CPrecioCompra"].Index].Value = TPrecioCompra.Text;
+                fila.Cells[dgvCompras.Columns["precioVenta"].Index].Value = TPrecioVenta.Text;
+                fila.Cells[dgvCompras.Columns["CCantidad"].Index].Value = NUDCantidad.Value;
+                fila.Cells[dgvCompras.Columns["CSubTotal"].Index].Value = subtotal.ToString("0.00");
+
+                dgvCompras.Rows.Add(fila);
+
 
                 MessageBox.Show("Compra agregada exitosamente.");
                 TTotalPagar.Text = getTotalCompra().ToString("0.00");

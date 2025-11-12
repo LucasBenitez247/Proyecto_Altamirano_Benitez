@@ -175,26 +175,32 @@ namespace CapaPresentacion.Administrador
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            if (dgvCompras.Rows.Count == 0)
-            {
-                MessageBox.Show("No hay datos para exportar.");
-                return;
-            }
 
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Archivo Excel (*.xlsx)|*.xlsx";
-            saveFileDialog.Title = "Guardar reporte de compras";
-            saveFileDialog.FileName = "ReporteCompras.xlsx";
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                ExportarDataGridViewAExcel(dgvCompras, saveFileDialog.FileName);
-            }
         }
+
+        /* private void iconButton1_Click(object sender, EventArgs e)
+         {
+             if (dgvCompras.Rows.Count == 0)
+             {
+                 MessageBox.Show("No hay datos para exportar.");
+                 return;
+             }
+
+             SaveFileDialog saveFileDialog = new SaveFileDialog();
+             saveFileDialog.Filter = "Archivo Excel (*.xlsx)|*.xlsx";
+             saveFileDialog.Title = "Guardar reporte de compras";
+             saveFileDialog.FileName = "ReporteCompras.xlsx";
+
+             if (saveFileDialog.ShowDialog() == DialogResult.OK)
+             {
+                 ExportarDataGridViewAExcel(dgvCompras, saveFileDialog.FileName);
+             }
+        */
+    }
 
         
 
-public void ExportarDataGridViewAExcel(DataGridView dgv, string rutaArchivo)
+/*-public void ExportarDataGridViewAExcel(DataGridView dgv, string rutaArchivo)
     {
         Excel.Application excelApp = new Excel.Application();
         Excel.Workbook workbook = excelApp.Workbooks.Add();
@@ -220,7 +226,7 @@ public void ExportarDataGridViewAExcel(DataGridView dgv, string rutaArchivo)
         excelApp.Quit();
 
         MessageBox.Show("Exportación completada.");
-    }
+    }*/
 
 }
-}
+

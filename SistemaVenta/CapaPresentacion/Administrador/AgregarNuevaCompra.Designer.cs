@@ -59,8 +59,8 @@
             this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CPrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -304,8 +304,8 @@
             this.idProducto,
             this.codProducto,
             this.CProducto,
-            this.precioVenta,
             this.CPrecioCompra,
+            this.precioVenta,
             this.CCantidad,
             this.CSubTotal,
             this.btnEliminar});
@@ -403,17 +403,17 @@
             this.CProducto.Name = "CProducto";
             this.CProducto.Width = 170;
             // 
-            // precioVenta
-            // 
-            this.precioVenta.HeaderText = "Precio Venta";
-            this.precioVenta.Name = "precioVenta";
-            this.precioVenta.Visible = false;
-            // 
             // CPrecioCompra
             // 
             this.CPrecioCompra.HeaderText = "Precio Compra";
             this.CPrecioCompra.Name = "CPrecioCompra";
             this.CPrecioCompra.Width = 170;
+            // 
+            // precioVenta
+            // 
+            this.precioVenta.HeaderText = "Precio Venta";
+            this.precioVenta.Name = "precioVenta";
+            this.precioVenta.Visible = false;
             // 
             // CCantidad
             // 
@@ -509,8 +509,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn codProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn CProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precioVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn CPrecioCompra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn CSubTotal;
         private System.Windows.Forms.DataGridViewButtonColumn btnEliminar;

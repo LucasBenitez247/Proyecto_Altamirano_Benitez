@@ -42,6 +42,7 @@
             this.LFechaInicio = new System.Windows.Forms.Label();
             this.LbuscarPor = new System.Windows.Forms.Label();
             this.LReporteVentas = new System.Windows.Forms.Label();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cPrecioTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,11 +50,10 @@
             this.CProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cCodProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cPrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -80,8 +80,8 @@
             this.CProveedor,
             this.cCodProducto,
             this.cNombreProducto,
-            this.cCategoria,
             this.cCantidad,
+            this.cCategoria,
             this.cPrecioCompra});
             this.dgvCompras.Location = new System.Drawing.Point(26, 271);
             this.dgvCompras.Name = "dgvCompras";
@@ -285,16 +285,16 @@
             this.cNombreProducto.HeaderText = "Nombre producto";
             this.cNombreProducto.Name = "cNombreProducto";
             // 
-            // cCategoria
-            // 
-            this.cCategoria.HeaderText = "Categoría";
-            this.cCategoria.Name = "cCategoria";
-            // 
             // cCantidad
             // 
             this.cCantidad.HeaderText = "Cantidad";
             this.cCantidad.Name = "cCantidad";
             this.cCantidad.Width = 75;
+            // 
+            // cCategoria
+            // 
+            this.cCategoria.HeaderText = "Categoría";
+            this.cCategoria.Name = "cCategoria";
             // 
             // cPrecioCompra
             // 
@@ -315,6 +315,7 @@
             this.iconButton1.Text = "Exportar Excel";
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Visible = false;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // ComprasUserControlAdministrador
@@ -352,6 +353,7 @@
         private System.Windows.Forms.Label LFechaInicio;
         private System.Windows.Forms.Label LReporteVentas;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.DataGridViewTextBoxColumn CFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cPrecioTotal;
@@ -359,10 +361,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CProveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn cCodProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNombreProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn cCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn cPrecioCompra;
         private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
