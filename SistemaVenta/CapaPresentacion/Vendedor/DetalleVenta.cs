@@ -49,7 +49,7 @@ namespace CapaPresentacion.Vendedor
             if (ventaActual != null)
             {
                 //  Llena Información de la Venta
-                TFecha.Text = ventaActual.Fecha_venta.ToString("dd/MM/yyyy HH:mm");
+                TFecha.Text = ventaActual.Fecha_venta.ToString("dd/MM/yyyy");
                 TTipoDocumento.Text = ventaActual.Tipo_documento;
 
                 // Llena Información del Cliente

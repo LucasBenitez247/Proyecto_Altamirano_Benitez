@@ -200,6 +200,7 @@ namespace CapaDatos
                         SELECT 
                             v.Id_venta, v.Fecha_venta, v.Tipo_documento, v.Total_venta,
                             c.Nombre_cliente, c.Apellido_cliente,
+                            c.Dni_cliente,
                             u.nombre AS Nombre_usuario, 
                             u.apellido AS Apellido_usuario
                         FROM Venta v
@@ -225,6 +226,7 @@ namespace CapaDatos
                                 Total_venta = Convert.ToDecimal(dr["Total_venta"]),
                                 Nombre_cliente = dr["Nombre_cliente"].ToString(),
                                 Apellido_cliente = dr["Apellido_cliente"].ToString(),
+                                Dni_cliente = dr["Dni_cliente"].ToString(),
                                 Nombre_usuario = dr["Nombre_usuario"].ToString(),
                                 Apellido_usuario = dr["Apellido_usuario"].ToString()
                             });
