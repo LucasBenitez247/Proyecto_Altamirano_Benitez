@@ -42,6 +42,7 @@
             this.CMonto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDetalles = new System.Windows.Forms.DataGridViewButtonColumn();
             this.TBuscar = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.IBtnBuscar2 = new FontAwesome.Sharp.IconButton();
@@ -154,11 +155,13 @@
             this.CFecha,
             this.CMonto,
             this.CVendedor,
-            this.CCliente});
+            this.CCliente,
+            this.CDetalles});
             this.dataGridView1.Location = new System.Drawing.Point(88, 108);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(650, 255);
+            this.dataGridView1.Size = new System.Drawing.Size(796, 255);
             this.dataGridView1.TabIndex = 9;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // CFecha
             // 
@@ -183,6 +186,12 @@
             this.CCliente.HeaderText = "Cliente";
             this.CCliente.Name = "CCliente";
             this.CCliente.Width = 150;
+            // 
+            // CDetalles
+            // 
+            this.CDetalles.HeaderText = "Detalles";
+            this.CDetalles.Name = "CDetalles";
+            this.CDetalles.Width = 150;
             // 
             // TBuscar
             // 
@@ -275,10 +284,11 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox TBuscar;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.DataGridViewTextBoxColumn CFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn CMonto;
         private System.Windows.Forms.DataGridViewTextBoxColumn CVendedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCliente;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.DataGridViewButtonColumn CDetalles;
     }
 }

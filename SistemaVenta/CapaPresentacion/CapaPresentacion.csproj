@@ -208,6 +208,12 @@
     <Compile Include="Administrador\ReportesUserControlAdministrador.Designer.cs">
       <DependentUpon>ReportesUserControlAdministrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dueño de Negocio\DetalleVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dueño de Negocio\DetalleVenta.Designer.cs">
+      <DependentUpon>DetalleVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dueño de Negocio\DueñoNegocioEstadisticasUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -237,6 +243,12 @@
     </Compile>
     <Compile Include="Dueño de Negocio\PerfilDueñoNegocio.Designer.cs">
       <DependentUpon>PerfilDueñoNegocio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dueño de Negocio\ReporteCompra.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dueño de Negocio\ReporteCompra.Designer.cs">
+      <DependentUpon>ReporteCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -360,6 +372,9 @@
     <EmbeddedResource Include="Administrador\ReportesUserControlAdministrador.resx">
       <DependentUpon>ReportesUserControlAdministrador.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dueño de Negocio\DetalleVenta.resx">
+      <DependentUpon>DetalleVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dueño de Negocio\DueñoNegocioEstadisticasUserControl.resx">
       <DependentUpon>DueñoNegocioEstadisticasUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -374,6 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dueño de Negocio\PerfilDueñoNegocio.resx">
       <DependentUpon>PerfilDueñoNegocio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dueño de Negocio\ReporteCompra.resx">
+      <DependentUpon>ReporteCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

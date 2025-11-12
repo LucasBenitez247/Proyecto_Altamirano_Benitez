@@ -10,16 +10,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace CapaPresentacion.Administrador
+namespace CapaPresentacion.Dueño_de_Negocio
 {
-    public partial class InformesUserControl : UserControl
+    public partial class ReporteCompra : UserControl
     {
-        public InformesUserControl()
+        public ReporteCompra()
         {
             InitializeComponent();
-            
         }
+   
 
+    
         private void MostrarGraficoEvolucionMensual(int anio)
         {
             var datos = new CN_Compra().ObtenerEvolucionMensual(anio);
@@ -79,8 +80,6 @@ namespace CapaPresentacion.Administrador
             int anio = dtpCompraAnio.Value.Year;
             MostrarGraficoEvolucionMensual(anio);
         }
-
-       
     }
 
-}
+    }

@@ -176,6 +176,20 @@ namespace CapaPresentacion.Dueño_de_Negocio
             DtpFechaInicio.Value = DateTime.Now.AddMonths(-1);
             DtpFechaFin.Value = DateTime.Now;
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "CDetalle")
+            {
+                // Usamos 'listaVentasFiltrada' que siempre está actualizada
+                if (e.RowIndex < listaVentasFiltrada.Count)
+                {
+                    Venta ventaSeleccionada = listaVentasFiltrada[e.RowIndex];
+                    DetalleVenta detalleForm = new DetalleVenta(ventaSeleccionada);
+                    detalleForm.ShowDialog();
+                }
+            }
+        }
     }
      
     }

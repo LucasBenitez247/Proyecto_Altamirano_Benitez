@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaPresentacion.Administrador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,6 +54,9 @@ namespace CapaPresentacion.Dueño_de_Negocio
             AbrirUserControl(new DueñoNegocioInventarioUserControl());
         }
 
-       
+        private void BtnRegistroCompras_Click(object sender, EventArgs e)
+        {
+            AbrirUserControl(new ReporteCompra());
+        }
     }
 }
