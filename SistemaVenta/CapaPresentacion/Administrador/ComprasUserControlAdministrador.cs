@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Excel = Microsoft.Office.Interop.Excel;
+
 
 namespace CapaPresentacion.Administrador
 {
@@ -172,55 +172,6 @@ namespace CapaPresentacion.Administrador
                 TBuscar.Enabled = true;
             }
         }
-
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-            if (dgvCompras.Rows.Count == 0)
-            {
-                MessageBox.Show("No hay datos para exportar.");
-                return;
-            }
-
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Archivo Excel (*.xlsx)|*.xlsx";
-            saveFileDialog.Title = "Guardar reporte de compras";
-            saveFileDialog.FileName = "ReporteCompras.xlsx";
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                ExportarDataGridViewAExcel(dgvCompras, saveFileDialog.FileName);
-            }
-        }
-
-        
-
-public void ExportarDataGridViewAExcel(DataGridView dgv, string rutaArchivo)
-    {
-        Excel.Application excelApp = new Excel.Application();
-        Excel.Workbook workbook = excelApp.Workbooks.Add();
-        Excel.Worksheet worksheet = workbook.Sheets[1];
-
-        // Encabezados
-        for (int i = 0; i < dgv.Columns.Count; i++)
-        {
-            worksheet.Cells[1, i + 1] = dgv.Columns[i].HeaderText;
-        }
-
-        // Filas
-        for (int i = 0; i < dgv.Rows.Count; i++)
-        {
-            for (int j = 0; j < dgv.Columns.Count; j++)
-            {
-                worksheet.Cells[i + 2, j + 1] = dgv.Rows[i].Cells[j].Value?.ToString();
-            }
-        }
-
-        workbook.SaveAs(rutaArchivo);
-        workbook.Close();
-        excelApp.Quit();
-
-        MessageBox.Show("Exportación completada.");
-    }
-
+       
 }
 }
