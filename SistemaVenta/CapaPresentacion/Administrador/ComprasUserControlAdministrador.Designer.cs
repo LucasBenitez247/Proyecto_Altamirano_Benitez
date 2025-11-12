@@ -53,6 +53,17 @@
             this.LbuscarPor = new System.Windows.Forms.Label();
             this.LReporteVentas = new System.Windows.Forms.Label();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPrecioTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cCodProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -79,8 +90,8 @@
             this.CProveedor,
             this.cCodProducto,
             this.cNombreProducto,
-            this.cCategoria,
             this.cCantidad,
+            this.cCategoria,
             this.cPrecioCompra});
             this.dgvCompras.Location = new System.Drawing.Point(26, 271);
             this.dgvCompras.Name = "dgvCompras";
@@ -299,6 +310,78 @@
             this.LReporteVentas.TabIndex = 0;
             this.LReporteVentas.Text = "Reporte de Compras";
             // 
+            // CFecha
+            // 
+            this.CFecha.HeaderText = "Fecha de Compra";
+            this.CFecha.Name = "CFecha";
+            this.CFecha.Width = 150;
+            // 
+            // CCodigo
+            // 
+            this.CCodigo.HeaderText = "Nro. Orden";
+            this.CCodigo.Name = "CCodigo";
+            this.CCodigo.Width = 150;
+            // 
+            // cPrecioTotal
+            // 
+            this.cPrecioTotal.HeaderText = "Total Compra";
+            this.cPrecioTotal.Name = "cPrecioTotal";
+            this.cPrecioTotal.Width = 125;
+            // 
+            // CUsuario
+            // 
+            this.CUsuario.HeaderText = "Usuario";
+            this.CUsuario.Name = "CUsuario";
+            // 
+            // CProveedor
+            // 
+            this.CProveedor.HeaderText = "Proveedor";
+            this.CProveedor.Name = "CProveedor";
+            this.CProveedor.Width = 125;
+            // 
+            // cCodProducto
+            // 
+            this.cCodProducto.HeaderText = "Cod. producto";
+            this.cCodProducto.Name = "cCodProducto";
+            // 
+            // cNombreProducto
+            // 
+            this.cNombreProducto.HeaderText = "Nombre producto";
+            this.cNombreProducto.Name = "cNombreProducto";
+            // 
+            // cCantidad
+            // 
+            this.cCantidad.HeaderText = "Cantidad";
+            this.cCantidad.Name = "cCantidad";
+            this.cCantidad.Width = 75;
+            // 
+            // cCategoria
+            // 
+            this.cCategoria.HeaderText = "Categoría";
+            this.cCategoria.Name = "cCategoria";
+            // 
+            // cPrecioCompra
+            // 
+            this.cPrecioCompra.HeaderText = "Precio Compra";
+            this.cPrecioCompra.Name = "cPrecioCompra";
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 30;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(1032, 213);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(114, 28);
+            this.iconButton1.TabIndex = 10;
+            this.iconButton1.Text = "Exportar Excel";
+            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Visible = false;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
             // ComprasUserControlAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -334,6 +417,7 @@
         private System.Windows.Forms.Label LFechaInicio;
         private System.Windows.Forms.Label LReporteVentas;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.DataGridViewTextBoxColumn CFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cPrecioTotal;
@@ -341,9 +425,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CProveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn cCodProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNombreProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn cCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn cPrecioCompra;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }
