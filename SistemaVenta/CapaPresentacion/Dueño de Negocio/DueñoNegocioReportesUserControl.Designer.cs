@@ -85,10 +85,7 @@
             this.IBtnBuscar.Text = "Buscar";
             this.IBtnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.IBtnBuscar.UseVisualStyleBackColor = true;
-            this.IBtnBuscar.TextChanged += new System.EventHandler(this.IBtnBuscar_TextChanged);
             this.IBtnBuscar.Click += new System.EventHandler(this.IBtnBuscar_Click);
-            this.IBtnBuscar.Enter += new System.EventHandler(this.IBtnBuscar_Enter);
-            this.IBtnBuscar.Leave += new System.EventHandler(this.IBtnBuscar_Leave);
             // 
             // DtpFechaInicio
             // 

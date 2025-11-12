@@ -43,5 +43,10 @@ namespace CapaNegocio
         {
             return objCapaDatos.GetVentasPorMes(fechaInicio, fechaFin);
         }
+
+        public List<ReporteVentasPorDia> GetVentasPorDia(DateTime fechaInicio, DateTime fechaFin)
+        {
+            return objCapaDatos.GetVentasPorDia(fechaInicio, fechaFin);
+        }
     }
 }

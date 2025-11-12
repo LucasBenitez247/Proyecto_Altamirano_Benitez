@@ -144,15 +144,7 @@ namespace CapaPresentacion.Dueño_de_Negocio
             }
         }
 
-        private void IBtnBuscar_TextChanged(object sender, EventArgs e)
-        {  
-        }
-        private void IBtnBuscar_Enter(object sender, EventArgs e)
-        {
-        }
-        private void IBtnBuscar_Leave(object sender, EventArgs e)
-        {
-        }
+   
 
 
         private void TBuscar_TextChanged(object sender, EventArgs e)
