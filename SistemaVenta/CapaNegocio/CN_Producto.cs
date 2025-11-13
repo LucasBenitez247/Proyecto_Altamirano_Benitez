@@ -23,6 +23,11 @@ namespace CapaNegocio
                 throw new Exception(ex.Message);
             }
         }
+        public bool ActualizarStockYPrecio(int idProducto, int cantidad, float nuevoPrecio)
+        {
+            CD_Producto datos = new CD_Producto();
+            return datos.ActualizarStockYPrecio(idProducto, cantidad, nuevoPrecio);
+        }
 
         public List<Categoria_producto> obtenerCategoria()
         {

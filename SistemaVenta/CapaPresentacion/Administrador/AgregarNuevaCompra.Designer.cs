@@ -63,7 +63,6 @@
             this.precioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.NUDCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -293,12 +292,23 @@
             // NUDCantidad
             // 
             this.NUDCantidad.Location = new System.Drawing.Point(702, 229);
+            this.NUDCantidad.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.NUDCantidad.Name = "NUDCantidad";
             this.NUDCantidad.Size = new System.Drawing.Size(69, 20);
             this.NUDCantidad.TabIndex = 21;
+            this.NUDCantidad.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // dgvCompras
             // 
+            this.dgvCompras.AllowUserToAddRows = false;
             this.dgvCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCompras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idProducto,
@@ -307,11 +317,10 @@
             this.CPrecioCompra,
             this.precioVenta,
             this.CCantidad,
-            this.CSubTotal,
-            this.btnEliminar});
+            this.CSubTotal});
             this.dgvCompras.Location = new System.Drawing.Point(52, 267);
             this.dgvCompras.Name = "dgvCompras";
-            this.dgvCompras.Size = new System.Drawing.Size(801, 266);
+            this.dgvCompras.Size = new System.Drawing.Size(805, 266);
             this.dgvCompras.TabIndex = 22;
             this.dgvCompras.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCompras_CellClick);
             // 
@@ -407,32 +416,21 @@
             // 
             this.CPrecioCompra.HeaderText = "Precio Compra";
             this.CPrecioCompra.Name = "CPrecioCompra";
-            this.CPrecioCompra.Width = 170;
             // 
             // precioVenta
             // 
             this.precioVenta.HeaderText = "Precio Venta";
             this.precioVenta.Name = "precioVenta";
-            this.precioVenta.Visible = false;
             // 
             // CCantidad
             // 
             this.CCantidad.HeaderText = "Cantidad";
             this.CCantidad.Name = "CCantidad";
-            this.CCantidad.Width = 160;
             // 
             // CSubTotal
             // 
             this.CSubTotal.HeaderText = "Sub Total";
             this.CSubTotal.Name = "CSubTotal";
-            this.CSubTotal.Width = 160;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.HeaderText = "Eliminar";
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.ToolTipText = "Eliminar";
             // 
             // AgregarNuevaCompra
             // 
@@ -513,6 +511,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn precioVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn CSubTotal;
-        private System.Windows.Forms.DataGridViewButtonColumn btnEliminar;
     }
 }

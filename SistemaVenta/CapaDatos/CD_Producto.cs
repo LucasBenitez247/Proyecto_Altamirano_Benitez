@@ -90,6 +90,28 @@ namespace CapaDatos
             }
             return lista;
         }
+        /// Metodo para actualizar el stock y precio de un producto
+        public bool ActualizarStockYPrecio(int idProducto, int cantidad, float nuevoPrecio)
+        {
+            using (SqlConnection oconexion = new Conexion().CrearConexion())
+            {
+                string query = @"
+            UPDATE Producto
+            SET 
+                Stock_producto = Stock_producto + @Cantidad,
+                Precio_producto = @NuevoPrecio
+            WHERE Id_producto = @IdProducto";
+
+                SqlCommand cmd = new SqlCommand(query, oconexion);
+                cmd.Parameters.AddWithValue("@Cantidad", cantidad);
+                cmd.Parameters.AddWithValue("@NuevoPrecio", nuevoPrecio);
+                cmd.Parameters.AddWithValue("@IdProducto", idProducto);
+
+                oconexion.Open();
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                return filasAfectadas > 0;
+            }
+        }
 
         public List<Producto> productos()
         {

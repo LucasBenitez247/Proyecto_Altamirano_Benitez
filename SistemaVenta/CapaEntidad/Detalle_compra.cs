@@ -13,5 +13,11 @@ namespace CapaEntidad
         public int Id_producto { get; set; }
         public int Cantidad { get; set; }
         public float Precio_compra { get; set; }
+
+        // Atributo que no está en la tabla
+        public string Nombre_producto { get; set; } // Nombre del producto
+
+        public float Precio_venta { get; set; } // Precio de venta del producto
+
     }
 }

@@ -151,5 +151,10 @@ namespace CapaPresentacion.Administrador
             DtpFechaInicio.Value = DateTime.Now.AddMonths(-1);
             DtpFechaFin.Value = DateTime.Now;
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

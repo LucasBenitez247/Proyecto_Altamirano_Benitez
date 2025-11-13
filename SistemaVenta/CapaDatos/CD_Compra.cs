@@ -31,10 +31,98 @@ namespace CapaDatos
             List<Compra> lista = new List<Compra>();
             using (SqlConnection conn = conexion.CrearConexion())
             {
-                string query = "SELECT c.Id_compra, c.Id_usuario, u.nombre, u.apellido, c.Id_proveedor,p.Razon_social AS Nombre_proveedor, " +
-                                    "c.Nro_orden, c.Fecha_compra, c.Total_compra FROM Compra c JOIN usuarios u ON c.Id_usuario = u.id_usuario JOIN Proveedor p ON c.Id_proveedor = p.Id_proveedor";
+                string query = @"
+            SELECT 
+                c.Id_compra, c.Id_usuario, u.nombre, u.apellido, 
+                c.Id_proveedor, p.Razon_social AS Nombre_proveedor, 
+                p.Nro_Documento_proveedor,
+                c.Nro_orden, c.Fecha_compra, c.Total_compra
+            FROM Compra c
+            JOIN usuarios u ON c.Id_usuario = u.id_usuario
+            JOIN Proveedor p ON c.Id_proveedor = p.Id_proveedor";
+
                 SqlCommand cmd = new SqlCommand(query, conn);
                 conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Compra compra = new Compra
+                    {
+                        Id_compra = Convert.ToInt32(reader["Id_compra"]),
+                        Id_usuario = Convert.ToInt32(reader["Id_usuario"]),
+                        Nombre_usuario = reader["nombre"].ToString() + " " + reader["apellido"].ToString(),
+                        Id_proveedor = Convert.ToInt32(reader["Id_proveedor"]),
+                        Nombre_proveedor = reader["Nombre_proveedor"].ToString(),
+                        Nro_documento_proveedor = Convert.ToInt32(reader["Nro_Documento_proveedor"]),
+                        Nro_orden = Convert.ToInt32(reader["Nro_orden"]),
+                        Fecha_compra = Convert.ToDateTime(reader["Fecha_compra"]),
+                        Total_compra = Convert.ToSingle(reader["Total_compra"])
+                    };
+                    lista.Add(compra);
+                }
+            }
+            return lista;
+        }
+
+
+        public List<Detalle_compra> ObtenerDetalleCompra(int idCompra)
+        {
+            List<Detalle_compra> lista = new List<Detalle_compra>();
+            using (SqlConnection conn = conexion.CrearConexion())
+            {
+                string query = @"
+            SELECT 
+                dc.Id_detalle_compra,
+                dc.Id_compra,
+                dc.Id_producto,
+                p.Nombre_producto,
+                dc.Cantidad,
+                dc.Precio_compra
+            FROM Detalle_Compra dc
+            INNER JOIN Producto p ON dc.Id_producto = p.Id_producto
+            WHERE dc.Id_compra = @IdCompra";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@IdCompra", idCompra);
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Detalle_compra detalle = new Detalle_compra
+                    {
+                        Id_detalle_compra = Convert.ToInt32(reader["Id_detalle_compra"]),
+                        Id_compra = Convert.ToInt32(reader["Id_compra"]),
+                        Id_producto = Convert.ToInt32(reader["Id_producto"]),
+                        Nombre_producto = reader["Nombre_producto"].ToString(),
+                        Cantidad = Convert.ToInt32(reader["Cantidad"]),
+                        Precio_compra = Convert.ToSingle(reader["Precio_compra"])
+                    };
+                    lista.Add(detalle);
+                }
+            }
+            return lista;
+        }
+
+
+        public List<Compra> ObtenerComprasPorFecha(DateTime fechaInicio, DateTime fechaFin)
+        {
+            List<Compra> lista = new List<Compra>();
+            using (SqlConnection conn = conexion.CrearConexion())
+            {
+                string query = @"
+            SELECT c.Id_compra, c.Id_usuario, u.nombre, u.apellido, c.Id_proveedor, p.Razon_social AS Nombre_proveedor,
+                   c.Nro_orden, c.Fecha_compra, c.Total_compra
+            FROM Compra c
+            JOIN usuarios u ON c.Id_usuario = u.id_usuario
+            JOIN Proveedor p ON c.Id_proveedor = p.Id_proveedor
+            WHERE c.Fecha_compra BETWEEN @fechaInicio AND @fechaFin
+            ORDER BY c.Fecha_compra DESC";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio);
+                cmd.Parameters.AddWithValue("@fechaFin", fechaFin);
+                conn.Open();
+
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -55,31 +143,6 @@ namespace CapaDatos
             return lista;
         }
 
-        public List<Detalle_compra> ObtenerDetalleCompra(int idCompra)
-        {
-            List<Detalle_compra> lista = new List<Detalle_compra>();
-            using (SqlConnection conn = conexion.CrearConexion())
-            {
-                string query = "SELECT Id_detalle_compra, Id_compra, Id_producto, Cantidad, Precio_compra FROM Detalle_Compra WHERE Id_compra = @IdCompra";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@IdCompra", idCompra);
-                conn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    Detalle_compra detalle = new Detalle_compra
-                    {
-                        Id_detalle_compra = Convert.ToInt32(reader["Id_detalle_compra"]),
-                        Id_compra = Convert.ToInt32(reader["Id_compra"]),
-                        Id_producto = Convert.ToInt32(reader["Id_producto"]),
-                        Cantidad = Convert.ToInt32(reader["Cantidad"]),
-                        Precio_compra = Convert.ToSingle(reader["Precio_compra"])
-                    };
-                    lista.Add(detalle);
-                }
-            }
-            return lista;
-        }
 
         public int InsertarCompra(Compra compra)
         {
@@ -238,69 +301,7 @@ namespace CapaDatos
         }
         
 
-        public List<ReporteCompra> ListarReporte(DateTime fechaInicio, DateTime fechaFin)
-        {
-            var lista = new List<ReporteCompra>();
-            var conexion = new Conexion();
-
-            try
-            {
-                using (SqlConnection conn = conexion.CrearConexion())
-                {
-                    string query = @"
-                SELECT 
-                    c.Fecha_compra, c.Nro_orden, c.Total_compra,
-                    u.nombre AS Nombre_usuario, u.apellido AS Apellido_usuario,
-                    pr.Razon_Social AS Nombre_proveedor,
-                    p.Codigo_producto, p.Nombre_producto,
-                    cat.Descripcion_categoria AS Categoria,
-                    dc.Precio_compra, dc.Cantidad
-                FROM Compra c
-                INNER JOIN usuarios u ON c.Id_usuario = u.id_usuario
-                INNER JOIN Proveedor pr ON c.Id_proveedor = pr.Id_proveedor
-                INNER JOIN Detalle_compra dc ON dc.Id_compra = c.Id_compra
-                INNER JOIN Producto p ON p.Id_producto = dc.Id_producto
-                INNER JOIN Categoria_producto cat ON cat.Id_categoria = p.Id_categoria
-                WHERE c.Fecha_compra BETWEEN @fechaInicio AND @fechaFin
-                ORDER BY c.Fecha_compra DESC";
-
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio);
-                    cmd.Parameters.AddWithValue("@fechaFin", fechaFin);
-                    conn.Open();
-
-                    using (SqlDataReader dr = cmd.ExecuteReader())
-                    {
-                        while (dr.Read())
-                        {
-                            var reporte = new ReporteCompra
-                            {
-                                FechaRegistro = Convert.ToDateTime(dr["Fecha_compra"]).ToString("dd/MM/yyyy"),
-                                NroOrden = Convert.ToInt32(dr["Nro_orden"]),
-                                totalCompra = Convert.ToInt32(dr["Total_compra"]),
-                                nombreUsuario = dr["Nombre_usuario"].ToString() + " " + dr["Apellido_usuario"].ToString(),
-                                RazonSocialProveedor = dr["Nombre_proveedor"].ToString(),
-                                codigoProducto = dr["Codigo_producto"].ToString(),
-                                nombreProducto = dr["Nombre_producto"].ToString(),
-                                categoriaProducto = dr["Categoria"].ToString(),
-                                precioCompra = Convert.ToSingle(dr["Precio_compra"]),
-                                cantidadProducto = Convert.ToInt32(dr["Cantidad"]),
-                                subtotal = Convert.ToSingle(dr["Precio_compra"]) * Convert.ToInt32(dr["Cantidad"])
-                            };
-
-                            lista.Add(reporte);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error al listar reporte: " + ex.Message);
-                lista = new List<ReporteCompra>();
-            }
-
-            return lista;
-        }
+       
 
 
 

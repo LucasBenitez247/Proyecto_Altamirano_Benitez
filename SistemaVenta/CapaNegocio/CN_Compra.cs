@@ -17,6 +17,12 @@ namespace CapaNegocio
             return datos.ExisteNroOrden(nroOrden);
         }
 
+        public List<Compra> obtenerComprasPorFecha(DateTime fechaInicio, DateTime fechaFin)
+        {
+            CD_Compra datos = new CD_Compra();
+            return datos.ObtenerComprasPorFecha(fechaInicio, fechaFin);
+        }
+
         public List<CompraPorCategoria> ObtenerInformePorCategoria(DateTime fechaInicio, DateTime fechaFin)
         {
             CD_Compra datos = new CD_Compra();
@@ -57,11 +63,6 @@ namespace CapaNegocio
 
             // Llamar a la capa de datos
             return datos.InsertarCompra(compra);
-        }
-
-        public List<ReporteCompra> ObtenerReporte(DateTime fechaInicio, DateTime fechaFin)
-        {
-            return datos.ListarReporte(fechaInicio, fechaFin);
         }
     }
 } 

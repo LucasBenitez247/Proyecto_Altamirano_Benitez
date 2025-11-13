@@ -136,6 +136,12 @@
     <Compile Include="Administrador\ComprasUserControlAdministrador.Designer.cs">
       <DependentUpon>ComprasUserControlAdministrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\DetalleCompraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\DetalleCompraForm.Designer.cs">
+      <DependentUpon>DetalleCompraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\GestionProveedorUserControlAdministrador.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -335,6 +341,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\ComprasUserControlAdministrador.resx">
       <DependentUpon>ComprasUserControlAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\DetalleCompraForm.resx">
+      <DependentUpon>DetalleCompraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\GestionProveedorUserControlAdministrador.resx">
       <DependentUpon>GestionProveedorUserControlAdministrador.cs</DependentUpon>

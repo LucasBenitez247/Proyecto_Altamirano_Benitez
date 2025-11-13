@@ -80,6 +80,7 @@ namespace CapaPresentacion.Administrador
             }
 
             CargarReporteCompras(fechaInicio, fechaFin, criterio, textoBuscar.ToLower());
+            TBuscar.Focus();
         }
 
 
@@ -89,7 +90,7 @@ namespace CapaPresentacion.Administrador
         {
 
             panel2.Size = new Size(2000, 500); // Ajustá según tu diseño
-            
+
             dgvCompras.ScrollBars = ScrollBars.Both;
             dgvCompras.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvCompras.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
@@ -100,36 +101,39 @@ namespace CapaPresentacion.Administrador
 
 
             panel2.AutoScroll = true;
-
+            cboBuscarPor.SelectedIndex = 0;
         }
 
         private void CargarReporteCompras(DateTime fechaInicio, DateTime fechaFin, string criterio, string textoBuscar)
         {
             dgvCompras.Rows.Clear();
             CN_Compra negocio = new CN_Compra();
-            List<ReporteCompra> listaReporte = negocio.ObtenerReporte(fechaInicio, fechaFin);
+            List<Compra> listaCompra = negocio.obtenerComprasPorFecha(fechaInicio, fechaFin);
 
-            IEnumerable<ReporteCompra> listaFiltrada = listaReporte;
+            IEnumerable<Compra> listaFiltrada = listaCompra;
 
             if (criterio != "todos" && !string.IsNullOrWhiteSpace(textoBuscar))
             {
                 switch (criterio)
                 {
                     case "proveedor":
-                        listaFiltrada = listaFiltrada.Where(r => r.RazonSocialProveedor?.ToLower().Contains(textoBuscar) == true);
+                        listaFiltrada = listaFiltrada.Where(r =>
+                        !string.IsNullOrWhiteSpace(r.Nombre_proveedor) &&
+                        Normalizar(r.Nombre_proveedor).Contains(Normalizar(textoBuscar)));
+
                         break;
                     case "usuario":
-                        listaFiltrada = listaFiltrada.Where(r => r.nombreUsuario?.ToLower().Contains(textoBuscar) == true);
+                        listaFiltrada = listaFiltrada.Where(r => r.Nombre_usuario?.ToLower().Contains(textoBuscar) == true);
                         break;
                     case "nro. orden":
-                        listaFiltrada = listaFiltrada.Where(r => r.NroOrden.ToString().Contains(textoBuscar));
-                        break;
-                    case "producto":
-                        listaFiltrada = listaFiltrada.Where(r => r.nombreProducto?.ToLower().Contains(textoBuscar) == true);
+                        listaFiltrada = listaFiltrada.Where(r => r.Nro_orden.ToString().Contains(textoBuscar));
                         break;
                     case "total compra":
                         if (decimal.TryParse(textoBuscar, out decimal total))
-                            listaFiltrada = listaFiltrada.Where(r => r.totalCompra == total);
+                        {
+                            listaFiltrada = listaFiltrada.Where(r =>
+                                Math.Round((decimal)r.Total_compra, 2) == Math.Round(total, 2));
+                        }
                         else
                         {
                             MessageBox.Show("Total Compra debe ser un número válido.");
@@ -139,21 +143,16 @@ namespace CapaPresentacion.Administrador
                 }
             }
 
-            foreach (ReporteCompra reporte in listaFiltrada)
+            foreach (Compra compra in listaFiltrada)
             {
                 dgvCompras.Rows.Add(new object[]
                 {
-            reporte.FechaRegistro,
-            reporte.NroOrden,
-            reporte.totalCompra,
-            reporte.nombreUsuario,
-            reporte.RazonSocialProveedor,
-            reporte.codigoProducto,
-            reporte.nombreProducto,
-            reporte.cantidadProducto,
-            reporte.categoriaProducto,
-            reporte.precioCompra,
-            reporte.subtotal
+                    compra.Id_compra,
+            compra.Fecha_compra.ToString("dd/MM/yyyy"),
+           compra.Nro_orden,
+              compra.Nombre_proveedor,
+              compra.Nombre_usuario,
+                compra.Total_compra.ToString("F2"),
                 });
             }
         }
@@ -172,61 +171,34 @@ namespace CapaPresentacion.Administrador
                 TBuscar.Enabled = true;
             }
         }
-
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        /* private void iconButton1_Click(object sender, EventArgs e)
-         {
-             if (dgvCompras.Rows.Count == 0)
-             {
-                 MessageBox.Show("No hay datos para exportar.");
-                 return;
-             }
-
-             SaveFileDialog saveFileDialog = new SaveFileDialog();
-             saveFileDialog.Filter = "Archivo Excel (*.xlsx)|*.xlsx";
-             saveFileDialog.Title = "Guardar reporte de compras";
-             saveFileDialog.FileName = "ReporteCompras.xlsx";
-
-             if (saveFileDialog.ShowDialog() == DialogResult.OK)
-             {
-                 ExportarDataGridViewAExcel(dgvCompras, saveFileDialog.FileName);
-             }
-        */
-    }
-
         
-
-/*-public void ExportarDataGridViewAExcel(DataGridView dgv, string rutaArchivo)
-    {
-        Excel.Application excelApp = new Excel.Application();
-        Excel.Workbook workbook = excelApp.Workbooks.Add();
-        Excel.Worksheet worksheet = workbook.Sheets[1];
-
-        // Encabezados
-        for (int i = 0; i < dgv.Columns.Count; i++)
+        private void dgvCompras_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            worksheet.Cells[1, i + 1] = dgv.Columns[i].HeaderText;
-        }
-
-        // Filas
-        for (int i = 0; i < dgv.Rows.Count; i++)
-        {
-            for (int j = 0; j < dgv.Columns.Count; j++)
+            if (e.RowIndex >= 0 && dgvCompras.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
             {
-                worksheet.Cells[i + 2, j + 1] = dgv.Rows[i].Cells[j].Value?.ToString();
+                int idCompra = Convert.ToInt32(dgvCompras.Rows[e.RowIndex].Cells["CIDCompra"].Value);
+                var detalleForm = new DetalleCompraForm(idCompra);
+                detalleForm.ShowDialog();
             }
         }
 
-        workbook.SaveAs(rutaArchivo);
-        workbook.Close();
-        excelApp.Quit();
+        // Método para normalizar texto (eliminar acentos y convertir a minúsculas)
+        private string Normalizar(string texto)
+        {
+            return new string(texto
+                .Normalize(System.Text.NormalizationForm.FormD)
+                .Where(c => System.Globalization.CharUnicodeInfo.GetUnicodeCategory(c) != System.Globalization.UnicodeCategory.NonSpacingMark)
+                .ToArray())
+                .ToLower()
+                .Trim();
+        }
 
-        MessageBox.Show("Exportación completada.");
-    }*/
+
+        private void ComprasUserControlAdministrador_ImeModeChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
 
 }
 

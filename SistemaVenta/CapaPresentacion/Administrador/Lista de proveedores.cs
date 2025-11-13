@@ -18,6 +18,7 @@ namespace CapaPresentacion.Administrador
         public Lista_de_proveedores()
         {
             InitializeComponent();
+            inicializarControles();
         }
 
         private void Lista_de_proveedores_Load(object sender, EventArgs e)
@@ -71,6 +72,17 @@ namespace CapaPresentacion.Administrador
                 }
             }
         }
+
+        private void inicializarControles()
+        {
+            cboBuscarPor.Items.Add("Razón Social");
+            cboBuscarPor.Items.Add("Nro Documento");
+
+
+            if (cboBuscarPor.Items.Count > 0)
+                cboBuscarPor.SelectedIndex = 0; // Selecciona el primero
+        }
+
 
         private void txtBuscador_TextChanged_1(object sender, EventArgs e)
         {

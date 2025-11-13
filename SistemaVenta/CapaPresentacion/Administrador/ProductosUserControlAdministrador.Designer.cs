@@ -69,7 +69,7 @@
             this.lblBuscarPor.AutoSize = true;
             this.lblBuscarPor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBuscarPor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lblBuscarPor.Location = new System.Drawing.Point(51, 32);
+            this.lblBuscarPor.Location = new System.Drawing.Point(168, 30);
             this.lblBuscarPor.Name = "lblBuscarPor";
             this.lblBuscarPor.Size = new System.Drawing.Size(85, 18);
             this.lblBuscarPor.TabIndex = 2;
@@ -83,12 +83,12 @@
             this.pnlBuscarPor.Controls.Add(this.lblBuscarPor);
             this.pnlBuscarPor.Location = new System.Drawing.Point(46, 138);
             this.pnlBuscarPor.Name = "pnlBuscarPor";
-            this.pnlBuscarPor.Size = new System.Drawing.Size(830, 80);
+            this.pnlBuscarPor.Size = new System.Drawing.Size(1028, 80);
             this.pnlBuscarPor.TabIndex = 3;
             // 
             // txtBuscador
             // 
-            this.txtBuscador.Location = new System.Drawing.Point(269, 29);
+            this.txtBuscador.Location = new System.Drawing.Point(418, 28);
             this.txtBuscador.Name = "txtBuscador";
             this.txtBuscador.Size = new System.Drawing.Size(310, 20);
             this.txtBuscador.TabIndex = 9;
@@ -98,7 +98,7 @@
             // 
             this.cboBuscarPor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBuscarPor.FormattingEnabled = true;
-            this.cboBuscarPor.Location = new System.Drawing.Point(158, 29);
+            this.cboBuscarPor.Location = new System.Drawing.Point(275, 27);
             this.cboBuscarPor.Name = "cboBuscarPor";
             this.cboBuscarPor.Size = new System.Drawing.Size(94, 21);
             this.cboBuscarPor.TabIndex = 3;
@@ -119,7 +119,7 @@
             this.BtnNuevaCompra.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnNuevaCompra.IconSize = 32;
             this.BtnNuevaCompra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnNuevaCompra.Location = new System.Drawing.Point(653, 87);
+            this.BtnNuevaCompra.Location = new System.Drawing.Point(776, 81);
             this.BtnNuevaCompra.Name = "BtnNuevaCompra";
             this.BtnNuevaCompra.Size = new System.Drawing.Size(223, 35);
             this.BtnNuevaCompra.TabIndex = 15;
@@ -146,7 +146,7 @@
             this.Eliminar});
             this.dgvProductos.Location = new System.Drawing.Point(46, 248);
             this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.Size = new System.Drawing.Size(830, 201);
+            this.dgvProductos.Size = new System.Drawing.Size(1028, 300);
             this.dgvProductos.TabIndex = 16;
             this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
             // 
@@ -220,7 +220,7 @@
             this.Controls.Add(this.pnlBuscarPor);
             this.Controls.Add(this.lblProductos);
             this.Name = "pnlProductos";
-            this.Size = new System.Drawing.Size(879, 551);
+            this.Size = new System.Drawing.Size(1090, 551);
             this.Load += new System.EventHandler(this.lblHasta_Load);
             this.pnlBuscarPor.ResumeLayout(false);
             this.pnlBuscarPor.PerformLayout();

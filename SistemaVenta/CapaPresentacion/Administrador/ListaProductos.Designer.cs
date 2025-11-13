@@ -30,6 +30,11 @@
         {
             this.pnlListaProveedores = new System.Windows.Forms.Panel();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.pnlBuscarPor = new System.Windows.Forms.Panel();
+            this.txtBuscador = new System.Windows.Forms.TextBox();
+            this.cboBuscarPor = new System.Windows.Forms.ComboBox();
+            this.lblBuscarPor = new System.Windows.Forms.Label();
+            this.lblListaProductos = new System.Windows.Forms.Label();
             this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,12 +44,6 @@
             this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Talle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.pnlBuscarPor = new System.Windows.Forms.Panel();
-            this.txtBuscador = new System.Windows.Forms.TextBox();
-            this.cboBuscarPor = new System.Windows.Forms.ComboBox();
-            this.lblBuscarPor = new System.Windows.Forms.Label();
-            this.lblListaProductos = new System.Windows.Forms.Label();
             this.pnlListaProveedores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.pnlBuscarPor.SuspendLayout();
@@ -74,73 +73,13 @@
             this.precio,
             this.stock,
             this.categoria,
-            this.Talle,
-            this.btnSeleccionar});
+            this.Talle});
             this.dgvProductos.Location = new System.Drawing.Point(12, 183);
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.Size = new System.Drawing.Size(601, 165);
             this.dgvProductos.TabIndex = 17;
             this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
             this.dgvProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellDoubleClick);
-            // 
-            // idProducto
-            // 
-            this.idProducto.HeaderText = "Id Producto";
-            this.idProducto.Name = "idProducto";
-            this.idProducto.Visible = false;
-            // 
-            // codProducto
-            // 
-            this.codProducto.HeaderText = "Cód. del Producto";
-            this.codProducto.Name = "codProducto";
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "Descripcion";
-            this.descripcion.Name = "descripcion";
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Estado";
-            this.estado.Name = "estado";
-            this.estado.Visible = false;
-            // 
-            // precio
-            // 
-            this.precio.HeaderText = "Precio";
-            this.precio.Name = "precio";
-            this.precio.Visible = false;
-            // 
-            // stock
-            // 
-            this.stock.HeaderText = "Stock";
-            this.stock.Name = "stock";
-            this.stock.Visible = false;
-            // 
-            // categoria
-            // 
-            this.categoria.HeaderText = "Categoria";
-            this.categoria.Name = "categoria";
-            // 
-            // Talle
-            // 
-            this.Talle.HeaderText = "Talle";
-            this.Talle.Name = "Talle";
-            this.Talle.Visible = false;
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.HeaderText = "Selección";
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Text = "Seleccionar";
-            this.btnSeleccionar.UseColumnTextForButtonValue = true;
             // 
             // pnlBuscarPor
             // 
@@ -159,6 +98,7 @@
             this.txtBuscador.Name = "txtBuscador";
             this.txtBuscador.Size = new System.Drawing.Size(310, 20);
             this.txtBuscador.TabIndex = 9;
+            this.txtBuscador.TextChanged += new System.EventHandler(this.txtBuscador_TextChanged_1);
             // 
             // cboBuscarPor
             // 
@@ -190,6 +130,59 @@
             this.lblListaProductos.Size = new System.Drawing.Size(191, 25);
             this.lblListaProductos.TabIndex = 0;
             this.lblListaProductos.Text = "Lista de Productos";
+            // 
+            // idProducto
+            // 
+            this.idProducto.HeaderText = "Id Producto";
+            this.idProducto.Name = "idProducto";
+            this.idProducto.Visible = false;
+            // 
+            // codProducto
+            // 
+            this.codProducto.HeaderText = "Cód. del Producto";
+            this.codProducto.Name = "codProducto";
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.Width = 150;
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "Descripcion";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.Width = 200;
+            // 
+            // estado
+            // 
+            this.estado.HeaderText = "Estado";
+            this.estado.Name = "estado";
+            this.estado.Visible = false;
+            // 
+            // precio
+            // 
+            this.precio.HeaderText = "Precio";
+            this.precio.Name = "precio";
+            this.precio.Visible = false;
+            // 
+            // stock
+            // 
+            this.stock.HeaderText = "Stock";
+            this.stock.Name = "stock";
+            this.stock.Visible = false;
+            // 
+            // categoria
+            // 
+            this.categoria.HeaderText = "Categoria";
+            this.categoria.Name = "categoria";
+            this.categoria.Width = 110;
+            // 
+            // Talle
+            // 
+            this.Talle.HeaderText = "Talle";
+            this.Talle.Name = "Talle";
+            this.Talle.Visible = false;
             // 
             // ListaProductos
             // 
@@ -227,6 +220,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Talle;
-        private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
     }
 }

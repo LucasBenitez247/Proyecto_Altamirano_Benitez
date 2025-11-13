@@ -25,7 +25,6 @@ namespace CapaPresentacion.Administrador
             InitializeComponent();
             this.setUsuarioActual(pUsuario);
             setTotalCompra(0);
-            MessageBox.Show("Usuario actual: " + usuarioActual?.Nombre_usuario);
         }
 
         public void setUsuarioActual(Usuario usuario)
@@ -46,6 +45,7 @@ namespace CapaPresentacion.Administrador
         {
             // Guarda el nro de orden
             int nroOrden;
+            
 
             // Validar que haya productos en la compra
             if (dgvCompras.Rows.Count == 0)
@@ -62,6 +62,7 @@ namespace CapaPresentacion.Administrador
             }
             // Crear instancia de CN_Compra
             CN_Compra negocio = new CN_Compra();
+            CN_Producto negocioProducto = new CN_Producto();
 
             // Verificar si el número de orden ya existe
             if (negocio.ExisteNroOrden(nroOrden))
@@ -90,7 +91,8 @@ namespace CapaPresentacion.Administrador
                 {
                     Id_producto = Convert.ToInt32(row.Cells["idProducto"].Value),
                     Cantidad = Convert.ToInt32(row.Cells["CCantidad"].Value),
-                    Precio_compra = Convert.ToSingle(row.Cells["CPrecioCompra"].Value) // ← precio unitario
+                    Precio_compra = Convert.ToSingle(row.Cells["CPrecioCompra"].Value), // ← precio unitario
+                    Precio_venta = Convert.ToSingle(row.Cells["precioVenta"].Value)
                 };
 
                 // Calcular el total de la compra
@@ -105,8 +107,13 @@ namespace CapaPresentacion.Administrador
 
             try
             {
+                // Registrar la compra y obtener el ID generado
                 int idCompra = negocio.RegistrarCompra(compra);
                 MessageBox.Show($"Compra registrada con éxito. ID generado: {idCompra}");
+
+                // Actualizar stock y precio de los productos
+                ActualizarStockYPrecioProductos(compra.Detalle_compra);
+
                 this.Close();
             }
             catch (Exception ex)
@@ -129,9 +136,29 @@ namespace CapaPresentacion.Administrador
             lista_De_Proveedores.ShowDialog();
         }
 
+        private void ActualizarStockYPrecioProductos(List<Detalle_compra> detalles)
+        {
+            CN_Producto negocioProducto = new CN_Producto();
+
+            foreach (var detalle in detalles)
+            {
+                bool actualizado = negocioProducto.ActualizarStockYPrecio(
+                    detalle.Id_producto,
+                    detalle.Cantidad,
+                    detalle.Precio_venta
+                );
+
+                if (!actualizado)
+                {
+                    MessageBox.Show($"Error al actualizar el stock del producto ID {detalle.Id_producto}");
+                }
+            }
+        }
+
+
         private void AgregarNuevaCompra_Load(object sender, EventArgs e)
         {
-
+            ConfigurarColumnas();
         }
 
         private void BtnBuscarCodProducto_Click(object sender, EventArgs e)
@@ -164,28 +191,39 @@ namespace CapaPresentacion.Administrador
                 return;
             }
 
-            float subtotal = precioCompra * Convert.ToSingle(NUDCantidad.Value);
-            setTotalCompra(getTotalCompra() + subtotal);
-
-            if (validarCampos())
+            if (decimal.TryParse(TPrecioVenta.Text.Trim(), out decimal precioVenta1) &&
+                decimal.TryParse(TPrecioCompra.Text.Trim(), out decimal precioCompra1))
             {
-                DataGridViewRow fila = new DataGridViewRow();
-                fila.CreateCells(dgvCompras);
+                if (precioCompra1 > precioVenta1)
+                {
+                    MessageBox.Show("El precio de venta debe ser mayor al precio de compra.");
+                    return;
+                }
 
-                fila.Cells[dgvCompras.Columns["idProducto"].Index].Value = productoGlobal.Id_producto;
-                fila.Cells[dgvCompras.Columns["codProducto"].Index].Value = TCodProducto.Text;
-                fila.Cells[dgvCompras.Columns["CProducto"].Index].Value = TProducto.Text;
-                fila.Cells[dgvCompras.Columns["CPrecioCompra"].Index].Value = TPrecioCompra.Text;
-                fila.Cells[dgvCompras.Columns["precioVenta"].Index].Value = TPrecioVenta.Text;
-                fila.Cells[dgvCompras.Columns["CCantidad"].Index].Value = NUDCantidad.Value;
-                fila.Cells[dgvCompras.Columns["CSubTotal"].Index].Value = subtotal.ToString("0.00");
+                float subtotal = precioCompra * Convert.ToSingle(NUDCantidad.Value);
+                setTotalCompra(getTotalCompra() + subtotal);
 
-                dgvCompras.Rows.Add(fila);
+                if (validarCampos())
+                {
+                    DataGridViewRow fila = new DataGridViewRow();
+                    fila.CreateCells(dgvCompras);
+
+                    fila.Cells[dgvCompras.Columns["idProducto"].Index].Value = productoGlobal.Id_producto;
+                    fila.Cells[dgvCompras.Columns["codProducto"].Index].Value = TCodProducto.Text;
+                    fila.Cells[dgvCompras.Columns["CProducto"].Index].Value = TProducto.Text;
+                    fila.Cells[dgvCompras.Columns["CPrecioCompra"].Index].Value = TPrecioCompra.Text;
+                    fila.Cells[dgvCompras.Columns["precioVenta"].Index].Value = TPrecioVenta.Text;
+                    fila.Cells[dgvCompras.Columns["CCantidad"].Index].Value = NUDCantidad.Value;
+                    fila.Cells[dgvCompras.Columns["CSubTotal"].Index].Value = subtotal.ToString("0.00");
+                    fila.Cells[dgvCompras.Columns["btnEliminar"].Index].Value = "Eliminar";
+
+                    dgvCompras.Rows.Add(fila);
 
 
-                MessageBox.Show("Compra agregada exitosamente.");
-                TTotalPagar.Text = getTotalCompra().ToString("0.00");
-                limpiarCampos();
+                    MessageBox.Show("Compra agregada exitosamente.");
+                    TTotalPagar.Text = getTotalCompra().ToString("0.00");
+                    limpiarCampos();
+                }
             }
         }
 
@@ -363,6 +401,19 @@ namespace CapaPresentacion.Administrador
             {
                 MessageBox.Show("Ingrese un precio válido mayor a cero.");
                 TPrecioCompra.Focus();
+            }
+        }
+
+        private void ConfigurarColumnas()
+        {
+            if (!dgvCompras.Columns.Contains("btnEliminar"))
+            {
+                DataGridViewButtonColumn btnEliminar = new DataGridViewButtonColumn();
+                btnEliminar.Name = "btnEliminar";
+                btnEliminar.HeaderText = "Eliminar";
+                btnEliminar.Text = "Eliminar";
+                btnEliminar.UseColumnTextForButtonValue = true;
+                dgvCompras.Columns.Add(btnEliminar);
             }
         }
 

@@ -38,8 +38,21 @@ namespace CapaPresentacion.Administrador
         private void CargarUsuarios()
         {
             List<Usuario> listaUsuarios = new CN_Usuario().Listar();
-            DGUsuarios.DataSource = listaUsuarios;
+
+            var listaFormateada = listaUsuarios.Select(u => new
+            {
+                u.Id_usuario,
+                u.Nombre_usuario,
+                u.Apellido_usuario,
+                u.Mail_usuario,
+                u.Contrasenia_usuario,
+                u.Id_perfil,
+                Estado = u.Estado_usuario == 1 ? "Activo" : "Inactivo"
+            }).ToList();
+
+            DGUsuarios.DataSource = listaFormateada;
         }
+
 
 
         private void BtnRegistrar_Click(object sender, EventArgs e)
@@ -306,5 +319,7 @@ namespace CapaPresentacion.Administrador
                 errorProvider6.SetError(TDni, "");
             }
         }
+
+
     }
 }

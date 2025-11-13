@@ -25,25 +25,32 @@ namespace CapaPresentacion.Administrador
             cargarProductos();
         }
 
-        private void txtBuscador_TextChanged(object sender, EventArgs e)
+        private void txtBuscador_TextChanged_1(object sender, EventArgs e)
         {
-            string texto = txtBuscador.Text.Trim().ToLower(); // Convertir el texto a minúsculas para una comparación insensible a mayúsculas/minúsculas
-            dgvProductos.Rows.Clear(); // Limpiar el DataGridView antes de mostrar los resultados filtrados
+            string texto = System.Text.RegularExpressions.Regex.Replace(
+                txtBuscador.Text.Trim().ToLower(), @"\s+", " ");
 
-            /**
-             * evaluar el criterio de búsqueda seleccionado en el ComboBox
-             */
+            dgvProductos.Rows.Clear();
+
             var listaFiltrada = listaProductos.Where(p =>
             {
-                switch (cboBuscarPor.SelectedItem.ToString())
+                switch (cboBuscarPor.SelectedItem?.ToString())
                 {
                     case "Nombre":
-                        return p.Nombre_producto.ToLower().Contains(texto);
+                        return !string.IsNullOrEmpty(p.Nombre_producto) &&
+                               p.Nombre_producto.ToLower().Contains(texto);
+
                     case "Categoría":
-                        var categoria = listaCategorias.FirstOrDefault(c => c.Id_categoria == p.Categoria_producto); // Buscar la categoría correspondiente
-                        return categoria != null && categoria.Descripcion_categoria.ToLower().Contains(texto); // Verificar si la descripción de la categoría contiene el texto buscado
+                        var categoria = listaCategorias.FirstOrDefault(c => c.Id_categoria == p.Categoria_producto);
+                        return categoria != null &&
+                               categoria.Descripcion_categoria.ToLower().Contains(texto);
+
                     case "Descripción":
-                        return p.Descripcion_producto.ToLower().Contains(texto);
+                        var palabras = texto.Split(' ');
+                        return !string.IsNullOrEmpty(p.Descripcion_producto) &&
+                               palabras.All(palabra => p.Descripcion_producto.ToLower().Contains(palabra));
+
+
                     default:
                         return false;
                 }
@@ -54,8 +61,8 @@ namespace CapaPresentacion.Administrador
                 var categoria = listaCategorias.FirstOrDefault(c => c.Id_categoria == producto.Categoria_producto);
                 var estadoEncontrado = listaEstados.FirstOrDefault(est => est.Id_estado_producto == producto.Estado_producto);
 
-                string nombreCategoria = categoria != null ? categoria.Descripcion_categoria : "Sin categoría";
-                string nombreEstado = estadoEncontrado != null ? estadoEncontrado.Descripcion_estado_producto : "Sin estado";
+                string nombreCategoria = categoria?.Descripcion_categoria ?? "Sin categoría";
+                string nombreEstado = estadoEncontrado?.Descripcion_estado_producto ?? "Sin estado";
 
                 dgvProductos.Rows.Add(
                     producto.Id_producto,
@@ -69,6 +76,7 @@ namespace CapaPresentacion.Administrador
                 );
             }
         }
+
 
         private void cargarProductos()
         {
@@ -98,6 +106,7 @@ namespace CapaPresentacion.Administrador
                 );
             }
         }
+        
 
         private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -118,7 +127,8 @@ namespace CapaPresentacion.Administrador
             cboBuscarPor.Items.Add("Nombre");
             cboBuscarPor.Items.Add("Categoría");
             cboBuscarPor.Items.Add("Descripción");
-            
+            cboBuscarPor.SelectedIndex = 0; // Seleccionar la primera opción por defecto
+
         }
 
         private void cargarDatos()

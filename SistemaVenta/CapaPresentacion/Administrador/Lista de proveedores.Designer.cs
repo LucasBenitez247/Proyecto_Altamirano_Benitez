@@ -34,11 +34,10 @@
             this.cboBuscarPor = new System.Windows.Forms.ComboBox();
             this.lblBuscarPor = new System.Windows.Forms.Label();
             this.dgvProveedores = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.idProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CDni = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CRazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label1 = new System.Windows.Forms.Label();
             this.pnlListaProveedores.SuspendLayout();
             this.pnlBuscarPor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).BeginInit();
@@ -73,14 +72,12 @@
             this.txtBuscador.Name = "txtBuscador";
             this.txtBuscador.Size = new System.Drawing.Size(215, 20);
             this.txtBuscador.TabIndex = 9;
+            this.txtBuscador.TextChanged += new System.EventHandler(this.txtBuscador_TextChanged_1);
             // 
             // cboBuscarPor
             // 
             this.cboBuscarPor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBuscarPor.FormattingEnabled = true;
-            this.cboBuscarPor.Items.AddRange(new object[] {
-            "Número de Documento",
-            "Razón Social"});
             this.cboBuscarPor.Location = new System.Drawing.Point(133, 29);
             this.cboBuscarPor.Name = "cboBuscarPor";
             this.cboBuscarPor.Size = new System.Drawing.Size(94, 21);
@@ -103,14 +100,24 @@
             this.dgvProveedores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idProveedor,
             this.CDni,
-            this.CRazonSocial,
-            this.btnSeleccionar});
-            this.dgvProveedores.Location = new System.Drawing.Point(12, 197);
+            this.CRazonSocial});
+            this.dgvProveedores.Location = new System.Drawing.Point(93, 185);
             this.dgvProveedores.Name = "dgvProveedores";
-            this.dgvProveedores.Size = new System.Drawing.Size(480, 253);
+            this.dgvProveedores.Size = new System.Drawing.Size(294, 253);
             this.dgvProveedores.TabIndex = 7;
             this.dgvProveedores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedores_CellClick);
             this.dgvProveedores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedores_CellDoubleClick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label1.Location = new System.Drawing.Point(140, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(216, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Lista de Proveedores";
             // 
             // idProveedor
             // 
@@ -129,24 +136,6 @@
             this.CRazonSocial.HeaderText = "Razón Social";
             this.CRazonSocial.Name = "CRazonSocial";
             this.CRazonSocial.Width = 150;
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.HeaderText = "Selección";
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Text = "Seleccionar";
-            this.btnSeleccionar.UseColumnTextForButtonValue = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label1.Location = new System.Drawing.Point(140, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(216, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Lista de Proveedores";
             // 
             // Lista_de_proveedores
             // 
@@ -178,6 +167,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idProveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn CDni;
         private System.Windows.Forms.DataGridViewTextBoxColumn CRazonSocial;
-        private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
     }
 }

@@ -30,17 +30,6 @@
         {
             this.LCompras = new System.Windows.Forms.Label();
             this.dgvCompras = new System.Windows.Forms.DataGridView();
-            this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cPrecioTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cCodProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cNombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cPrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BtnNuevaCompra = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.IBtnBuscar = new FontAwesome.Sharp.IconButton();
@@ -53,6 +42,14 @@
             this.LbuscarPor = new System.Windows.Forms.Label();
             this.LReporteVentas = new System.Windows.Forms.Label();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.BtnNuevaCompra = new FontAwesome.Sharp.IconButton();
+            this.CIdCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPrecioTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cDetalleCompra = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -70,103 +67,22 @@
             // 
             // dgvCompras
             // 
+            this.dgvCompras.AllowUserToAddRows = false;
             this.dgvCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCompras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CIdCompra,
             this.CFecha,
             this.CCodigo,
-            this.cPrecioTotal,
-            this.CUsuario,
             this.CProveedor,
-            this.cCodProducto,
-            this.cNombreProducto,
-            this.cCantidad,
-            this.cCategoria,
-            this.cPrecioCompra});
-            this.dgvCompras.Location = new System.Drawing.Point(26, 271);
+            this.CUsuario,
+            this.cPrecioTotal,
+            this.cDetalleCompra});
+            this.dgvCompras.Location = new System.Drawing.Point(190, 230);
             this.dgvCompras.Name = "dgvCompras";
-            this.dgvCompras.Size = new System.Drawing.Size(1167, 275);
+            this.dgvCompras.Size = new System.Drawing.Size(793, 238);
             this.dgvCompras.TabIndex = 1;
+            this.dgvCompras.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCompras_CellClick_1);
             this.dgvCompras.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // CFecha
-            // 
-            this.CFecha.HeaderText = "Fecha de Compra";
-            this.CFecha.Name = "CFecha";
-            this.CFecha.Width = 150;
-            // 
-            // CCodigo
-            // 
-            this.CCodigo.HeaderText = "Nro. Orden";
-            this.CCodigo.Name = "CCodigo";
-            this.CCodigo.Width = 150;
-            // 
-            // cPrecioTotal
-            // 
-            this.cPrecioTotal.HeaderText = "Total Compra";
-            this.cPrecioTotal.Name = "cPrecioTotal";
-            this.cPrecioTotal.Width = 125;
-            // 
-            // CUsuario
-            // 
-            this.CUsuario.HeaderText = "Usuario";
-            this.CUsuario.Name = "CUsuario";
-            // 
-            // CProveedor
-            // 
-            this.CProveedor.HeaderText = "Proveedor";
-            this.CProveedor.Name = "CProveedor";
-            this.CProveedor.Width = 125;
-            // 
-            // cCodProducto
-            // 
-            this.cCodProducto.HeaderText = "Cod. producto";
-            this.cCodProducto.Name = "cCodProducto";
-            // 
-            // cNombreProducto
-            // 
-            this.cNombreProducto.HeaderText = "Nombre producto";
-            this.cNombreProducto.Name = "cNombreProducto";
-            // 
-            // cCantidad
-            // 
-            this.cCantidad.HeaderText = "Cantidad";
-            this.cCantidad.Name = "cCantidad";
-            this.cCantidad.Width = 75;
-            // 
-            // cCategoria
-            // 
-            this.cCategoria.HeaderText = "Categoría";
-            this.cCategoria.Name = "cCategoria";
-            // 
-            // cPrecioCompra
-            // 
-            this.cPrecioCompra.HeaderText = "Precio Compra";
-            this.cPrecioCompra.Name = "cPrecioCompra";
-            // 
-            // BtnNuevaCompra
-            // 
-            this.BtnNuevaCompra.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnNuevaCompra.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.BtnNuevaCompra.FlatAppearance.BorderSize = 2;
-            this.BtnNuevaCompra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.BtnNuevaCompra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
-            this.BtnNuevaCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnNuevaCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnNuevaCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnNuevaCompra.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.BtnNuevaCompra.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnNuevaCompra.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnNuevaCompra.IconSize = 32;
-            this.BtnNuevaCompra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnNuevaCompra.Location = new System.Drawing.Point(905, 89);
-            this.BtnNuevaCompra.Name = "BtnNuevaCompra";
-            this.BtnNuevaCompra.Size = new System.Drawing.Size(223, 35);
-            this.BtnNuevaCompra.TabIndex = 14;
-            this.BtnNuevaCompra.Text = "Agregar nueva compra";
-            this.BtnNuevaCompra.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnNuevaCompra.UseCompatibleTextRendering = true;
-            this.BtnNuevaCompra.UseVisualStyleBackColor = true;
-            this.BtnNuevaCompra.Click += new System.EventHandler(this.BtnNuevaCompra_Click);
             // 
             // panel2
             // 
@@ -209,9 +125,9 @@
             this.IBtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.IBtnBuscar.IconSize = 24;
             this.IBtnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.IBtnBuscar.Location = new System.Drawing.Point(768, 202);
+            this.IBtnBuscar.Location = new System.Drawing.Point(768, 172);
             this.IBtnBuscar.Name = "IBtnBuscar";
-            this.IBtnBuscar.Size = new System.Drawing.Size(93, 27);
+            this.IBtnBuscar.Size = new System.Drawing.Size(104, 27);
             this.IBtnBuscar.TabIndex = 6;
             this.IBtnBuscar.Text = "Buscar";
             this.IBtnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -220,9 +136,9 @@
             // 
             // TBuscar
             // 
-            this.TBuscar.Location = new System.Drawing.Point(515, 207);
+            this.TBuscar.Location = new System.Drawing.Point(515, 177);
             this.TBuscar.Name = "TBuscar";
-            this.TBuscar.Size = new System.Drawing.Size(212, 20);
+            this.TBuscar.Size = new System.Drawing.Size(223, 20);
             this.TBuscar.TabIndex = 8;
             // 
             // dtpFechaInicio
@@ -234,17 +150,17 @@
             // 
             // cboBuscarPor
             // 
+            this.cboBuscarPor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBuscarPor.FormattingEnabled = true;
             this.cboBuscarPor.Items.AddRange(new object[] {
             "Todos",
             "Proveedor",
             "Usuario",
             "Nro. Orden",
-            "Producto",
             "Total Compra"});
-            this.cboBuscarPor.Location = new System.Drawing.Point(361, 207);
+            this.cboBuscarPor.Location = new System.Drawing.Point(361, 177);
             this.cboBuscarPor.Name = "cboBuscarPor";
-            this.cboBuscarPor.Size = new System.Drawing.Size(121, 21);
+            this.cboBuscarPor.Size = new System.Drawing.Size(132, 21);
             this.cboBuscarPor.TabIndex = 7;
             this.cboBuscarPor.SelectedIndexChanged += new System.EventHandler(this.cboBuscarPor_SelectedIndexChanged);
             // 
@@ -282,7 +198,7 @@
             this.LbuscarPor.AutoSize = true;
             this.LbuscarPor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LbuscarPor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LbuscarPor.Location = new System.Drawing.Point(264, 213);
+            this.LbuscarPor.Location = new System.Drawing.Point(264, 183);
             this.LbuscarPor.Name = "LbuscarPor";
             this.LbuscarPor.Size = new System.Drawing.Size(81, 17);
             this.LbuscarPor.TabIndex = 1;
@@ -299,6 +215,77 @@
             this.LReporteVentas.TabIndex = 0;
             this.LReporteVentas.Text = "Reporte de Compras";
             // 
+            // BtnNuevaCompra
+            // 
+            this.BtnNuevaCompra.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnNuevaCompra.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BtnNuevaCompra.FlatAppearance.BorderSize = 2;
+            this.BtnNuevaCompra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BtnNuevaCompra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.BtnNuevaCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnNuevaCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnNuevaCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnNuevaCompra.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.BtnNuevaCompra.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnNuevaCompra.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnNuevaCompra.IconSize = 32;
+            this.BtnNuevaCompra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnNuevaCompra.Location = new System.Drawing.Point(905, 89);
+            this.BtnNuevaCompra.Name = "BtnNuevaCompra";
+            this.BtnNuevaCompra.Size = new System.Drawing.Size(223, 35);
+            this.BtnNuevaCompra.TabIndex = 14;
+            this.BtnNuevaCompra.Text = "Agregar nueva compra";
+            this.BtnNuevaCompra.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnNuevaCompra.UseCompatibleTextRendering = true;
+            this.BtnNuevaCompra.UseVisualStyleBackColor = true;
+            this.BtnNuevaCompra.Click += new System.EventHandler(this.BtnNuevaCompra_Click);
+            // 
+            // CIdCompra
+            // 
+            this.CIdCompra.HeaderText = "Id Compra";
+            this.CIdCompra.Name = "CIdCompra";
+            this.CIdCompra.Visible = false;
+            // 
+            // CFecha
+            // 
+            this.CFecha.HeaderText = "Fecha de Compra";
+            this.CFecha.Name = "CFecha";
+            this.CFecha.Width = 150;
+            // 
+            // CCodigo
+            // 
+            this.CCodigo.HeaderText = "Nro. Orden";
+            this.CCodigo.Name = "CCodigo";
+            this.CCodigo.Width = 150;
+            // 
+            // CProveedor
+            // 
+            this.CProveedor.HeaderText = "Proveedor";
+            this.CProveedor.Name = "CProveedor";
+            this.CProveedor.Width = 125;
+            // 
+            // CUsuario
+            // 
+            this.CUsuario.HeaderText = "Usuario";
+            this.CUsuario.Name = "CUsuario";
+            // 
+            // cPrecioTotal
+            // 
+            this.cPrecioTotal.HeaderText = "Total Compra";
+            this.cPrecioTotal.Name = "cPrecioTotal";
+            this.cPrecioTotal.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cPrecioTotal.Width = 125;
+            // 
+            // cDetalleCompra
+            // 
+            this.cDetalleCompra.HeaderText = "Ver Detalle";
+            this.cDetalleCompra.Name = "cDetalleCompra";
+            this.cDetalleCompra.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cDetalleCompra.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cDetalleCompra.Text = "Ver Detalle";
+            this.cDetalleCompra.ToolTipText = "Ver Detalle";
+            this.cDetalleCompra.UseColumnTextForButtonValue = true;
+            // 
             // ComprasUserControlAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -310,6 +297,7 @@
             this.Name = "ComprasUserControlAdministrador";
             this.Size = new System.Drawing.Size(1372, 949);
             this.Load += new System.EventHandler(this.ComprasUserControlAdministrador_Load);
+            this.ImeModeChanged += new System.EventHandler(this.ComprasUserControlAdministrador_ImeModeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -335,15 +323,12 @@
         private System.Windows.Forms.Label LReporteVentas;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIdCompra;
         private System.Windows.Forms.DataGridViewTextBoxColumn CFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCodigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cPrecioTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn CProveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCodProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cNombreProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cPrecioCompra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cPrecioTotal;
+        private System.Windows.Forms.DataGridViewButtonColumn cDetalleCompra;
     }
 }
