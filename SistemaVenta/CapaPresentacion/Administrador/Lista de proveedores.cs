@@ -46,7 +46,33 @@ namespace CapaPresentacion.Administrador
             }
         }
 
-        private void txtBuscador_TextChanged(object sender, EventArgs e)
+       
+        private void dgvProveedores_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+           
+        }
+
+        private void dgvProveedores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // Obtener el valor de la fila seleccionada
+                var valorCelda = dgvProveedores.Rows[e.RowIndex].Cells["idProveedor"].Value?.ToString();
+                if (int.TryParse(valorCelda, out int id))
+                {
+                    Proveedor proveedorSeleccionado = listaProveedores.FirstOrDefault(p => p.Id_proveedor == id);
+                    IdSeleccionado?.Invoke(proveedorSeleccionado);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Error al obtener el ID del proveedor seleccionado.");
+                }
+            }
+        }
+
+        private void txtBuscador_TextChanged_1(object sender, EventArgs e)
         {
             string texto = txtBuscador.Text.Trim().ToLower();
             string criterio = cboBuscarPor.SelectedItem?.ToString();
@@ -73,31 +99,6 @@ namespace CapaPresentacion.Administrador
             }
 
             mostrarProveedores(filtrados);
-        }
-
-        private void dgvProveedores_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-           
-        }
-
-        private void dgvProveedores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                // Obtener el valor de la fila seleccionada
-                var valorCelda = dgvProveedores.Rows[e.RowIndex].Cells["idProveedor"].Value?.ToString();
-                if (int.TryParse(valorCelda, out int id))
-                {
-                    Proveedor proveedorSeleccionado = listaProveedores.FirstOrDefault(p => p.Id_proveedor == id);
-                    IdSeleccionado?.Invoke(proveedorSeleccionado);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Error al obtener el ID del proveedor seleccionado.");
-                }
-            }
         }
 
         // Seguir con la implementación
