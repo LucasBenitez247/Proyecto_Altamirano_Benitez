@@ -15,10 +15,13 @@ namespace CapaPresentacion.Dueño_de_Negocio
     public partial class DueñoNegocioReportesUserControl : UserControl
     {
         private List<Venta> listaReporteGlobal;
+        private List<Venta> listaVentasFiltrada;
         public DueñoNegocioReportesUserControl()
         {
             InitializeComponent();
 
+            ((DataGridViewButtonColumn)this.dataGridView1.Columns["CDetalle"]).Text = "Ver Detalle";      
+            ((DataGridViewButtonColumn)this.dataGridView1.Columns["CDetalle"]).UseColumnTextForButtonValue = true;
             dataGridView1.AllowUserToAddRows = false;
             TBuscar.ForeColor = Color.Black ;
             TBuscar.Text = "Buscar...";
@@ -35,6 +38,7 @@ namespace CapaPresentacion.Dueño_de_Negocio
             this.TBuscar.Leave += new System.EventHandler(this.TBuscar_Leave);
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.TBuscar_TextChanged); // Re-filtra si cambia el combo
 
+      
         }
 
         private void IBtnBuscar2_Click(object sender, EventArgs e)
@@ -93,36 +97,41 @@ namespace CapaPresentacion.Dueño_de_Negocio
 
         private void AplicarFiltroEnMemoria()
         {
-            if (listaReporteGlobal == null) return; // No hacer nada si la lista principal está vacía
+            if (listaReporteGlobal == null)
+            {
+                // Aseguramos que la lista filtrada no sea nula si la global no se ha cargado
+                this.listaVentasFiltrada = new List<Venta>();
+                CargarGrilla(this.listaVentasFiltrada);
+                return;
+            }
 
             string textoBusqueda = TBuscar.Text.ToLower().Trim();
             string criterio = comboBox1.SelectedItem.ToString();
-            List<Venta> listaFiltrada;
 
-            // Si el texto está vacío o es el placeholder, mostrar todo
+            
+
             if (string.IsNullOrWhiteSpace(textoBusqueda) || textoBusqueda == "buscar...")
             {
-                listaFiltrada = listaReporteGlobal;
+                this.listaVentasFiltrada = listaReporteGlobal; // Asigna la lista completa al campo de clase
             }
             else
             {
-                // Aplicar filtro según el ComboBox
                 if (criterio == "Vendedor")
                 {
-                    listaFiltrada = listaReporteGlobal.Where(v =>
+                    this.listaVentasFiltrada = listaReporteGlobal.Where(v => // Asigna al campo de clase
                         v.Nombre_usuario.ToLower().Contains(textoBusqueda) ||
                         v.Apellido_usuario.ToLower().Contains(textoBusqueda)
                     ).ToList();
                 }
                 else // (criterio == "Cliente")
                 {
-                    listaFiltrada = listaReporteGlobal.Where(v =>
+                    this.listaVentasFiltrada = listaReporteGlobal.Where(v => // Asigna al campo de clase
                         v.Nombre_cliente.ToLower().Contains(textoBusqueda) ||
                         v.Apellido_cliente.ToLower().Contains(textoBusqueda)
                     ).ToList();
                 }
             }
-            CargarGrilla(listaFiltrada);
+            CargarGrilla(this.listaVentasFiltrada); // Carga la grilla usando el campo de clase
         }
 
         private void CargarGrilla(List<Venta> lista)
@@ -175,6 +184,27 @@ namespace CapaPresentacion.Dueño_de_Negocio
         {
             DtpFechaInicio.Value = DateTime.Now.AddMonths(-1);
             DtpFechaFin.Value = DateTime.Now;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Verifica que no sea el encabezado
+            if (e.RowIndex < 0) return;
+
+            
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "CDetalle")
+            {
+                // Verifica que la lista filtrada exista y el índice sea válido
+                if (this.listaVentasFiltrada != null && e.RowIndex < this.listaVentasFiltrada.Count)
+                {
+                    // Obtiene la venta de la lista filtrada
+                    Venta ventaSeleccionada = this.listaVentasFiltrada[e.RowIndex];
+
+                    // Abrir el formulario de detalle 
+                    DetalleVenta detalleForm = new DetalleVenta(ventaSeleccionada);
+                    detalleForm.ShowDialog();
+                }
+            }
         }
     }
      

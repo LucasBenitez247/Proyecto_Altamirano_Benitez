@@ -1,4 +1,5 @@
 ﻿using CapaDatos;
+using CapaEntidad;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,4 +64,4 @@ namespace CapaNegocio
             return datos.ListarReporte(fechaInicio, fechaFin);
         }
     }
-}
+} 

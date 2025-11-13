@@ -78,5 +78,10 @@ namespace CapaPresentacion.Administrador
         {
             AbrirUserControl(new pnlProductos());
         }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            AbrirUserControl(new InformesUserControl());
+        }
     }
 }

@@ -1,48 +1,43 @@
-﻿using System;
+﻿using CapaEntidad;
+using CapaNegocio;
+using CapaPresentacion.Properties;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CapaEntidad;
-using CapaNegocio;
-using System.Globalization;
-using PdfSharp.Pdf;
-using PdfSharp.Drawing;
-using System.Diagnostics;
-using System.IO;
-using System.Drawing.Imaging; 
-using CapaPresentacion.Properties;
 
-namespace CapaPresentacion.Vendedor
+namespace CapaPresentacion.Dueño_de_Negocio
 {
     public partial class DetalleVenta : Form
     {
-        //Variable para guardar la venta
+
         private Venta ventaActual;
         private List<Detalle_venta> listaDetalles;
-
         public DetalleVenta()
         {
             InitializeComponent();
-            
         }
 
-        //  Nuevo constructor que recibe la venta 
         public DetalleVenta(Venta venta)
         {
             InitializeComponent();
             this.ventaActual = venta;
             // Configurar el DataGridView
-           
-            
+
             this.listaDetalles = new List<Detalle_venta>();
         }
 
-        // Evento Load para cargar los datos 
         private void DetalleVenta_Load(object sender, EventArgs e)
         {
             dataGridView1.AutoGenerateColumns = false;
@@ -61,7 +56,6 @@ namespace CapaPresentacion.Vendedor
                 CargarDetalles();
             }
         }
-
         // Método para cargar la grilla de productos
         private void CargarDetalles()
         {
@@ -85,9 +79,6 @@ namespace CapaPresentacion.Vendedor
                 });
             }
         }
-        
-
-       
 
         private void BtnImprimir_Click(object sender, EventArgs e)
         {
@@ -226,26 +217,6 @@ namespace CapaPresentacion.Vendedor
             {
                 MessageBox.Show($"Error al generar el PDF: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        
-    }
-
-        private void DetalleVenta_Load_1(object sender, EventArgs e)
-        {
-            if (ventaActual != null)
-            {
-                // 1. Llenar Información de la Venta
-                TFecha.Text = ventaActual.Fecha_venta.ToString("dd/MM/yyyy");
-                TTipoDocumento.Text = ventaActual.Tipo_documento;
-
-                // 2. Llenar Información del Cliente
-                TDni.Text = ventaActual.Dni_cliente;
-                TNombre.Text = ventaActual.Nombre_cliente;
-                TApellido.Text = ventaActual.Apellido_cliente;
-
-                // 3. Llenar DataGridView con los productos (Detalles)
-                CargarDetalles();
-            }
         }
-
     }
 }

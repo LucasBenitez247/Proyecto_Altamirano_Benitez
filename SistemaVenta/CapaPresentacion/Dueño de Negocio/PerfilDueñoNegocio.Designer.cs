@@ -40,6 +40,7 @@
             this.BtnReportes = new FontAwesome.Sharp.IconButton();
             this.BtnEstadistica = new FontAwesome.Sharp.IconButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BtnRegistroCompras = new FontAwesome.Sharp.IconButton();
             this.PContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -204,12 +205,36 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
+            // BtnRegistroCompras
+            // 
+            this.BtnRegistroCompras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnRegistroCompras.FlatAppearance.BorderSize = 0;
+            this.BtnRegistroCompras.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BtnRegistroCompras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.BtnRegistroCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRegistroCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRegistroCompras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnRegistroCompras.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
+            this.BtnRegistroCompras.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnRegistroCompras.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnRegistroCompras.IconSize = 32;
+            this.BtnRegistroCompras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnRegistroCompras.Location = new System.Drawing.Point(0, 319);
+            this.BtnRegistroCompras.Name = "BtnRegistroCompras";
+            this.BtnRegistroCompras.Size = new System.Drawing.Size(161, 57);
+            this.BtnRegistroCompras.TabIndex = 13;
+            this.BtnRegistroCompras.Text = "Compras";
+            this.BtnRegistroCompras.UseCompatibleTextRendering = true;
+            this.BtnRegistroCompras.UseVisualStyleBackColor = true;
+            this.BtnRegistroCompras.Click += new System.EventHandler(this.BtnRegistroCompras_Click);
+            // 
             // PerfilDueñoNegocio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Controls.Add(this.BtnRegistroCompras);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.PContenedor);
             this.Controls.Add(this.BtnInicio);
@@ -239,5 +264,6 @@
         private System.Windows.Forms.Label LblFecha;
         private FontAwesome.Sharp.IconButton BtnSalir;
         private System.Windows.Forms.Timer FechaHora;
+        private FontAwesome.Sharp.IconButton BtnRegistroCompras;
     }
 }

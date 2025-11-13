@@ -38,15 +38,16 @@
             this.LReporteVentas = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CMonto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TBuscar = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.IBtnBuscar2 = new FontAwesome.Sharp.IconButton();
             this.LbuscarPor = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CMonto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -154,35 +155,13 @@
             this.CFecha,
             this.CMonto,
             this.CVendedor,
-            this.CCliente});
+            this.CCliente,
+            this.CDetalle});
             this.dataGridView1.Location = new System.Drawing.Point(88, 108);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(650, 255);
+            this.dataGridView1.Size = new System.Drawing.Size(796, 255);
             this.dataGridView1.TabIndex = 9;
-            // 
-            // CFecha
-            // 
-            this.CFecha.HeaderText = "Fecha";
-            this.CFecha.Name = "CFecha";
-            this.CFecha.Width = 150;
-            // 
-            // CMonto
-            // 
-            this.CMonto.HeaderText = "Monto";
-            this.CMonto.Name = "CMonto";
-            this.CMonto.Width = 150;
-            // 
-            // CVendedor
-            // 
-            this.CVendedor.HeaderText = "Vendedor";
-            this.CVendedor.Name = "CVendedor";
-            this.CVendedor.Width = 150;
-            // 
-            // CCliente
-            // 
-            this.CCliente.HeaderText = "Cliente";
-            this.CCliente.Name = "CCliente";
-            this.CCliente.Width = 150;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // TBuscar
             // 
@@ -240,6 +219,36 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // CFecha
+            // 
+            this.CFecha.HeaderText = "Fecha";
+            this.CFecha.Name = "CFecha";
+            this.CFecha.Width = 150;
+            // 
+            // CMonto
+            // 
+            this.CMonto.HeaderText = "Monto";
+            this.CMonto.Name = "CMonto";
+            this.CMonto.Width = 150;
+            // 
+            // CVendedor
+            // 
+            this.CVendedor.HeaderText = "Vendedor";
+            this.CVendedor.Name = "CVendedor";
+            this.CVendedor.Width = 150;
+            // 
+            // CCliente
+            // 
+            this.CCliente.HeaderText = "Cliente";
+            this.CCliente.Name = "CCliente";
+            this.CCliente.Width = 150;
+            // 
+            // CDetalle
+            // 
+            this.CDetalle.HeaderText = "Detalles";
+            this.CDetalle.Name = "CDetalle";
+            this.CDetalle.Width = 150;
+            // 
             // DueñoNegocioReportesUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,10 +284,11 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox TBuscar;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.DataGridViewTextBoxColumn CFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn CMonto;
         private System.Windows.Forms.DataGridViewTextBoxColumn CVendedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCliente;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.DataGridViewButtonColumn CDetalle;
     }
 }

@@ -78,7 +78,12 @@ namespace CapaPresentacion.Administrador
         private void dgvProveedores_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             
-            if (e.RowIndex >= 0 && dgvProveedores.Columns[e.ColumnIndex].Name == "btnSeleccionar")
+           
+        }
+
+        private void dgvProveedores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
             {
                 // Obtener el valor de la fila seleccionada
                 var valorCelda = dgvProveedores.Rows[e.RowIndex].Cells["idProveedor"].Value?.ToString();
@@ -86,9 +91,12 @@ namespace CapaPresentacion.Administrador
                 {
                     Proveedor proveedorSeleccionado = listaProveedores.FirstOrDefault(p => p.Id_proveedor == id);
                     IdSeleccionado?.Invoke(proveedorSeleccionado);
-                    this.Close(); // opcional
-                } else {                     
-                    MessageBox.Show("Error al obtener el ID del proveedor seleccionado."); }
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Error al obtener el ID del proveedor seleccionado.");
+                }
             }
         }
 

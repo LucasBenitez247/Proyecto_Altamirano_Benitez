@@ -17,6 +17,7 @@ namespace CapaPresentacion.Administrador
         private Producto productoGlobal = new Producto();
         private float total;
         private Usuario usuarioActual;
+        private int idProveedorSeleccionado;
 
 
         public AgregarNuevaCompra(Usuario pUsuario = null)
@@ -43,35 +44,77 @@ namespace CapaPresentacion.Administrador
 
         private void BtnRegistrar_Click(object sender, EventArgs e)
         {
-            if(dgvCompras.Rows.Count == 0)
+            // Guarda el nro de orden
+            int nroOrden;
+
+            // Validar que haya productos en la compra
+            if (dgvCompras.Rows.Count == 0)
             {
-                MessageBox.Show("No hay compras para registrar.");
+                MessageBox.Show("No hay productos en la compra.");
                 return;
             }
 
+            // Validar número de orden
+            if (!int.TryParse(TNroOrden.Text, out nroOrden))
+            {
+                MessageBox.Show("Ingrese un número de orden válido.");
+                return;
+            }
+            // Crear instancia de CN_Compra
             CN_Compra negocio = new CN_Compra();
-            List<Compra> listaCompras = new List<Compra>();
 
-            // Validar existencia en la base de datos
-           
-            /*
+            // Verificar si el número de orden ya existe
+            if (negocio.ExisteNroOrden(nroOrden))
+            {
+                MessageBox.Show("El número de orden ya existe. Ingrese uno diferente.");
+                return;
+            }
+
+            // Crear la compra
+            Compra compra = new Compra
+            {
+                Id_usuario = usuarioActual.Id_usuario,
+                Id_proveedor = getIdProveedorSeleccionado(),
+                Nro_orden = nroOrden,
+                Fecha_compra = DateTime.Now,
+                Detalle_compra = new List<Detalle_compra>()
+            };
+
+            float total = 0;
+
             foreach (DataGridViewRow row in dgvCompras.Rows)
             {
-                
-                Compra compra = new Compra
+                if (row.IsNewRow) continue;
+
+                Detalle_compra detalle = new Detalle_compra
                 {
-                    Id_producto = Convert.ToInt32(row.Cells["Id_producto"].Value),
-                    Nro_orden = Convert.ToInt32(row.Cells["Nro_orden_compra"].Value),
-                    Id_proveedor = row.Cells["Proveedor"].Value.ToString(),
-                    Id_usuario = usuarioActual.Id_usuario,
-                    Fecha_compra = DateTime.Now,
-                    Precio_compra = Convert.ToSingle(row.Cells["Precio_compra"].Value),
-                    Cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value),
-                    Total_compra = 
+                    Id_producto = Convert.ToInt32(row.Cells["idProducto"].Value),
+                    Cantidad = Convert.ToInt32(row.Cells["CCantidad"].Value),
+                    Precio_compra = Convert.ToSingle(row.Cells["CPrecioCompra"].Value) // ← precio unitario
                 };
-                listaCompras.Add(compra);
-            }*/
+
+                // Calcular el total de la compra
+                total += detalle.Cantidad * detalle.Precio_compra;
+
+                //Agrega 1 detalle a la lista de detalles de la compra
+                compra.Detalle_compra.Add(detalle);
+            }
+
+            // Asignar el total calculado a la compra
+            compra.Total_compra = total;
+
+            try
+            {
+                int idCompra = negocio.RegistrarCompra(compra);
+                MessageBox.Show($"Compra registrada con éxito. ID generado: {idCompra}");
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al registrar la compra: " + ex.Message);
+            }
         }
+
 
         private void IBtnBuscarProveedores_Click(object sender, EventArgs e)
         {
@@ -81,6 +124,7 @@ namespace CapaPresentacion.Administrador
             lista_De_Proveedores.IdSeleccionado += proveedor =>
             {
                 TProveedor.Text = proveedor.Razon_social.ToString();
+                setIdProveedorSeleccionado(proveedor.Id_proveedor);
             };
             lista_De_Proveedores.ShowDialog();
         }
@@ -125,16 +169,19 @@ namespace CapaPresentacion.Administrador
 
             if (validarCampos())
             {
-                dgvCompras.Rows.Add(
-                    productoGlobal.Id_producto,
-                    TCodProducto.Text,
-                    TProducto.Text,
-                    TProveedor.Text,
-                    TPrecioVenta.Text,
-                    TPrecioCompra.Text,
-                    NUDCantidad.Value.ToString(),
-                    subtotal.ToString("0.00")
-                );
+                DataGridViewRow fila = new DataGridViewRow();
+                fila.CreateCells(dgvCompras);
+
+                fila.Cells[dgvCompras.Columns["idProducto"].Index].Value = productoGlobal.Id_producto;
+                fila.Cells[dgvCompras.Columns["codProducto"].Index].Value = TCodProducto.Text;
+                fila.Cells[dgvCompras.Columns["CProducto"].Index].Value = TProducto.Text;
+                fila.Cells[dgvCompras.Columns["CPrecioCompra"].Index].Value = TPrecioCompra.Text;
+                fila.Cells[dgvCompras.Columns["precioVenta"].Index].Value = TPrecioVenta.Text;
+                fila.Cells[dgvCompras.Columns["CCantidad"].Index].Value = NUDCantidad.Value;
+                fila.Cells[dgvCompras.Columns["CSubTotal"].Index].Value = subtotal.ToString("0.00");
+
+                dgvCompras.Rows.Add(fila);
+
 
                 MessageBox.Show("Compra agregada exitosamente.");
                 TTotalPagar.Text = getTotalCompra().ToString("0.00");
@@ -160,8 +207,6 @@ namespace CapaPresentacion.Administrador
 
         private void limpiarCampos()
         {
-            
-            TProveedor.Clear();
             TCodProducto.Clear();
             TProducto.Clear();
             TPrecioCompra.Clear();
@@ -256,5 +301,81 @@ namespace CapaPresentacion.Administrador
                 }
             }
         }
+
+        private void TPrecioCompra_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TPrecioCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir control (Backspace), dígitos y un solo punto decimal
+            if (char.IsControl(e.KeyChar) || char.IsDigit(e.KeyChar))
+            {
+                return; // permitir
+            }
+
+            // Permitir un solo punto decimal y que no sea el primer carácter
+            if (e.KeyChar == '.' && !TPrecioCompra.Text.Contains('.') && TPrecioCompra.SelectionStart > 0)
+            {
+                return; // permitir
+            }
+
+            // Bloquear todo lo demás (letras, espacios, símbolos)
+            e.Handled = true;
+        }
+
+        private void TPrecioVenta_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TPrecioVenta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir control (Backspace), dígitos y un solo punto decimal
+            if (char.IsControl(e.KeyChar) || char.IsDigit(e.KeyChar))
+            {
+                return; // permitir
+            }
+
+            // Permitir un solo punto decimal y que no sea el primer carácter
+            if (e.KeyChar == '.' && !TPrecioVenta.Text.Contains('.') && TPrecioVenta.SelectionStart > 0)
+            {
+                return; // permitir
+            }
+
+            // Bloquear todo lo demás (letras, espacios, símbolos)
+            e.Handled = true;
+        }
+
+        private void TPrecioVenta_Leave(object sender, EventArgs e)
+        {
+            if (!int.TryParse(TPrecioVenta.Text, out int precio) || precio <= 0)
+            {
+                MessageBox.Show("Ingrese un precio válido mayor a cero.");
+                TPrecioVenta.Focus();
+            }
+        }
+
+        private void TPrecioCompra_Leave(object sender, EventArgs e)
+        {
+            if (!int.TryParse(TPrecioCompra.Text, out int precio) || precio <= 0)
+            {
+                MessageBox.Show("Ingrese un precio válido mayor a cero.");
+                TPrecioCompra.Focus();
+            }
+        }
+
+        public int getIdProveedorSeleccionado()
+        {
+            return idProveedorSeleccionado;
+        }
+
+        public void setIdProveedorSeleccionado(int idProveedor)
+        {
+            idProveedorSeleccionado = idProveedor;
+        }
+
+       
     }
 }

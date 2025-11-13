@@ -148,6 +148,12 @@
     <Compile Include="Administrador\GestionUsuarioUserControlAdministrador.Designer.cs">
       <DependentUpon>GestionUsuarioUserControlAdministrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\InformesUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Administrador\InformesUserControl.Designer.cs">
+      <DependentUpon>InformesUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\InicioUserControlAdministrador.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -190,11 +196,23 @@
     <Compile Include="Administrador\ProductosUserControlAdministrador.Designer.cs">
       <DependentUpon>ProductosUserControlAdministrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\ReporteComprasUserControlAdministrador.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Administrador\ReporteComprasUserControlAdministrador.Designer.cs">
+      <DependentUpon>ReporteComprasUserControlAdministrador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\ReportesUserControlAdministrador.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Administrador\ReportesUserControlAdministrador.Designer.cs">
       <DependentUpon>ReportesUserControlAdministrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dueño de Negocio\DetalleVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dueño de Negocio\DetalleVenta.Designer.cs">
+      <DependentUpon>DetalleVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="Dueño de Negocio\DueñoNegocioEstadisticasUserControl.cs">
       <SubType>UserControl</SubType>
@@ -225,6 +243,12 @@
     </Compile>
     <Compile Include="Dueño de Negocio\PerfilDueñoNegocio.Designer.cs">
       <DependentUpon>PerfilDueñoNegocio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dueño de Negocio\ReporteCompra.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dueño de Negocio\ReporteCompra.Designer.cs">
+      <DependentUpon>ReporteCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -318,6 +342,9 @@
     <EmbeddedResource Include="Administrador\GestionUsuarioUserControlAdministrador.resx">
       <DependentUpon>GestionUsuarioUserControlAdministrador.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\InformesUserControl.resx">
+      <DependentUpon>InformesUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administrador\InicioUserControlAdministrador.resx">
       <DependentUpon>InicioUserControlAdministrador.cs</DependentUpon>
     </EmbeddedResource>
@@ -339,8 +366,14 @@
     <EmbeddedResource Include="Administrador\ProductosUserControlAdministrador.resx">
       <DependentUpon>ProductosUserControlAdministrador.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\ReporteComprasUserControlAdministrador.resx">
+      <DependentUpon>ReporteComprasUserControlAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administrador\ReportesUserControlAdministrador.resx">
       <DependentUpon>ReportesUserControlAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dueño de Negocio\DetalleVenta.resx">
+      <DependentUpon>DetalleVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dueño de Negocio\DueñoNegocioEstadisticasUserControl.resx">
       <DependentUpon>DueñoNegocioEstadisticasUserControl.cs</DependentUpon>
@@ -356,6 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dueño de Negocio\PerfilDueñoNegocio.resx">
       <DependentUpon>PerfilDueñoNegocio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dueño de Negocio\ReporteCompra.resx">
+      <DependentUpon>ReporteCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -429,6 +465,35 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LogoF1Store.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
