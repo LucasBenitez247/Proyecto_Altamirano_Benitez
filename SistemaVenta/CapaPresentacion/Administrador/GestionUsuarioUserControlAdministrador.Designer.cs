@@ -222,6 +222,7 @@
             // 
             // CBEstado
             // 
+            this.CBEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBEstado.FormattingEnabled = true;
             this.CBEstado.Items.AddRange(new object[] {
             "Activo",
@@ -282,6 +283,7 @@
             // 
             // CBPerfil
             // 
+            this.CBPerfil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBPerfil.FormattingEnabled = true;
             this.CBPerfil.Items.AddRange(new object[] {
             "Administrador",

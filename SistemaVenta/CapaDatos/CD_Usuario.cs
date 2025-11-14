@@ -73,7 +73,7 @@ namespace CapaDatos
                 using (SqlConnection oconexion = new Conexion().CrearConexion())
                 {
                     string query = @"INSERT INTO usuarios
-                                    (nombre, apellido, correo, contrasenia, id_perfil, estado_usuario)
+                                    (nombre, apellido, correo,dni,direccion, contrasenia, id_perfil, estado_usuario)
                                     VALUES (@nombre, @apellido, @correo,@dni,@direccion, @contrasenia, @id_perfil, @estado_usuario)";
 
                     SqlCommand cmd = new SqlCommand(query, oconexion);
@@ -139,8 +139,8 @@ namespace CapaDatos
                              SET nombre = @Nombre,
                                  apellido = @Apellido,
                                  correo = @Mail,
-                                 dni = @dni,
-                                 direccion = @direccion
+                                 dni = @Dni,
+                                 direccion = @Direccion,
                                  contrasenia = @Contrasenia,
                                  id_perfil = @Perfil,
                                  estado_usuario = @Estado
@@ -153,8 +153,8 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("@Nombre", u.Nombre_usuario);
                     cmd.Parameters.AddWithValue("@Apellido", u.Apellido_usuario);
                     cmd.Parameters.AddWithValue("@Mail", u.Mail_usuario);
-                    cmd.Parameters.AddWithValue("@dni", (object)u.Dni ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@direccion", (object)u.Direccion ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Dni", (object)u.Dni ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Direccion", (object)u.Direccion ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@Contrasenia", u.Contrasenia_usuario);
                     cmd.Parameters.AddWithValue("@Perfil", u.Id_perfil);
                     cmd.Parameters.AddWithValue("@Estado", u.Estado_usuario);
@@ -172,6 +172,36 @@ namespace CapaDatos
 
             return respuesta;
 
+        }
+        public bool DniExiste(string dni, int idUsuarioIgnorar)
+        {
+            int count = 0;
+            Conexion conexion = new Conexion();
+
+            try
+            {
+                using (SqlConnection oconexion = conexion.CrearConexion())
+                {
+                    
+                    string query = "SELECT COUNT(*) FROM usuarios WHERE dni = @dni AND id_usuario != @idUsuarioIgnorar";
+
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.Parameters.AddWithValue("@dni", dni);
+                    cmd.Parameters.AddWithValue("@idUsuarioIgnorar", idUsuarioIgnorar);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+                    count = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en DniExiste: " + ex.Message);
+                count = 0; 
+            }
+
+            // Si count es mayor que 0, significa que el DNI ya existe.
+            return count > 0;
         }
     }
 }

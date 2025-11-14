@@ -34,6 +34,8 @@ namespace CapaPresentacion.Administrador
             TRContrasenia.Clear();
             CBPerfil.SelectedIndex = -1;
             CBEstado.SelectedIndex = -1;
+
+            idUsuarioSeleccionado = 0;
         }
         private void CargarUsuarios()
         {
@@ -62,6 +64,7 @@ namespace CapaPresentacion.Administrador
             // Validaciones básicas
             if (string.IsNullOrWhiteSpace(TNombre.Text) ||
                 string.IsNullOrWhiteSpace(TApellido.Text) ||
+                string.IsNullOrWhiteSpace(TDni.Text) ||
                 string.IsNullOrWhiteSpace(TCorreo.Text) ||
                 string.IsNullOrWhiteSpace(TContrasenia.Text))
             {
@@ -81,6 +84,17 @@ namespace CapaPresentacion.Administrador
                 return;
             }
 
+            string dniIngresado = TDni.Text.Trim();
+            CN_Usuario cnUsuario = new CN_Usuario();
+
+
+            if (cnUsuario.DniExiste(dniIngresado, idUsuarioSeleccionado))
+            {
+                MessageBox.Show("El DNI ingresado ya le pertenece a otro usuario. Por favor, verifíquelo.", "DNI Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TDni.Focus(); // Pone el foco en el campo DNI
+                return; // Detiene la ejecución
+            }
+
             // Mapear perfil
             int idPerfil;
             switch (CBPerfil.SelectedItem.ToString())
@@ -92,6 +106,7 @@ namespace CapaPresentacion.Administrador
                     MessageBox.Show("Perfil inválido.");
                     return;
             }
+
 
             // Mapear estado
             int estado = CBEstado.SelectedItem.ToString() == "Activo" ? 1 : 0;
@@ -326,6 +341,7 @@ namespace CapaPresentacion.Administrador
                 errorProvider6.SetError(TDni, "");
             }
         }
+
 
 
     }

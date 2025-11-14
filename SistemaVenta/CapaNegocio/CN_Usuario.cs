@@ -34,6 +34,10 @@ namespace CapaNegocio
         {
             return new CD_Usuario().Modificar(u);
         }
-
+        public bool DniExiste(string dni, int idUsuarioIgnorar = 0)
+        {
+            
+            return objCapaDatos.DniExiste(dni, idUsuarioIgnorar);
+        }
     }
 }
