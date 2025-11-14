@@ -320,6 +320,58 @@ namespace CapaDatos
                 return lista;
             }
         }
+
+        public List<Venta> ListarVentasConVendedor()
+        {
+            List<Venta> lista = new List<Venta>();
+
+            using (SqlConnection oconexion = new Conexion().CrearConexion())
+            {
+                string query = @"
+                SELECT 
+                    v.id_venta,
+                    v.id_cliente,
+                    v.id_usuario,
+                    v.Tipo_documento,
+                    v.Fecha_venta,
+                    v.Total_venta,
+                    c.Nombre_cliente,
+                    c.Apellido_cliente,
+                    c.Dni_cliente,
+                    u.nombre AS Nombre_usuario,
+                    u.apellido AS Apellido_usuario
+                FROM Venta v
+                INNER JOIN Clientes c ON v.id_cliente = c.id_cliente
+                INNER JOIN usuarios u ON v.id_usuario = u.id_usuario
+                WHERE u.id_perfil = 2"; // solo vendedores
+
+                SqlCommand cmd = new SqlCommand(query, oconexion);
+                oconexion.Open();
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        lista.Add(new Venta
+                        {
+                            Id_venta = Convert.ToInt32(dr["id_venta"]),
+                            Id_cliente = Convert.ToInt32(dr["id_cliente"]),
+                            Id_usuario = Convert.ToInt32(dr["id_usuario"]),
+                            Tipo_documento = dr["Tipo_documento"].ToString(),
+                            Fecha_venta = Convert.ToDateTime(dr["Fecha_venta"]),
+                            Total_venta = Convert.ToDecimal(dr["Total_venta"]),
+                            Nombre_cliente = dr["Nombre_cliente"].ToString(),
+                            Apellido_cliente = dr["Apellido_cliente"].ToString(),
+                            Dni_cliente = dr["Dni_cliente"].ToString(),
+                            Nombre_usuario = dr["Nombre_usuario"].ToString(),
+                            Apellido_usuario = dr["Apellido_usuario"].ToString()
+                        });
+                    }
+                }
+            }
+
+            return lista;
+        }
     }
 }
 

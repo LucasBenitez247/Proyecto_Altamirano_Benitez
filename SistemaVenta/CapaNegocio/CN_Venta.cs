@@ -48,5 +48,18 @@ namespace CapaNegocio
         {
             return objCapaDatos.GetVentasPorDia(fechaInicio, fechaFin);
         }
+
+        public List<Venta> ListarVentasConVendedor()
+        {
+            return objCapaDatos.ListarVentasConVendedor();
+
+        }
+
+        public Venta ObtenerVentaPorId(int idVenta)
+        {
+            List<Venta> lista = new CD_Venta().ListarVentasConVendedor();
+            return lista.FirstOrDefault(v => v.Id_venta == idVenta);
+        }
+
     }
 }

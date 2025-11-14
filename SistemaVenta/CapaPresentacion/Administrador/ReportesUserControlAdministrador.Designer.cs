@@ -32,7 +32,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.TBuscar = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.IBtnBuscar2 = new FontAwesome.Sharp.IconButton();
             this.LbuscarPor = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.IBtnBuscar = new FontAwesome.Sharp.IconButton();
@@ -43,9 +42,11 @@
             this.LReporteVentas = new System.Windows.Forms.Label();
             this.CFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CMonto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CVerDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -54,10 +55,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.TBuscar);
             this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Controls.Add(this.IBtnBuscar2);
             this.panel2.Controls.Add(this.LbuscarPor);
             this.panel2.Location = new System.Drawing.Point(12, 158);
             this.panel2.Name = "panel2";
@@ -70,20 +71,21 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CFecha,
             this.CMonto,
+            this.CTipoDocumento,
             this.CVendedor,
             this.CCliente,
             this.CVerDetalle});
             this.dataGridView1.Location = new System.Drawing.Point(88, 108);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(744, 360);
+            this.dataGridView1.Size = new System.Drawing.Size(821, 360);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // TBuscar
             // 
-            this.TBuscar.Location = new System.Drawing.Point(400, 66);
+            this.TBuscar.Location = new System.Drawing.Point(416, 68);
             this.TBuscar.Name = "TBuscar";
-            this.TBuscar.Size = new System.Drawing.Size(165, 20);
+            this.TBuscar.Size = new System.Drawing.Size(207, 20);
             this.TBuscar.TabIndex = 8;
             this.TBuscar.TextChanged += new System.EventHandler(this.TBuscar_TextChanged);
             this.TBuscar.Enter += new System.EventHandler(this.TBuscar_Enter);
@@ -99,26 +101,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 7;
-            // 
-            // IBtnBuscar2
-            // 
-            this.IBtnBuscar2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.IBtnBuscar2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.IBtnBuscar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IBtnBuscar2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.IBtnBuscar2.IconChar = FontAwesome.Sharp.IconChar.Sistrix;
-            this.IBtnBuscar2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.IBtnBuscar2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.IBtnBuscar2.IconSize = 24;
-            this.IBtnBuscar2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.IBtnBuscar2.Location = new System.Drawing.Point(571, 62);
-            this.IBtnBuscar2.Name = "IBtnBuscar2";
-            this.IBtnBuscar2.Size = new System.Drawing.Size(93, 27);
-            this.IBtnBuscar2.TabIndex = 6;
-            this.IBtnBuscar2.Text = "Buscar";
-            this.IBtnBuscar2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.IBtnBuscar2.UseVisualStyleBackColor = true;
-            this.IBtnBuscar2.Click += new System.EventHandler(this.IBtnBuscar2_Click);
             // 
             // LbuscarPor
             // 
@@ -222,7 +204,12 @@
             // 
             this.CMonto.HeaderText = "Monto";
             this.CMonto.Name = "CMonto";
-            this.CMonto.Width = 150;
+            this.CMonto.Width = 130;
+            // 
+            // CTipoDocumento
+            // 
+            this.CTipoDocumento.HeaderText = "Tipo Documento";
+            this.CTipoDocumento.Name = "CTipoDocumento";
             // 
             // CVendedor
             // 
@@ -242,6 +229,17 @@
             this.CVerDetalle.Name = "CVerDetalle";
             this.CVerDetalle.Text = "Ver Detalle";
             this.CVerDetalle.UseColumnTextForButtonValue = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label1.Location = new System.Drawing.Point(413, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 17);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Busque aquí:";
             // 
             // ReportesUserControlAdministrador
             // 
@@ -267,7 +265,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox TBuscar;
         private System.Windows.Forms.ComboBox comboBox1;
-        private FontAwesome.Sharp.IconButton IBtnBuscar2;
         private System.Windows.Forms.Label LbuscarPor;
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton IBtnBuscar;
@@ -278,8 +275,10 @@
         private System.Windows.Forms.Label LReporteVentas;
         private System.Windows.Forms.DataGridViewTextBoxColumn CFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn CMonto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CTipoDocumento;
         private System.Windows.Forms.DataGridViewTextBoxColumn CVendedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCliente;
         private System.Windows.Forms.DataGridViewButtonColumn CVerDetalle;
+        private System.Windows.Forms.Label label1;
     }
 }

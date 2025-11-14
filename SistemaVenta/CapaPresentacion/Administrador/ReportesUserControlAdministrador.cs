@@ -28,7 +28,7 @@ namespace CapaPresentacion.Administrador
 
             // Conectar eventos
             this.IBtnBuscar.Click += new System.EventHandler(this.IBtnBuscar_Click); // Botón superior
-            this.IBtnBuscar2.Click += new System.EventHandler(this.IBtnBuscar2_Click); // Botón de sub-filtro
+            
             this.TBuscar.TextChanged += new System.EventHandler(this.TBuscar_TextChanged);
             this.TBuscar.Enter += new System.EventHandler(this.TBuscar_Enter);
             this.TBuscar.Leave += new System.EventHandler(this.TBuscar_Leave);
@@ -84,24 +84,36 @@ namespace CapaPresentacion.Administrador
             }
             else
             {
-                // Aplicar filtro según el ComboBox
+                // Normalizar espacios múltiples
+                textoBusqueda = System.Text.RegularExpressions.Regex.Replace(textoBusqueda, @"\s+", " ").Trim();
+
+                // Dividir en palabras
+                var palabras = textoBusqueda.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
                 if (criterio == "Vendedor")
                 {
+                    // Coincidencia si TODAS las palabras están en nombre o apellido
                     listaFiltrada = listaReporteGlobal.Where(v =>
-                        v.Nombre_usuario.ToLower().Contains(textoBusqueda) ||
-                        v.Apellido_usuario.ToLower().Contains(textoBusqueda)
+                        palabras.All(p =>
+                            v.Nombre_usuario.ToLower().Contains(p) ||
+                            v.Apellido_usuario.ToLower().Contains(p)
+                        )
                     ).ToList();
                 }
-                else // (criterio == "Cliente")
+                else // Cliente
                 {
                     listaFiltrada = listaReporteGlobal.Where(v =>
-                        v.Nombre_cliente.ToLower().Contains(textoBusqueda) ||
-                        v.Apellido_cliente.ToLower().Contains(textoBusqueda)
+                        palabras.All(p =>
+                            v.Nombre_cliente.ToLower().Contains(p) ||
+                            v.Apellido_cliente.ToLower().Contains(p)
+                        )
                     ).ToList();
                 }
             }
+
             CargarGrilla(listaFiltrada);
         }
+
 
         private void CargarGrilla(List<Venta> lista)
         {
@@ -116,6 +128,7 @@ namespace CapaPresentacion.Administrador
                 {
                     venta.Fecha_venta.ToString("dd/MM/yyyy"), // CFecha
                     venta.Total_venta.ToString("0.00"), // CMonto
+                    venta.Tipo_documento,
                     $"{venta.Nombre_usuario} {venta.Apellido_usuario}", // CVendedor
                     $"{venta.Nombre_cliente} {venta.Apellido_cliente}" // CCliente
                 });
@@ -124,7 +137,8 @@ namespace CapaPresentacion.Administrador
 
         private void TBuscar_TextChanged(object sender, EventArgs e)
         {
-            AplicarFiltroEnMemoria();
+            
+           AplicarFiltroEnMemoria();
         }
 
         private void TBuscar_Enter(object sender, EventArgs e)
@@ -154,7 +168,15 @@ namespace CapaPresentacion.Administrador
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "CVerDetalle")
+            {
+                // Obtener la venta seleccionada
+                Venta ventaSeleccionada = listaReporteGlobal[e.RowIndex];
 
+                // Abrir el formulario de detalle
+                DetalleVentaForm detalleForm = new DetalleVentaForm(ventaSeleccionada.Id_venta);
+                detalleForm.ShowDialog();
+            }
         }
     }
 }

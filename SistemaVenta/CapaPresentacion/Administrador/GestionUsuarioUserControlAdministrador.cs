@@ -187,8 +187,9 @@ namespace CapaPresentacion.Administrador
                 }
 
                 // Para ComboBox Estado
-                int estado = Convert.ToInt32(fila.Cells["Estado_usuario"].Value);
-                CBEstado.SelectedItem = estado == 1 ? "Activo" : "Inactivo";
+                string estadoTexto = fila.Cells["Estado"].Value.ToString();
+                CBEstado.SelectedItem = estadoTexto;
+
             }
         }
 
