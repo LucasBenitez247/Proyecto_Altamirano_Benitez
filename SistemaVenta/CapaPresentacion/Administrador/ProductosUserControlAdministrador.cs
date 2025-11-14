@@ -157,9 +157,11 @@ namespace CapaPresentacion.Administrador
             {
                 var categoria = listaCategorias.FirstOrDefault(c => c.Id_categoria == producto.Categoria_producto);
                 var estadoEncontrado = listaEstados.FirstOrDefault(est => est.Id_estado_producto == producto.Estado_producto);
+                var talle = listaTalles.FirstOrDefault(t => t.Id_talle_producto == producto.Talle_producto);
 
                 string nombreCategoria = categoria != null ? categoria.Descripcion_categoria : "Sin categoría";
                 string nombreEstado = estadoEncontrado != null ? estadoEncontrado.Descripcion_estado_producto : "Sin estado";
+                string nombreTalle = talle != null ? talle.Descripcion_talle : "Sin talle";
 
                 dgvProductos.Rows.Add(
                     producto.Id_producto,
@@ -169,7 +171,8 @@ namespace CapaPresentacion.Administrador
                     nombreEstado,
                     producto.Precio_producto,
                     producto.Stock_producto,
-                    nombreCategoria
+                    nombreCategoria,
+                    nombreTalle
                 );
             }
         }

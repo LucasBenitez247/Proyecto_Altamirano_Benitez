@@ -45,6 +45,8 @@ namespace CapaPresentacion.Administrador
                 u.Nombre_usuario,
                 u.Apellido_usuario,
                 u.Mail_usuario,
+                u.Dni,               
+                u.Direccion,
                 u.Contrasenia_usuario,
                 u.Id_perfil,
                 Estado = u.Estado_usuario == 1 ? "Activo" : "Inactivo"
@@ -101,6 +103,8 @@ namespace CapaPresentacion.Administrador
                 Nombre_usuario = TNombre.Text.Trim(),
                 Apellido_usuario = TApellido.Text.Trim(),
                 Mail_usuario = TCorreo.Text.Trim(),
+                Dni = TDni.Text.Trim(),
+                Direccion = TDireccion.Text.Trim(),
                 Contrasenia_usuario = TContrasenia.Text.Trim(),
                 Id_perfil = idPerfil,
                 Estado_usuario = estado
@@ -175,6 +179,8 @@ namespace CapaPresentacion.Administrador
                 TNombre.Text = fila.Cells["Nombre_usuario"].Value.ToString();
                 TApellido.Text = fila.Cells["Apellido_usuario"].Value.ToString();
                 TCorreo.Text = fila.Cells["Mail_usuario"].Value.ToString();
+                TDni.Text = fila.Cells["dni"].Value.ToString();
+                TDireccion.Text = fila.Cells["direccion"].Value.ToString();
                 TContrasenia.Text = fila.Cells["Contrasenia_usuario"].Value.ToString();
 
                 // Para ComboBox Perfil
