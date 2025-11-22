@@ -262,7 +262,7 @@
             this.Controls.Add(this.LFecha);
             this.Controls.Add(this.LDetalleVenta);
             this.Name = "DetalleVenta";
-            this.Text = "DetalleVenta";
+            this.Text = "Detalle Venta";
             this.Load += new System.EventHandler(this.DetalleVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

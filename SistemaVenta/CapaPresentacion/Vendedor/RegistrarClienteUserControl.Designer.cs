@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.PFormulario = new System.Windows.Forms.Panel();
-            this.BtnCancelar = new FontAwesome.Sharp.IconButton();
             this.BtnLimpiar = new FontAwesome.Sharp.IconButton();
             this.BtnRegistrar = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -90,7 +89,6 @@
             // 
             this.PFormulario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.PFormulario.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.PFormulario.Controls.Add(this.BtnCancelar);
             this.PFormulario.Controls.Add(this.BtnLimpiar);
             this.PFormulario.Controls.Add(this.BtnRegistrar);
             this.PFormulario.Controls.Add(this.panel1);
@@ -100,27 +98,6 @@
             this.PFormulario.Name = "PFormulario";
             this.PFormulario.Size = new System.Drawing.Size(522, 624);
             this.PFormulario.TabIndex = 3;
-            // 
-            // BtnCancelar
-            // 
-            this.BtnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
-            this.BtnCancelar.FlatAppearance.BorderSize = 2;
-            this.BtnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.BtnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCancelar.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.BtnCancelar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnCancelar.IconSize = 32;
-            this.BtnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCancelar.Location = new System.Drawing.Point(366, 558);
-            this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(146, 33);
-            this.BtnCancelar.TabIndex = 26;
-            this.BtnCancelar.Text = "Eliminar";
-            this.BtnCancelar.UseVisualStyleBackColor = true;
             // 
             // BtnLimpiar
             // 
@@ -136,7 +113,7 @@
             this.BtnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnLimpiar.IconSize = 32;
             this.BtnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnLimpiar.Location = new System.Drawing.Point(192, 558);
+            this.BtnLimpiar.Location = new System.Drawing.Point(299, 558);
             this.BtnLimpiar.Name = "BtnLimpiar";
             this.BtnLimpiar.Size = new System.Drawing.Size(146, 33);
             this.BtnLimpiar.TabIndex = 25;
@@ -158,7 +135,7 @@
             this.BtnRegistrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnRegistrar.IconSize = 32;
             this.BtnRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnRegistrar.Location = new System.Drawing.Point(13, 558);
+            this.BtnRegistrar.Location = new System.Drawing.Point(62, 558);
             this.BtnRegistrar.Name = "BtnRegistrar";
             this.BtnRegistrar.Size = new System.Drawing.Size(146, 33);
             this.BtnRegistrar.TabIndex = 24;
@@ -575,7 +552,6 @@
         private System.Windows.Forms.RadioButton RBFemenino;
         private System.Windows.Forms.RadioButton RBMasculino;
         private FontAwesome.Sharp.IconButton BtnRegistrar;
-        private FontAwesome.Sharp.IconButton BtnCancelar;
         private FontAwesome.Sharp.IconButton BtnLimpiar;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ErrorProvider errorProvider2;
